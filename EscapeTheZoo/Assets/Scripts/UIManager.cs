@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +14,13 @@ public class UIManager : MonoBehaviour
 
     //Lobby Objects
     public GameObject lobbyCanvas;
+    public GameObject addPlayerScreen;
     public Button startGameButton;
+    public Button lobbyBackButton;
+    public Button addPlayerButton;
+    public Button addPlayerScreenCloseButton;
+    public Button createPlayerButton;
+    public ScrollRect playerAddScroll;
 
     //Shop Objects
 
@@ -34,6 +40,12 @@ public class UIManager : MonoBehaviour
         //e.g. delegate{ goToLobby();}
         //buttons such as click to roll, click to buy, etc, should be handled by delegating them to a function in controller
         //e.g. delegate{ controller.DiceRolled(); }
+
+        // Lobby Buttons
+        lobbyBackButton.onClick.AddListener(delegate { lobbyBack(); });
+        addPlayerButton.onClick.AddListener(delegate { addPlayerScreenOpen(); });
+        addPlayerScreenCloseButton.onClick.AddListener(delegate { addPlayerScreenClose(); });
+        createPlayerButton.onClick.AddListener(delegate { createPlayer(); });
     }
 
     //TODO: make these button functions agnostic of which canvas is currently loaded,
@@ -69,4 +81,27 @@ public class UIManager : MonoBehaviour
         Debug.Log("Quit Clicked(note: if not in editor, but in build, this will force close the application)");
         Application.Quit();
     }
+
+    // Start of Lobby Button Functions
+    public void lobbyBack()
+    {
+        MainMenuCanvas.SetActive(true);
+        lobbyCanvas.SetActive(false);
+    }
+
+    public void addPlayerScreenOpen()
+    {
+        addPlayerScreen.SetActive(true);
+    }
+
+    public void addPlayerScreenClose()
+    {
+        addPlayerScreen.SetActive(false);
+    }
+
+    public void createPlayer()
+    {
+        // Todo
+    }
+    // End of Lobby Button Functions
 }
