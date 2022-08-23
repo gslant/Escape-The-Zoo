@@ -14,16 +14,20 @@ public class UIManager : MonoBehaviour
 
     //Lobby Objects
     public GameObject lobbyCanvas;
-    public GameObject addPlayerScreen;
-    public Button startGameButton;
     public Button lobbyBackButton;
+    public Button startGameButton;
+    public GameObject createPlayerScreen;
+    public Button createPlayerButton;
+    public Button createPlayerScreenCloseButton;
+    public Button makePlayerButton;
+    public GameObject addPlayerScreen;
     public Button addPlayerButton;
     public Button addPlayerScreenCloseButton;
-    public Button createPlayerButton;
-    public ScrollRect playerAddScroll;
+    public Button insertPlayerButton;
+    public Transform addPlayerScreenScrollContent;
+    public GameObject createPlayerPrefab;
 
     //Shop Objects
-
 
 
     public void init(GameController controller)
@@ -45,7 +49,10 @@ public class UIManager : MonoBehaviour
         lobbyBackButton.onClick.AddListener(delegate { lobbyBack(); });
         addPlayerButton.onClick.AddListener(delegate { addPlayerScreenOpen(); });
         addPlayerScreenCloseButton.onClick.AddListener(delegate { addPlayerScreenClose(); });
-        createPlayerButton.onClick.AddListener(delegate { createPlayer(); });
+        insertPlayerButton.onClick.AddListener(delegate { insertPlayer(); });
+        createPlayerButton.onClick.AddListener(delegate { createPlayerScreenOpen(); });
+        createPlayerScreenCloseButton.onClick.AddListener(delegate { createPlayerScreenClose(); });
+        makePlayerButton.onClick.AddListener(delegate { createPlayer(); });
     }
 
     //TODO: make these button functions agnostic of which canvas is currently loaded,
@@ -92,6 +99,8 @@ public class UIManager : MonoBehaviour
     public void addPlayerScreenOpen()
     {
         addPlayerScreen.SetActive(true);
+        createPlayerScreen.SetActive(false);
+
     }
 
     public void addPlayerScreenClose()
@@ -99,9 +108,32 @@ public class UIManager : MonoBehaviour
         addPlayerScreen.SetActive(false);
     }
 
+    public void createPlayerScreenOpen()
+    {
+        createPlayerScreen.SetActive(true);
+        addPlayerScreen.SetActive(false);
+    }
+
+    public void createPlayerScreenClose()
+    {
+        createPlayerScreen.SetActive(false);
+    }
+
+    public void insertPlayer()
+    {
+        // Todo
+        // Make the add player screen and the create player screen mutually exclusive, so only one is active at a time.
+    }
+
     public void createPlayer()
     {
         // Todo
+        // Make the add player screen and the create player screen mutually exclusive, so only one is active at a time.
+
+        GameObject newPlayer = Instantiate(createPlayerPrefab);
+        newPlayer.SetActive(true);
+        newPlayer.transform.SetParent(addPlayerScreenScrollContent);
+        newPlayer.transform.localScale = Vector2.one;
     }
     // End of Lobby Button Functions
 }
