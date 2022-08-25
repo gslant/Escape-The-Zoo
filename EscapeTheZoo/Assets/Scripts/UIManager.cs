@@ -122,18 +122,21 @@ public class UIManager : MonoBehaviour
     public void insertPlayer()
     {
         // Todo
-        // Make the add player screen and the create player screen mutually exclusive, so only one is active at a time.
     }
 
     public void createPlayer()
     {
-        // Todo
-        // Make the add player screen and the create player screen mutually exclusive, so only one is active at a time.
+        // Need to add a line to change the button text to the text inputted.
 
         GameObject newPlayer = Instantiate(createPlayerPrefab);
         newPlayer.SetActive(true);
         newPlayer.transform.SetParent(addPlayerScreenScrollContent);
         newPlayer.transform.localScale = Vector2.one;
     }
+
+    // Lobby TODO:
+    // Add game setting text boxes, and corresponding functions to edit the text in those text boxes
+    // Character inventory
+    // Make the inserted players show up in the player list
     // End of Lobby Button Functions
 }
