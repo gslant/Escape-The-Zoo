@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour
     public Button quitButton;
     public Button helpButton;
 
+    // Help Object
+    public GameObject helpPanel;
+
     //Lobby Objects
     public GameObject lobbyCanvas;
     public Button startGameButton;
@@ -75,5 +78,6 @@ public class UIManager : MonoBehaviour
     public void GoToHelp()
     {
         Debug.Log("Help clicked :)");
+        helpPanel.SetActive(true);
     }
 }
