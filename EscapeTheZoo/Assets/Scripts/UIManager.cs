@@ -11,6 +11,10 @@ public class UIManager : MonoBehaviour
     public Button settingsButton;
     public Button shopButton;
     public Button quitButton;
+    public Button helpButton;
+
+    // Help Object
+    public GameObject helpPanel;
 
     //Lobby Objects
     public GameObject lobbyCanvas;
@@ -26,6 +30,7 @@ public class UIManager : MonoBehaviour
         settingsButton.onClick.AddListener(delegate { GoToSettings(); });
         shopButton.onClick.AddListener(delegate { GoToShop(); });
         quitButton.onClick.AddListener(delegate { Quit(); });
+        helpButton.onClick.AddListener(delegate { GoToHelp(); });
 
         startGameButton.onClick.AddListener(delegate { StartGame(); });
 
@@ -68,5 +73,10 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("Quit Clicked(note: if not in editor, but in build, this will force close the application)");
         Application.Quit();
+    }
+
+    public void GoToHelp()
+    {
+        helpPanel.SetActive(true);
     }
 }
