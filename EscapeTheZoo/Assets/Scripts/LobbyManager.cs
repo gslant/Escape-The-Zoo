@@ -91,6 +91,7 @@ public class LobbyManager : MonoBehaviour
         createPlayerScreen.SetActive(false);
     }
 
+    // When the "Make Player" button is clicked, inputted name is added to the player list.
     public void createPlayer()
     {
         GameObject newPlayer = Instantiate(playersScrollPanelPrefab);
@@ -108,12 +109,14 @@ public class LobbyManager : MonoBehaviour
         playersPlaying.Add(false);
     }
 
+    // Shows the selected player's name and equipment.
     public void showSelected(int playerNumber)
     {
         currentSelectedPlayerText.GetComponent<TextMeshProUGUI>().text = ((GameObject) playerList[playerNumber]).GetComponentInChildren<TextMeshProUGUI>().text;
-        Debug.Log(playersPlaying[playerNumber]);
+        // Debug.Log(playersPlaying[playerNumber]);
     }
 
+    // Toggles the "X" button beside the player's name on the player list, which decides if the player is playing or not.
     public void toggleSelected(int playerNumber)
     {
         TextMeshProUGUI textBox = ((GameObject) playerList[playerNumber]).transform.Find("PlayersScrollPanelToggle").gameObject.GetComponentInChildren<TextMeshProUGUI>();
@@ -128,6 +131,7 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
+    // Decreases the number of players in the game.
     public void decreasePlayers()
     {
         if (currentPlayers > MINPLAYERS)
@@ -138,6 +142,7 @@ public class LobbyManager : MonoBehaviour
         playerAmount.GetComponent<TextMeshProUGUI>().text = currentPlayers + "";
     }
 
+    // Increases the number of players in the game.
     public void increasePlayers()
     {
         if (currentPlayers < MAXPLAYERS)
@@ -148,6 +153,7 @@ public class LobbyManager : MonoBehaviour
         playerAmount.GetComponent<TextMeshProUGUI>().text = currentPlayers + "";
     }
 
+    // Changes the map to the previous map.
     public void previousMap()
     {
         if (currentMap > 0)
@@ -158,6 +164,7 @@ public class LobbyManager : MonoBehaviour
         mapName.GetComponent<TextMeshProUGUI>().text = (string) maps[currentMap];
     }
 
+    // Changes the map to the next map.
     public void nextMap()
     {
         if (currentMap < MAXMAPS-1)
@@ -169,4 +176,10 @@ public class LobbyManager : MonoBehaviour
     }
 
     // Lobby TODO:
+    // Add the inventory selector.
+    // Clear all toggled players in the player list, and set all values in the "playersPlaying" list to false.
+    // Make getters and setters for the player information and game settings information.
+    // Limit the number of characters possible in a name.
+    // Clear the "Created Player Input" bar whenever a new player is created.
+    // Check that the number of players toggled in the "playersPlaying" list matches the number of players in the "Number of Players" game setting.
 }
