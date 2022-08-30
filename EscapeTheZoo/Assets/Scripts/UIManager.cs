@@ -77,7 +77,6 @@ public class UIManager : MonoBehaviour
 
     public void GoToHelp()
     {
-        Debug.Log("Help clicked :)");
         helpPanel.SetActive(true);
     }
 }
