@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,10 +18,8 @@ public class UIManager : MonoBehaviour
 
     //Lobby Objects
     public GameObject lobbyCanvas;
-    public Button startGameButton;
 
     //Shop Objects
-
 
 
     public void init(GameController controller)
@@ -32,13 +30,11 @@ public class UIManager : MonoBehaviour
         quitButton.onClick.AddListener(delegate { Quit(); });
         helpButton.onClick.AddListener(delegate { GoToHelp(); });
 
-        startGameButton.onClick.AddListener(delegate { StartGame(); });
-
         //delegate buttons here
         //buttons such as start, settings can be handled in ui 
         //e.g. delegate{ goToLobby();}
         //buttons such as click to roll, click to buy, etc, should be handled by delegating them to a function in controller
-        //e.g. delegate{ controller.DiceRolled(); }
+        //e.g. delegate{ controller.DiceRolled();
     }
 
     //TODO: make these button functions agnostic of which canvas is currently loaded,
@@ -47,11 +43,6 @@ public class UIManager : MonoBehaviour
     {
         MainMenuCanvas.SetActive(false);
         lobbyCanvas.SetActive(true);
-    }
-
-    public void StartGame()
-    {
-        lobbyCanvas.SetActive(false);
     }
 
     public void GoToSettings()
