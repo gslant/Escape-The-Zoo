@@ -5,12 +5,12 @@ using UnityEngine.UI;
 using TMPro;
 
 // LobbyManager TODO:
-// startGame() Save Player List
-// Update() Save Player List when the Lobby closes
-// Delete Temporary "Player" class
-// Start() Test sprites
-// Start() Test maps
-// Start() Test list of Players
+// Add the "Save Player List" external method to startGame() 
+// Add the "Save Player List" external method to Update() when the Lobby closes
+// Delete Temporary "Player" class and use the external "Player" class
+// Replace Start() Test sprites with actual sprites
+// Replace Start() Test maps with actual maps
+// Remove Start() Test list of Players
 
 public class LobbyManager : MonoBehaviour
 {
@@ -179,13 +179,18 @@ public class LobbyManager : MonoBehaviour
 
         for (int i = 0; i < this.playerList.Count; i++)
         {
-            if ((bool)playersPlaying[i])
+            if ((bool) playersPlaying[i])
             {
                 returnArray.Add(playerList[i]);
             }
         }
 
         return returnArray;
+    }
+
+    public string getMapToBePlayedOn()
+    {
+        return (string) maps[currentMap];
     }
 
     private void startGame()
