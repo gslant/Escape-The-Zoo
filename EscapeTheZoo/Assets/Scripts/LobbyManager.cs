@@ -5,10 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using static DataManager;
 
-// LobbyManager TODO:
-// Replace Start() Test maps with actual maps
-// Remove Start() Test list of Players
-
 public class LobbyManager : MonoBehaviour
 {
     // Objects
@@ -58,6 +54,7 @@ public class LobbyManager : MonoBehaviour
     private int currentMap = -1; // The map being played on. Default being -1.
     private int selectedPlayerNum = -1; // The current selected player. Default being -1.
     private DataManager dataManager;
+    private List<Player> listOfPlayersPlaying;
 
     // Constants
     private int MINPLAYERS = 2;
@@ -110,9 +107,10 @@ public class LobbyManager : MonoBehaviour
         accessories.Add("PinkCrown");
         accessories.Add("StrawHat");
 
-        // Test Maps
+        // Maps
         maps.Add("The Zoo");
 
+        // Load in the player profiles
         dataManager = GetComponent<DataManager>();
         setPlayerList(dataManager.LoadData("profiles.txt"));
     }
@@ -176,17 +174,20 @@ public class LobbyManager : MonoBehaviour
 
     public List<Player> getListOfPlayersPlaying()
     {
-        List<Player> returnArray = new List<Player>();
+        return listOfPlayersPlaying;
+    }
+
+    private void setListOfPlayersPlaying()
+    {
+        listOfPlayersPlaying = new List<Player>();
 
         for (int i = 0; i < this.playerList.Count; i++)
         {
             if (playersPlaying[i])
             {
-                returnArray.Add(playerList[i]);
+                listOfPlayersPlaying.Add(playerList[i]);
             }
         }
-
-        return returnArray;
     }
 
     public string getMapToBePlayedOn()
@@ -209,6 +210,8 @@ public class LobbyManager : MonoBehaviour
         }
 
         savePlayerList();
+
+        makeListOfPlayersPlaying();
 
         lobbyCanvas.SetActive(false);
     }
