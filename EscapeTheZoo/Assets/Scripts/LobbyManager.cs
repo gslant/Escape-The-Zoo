@@ -6,10 +6,6 @@ using TMPro;
 using static DataManager;
 
 // LobbyManager TODO:
-// Add the "Save Player List" external method to startGame() 
-// Add the "Save Player List" external method to Update() when the Lobby closes
-// Delete Temporary "Player" class and use the external "Player" class
-// Replace Start() Test sprites with actual sprites
 // Replace Start() Test maps with actual maps
 // Remove Start() Test list of Players
 
@@ -61,6 +57,7 @@ public class LobbyManager : MonoBehaviour
     private List<string> maps = new List<string>(); // An array of map names.
     private int currentMap = -1; // The map being played on. Default being -1.
     private int selectedPlayerNum = -1; // The current selected player. Default being -1.
+    private DataManager dataManager;
 
     // Constants
     private int MINPLAYERS = 2;
@@ -96,7 +93,7 @@ public class LobbyManager : MonoBehaviour
         createPlayerScreen.SetActive(false);
         closePopup();
 
-        // Test sprites
+        // Sprites
         animals.Add("CatFace");
         animals.Add("ChickenFace");
         animals.Add("FrogFace");
@@ -113,14 +110,11 @@ public class LobbyManager : MonoBehaviour
         accessories.Add("PinkCrown");
         accessories.Add("StrawHat");
 
-        // Test maps
+        // Test Maps
         maps.Add("The Zoo");
 
-        // Test list of Players
-        playerList.Add(new Player("Bob", 0, "CatFace", "None", accessories));
-        playerList.Add(new Player("Dave", 0, "CatFace", "None", accessories));
-        playerList.Add(new Player("Steve", 0, "CatFace", "None", accessories));
-        playerList.Add(new Player("Tyrone", 0, "CatFace", "None", accessories));
+        dataManager = GetComponent<DataManager>();
+        setPlayerList(dataManager.LoadData("profiles.txt"));
     }
 
     // Update is called once per frame
@@ -150,6 +144,8 @@ public class LobbyManager : MonoBehaviour
             canvasEnabled = 1;
         } else if (lobbyCanvas.activeSelf == false && canvasEnabled == 1)
         { // Do something when the lobby closes
+            savePlayerList();
+
             // Destroy all the players in the player list, and resets the playersPlaying array
             foreach (Transform child in playersScrollContent)
             {
@@ -174,7 +170,7 @@ public class LobbyManager : MonoBehaviour
     {
         foreach (Player player in playerList)
         {
-            player.saveData();
+            dataManager.SaveData(player);
         }
     }
 
@@ -212,9 +208,9 @@ public class LobbyManager : MonoBehaviour
             return;
         }
 
-        lobbyCanvas.SetActive(false);
+        savePlayerList();
 
-        // TODO: Use an external function to save the player list.
+        lobbyCanvas.SetActive(false);
     }
 
     private void lobbyBack()
@@ -251,6 +247,17 @@ public class LobbyManager : MonoBehaviour
     private void createPlayer()
     {
         string newPlayerName = createPlayerScreenInput.text;
+
+        foreach (Player player in playerList)
+        {
+            if (newPlayerName == player.getName())
+            {
+                popup("Sorry. That name is already taken.");
+
+                return;
+            }
+        }
+
         createPlayerScreenInput.text = "";
         List<string> newAccessoriesList = new List<string>();
         newAccessoriesList.Add("None");
