@@ -106,10 +106,5 @@ public class Player
     {
         this.ownedCosmetics.Add(cosmeticName);
     }
-
-    public void saveData()
-    {
-
-    }
 }
 

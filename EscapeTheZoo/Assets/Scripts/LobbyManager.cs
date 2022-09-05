@@ -247,6 +247,17 @@ public class LobbyManager : MonoBehaviour
     private void createPlayer()
     {
         string newPlayerName = createPlayerScreenInput.text;
+
+        foreach (Player player in playerList)
+        {
+            if (newPlayerName == player.getName())
+            {
+                popup("Sorry. That name is already taken.");
+
+                return;
+            }
+        }
+
         createPlayerScreenInput.text = "";
         List<string> newAccessoriesList = new List<string>();
         newAccessoriesList.Add("None");
