@@ -46,7 +46,7 @@ public class DataManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Could not open file: " + fileName);
+            Debug.Log("Could not open file: " + fileName + " this may be because the file does not exist yet");
         }
         return playerList;
     }
