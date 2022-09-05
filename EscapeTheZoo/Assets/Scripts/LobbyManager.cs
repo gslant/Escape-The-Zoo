@@ -31,38 +31,38 @@ public class LobbyManager : MonoBehaviour
 
     // Objects
     // Main Menu Objects
-    private GameObject mainMenuCanvas;
+    public GameObject mainMenuCanvas;
     // Main Lobby Objects
-    private GameObject lobbyCanvas;
-    private Button lobbyBackButton;
-    private Button startGameButton;
+    public GameObject lobbyCanvas;
+    public Button lobbyBackButton;
+    public Button startGameButton;
     // "Popup Message" Objects;
-    private Button popupBox;
-    private GameObject popupMessage;
+    public Button popupBox;
+    public GameObject popupMessage;
     // "Create a Player" Objects
-    private GameObject createPlayerScreen;
-    private Button createPlayerButton;
-    private Button createPlayerScreenCloseButton;
-    private TMP_InputField createPlayerScreenInput;
-    private Button makePlayerButton;
+    public GameObject createPlayerScreen;
+    public Button createPlayerButton;
+    public Button createPlayerScreenCloseButton;
+    public TMP_InputField createPlayerScreenInput;
+    public Button makePlayerButton;
     // "Player Select" Objects
-    private Transform playersScrollContent;
-    private GameObject playersScrollPanelPrefab;
+    public Transform playersScrollContent;
+    public GameObject playersScrollPanelPrefab;
     // "Selected Player" Objects
-    private GameObject currentSelectedPlayerText;
-    private GameObject currentSelectedPlayerAnimal;
-    private Button selectedPlayerAnimalPreviousButton;
-    private Button selectedPlayerAnimalNextButton;
-    private Button selectedPlayerAccessoryPreviousButton;
-    private Button selectedPlayerAccessoryNextButton;
-    private GameObject currentSelectedPlayerAccessory;
+    public GameObject currentSelectedPlayerText;
+    public GameObject currentSelectedPlayerAnimal;
+    public Button selectedPlayerAnimalPreviousButton;
+    public Button selectedPlayerAnimalNextButton;
+    public Button selectedPlayerAccessoryPreviousButton;
+    public Button selectedPlayerAccessoryNextButton;
+    public GameObject currentSelectedPlayerAccessory;
     // "Game Settings" Objects
-    private Button decreasePlayersButton;
-    private Button increasePlayersButton;
-    private Button previousMapButton;
-    private Button nextMapButton;
-    private GameObject playerAmount;
-    private GameObject mapName;
+    public Button decreasePlayersButton;
+    public Button increasePlayersButton;
+    public Button previousMapButton;
+    public Button nextMapButton;
+    public GameObject playerAmount;
+    public GameObject mapName;
 
     // Variables
     private int canvasEnabled = 0; // Keeps track of the state of lobby canvas.
