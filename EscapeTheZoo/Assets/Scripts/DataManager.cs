@@ -7,9 +7,16 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class DataManager : MonoBehaviour
 {
+    public string fName = "profiles.txt";
     public void SaveData(Player p)
     {
         List<Player> tempPlayerList = new List<Player>();
+        tempPlayerList = LoadData(fName);
+        tempPlayerList.Add(p);
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + fName);
+        bf.Serialize(file, tempPlayerList);
+        file.Close();
     }
 
     public List<Player> LoadData(string fileName)
