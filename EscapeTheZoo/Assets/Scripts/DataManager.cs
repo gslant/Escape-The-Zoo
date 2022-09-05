@@ -12,7 +12,22 @@ public class DataManager : MonoBehaviour
     {
         List<Player> tempPlayerList = new List<Player>();
         tempPlayerList = LoadData(fName);
-        tempPlayerList.Add(p);
+
+        bool alreadyExists = false;
+        for(int i = 0; i < tempPlayerList.Count; i++)
+        {
+            if(String.Equals(tempPlayerList[i].getName(), p.getName()))
+            {
+                tempPlayerList[i] = p;
+                alreadyExists = true;
+                break;
+            }
+        }
+        if (!alreadyExists)
+        {
+            tempPlayerList.Add(p);
+        }
+
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + fName);
         bf.Serialize(file, tempPlayerList);
@@ -34,6 +49,18 @@ public class DataManager : MonoBehaviour
             Debug.Log("Could not open file: " + fileName);
         }
         return playerList;
+    }
+
+    public void DeleteFile()
+    {
+
+        string filePath = Application.persistentDataPath + fName;
+
+        if (File.Exists(filePath))
+        {
+            Debug.Log("Deleting file: " + fName + " at location: " + filePath);
+            File.Delete(filePath);
+        }
     }
 }
 
