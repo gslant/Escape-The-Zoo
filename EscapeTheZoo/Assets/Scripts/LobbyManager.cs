@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static DataManager;
 
 // LobbyManager TODO:
 // Add the "Save Player List" external method to startGame() 
@@ -14,21 +15,6 @@ using TMPro;
 
 public class LobbyManager : MonoBehaviour
 {
-    // Temporary "Player" class
-    public class Player
-    {
-        public string name;
-        public int animal;
-        public int accessory;
-
-        public Player(string name)
-        {
-            this.name = name;
-            this.animal = 0;
-            this.accessory = 0;
-        }
-    }
-
     // Objects
     // Main Menu Objects
     public GameObject mainMenuCanvas;
@@ -66,13 +52,13 @@ public class LobbyManager : MonoBehaviour
 
     // Variables
     private int canvasEnabled = 0; // Keeps track of the state of lobby canvas.
-    private ArrayList playerList = new ArrayList(); // A list of "Player" instances.
-    private ArrayList playersPlaying = new ArrayList(); // A boolean list describing of which players are playing the game.
-    private ArrayList animals = new ArrayList(); // An array of animal images/files.
-    private ArrayList accessories = new ArrayList(); // An array of accessory images/files.
+    private List<Player> playerList = new List<Player>(); // A list of "Player" instances.
+    private List<bool> playersPlaying = new List<bool>(); // A boolean list describing of which players are playing the game.
+    private List<string> animals = new List<string>(); // An array of animal images/files.
+    private List<string> accessories = new List<string>(); // An array of accessory images/files.
     private int playersToPlayInGame = 0; // The number of players to play in the game.
     private int currentPlayers = 0; // The number of players selected to play in the game.
-    private ArrayList maps = new ArrayList(); // An array of map names.
+    private List<string> maps = new List<string>(); // An array of map names.
     private int currentMap = -1; // The map being played on. Default being -1.
     private int selectedPlayerNum = -1; // The current selected player. Default being -1.
 
@@ -111,29 +97,30 @@ public class LobbyManager : MonoBehaviour
         closePopup();
 
         // Test sprites
-        animals.Add(Resources.Load<Sprite>("CatFace"));
-        animals.Add(Resources.Load<Sprite>("ChickenFace"));
-        animals.Add(Resources.Load<Sprite>("FrogFace"));
-        animals.Add(Resources.Load<Sprite>("PandaFace"));
-        animals.Add(Resources.Load<Sprite>("SnakeFace"));
-        accessories.Add(Resources.Load<Sprite>("AlienTinFoilHat"));
-        accessories.Add(Resources.Load<Sprite>("BirdNest"));
-        accessories.Add(Resources.Load<Sprite>("BlackTopHat"));
-        accessories.Add(Resources.Load<Sprite>("BlackTopHat_v2"));
-        accessories.Add(Resources.Load<Sprite>("BlueTopHat"));
-        accessories.Add(Resources.Load<Sprite>("Crown"));
-        accessories.Add(Resources.Load<Sprite>("HeartPaint"));
-        accessories.Add(Resources.Load<Sprite>("PinkCrown"));
-        accessories.Add(Resources.Load<Sprite>("StrawHat"));
+        animals.Add("CatFace");
+        animals.Add("ChickenFace");
+        animals.Add("FrogFace");
+        animals.Add("PandaFace");
+        animals.Add("SnakeFace");
+        accessories.Add("None");
+        accessories.Add("AlienTinFoilHat");
+        accessories.Add("BirdNest");
+        accessories.Add("BlackTopHat");
+        accessories.Add("BlackTopHat_v2");
+        accessories.Add("BlueTopHat");
+        accessories.Add("Crown");
+        accessories.Add("HeartPaint");
+        accessories.Add("PinkCrown");
+        accessories.Add("StrawHat");
 
         // Test maps
         maps.Add("The Zoo");
 
         // Test list of Players
-        playerList.Add(new Player("Bob"));
-        playerList.Add(new Player("Dave"));
-        playerList.Add(new Player("Steve"));
-        playerList.Add(new Player("Tyrone"));
+        playerList.Add(new Player("Bob", 0, "CatFace", "None", accessories));
+        playerList.Add(new Player("Dave", 0, "CatFace", "None", accessories));
+        playerList.Add(new Player("Steve", 0, "CatFace", "None", accessories));
+        playerList.Add(new Player("Tyrone", 0, "CatFace", "None", accessories));
     }
 
     // Update is called once per frame
@@ -157,8 +144,8 @@ public class LobbyManager : MonoBehaviour
 
             selectedPlayerNum = -1;
             currentSelectedPlayerText.GetComponent<TextMeshProUGUI>().text = "Player Name";
-            currentSelectedPlayerAnimal.GetComponent<Image>().sprite = null;
-            currentSelectedPlayerAccessory.GetComponent<Image>().sprite = null;
+            currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("None");
+            currentSelectedPlayerAccessory.GetComponent<Image>().sprite = Resources.Load<Sprite>("None"); ;
 
             canvasEnabled = 1;
         } else if (lobbyCanvas.activeSelf == false && canvasEnabled == 1)
@@ -172,24 +159,32 @@ public class LobbyManager : MonoBehaviour
                 }
             }
 
-            playersPlaying = new ArrayList();
+            playersPlaying = new List<bool>();
 
             canvasEnabled = 0;
         }
     }
 
-    public void setPlayerList(ArrayList playerList)
+    public void setPlayerList(List<Player> playerList)
     {
         this.playerList = playerList;
     }
 
-    public ArrayList getListOfPlayersPlaying()
+    public void savePlayerList()
     {
-        ArrayList returnArray = new ArrayList();
+        foreach (Player player in playerList)
+        {
+            player.saveData();
+        }
+    }
+
+    public List<Player> getListOfPlayersPlaying()
+    {
+        List<Player> returnArray = new List<Player>();
 
         for (int i = 0; i < this.playerList.Count; i++)
         {
-            if ((bool) playersPlaying[i])
+            if (playersPlaying[i])
             {
                 returnArray.Add(playerList[i]);
             }
@@ -200,7 +195,7 @@ public class LobbyManager : MonoBehaviour
 
     public string getMapToBePlayedOn()
     {
-        return (string) maps[currentMap];
+        return maps[currentMap];
     }
 
     private void startGame()
@@ -257,7 +252,9 @@ public class LobbyManager : MonoBehaviour
     {
         string newPlayerName = createPlayerScreenInput.text;
         createPlayerScreenInput.text = "";
-        Player newPlayer = new Player(newPlayerName);
+        List<string> newAccessoriesList = new List<string>();
+        newAccessoriesList.Add("None");
+        Player newPlayer = new Player(newPlayerName, 0, "CatFace", "None", newAccessoriesList);
         playerList.Add(newPlayer);
         insertPlayerIntoPlayerScroll(newPlayer);
     }
@@ -269,7 +266,7 @@ public class LobbyManager : MonoBehaviour
         int currentPlayerPanelNum = playersScrollContent.transform.childCount - 1;
         newPlayerPanel.SetActive(true);
         newPlayerPanel.transform.SetParent(playersScrollContent);
-        newPlayerPanel.GetComponentInChildren<TextMeshProUGUI>().text = player.name;
+        newPlayerPanel.GetComponentInChildren<TextMeshProUGUI>().text = player.getName();
         newPlayerPanel.transform.localScale = Vector2.one;
         Button newPlayerButton = newPlayerPanel.transform.Find("PlayersScrollPanelButton").gameObject.GetComponent<Button>();
         newPlayerButton.onClick.AddListener(delegate { showSelectedPlayer(currentPlayerPanelNum); });
@@ -282,9 +279,9 @@ public class LobbyManager : MonoBehaviour
     private void showSelectedPlayer(int playerNumber)
     {
         selectedPlayerNum = playerNumber;
-        currentSelectedPlayerText.GetComponent<TextMeshProUGUI>().text = ((Player) playerList[playerNumber]).name;
-        currentSelectedPlayerAnimal.GetComponent<Image>().sprite = (Sprite) animals[((Player) playerList[playerNumber]).animal];
-        currentSelectedPlayerAccessory.GetComponent<Image>().sprite = (Sprite) accessories[((Player) playerList[playerNumber]).accessory];
+        currentSelectedPlayerText.GetComponent<TextMeshProUGUI>().text = playerList[playerNumber].getName();
+        currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>(playerList[playerNumber].getAnimal());
+        currentSelectedPlayerAccessory.GetComponent<Image>().sprite = Resources.Load<Sprite>(playerList[playerNumber].getAccessory());
     }
 
     // Toggles the "X" button beside the player's name on the player list, which decides if the player is playing or not.
@@ -312,12 +309,14 @@ public class LobbyManager : MonoBehaviour
             return;
         }
 
-        if (((Player) playerList[playerNumber]).animal == 0)
+        int animalArrayCurrentIndex = animals.IndexOf(playerList[playerNumber].getAnimal());
+
+        if (animalArrayCurrentIndex == 0)
         {
-            ((Player) playerList[playerNumber]).animal = animals.Count - 1;
+            playerList[playerNumber].setAnimal(animals[animals.Count - 1]);
         } else
         {
-            ((Player) playerList[playerNumber]).animal -= 1;
+            playerList[playerNumber].setAnimal(animals[animalArrayCurrentIndex - 1]);
         }
 
         showSelectedPlayer(playerNumber);
@@ -331,13 +330,15 @@ public class LobbyManager : MonoBehaviour
             return;
         }
 
-        if (((Player) playerList[playerNumber]).animal == (animals.Count - 1))
+        int animalArrayCurrentIndex = animals.IndexOf(playerList[playerNumber].getAnimal());
+
+        if (animalArrayCurrentIndex == animals.Count - 1)
         {
-            ((Player) playerList[playerNumber]).animal = 0;
+            playerList[playerNumber].setAnimal(animals[0]);
         }
         else
         {
-            ((Player) playerList[playerNumber]).animal += 1;
+            playerList[playerNumber].setAnimal(animals[animalArrayCurrentIndex + 1]);
         }
 
         showSelectedPlayer(playerNumber);
@@ -351,13 +352,16 @@ public class LobbyManager : MonoBehaviour
             return;
         }
 
-        if (((Player) playerList[playerNumber]).accessory == 0)
+        List<string> playerCosmeticsList = playerList[playerNumber].getOwnedCosmetics();
+        int accessoryArrayCurrentIndex = playerCosmeticsList.IndexOf(playerList[playerNumber].getAccessory());
+
+        if (accessoryArrayCurrentIndex == 0)
         {
-            ((Player) playerList[playerNumber]).accessory = accessories.Count - 1;
+            playerList[playerNumber].setAccessory(playerCosmeticsList[playerCosmeticsList.Count - 1]);
         }
         else
         {
-            ((Player) playerList[playerNumber]).accessory -= 1;
+            playerList[playerNumber].setAccessory(playerCosmeticsList[accessoryArrayCurrentIndex - 1]);
         }
 
         showSelectedPlayer(playerNumber);
@@ -371,13 +375,16 @@ public class LobbyManager : MonoBehaviour
             return;
         }
 
-        if (((Player) playerList[playerNumber]).accessory == (accessories.Count - 1))
+        List<string> playerCosmeticsList = playerList[playerNumber].getOwnedCosmetics();
+        int accessoryArrayCurrentIndex = playerCosmeticsList.IndexOf(playerList[playerNumber].getAccessory());
+
+        if (accessoryArrayCurrentIndex == playerCosmeticsList.Count - 1)
         {
-            ((Player) playerList[playerNumber]).accessory = 0;
+            playerList[playerNumber].setAccessory("None");
         }
         else
         {
-            ((Player) playerList[playerNumber]).accessory += 1;
+            playerList[playerNumber].setAccessory(playerCosmeticsList[accessoryArrayCurrentIndex + 1]);
         }
 
         showSelectedPlayer(playerNumber);
@@ -430,7 +437,7 @@ public class LobbyManager : MonoBehaviour
             currentMap = 0;
         }
 
-        mapName.GetComponent<TextMeshProUGUI>().text = (string) maps[currentMap];
+        mapName.GetComponent<TextMeshProUGUI>().text = maps[currentMap];
     }
 
     // Changes the map to the next map.
@@ -441,6 +448,6 @@ public class LobbyManager : MonoBehaviour
             currentMap++;
         }
 
-        mapName.GetComponent<TextMeshProUGUI>().text = (string) maps[currentMap];
+        mapName.GetComponent<TextMeshProUGUI>().text = maps[currentMap];
     }
 }
