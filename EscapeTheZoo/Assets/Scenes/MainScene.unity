@@ -8180,6 +8180,7 @@ GameObject:
   - component: {fileID: 1540584290}
   - component: {fileID: 1540584289}
   - component: {fileID: 1540584288}
+  - component: {fileID: 1540584292}
   - component: {fileID: 1540584291}
   m_Layer: 0
   m_Name: GameManager
@@ -8274,6 +8275,19 @@ MonoBehaviour:
   nextMapButton: {fileID: 294827825}
   playerAmount: {fileID: 1797607817}
   mapName: {fileID: 946557158}
+--- !u!114 &1540584292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540584287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d45a8b118f51a438c254ecfe991f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fName: profiles.txt
 --- !u!1 &1784064858
 GameObject:
   m_ObjectHideFlags: 0
