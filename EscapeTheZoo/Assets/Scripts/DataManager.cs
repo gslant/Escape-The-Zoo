@@ -7,9 +7,26 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class DataManager : MonoBehaviour
 {
-    public void SaveData()
+    public void SaveData(Player p)
     {
+        List<Player> tempPlayerList = new List<Player>();
+    }
 
+    public List<Player> LoadData(string fileName)
+    {
+        List<Player> playerList = new List<Player>();
+        if(File.Exists(Application.persistentDataPath + fileName))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + fileName, FileMode.Open);
+            playerList = (List<Player>)bf.Deserialize(file);
+            file.Close();
+        }
+        else
+        {
+            Debug.Log("Could not open file: " + fileName);
+        }
+        return playerList;
     }
 }
 
