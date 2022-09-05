@@ -211,7 +211,7 @@ public class LobbyManager : MonoBehaviour
 
         savePlayerList();
 
-        makeListOfPlayersPlaying();
+        setListOfPlayersPlaying();
 
         lobbyCanvas.SetActive(false);
     }
