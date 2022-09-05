@@ -111,10 +111,20 @@ public class LobbyManager : MonoBehaviour
         closePopup();
 
         // Test sprites
-        animals.Add(Resources.Load<Sprite>("Animal_test_0"));
-        animals.Add(Resources.Load<Sprite>("Animal_test_1"));
-        accessories.Add(Resources.Load<Sprite>("Accessory_test_0"));
-        accessories.Add(Resources.Load<Sprite>("Accessory_test_1"));
+        animals.Add(Resources.Load<Sprite>("CatFace"));
+        animals.Add(Resources.Load<Sprite>("ChickenFace"));
+        animals.Add(Resources.Load<Sprite>("FrogFace"));
+        animals.Add(Resources.Load<Sprite>("PandaFace"));
+        animals.Add(Resources.Load<Sprite>("SnakeFace"));
+        accessories.Add(Resources.Load<Sprite>("AlienTinFoilHat"));
+        accessories.Add(Resources.Load<Sprite>("BirdNest"));
+        accessories.Add(Resources.Load<Sprite>("BlackTopHat"));
+        accessories.Add(Resources.Load<Sprite>("BlackTopHat_v2"));
+        accessories.Add(Resources.Load<Sprite>("BlueTopHat"));
+        accessories.Add(Resources.Load<Sprite>("Crown"));
+        accessories.Add(Resources.Load<Sprite>("HeartPaint"));
+        accessories.Add(Resources.Load<Sprite>("PinkCrown"));
+        accessories.Add(Resources.Load<Sprite>("StrawHat"));
 
         // Test maps
         maps.Add("The Zoo");
