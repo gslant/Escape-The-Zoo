@@ -20,7 +20,17 @@ public class Player
     public string name;
     public int balance;
     public string animal;
+    public string accessory;
     public List<string> ownedCosmetics;
+
+    public Player(string name, int balance, string animal, string accessory, List<string> ownedCosmetics)
+    {
+        this.name = name;
+        this.balance = balance;
+        this.animal = animal;
+        this.accessory = accessory;
+        this.ownedCosmetics = ownedCosmetics;
+    }
 
     public void setName(string name)
     {
@@ -42,6 +52,26 @@ public class Player
         this.balance += amount;
     }
 
+    public string getAnimal()
+    {
+        return this.animal;
+    }
+
+    public void setAnimal(string animal)
+    {
+        this.animal = animal;
+    }
+
+    public string getAccessory()
+    {
+        return this.accessory;
+    }
+
+    public void setAccessory(string accessory)
+    {
+        this.accessory = accessory;
+    }
+
     public List<string> getOwnedCosmetics()
     {
         return this.ownedCosmetics;
@@ -53,5 +83,9 @@ public class Player
         this.ownedCosmetics.Add(cosmeticName);
     }
 
+    public void saveData()
+    {
+
+    }
 }
 
