@@ -154,6 +154,7 @@ public class LobbyManager : MonoBehaviour
             }
 
             playersPlaying = new List<bool>();
+            currentPlayers = 0;
 
             canvasEnabled = 0;
         }
