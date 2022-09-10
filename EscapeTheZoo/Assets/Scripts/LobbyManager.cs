@@ -112,7 +112,6 @@ public class LobbyManager : MonoBehaviour
 
         // Load in the player profiles
         dataManager = GetComponent<DataManager>();
- 
         setPlayerList(dataManager.LoadData("profiles.txt"));
     }
 
