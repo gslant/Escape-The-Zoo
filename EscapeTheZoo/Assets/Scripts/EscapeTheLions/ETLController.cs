@@ -24,6 +24,7 @@ public class ETLController : MonoBehaviour
         if (p == p1)
         {
             Debug.Log("player 1 died");
+            p1.SetActive(false);
         }
         else
         {
