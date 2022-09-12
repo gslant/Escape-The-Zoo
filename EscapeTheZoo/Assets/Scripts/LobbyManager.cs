@@ -91,16 +91,15 @@ public class LobbyManager : MonoBehaviour
         closePopup();
 
         // Sprites
-        animals.Add("CatFace");
-        animals.Add("ChickenFace");
-        animals.Add("FrogFace");
-        animals.Add("PandaFace");
-        animals.Add("SnakeFace");
+        animals.Add("CatHead");
+        animals.Add("ChickenHead");
+        animals.Add("FrogHead");
+        animals.Add("PandaHead");
+        animals.Add("SnakeHead");
         accessories.Add("None");
         accessories.Add("AlienTinFoilHat");
         accessories.Add("BirdNest");
         accessories.Add("BlackTopHat");
-        accessories.Add("BlackTopHat_v2");
         accessories.Add("BlueTopHat");
         accessories.Add("Crown");
         accessories.Add("HeartPaint");
@@ -265,7 +264,7 @@ public class LobbyManager : MonoBehaviour
         createPlayerScreenInput.text = "";
         List<string> newAccessoriesList = new List<string>();
         newAccessoriesList.Add("None");
-        Player newPlayer = new Player(newPlayerName, 0, "CatFace", "None", newAccessoriesList);
+        Player newPlayer = new Player(newPlayerName, 0, animals[0], "None", newAccessoriesList);
         playerList.Add(newPlayer);
         insertPlayerIntoPlayerScroll(newPlayer);
     }
