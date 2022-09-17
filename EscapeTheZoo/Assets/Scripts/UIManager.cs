@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,13 +11,15 @@ public class UIManager : MonoBehaviour
     public Button settingsButton;
     public Button shopButton;
     public Button quitButton;
+    public Button helpButton;
+
+    // Help Object
+    public GameObject helpPanel;
 
     //Lobby Objects
     public GameObject lobbyCanvas;
-    public Button startGameButton;
 
     //Shop Objects
-
 
 
     public void init(GameController controller)
@@ -26,14 +28,13 @@ public class UIManager : MonoBehaviour
         settingsButton.onClick.AddListener(delegate { GoToSettings(); });
         shopButton.onClick.AddListener(delegate { GoToShop(); });
         quitButton.onClick.AddListener(delegate { Quit(); });
-
-        startGameButton.onClick.AddListener(delegate { StartGame(); });
+        helpButton.onClick.AddListener(delegate { GoToHelp(); });
 
         //delegate buttons here
         //buttons such as start, settings can be handled in ui 
         //e.g. delegate{ goToLobby();}
         //buttons such as click to roll, click to buy, etc, should be handled by delegating them to a function in controller
-        //e.g. delegate{ controller.DiceRolled(); }
+        //e.g. delegate{ controller.DiceRolled();
     }
 
     //TODO: make these button functions agnostic of which canvas is currently loaded,
@@ -42,11 +43,6 @@ public class UIManager : MonoBehaviour
     {
         MainMenuCanvas.SetActive(false);
         lobbyCanvas.SetActive(true);
-    }
-
-    public void StartGame()
-    {
-        lobbyCanvas.SetActive(false);
     }
 
     public void GoToSettings()
@@ -68,5 +64,10 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("Quit Clicked(note: if not in editor, but in build, this will force close the application)");
         Application.Quit();
+    }
+
+    public void GoToHelp()
+    {
+        helpPanel.SetActive(true);
     }
 }
