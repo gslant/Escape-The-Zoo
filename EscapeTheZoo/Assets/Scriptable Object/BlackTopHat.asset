@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30cfa17827c72b4190ec7768596338f, type: 3}
   m_Name: BlackTopHat
   m_EditorClassIdentifier: 
-  title: BlackTopHat
+  title: Black Top Hat
   description: Now you can do magic!
   cosmeticImage: {fileID: 21300000, guid: 6e4fb4272093bd048a42eafbb6e88477, type: 3}
   cost: 100
