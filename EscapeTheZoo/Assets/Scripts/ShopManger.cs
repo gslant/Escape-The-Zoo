@@ -13,7 +13,7 @@ public class ShopManger : MonoBehaviour
     public ShopTemplete[] itemPanel;
 
     // Player GameObjects
-    public GameObject playerScrollPanelPrefab; // To be instantiated for every player in the loaded data
+    public GameObject playerScrollPanelPrefab; // Prefab reference to instantiate for every player in the loaded data
 
     // Player profiles
     private List<Player> playerList = new List<Player>(); // A list of "Player" instances.
@@ -34,6 +34,7 @@ public class ShopManger : MonoBehaviour
     }
 
     // Updates the coin displayed text with the selected player profile data
+    // TODO
     public void UpdateCoinTotal()
     {
         coinDisplay++;
@@ -42,6 +43,7 @@ public class ShopManger : MonoBehaviour
     }
 
     // Adds the purchased item to the player profile's accessory list
+    // TODO
     public void PurchasingItem(int buttonNum)
     {
         if (coinDisplay >= shopItemScripts[buttonNum].cost)
@@ -52,9 +54,9 @@ public class ShopManger : MonoBehaviour
         }
     }
 
+    // Disables buy button for items that cost more than the player's coins or are already owned
     public void CheckIfBuyable()
     {
-        
         for (int i = 0; i < shopItemScripts.Length; i++)
         {
             // The button component in each item gameObject is disabled if:
@@ -67,13 +69,17 @@ public class ShopManger : MonoBehaviour
             else
             {
                 btn.interactable = false;
+                btn.GetComponentInChildren<TextMeshProUGUI>().text = "Not enough coins!";
+                btn.GetComponentInChildren<TextMeshProUGUI>().fontSize = 45;
             }
             // or if the item is already in the player's accessory list
+            //TODO
         }
     }
 
+    // Updates each item panel content with each of the shop item script content
     public void CreatePanelItem()
-    {   
+    {
         for (int i = 0; i < shopItemScripts.Length; i++)
         {
             itemPanel[i].titleTxt.text = shopItemScripts[i].title;
@@ -81,5 +87,13 @@ public class ShopManger : MonoBehaviour
             itemPanel[i].cosmeticImg.GetComponent<Image>().sprite = shopItemScripts[i].cosmeticImage;
             itemPanel[i].costtxt.text = "Coins: " + shopItemScripts[i].cost.ToString();
         }
+    }
+
+    //---------------Load and save player profile--------------------
+    // These methods are similar to the LobbyManager player profile methods
+
+    private void insertPlayerIntoPlayerScroll(Player player)
+    {
+
     }
 }

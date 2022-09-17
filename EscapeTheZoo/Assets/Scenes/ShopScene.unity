@@ -2071,7 +2071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf9e979668ec6945beed7a2eef073ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinDisplay: 0
+  coinDisplay: 50
   cointxt: {fileID: 5125613}
   shopItemScripts:
   - {fileID: 11400000, guid: a5d54814696c9a840976c34eb9628153, type: 2}
