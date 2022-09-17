@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 1806202446012220411}
   - component: {fileID: 1806202446012220408}
   m_Layer: 5
-  m_Name: buy btm
+  m_Name: buyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

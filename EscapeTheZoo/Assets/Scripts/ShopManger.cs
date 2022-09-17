@@ -11,7 +11,6 @@ public class ShopManger : MonoBehaviour
     public ShopItemScript[] shopItemScripts;
     public GameObject[] gameObjects;
     public ShopTemplete[] itemPanel;
-    public Button[] buyingbuttons;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,40 +19,48 @@ public class ShopManger : MonoBehaviour
             gameObjects[i].SetActive(true);
         }
         cointxt.text = "Coins: " + coindisplay.ToString();
-        createPanelItem();
-        checkifbuyable();
+        CreatePanelItem();
+        CheckIfBuyable();
     }
 
 
-    public void addcoin()
+    public void Addcoin()
     {
         coindisplay++;
         cointxt.text = "Coins: " + coindisplay.ToString();
-        checkifbuyable();
+        CheckIfBuyable();
     }
 
-    public void purchasingItem(int buttonNum)
+    public void PurchasingItem(int buttonNum)
     {
         if (coindisplay >= shopItemScripts[buttonNum].cost)
         {
             coindisplay = coindisplay - shopItemScripts[buttonNum].cost;
             cointxt.text = "Coins: " + coindisplay.ToString();
-            checkifbuyable();
+            CheckIfBuyable();
         }
     }
 
-    public void checkifbuyable()
+    public void CheckIfBuyable()
     {
+        // The button component in each item gameObject is disabled if the player coin
+        // is less than the cost of the corresponging item.
         for (int i = 0; i < shopItemScripts.Length; i++)
         {
+            Button btn = gameObjects[i].GetComponentInChildren<Button>();
             if (coindisplay >= shopItemScripts[i].cost)
-                buyingbuttons[i].interactable = true;
+            {
+                btn.interactable = true;
+            }
             else
-                buyingbuttons[i].interactable = false;
+            {
+                btn.interactable = false;
+            }
+
         }
     }
 
-    public void createPanelItem()
+    public void CreatePanelItem()
     {   
         for (int i = 0; i < shopItemScripts.Length; i++)
         {
