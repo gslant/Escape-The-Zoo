@@ -15,7 +15,7 @@ public class ShopManger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < shopItemScripts.Length; i++)
+        for (int i = 0; i < shopItemScripts.Length; i++)
         {
             gameObjects[i].SetActive(true);
         }
@@ -55,7 +55,7 @@ public class ShopManger : MonoBehaviour
 
     public void createPanelItem()
     {   
-        for(int i = 0; i < shopItemScripts.Length; i++)
+        for (int i = 0; i < shopItemScripts.Length; i++)
         {
             itemPanel[i].titleTxt.text = shopItemScripts[i].title;
             itemPanel[i].descriptiontxt.text = shopItemScripts[i].description;
