@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Straw Hat
   description: Shades you from the sunlight.
+  cosmeticImage: {fileID: 21300000, guid: 8e1c535a44593fd40b76b606c2a9d65a, type: 3}
   cost: 50

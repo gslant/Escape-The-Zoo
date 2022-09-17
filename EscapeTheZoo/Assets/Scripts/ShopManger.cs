@@ -59,6 +59,7 @@ public class ShopManger : MonoBehaviour
         {
             itemPanel[i].titleTxt.text = shopItemScripts[i].title;
             itemPanel[i].descriptiontxt.text = shopItemScripts[i].description;
+            itemPanel[i].cosmeticImg.GetComponent<Image>().sprite = shopItemScripts[i].cosmeticImage;
             itemPanel[i].costtxt.text = "Coins: " + shopItemScripts[i].cost.ToString();
         }
     }

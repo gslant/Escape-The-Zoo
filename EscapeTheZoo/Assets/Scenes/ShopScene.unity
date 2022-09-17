@@ -1159,9 +1159,9 @@ MonoBehaviour:
   coindisplay: 0
   cointxt: {fileID: 5125613}
   shopItemScripts:
+  - {fileID: 11400000, guid: a5d54814696c9a840976c34eb9628153, type: 2}
   - {fileID: 11400000, guid: 47f6f46554cd2b941b409ead6c7156ca, type: 2}
   - {fileID: 11400000, guid: c81843887455c134b817b98e6ddd4d63, type: 2}
-  - {fileID: 11400000, guid: a5d54814696c9a840976c34eb9628153, type: 2}
   - {fileID: 11400000, guid: 331bcd1050cbd8241a94ca4d64889a7a, type: 2}
   gameObjects:
   - {fileID: 4855846}
@@ -1722,6 +1722,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1806202446089475193, guid: ce20a814cd2855b43852dc2410f07338, type: 3}
   m_PrefabInstance: {fileID: 123224945}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1845625527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 902250426451984851, guid: ce20a814cd2855b43852dc2410f07338, type: 3}
+  m_PrefabInstance: {fileID: 1806202446186529609}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1990596208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1915,6 +1920,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1127234796}
     m_Modifications:
+    - target: {fileID: 1402736036177415335, guid: ce20a814cd2855b43852dc2410f07338, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 1806202446089475192, guid: ce20a814cd2855b43852dc2410f07338, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2003,5 +2012,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item display layout
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3199147275521910998, guid: ce20a814cd2855b43852dc2410f07338, type: 3}
+      propertyPath: cosmeticImg
+      value: 
+      objectReference: {fileID: 1845625527}
+    m_RemovedComponents:
+    - {fileID: 3318891811950383713, guid: ce20a814cd2855b43852dc2410f07338, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ce20a814cd2855b43852dc2410f07338, type: 3}

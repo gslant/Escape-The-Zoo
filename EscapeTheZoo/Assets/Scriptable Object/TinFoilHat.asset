@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Tin Foil Hat
   description: Can't be controlled by aliens now!
+  cosmeticImage: {fileID: 21300000, guid: 7d75080075868194db263963162d29c3, type: 3}
   cost: 30
