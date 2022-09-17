@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c30cfa17827c72b4190ec7768596338f, type: 3}
-  m_Name: BirdNest
+  m_Name: PinkCrown
   m_EditorClassIdentifier: 
-  title: Bird Nest
-  description: 'Warning: fragile.'
-  cosmeticImage: {fileID: 21300000, guid: 0a70f52d9facdd34d8d1b4b13d6734e0, type: 3}
-  cost: 50
+  title: Pink Crown
+  description: It is not made out of candy.
+  cosmeticImage: {fileID: 21300000, guid: 9bc2cd6c272d94a4b91febbc58275940, type: 3}
+  cost: 150
