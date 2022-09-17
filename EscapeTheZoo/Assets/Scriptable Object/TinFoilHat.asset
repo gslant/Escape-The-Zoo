@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30cfa17827c72b4190ec7768596338f, type: 3}
   m_Name: TinFoilHat
   m_EditorClassIdentifier: 
-  title: 
-  description: 
-  cost: 0
+  title: Tin Foil Hat
+  description: Can't be controlled by aliens now!
+  cost: 30

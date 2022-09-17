@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30cfa17827c72b4190ec7768596338f, type: 3}
   m_Name: HeartPaint
   m_EditorClassIdentifier: 
-  title: Cloth
-  description: Christmas Exclusive Item
-  cost: 200
+  title: Heart Face Paint
+  description: Spread the love.
+  cost: 20

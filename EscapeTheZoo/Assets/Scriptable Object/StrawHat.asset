@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30cfa17827c72b4190ec7768596338f, type: 3}
   m_Name: StrawHat
   m_EditorClassIdentifier: 
-  title: Christmas Hats
-  description: Christmas Exclusive Item
-  cost: 100
+  title: Straw Hat
+  description: Shades you from the sunlight.
+  cost: 50
