@@ -6,11 +6,21 @@ using UnityEngine.UI;
 
 public class ShopManger : MonoBehaviour
 {
-    public int coindisplay;
+    public int coinDisplay;
     public TMP_Text cointxt;
     public ShopItemScript[] shopItemScripts;
     public GameObject[] gameObjects;
     public ShopTemplete[] itemPanel;
+
+    // Player GameObjects
+    public GameObject playerScrollPanelPrefab; // To be instantiated for every player in the loaded data
+
+    // Player profiles
+    private List<Player> playerList = new List<Player>(); // A list of "Player" instances.
+    private List<Player> listOfPlayers;
+    private int selectedPlayerNum = -1; // The current selected player. Default being -1.
+    private DataManager dataManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,37 +28,39 @@ public class ShopManger : MonoBehaviour
         {
             gameObjects[i].SetActive(true);
         }
-        cointxt.text = "Coins: " + coindisplay.ToString();
+        cointxt.text = "Coins: " + coinDisplay.ToString();
         CreatePanelItem();
         CheckIfBuyable();
     }
 
-
-    public void Addcoin()
+    // Updates the coin displayed text with the selected player profile data
+    public void UpdateCoinTotal()
     {
-        coindisplay++;
-        cointxt.text = "Coins: " + coindisplay.ToString();
+        coinDisplay++;
+        cointxt.text = "Coins: " + coinDisplay.ToString();
         CheckIfBuyable();
     }
 
+    // Adds the purchased item to the player profile's accessory list
     public void PurchasingItem(int buttonNum)
     {
-        if (coindisplay >= shopItemScripts[buttonNum].cost)
+        if (coinDisplay >= shopItemScripts[buttonNum].cost)
         {
-            coindisplay = coindisplay - shopItemScripts[buttonNum].cost;
-            cointxt.text = "Coins: " + coindisplay.ToString();
+            coinDisplay = coinDisplay - shopItemScripts[buttonNum].cost;
+            cointxt.text = "Coins: " + coinDisplay.ToString();
             CheckIfBuyable();
         }
     }
 
     public void CheckIfBuyable()
     {
-        // The button component in each item gameObject is disabled if the player coin
-        // is less than the cost of the corresponging item.
+        
         for (int i = 0; i < shopItemScripts.Length; i++)
         {
+            // The button component in each item gameObject is disabled if:
+            // the player coin is less than the cost of the corresponging item.
             Button btn = gameObjects[i].GetComponentInChildren<Button>();
-            if (coindisplay >= shopItemScripts[i].cost)
+            if (coinDisplay >= shopItemScripts[i].cost)
             {
                 btn.interactable = true;
             }
@@ -56,7 +68,7 @@ public class ShopManger : MonoBehaviour
             {
                 btn.interactable = false;
             }
-
+            // or if the item is already in the player's accessory list
         }
     }
 
