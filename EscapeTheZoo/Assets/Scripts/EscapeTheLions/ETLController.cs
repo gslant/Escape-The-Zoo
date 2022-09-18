@@ -5,7 +5,7 @@ using UnityEngine;
 public class ETLController : MonoBehaviour
 {
     public PlayerController p1;
-    public Player2Controller p2;
+    public PlayerController p2;
     //public Player2Controller p2;
     // Start is called before the first frame update
     void Start()
@@ -19,20 +19,16 @@ public class ETLController : MonoBehaviour
         
     }
 
-    public void PlayerDies(PlayerInterface p)
+    public void PlayerDies(string name)
     {
-        if (p == p1)
+        if (name == "player1")
         {
             Debug.Log("player 1 died");
-            p1.SetActive(false);
+            //p1.SetActive(false);
         }
         else
         {
             Debug.Log("player 2 died");
         }
-
-        //}
-        //Debug.Log("Player " + Player + "dies");
-        //Debug.Log("Player " + )
     }
 }
