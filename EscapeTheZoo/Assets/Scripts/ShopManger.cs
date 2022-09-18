@@ -16,6 +16,7 @@ public class ShopManger : MonoBehaviour
     public Transform playersScrollContent;
     public GameObject playerScrollPanelPrefab; // Prefab reference to instantiate for every player in the loaded data
     public GameObject currentSelectedPlayerAnimal; // Holds the animal of the selected player
+    public GameObject previewAcessoryImage;
 
     // Player profiles
     private List<Player> playerList = new List<Player>(); // A list of "Player" instances.
@@ -34,13 +35,14 @@ public class ShopManger : MonoBehaviour
         cointxt.text = "Coins: " + coinDisplay.ToString();
         CreatePanelItem();
         CheckIfBuyable();
+        // Disable preview feature
+        previewAcessoryImage.SetActive(false);
 
         // Load data
         dataManager = GetComponent<DataManager>();
         // Assign the data to the player list
         playerList = dataManager.LoadData("profiles.txt");
 
-        //TODO
         // Loads in the player list
         for (int i = 0; i < this.playerList.Count; i++)
         {
@@ -68,6 +70,12 @@ public class ShopManger : MonoBehaviour
             cointxt.text = "Coins: " + coinDisplay.ToString();
             CheckIfBuyable();
         }
+    }
+
+    // The ability to preview items is enabled when there is a player selection
+    public void EnablePreview()
+    {
+        previewAcessoryImage.SetActive(true);
     }
 
     // Disables buy button for items that cost more than the player's coins or are already owned
@@ -129,8 +137,9 @@ public class ShopManger : MonoBehaviour
     private void ShowSelectedPlayer(int playerNumber)
     {
         selectedPlayerNum = playerNumber;
-        // The sprite is loaded from Assets/Resources/Character Face Sprites
+        // The sprite is loaded from Assets/Resources/Character Face Sprites/
         currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("Character Face Sprites/"+playerList[playerNumber].getAnimal());
+        EnablePreview();
     }
 
     public void savePlayerList()
