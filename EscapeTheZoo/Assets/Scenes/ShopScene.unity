@@ -1887,7 +1887,7 @@ MonoBehaviour:
   - {fileID: 1700473934}
   playersScrollContent: {fileID: 475503667}
   playerScrollPanelPrefab: {fileID: 921176164}
-  currentSelectedPlayerAnimal: {fileID: 331238638}
+  currentSelectedPlayerAnimal: {fileID: 1288149465}
 --- !u!114 &701174153
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -46,6 +46,7 @@ public class ShopManger : MonoBehaviour
         {
             InsertPlayerIntoPlayerScroll((Player)this.playerList[i]);
         }
+        currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("None");
     }
 
     // TODO
@@ -128,7 +129,7 @@ public class ShopManger : MonoBehaviour
     private void ShowSelectedPlayer(int playerNumber)
     {
         selectedPlayerNum = playerNumber;
-        Debug.Log(playerNumber);
+        currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>(playerList[playerNumber].getAnimal());
     }
 
     public void savePlayerList()
