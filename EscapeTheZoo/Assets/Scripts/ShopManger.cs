@@ -13,18 +13,20 @@ public class ShopManger : MonoBehaviour
     public ShopTemplete[] itemPanel;
 
     // Player GameObjects
+    public Transform playersScrollContent;
     public GameObject playerScrollPanelPrefab; // Prefab reference to instantiate for every player in the loaded data
     public GameObject currentSelectedPlayerAnimal; // Holds the animal of the selected player
 
     // Player profiles
     private List<Player> playerList = new List<Player>(); // A list of "Player" instances.
-    private List<Player> listOfPlayers;
+    private List<Player> listOfPlayers; // i forgor what this is for
     private int selectedPlayerNum = -1; // The current selected player. Default being -1.
     private DataManager dataManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Shop item
         for (int i = 0; i < shopItemScripts.Length; i++)
         {
             gameObjects[i].SetActive(true);
@@ -33,9 +35,17 @@ public class ShopManger : MonoBehaviour
         CreatePanelItem();
         CheckIfBuyable();
 
+        // Load data
+        dataManager = GetComponent<DataManager>();
+        // Assign the data to the player list
+        playerList = dataManager.LoadData("profiles.txt");
+
         //TODO
-        // set the player list
-        // in a for loop for each player in playerlist, call insertPlayerIntoPlayerScroll to get all the players 
+        // Loads in the player list
+        for (int i = 0; i < this.playerList.Count; i++)
+        {
+            InsertPlayerIntoPlayerScroll((Player)this.playerList[i]);
+        }
     }
 
     // TODO
@@ -98,16 +108,34 @@ public class ShopManger : MonoBehaviour
     //---------------Load and save player profile--------------------
     // These methods are similar to the LobbyManager player profile methods
 
+    // Instantiates a new Player panel prefab in the scroll
     private void InsertPlayerIntoPlayerScroll(Player player)
     {
         // Instantiate prefab
-
+        GameObject newPlayerPanel = Instantiate(playerScrollPanelPrefab);
+        int currentPlayerPanelNum = playersScrollContent.transform.childCount - 1;
+        newPlayerPanel.SetActive(true);
+        newPlayerPanel.transform.SetParent(playersScrollContent);
+        newPlayerPanel.transform.localScale = Vector2.one;
+        // Assign listener to button click
+        Button newPlayerButton = newPlayerPanel.transform.Find("PlayersScrollPanelButton").gameObject.GetComponent<Button>();
+        newPlayerButton.onClick.AddListener(delegate { ShowSelectedPlayer(currentPlayerPanelNum); });
         // Update text to player's name
+        newPlayerPanel.GetComponentInChildren<TextMeshProUGUI>().text = player.getName();
     }
 
     // Sets the AnimalImage object image to the currently selected player's animal
     private void ShowSelectedPlayer(int playerNumber)
     {
+        selectedPlayerNum = playerNumber;
+        Debug.Log(playerNumber);
+    }
 
+    public void savePlayerList()
+    {
+        foreach (Player player in playerList)
+        {
+            dataManager.SaveData(player);
+        }
     }
 }
