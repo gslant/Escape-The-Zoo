@@ -129,7 +129,8 @@ public class ShopManger : MonoBehaviour
     private void ShowSelectedPlayer(int playerNumber)
     {
         selectedPlayerNum = playerNumber;
-        currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>(playerList[playerNumber].getAnimal());
+        // The sprite is loaded from Assets/Resources/Character Face Sprites
+        currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("Character Face Sprites/"+playerList[playerNumber].getAnimal());
     }
 
     public void savePlayerList()
