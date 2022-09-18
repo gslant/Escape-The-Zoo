@@ -14,6 +14,7 @@ public class ShopManger : MonoBehaviour
 
     // Player GameObjects
     public GameObject playerScrollPanelPrefab; // Prefab reference to instantiate for every player in the loaded data
+    public GameObject currentSelectedPlayerAnimal; // Holds the animal of the selected player
 
     // Player profiles
     private List<Player> playerList = new List<Player>(); // A list of "Player" instances.
@@ -31,10 +32,14 @@ public class ShopManger : MonoBehaviour
         cointxt.text = "Coins: " + coinDisplay.ToString();
         CreatePanelItem();
         CheckIfBuyable();
+
+        //TODO
+        // set the player list
+        // in a for loop for each player in playerlist, call insertPlayerIntoPlayerScroll to get all the players 
     }
 
-    // Updates the coin displayed text with the selected player profile data
     // TODO
+    // Updates the coin displayed text with the selected player profile data
     public void UpdateCoinTotal()
     {
         coinDisplay++;
@@ -42,8 +47,8 @@ public class ShopManger : MonoBehaviour
         CheckIfBuyable();
     }
 
-    // Adds the purchased item to the player profile's accessory list
     // TODO
+    // Adds the purchased item to the player profile's accessory list
     public void PurchasingItem(int buttonNum)
     {
         if (coinDisplay >= shopItemScripts[buttonNum].cost)
@@ -72,8 +77,9 @@ public class ShopManger : MonoBehaviour
                 btn.GetComponentInChildren<TextMeshProUGUI>().text = "Not enough coins!";
                 btn.GetComponentInChildren<TextMeshProUGUI>().fontSize = 45;
             }
-            // or if the item is already in the player's accessory list
             //TODO
+            // or if the item is already in the player's accessory list
+
         }
     }
 
@@ -92,7 +98,15 @@ public class ShopManger : MonoBehaviour
     //---------------Load and save player profile--------------------
     // These methods are similar to the LobbyManager player profile methods
 
-    private void insertPlayerIntoPlayerScroll(Player player)
+    private void InsertPlayerIntoPlayerScroll(Player player)
+    {
+        // Instantiate prefab
+
+        // Update text to player's name
+    }
+
+    // Sets the AnimalImage object image to the currently selected player's animal
+    private void ShowSelectedPlayer(int playerNumber)
     {
 
     }
