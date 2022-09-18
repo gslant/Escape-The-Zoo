@@ -1178,6 +1178,96 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &336057657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 336057660}
+  - component: {fileID: 336057659}
+  - component: {fileID: 336057658}
+  m_Layer: 0
+  m_Name: ShopManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &336057658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336057657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d45a8b118f51a438c254ecfe991f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fName: profiles.txt
+--- !u!114 &336057659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336057657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbf9e979668ec6945beed7a2eef073ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinDisplay: 50
+  cointxt: {fileID: 5125613}
+  shopItemScripts:
+  - {fileID: 11400000, guid: a5d54814696c9a840976c34eb9628153, type: 2}
+  - {fileID: 11400000, guid: 47f6f46554cd2b941b409ead6c7156ca, type: 2}
+  - {fileID: 11400000, guid: c81843887455c134b817b98e6ddd4d63, type: 2}
+  - {fileID: 11400000, guid: 331bcd1050cbd8241a94ca4d64889a7a, type: 2}
+  - {fileID: 11400000, guid: e2fd69e753e25e843a5f6501daf04bf0, type: 2}
+  - {fileID: 11400000, guid: 7198dc1dcac5f084b86d43a8eaf48bd2, type: 2}
+  - {fileID: 11400000, guid: 4be5538797bf0bc4e9f45b9c6a49a90d, type: 2}
+  - {fileID: 11400000, guid: 44d31cbff19087e419e1a72aaca592b7, type: 2}
+  gameObjects:
+  - {fileID: 4855846}
+  - {fileID: 105250021}
+  - {fileID: 1406029379}
+  - {fileID: 1725547129}
+  - {fileID: 60109222}
+  - {fileID: 1136925174}
+  - {fileID: 554624435}
+  - {fileID: 1700473932}
+  itemPanel:
+  - {fileID: 184096562}
+  - {fileID: 997303005}
+  - {fileID: 195839733}
+  - {fileID: 123224947}
+  - {fileID: 175410249}
+  - {fileID: 371715049}
+  - {fileID: 554624437}
+  - {fileID: 1700473934}
+  playersScrollContent: {fileID: 475503667}
+  playerScrollPanelPrefab: {fileID: 921176164}
+  currentSelectedPlayerAnimal: {fileID: 1288149465}
+--- !u!4 &336057660
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336057657}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &371715047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1785,10 +1875,8 @@ GameObject:
   - component: {fileID: 701174151}
   - component: {fileID: 701174150}
   - component: {fileID: 701174149}
-  - component: {fileID: 701174152}
-  - component: {fileID: 701174153}
   m_Layer: 0
-  m_Name: ShopManager
+  m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1842,65 +1930,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &701174152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 701174148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbf9e979668ec6945beed7a2eef073ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinDisplay: 50
-  cointxt: {fileID: 5125613}
-  shopItemScripts:
-  - {fileID: 11400000, guid: a5d54814696c9a840976c34eb9628153, type: 2}
-  - {fileID: 11400000, guid: 47f6f46554cd2b941b409ead6c7156ca, type: 2}
-  - {fileID: 11400000, guid: c81843887455c134b817b98e6ddd4d63, type: 2}
-  - {fileID: 11400000, guid: 331bcd1050cbd8241a94ca4d64889a7a, type: 2}
-  - {fileID: 11400000, guid: e2fd69e753e25e843a5f6501daf04bf0, type: 2}
-  - {fileID: 11400000, guid: 7198dc1dcac5f084b86d43a8eaf48bd2, type: 2}
-  - {fileID: 11400000, guid: 4be5538797bf0bc4e9f45b9c6a49a90d, type: 2}
-  - {fileID: 11400000, guid: 44d31cbff19087e419e1a72aaca592b7, type: 2}
-  gameObjects:
-  - {fileID: 4855846}
-  - {fileID: 105250021}
-  - {fileID: 1406029379}
-  - {fileID: 1725547129}
-  - {fileID: 60109222}
-  - {fileID: 1136925174}
-  - {fileID: 554624435}
-  - {fileID: 1700473932}
-  itemPanel:
-  - {fileID: 184096562}
-  - {fileID: 997303005}
-  - {fileID: 195839733}
-  - {fileID: 123224947}
-  - {fileID: 175410249}
-  - {fileID: 371715049}
-  - {fileID: 554624437}
-  - {fileID: 1700473934}
-  playersScrollContent: {fileID: 475503667}
-  playerScrollPanelPrefab: {fileID: 921176164}
-  currentSelectedPlayerAnimal: {fileID: 1288149465}
---- !u!114 &701174153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 701174148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7d45a8b118f51a438c254ecfe991f5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fName: profiles.txt
 --- !u!1001 &795500891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2584,7 +2615,7 @@ RectTransform:
   m_GameObject: {fileID: 1288149465}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 331238639}
@@ -2592,7 +2623,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 250, y: 255}
+  m_AnchoredPosition: {x: 250, y: 240}
   m_SizeDelta: {x: 320, y: 320}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1288149467
@@ -2615,7 +2646,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5cd7fc6a7b1b3e74a8be7c132bb05254, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
