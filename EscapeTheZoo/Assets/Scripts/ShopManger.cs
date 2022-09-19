@@ -55,7 +55,7 @@ public class ShopManger : MonoBehaviour
     {
         for (int i = 0; i < this.playerList.Count; i++)
         {
-            InsertPlayerIntoPlayerScroll((Player)this.playerList[i]);
+            InsertPlayerIntoPlayerScroll((Player)playerList[i]);
         }
         currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("None");
     }
@@ -147,9 +147,8 @@ public class ShopManger : MonoBehaviour
             playerList[selectedPlayerNum].deductFromBalance(shopItemScripts[buttonNum].cost);
             // Add accessory to the player
             playerList[selectedPlayerNum].giveCosmetic(shopItemScripts[buttonNum].title);
-            // Save player profile
-            dataManager.SaveData(playerList[selectedPlayerNum]);
 
+            SaveSelectedPlayerData();
             UpdateCoinTotal(selectedPlayerNum);
         }
     }
@@ -181,9 +180,12 @@ public class ShopManger : MonoBehaviour
         // The sprite is loaded from Assets/Resources/Character Face Sprites/
         currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("Character Face Sprites/"+playerList[playerNumber].getAnimal());
         
-        // The preview option can be used after player selection
         EnablePreview();
-        // Call UpdateCoinTotal
         UpdateCoinTotal(playerNumber);
+    }
+
+    private void SaveSelectedPlayerData()
+    {
+        dataManager.SaveData(playerList[selectedPlayerNum]);
     }
 }
