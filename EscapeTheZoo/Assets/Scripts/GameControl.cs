@@ -1,8 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using static DataManager;
 
 public class GameControl : MonoBehaviour
 {
+    // HUD Panel Objects
+    public GameObject HUDGoldAmountText;
+    public GameObject HUDPlayerNameText;
+    public Button HUDCards;
+
     private static GameObject player1, player2;
 
     public static int diceSideThrown = 0;
@@ -64,5 +71,11 @@ public class GameControl : MonoBehaviour
                 player2.GetComponent<PlayerMovement>().myTurn = true;
                 break;
         }
+    }
+
+    public void updatePlayerHUD(Player player)
+    {
+        HUDPlayerNameText.GetComponent<TextMeshProUGUI>().text = player.getName();
+        //HUDGoldAmountText.GetComponent<TextMeshProUGUI>().text = player.getGameBalance();
     }
 }
