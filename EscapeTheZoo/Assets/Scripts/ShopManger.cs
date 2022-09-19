@@ -27,22 +27,32 @@ public class ShopManger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Shop item
+        // Make the item prefabs visible
         for (int i = 0; i < shopItemScripts.Length; i++)
         {
             gameObjects[i].SetActive(true);
         }
-        cointxt.text = "Coins: " + coinDisplay.ToString();
+
         CreatePanelItem();
         CheckIfBuyable();
+
         // Disable preview feature
         previewAcessoryImage.SetActive(false);
 
+        LoadPlayerProfilesData();
+        LoadPlayerList();
+    }
+
+    private void LoadPlayerProfilesData()
+    {
         // Load data
         dataManager = GetComponent<DataManager>();
         // Assign the data to the player list
         playerList = dataManager.LoadData("profiles.txt");
-        // Loads in the player list
+    }
+
+    private void LoadPlayerList()
+    {
         for (int i = 0; i < this.playerList.Count; i++)
         {
             InsertPlayerIntoPlayerScroll((Player)this.playerList[i]);
@@ -77,22 +87,10 @@ public class ShopManger : MonoBehaviour
         CheckIfBuyable();
     }
 
-    // For testing purposes for player 0
-    public void AddCoinTest(int amount)
-    {
-        playerList[0].addToBalance(amount);
-    }
-
-    public void ResetOwnedCosmetics()
-    {
-        playerList[0].ownedCosmetics = new List<string>();
-    }
-    //----------------------------
-
     // Disables buy button for items that cost more than the player's coins or are already owned or if the item is already in the player's accessory list
     public void CheckIfBuyable()
     {
-        if (selectedPlayerNum >= 0 && playerList[selectedPlayerNum].getOwnedCosmetics().Count > 0) // Given a player has been selected and has owned cosmetic items
+        if (selectedPlayerNum >= 0 && playerList[selectedPlayerNum].getOwnedCosmetics().Count > 0) // Given a player has been selected and has cosmetic items
         {
             BuyableHelper();
             foreach (string cosmetic in playerList[selectedPlayerNum].getOwnedCosmetics())
@@ -103,9 +101,7 @@ public class ShopManger : MonoBehaviour
 
                     if (cosmetic.Equals(shopItemScripts[i].title))
                     {
-                        btn.interactable = false;
-                        btn.GetComponentInChildren<TextMeshProUGUI>().text = "Owned!";
-                        btn.GetComponentInChildren<TextMeshProUGUI>().fontSize = 68;
+                        ChangeButtonInteractionAndText(btn, false, "Owned!", 68);
                     }
                 }
             }
@@ -125,21 +121,22 @@ public class ShopManger : MonoBehaviour
 
             if (coinDisplay >= shopItemScripts[i].cost)
             {
-                btn.interactable = true;
-                btn.GetComponentInChildren<TextMeshProUGUI>().text = "Buy";
-                btn.GetComponentInChildren<TextMeshProUGUI>().fontSize = 68;
+                ChangeButtonInteractionAndText(btn, true, "Buy", 68);
             }
             else
             {
-                btn.interactable = false;
-                btn.GetComponentInChildren<TextMeshProUGUI>().text = "Not enough coins!";
-                btn.GetComponentInChildren<TextMeshProUGUI>().fontSize = 45;
+                ChangeButtonInteractionAndText(btn, false, "Not enough coins!", 45);
             }
         }
     }
 
+    private void ChangeButtonInteractionAndText(Button btn, bool interactable, string text, int fontSize)
+    {
+        btn.interactable = interactable;
+        btn.GetComponentInChildren<TextMeshProUGUI>().text = text;
+        btn.GetComponentInChildren<TextMeshProUGUI>().fontSize = fontSize;
+    }
 
-    // TODO
     // Adds the purchased item to the player profile's accessory list and deducts coins from player coins
     // (Assigned to the buttons on-click)
     public void PurchasingItem(int buttonNum)
@@ -150,18 +147,9 @@ public class ShopManger : MonoBehaviour
             playerList[selectedPlayerNum].deductFromBalance(shopItemScripts[buttonNum].cost);
             // Add accessory to the player
             playerList[selectedPlayerNum].giveCosmetic(shopItemScripts[buttonNum].title);
-
-            // Testing purposes
-            Debug.Log("List of owned items:");
-            foreach (string i in playerList[selectedPlayerNum].getOwnedCosmetics())
-            {
-                Debug.Log(i);
-            }
-            Debug.Log("---------");
-
             // Save player profile
             dataManager.SaveData(playerList[selectedPlayerNum]);
-            // Call UpdateCoinTotal
+
             UpdateCoinTotal(selectedPlayerNum);
         }
     }
