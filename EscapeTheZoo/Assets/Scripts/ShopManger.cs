@@ -15,6 +15,7 @@ public class ShopManger : MonoBehaviour
     // Player GameObjects
     public Transform playersScrollContent;
     public GameObject playerScrollPanelPrefab; // Prefab reference to instantiate for every player in the loaded data
+    public GameObject currentSelectedPlayerName; // Holds the name of the selected player
     public GameObject currentSelectedPlayerAnimal; // Holds the animal of the selected player
     public GameObject previewAcessoryImage;
 
@@ -184,14 +185,16 @@ public class ShopManger : MonoBehaviour
         newPlayerPanel.GetComponentInChildren<TextMeshProUGUI>().text = player.getName();
     }
 
-    // Sets the AnimalImage object image to the currently selected player's animal
+    // Sets the PlayerNameText and AnimalImage objects to the currently selected player's data
     private void ShowSelectedPlayer(int playerNumber)
     {
         selectedPlayerNum = playerNumber;
+        currentSelectedPlayerName.GetComponent<TextMeshProUGUI>().text = playerList[playerNumber].getName()+":";
         // The sprite is loaded from Assets/Resources/Character Face Sprites/
         currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("Character Face Sprites/"+playerList[playerNumber].getAnimal());
+        
+        // The preview option can be used after player selection
         EnablePreview();
-
         // Call UpdateCoinTotal
         UpdateCoinTotal(playerNumber);
     }
