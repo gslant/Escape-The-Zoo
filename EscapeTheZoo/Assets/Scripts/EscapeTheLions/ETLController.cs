@@ -6,18 +6,6 @@ public class ETLController : MonoBehaviour
 {
     public PlayerController p1;
     public PlayerController p2;
-    //public Player2Controller p2;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void PlayerDies(string name)
     {
@@ -30,5 +18,10 @@ public class ETLController : MonoBehaviour
         {
             Debug.Log("player 2 died");
         }
+
+        //show game over screen/winner recieving coins?
+        //notify scenemanager that the minigame is complete
+        //notify gamemanager that the minigame is complete
+        //transition back to board
     }
 }
