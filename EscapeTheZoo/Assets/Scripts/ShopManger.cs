@@ -57,7 +57,7 @@ public class ShopManger : MonoBehaviour
         {
             InsertPlayerIntoPlayerScroll((Player)playerList[i]);
         }
-        currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("None");
+        currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("Cosmetic Sprites/None");
     }
 
     // The ability to preview items is enabled when there is a player selection

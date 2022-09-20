@@ -136,8 +136,8 @@ public class LobbyManager : MonoBehaviour
 
             selectedPlayerNum = -1;
             currentSelectedPlayerText.GetComponent<TextMeshProUGUI>().text = "Player Name";
-            currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("None");
-            currentSelectedPlayerAccessory.GetComponent<Image>().sprite = Resources.Load<Sprite>("None"); ;
+            currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("Cosmetic Sprites/None");
+            currentSelectedPlayerAccessory.GetComponent<Image>().sprite = Resources.Load<Sprite>("Cosmetic Sprites/None"); ;
 
             canvasEnabled = 1;
         } else if (lobbyCanvas.activeSelf == false && canvasEnabled == 1)
