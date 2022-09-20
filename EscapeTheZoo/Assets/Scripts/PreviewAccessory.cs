@@ -11,7 +11,7 @@ public class PreviewAccessory : MonoBehaviour
 
     public void Start()
     {
-        currentPreviewPlayerAccessory.GetComponent<Image>().sprite = Resources.Load<Sprite>("None");
+        currentPreviewPlayerAccessory.GetComponent<Image>().sprite = Resources.Load<Sprite>("Cosmetic Sprites/None");
     }
 
     // Change the Preview accessory to the image that was clicked
@@ -36,7 +36,7 @@ public class PreviewAccessory : MonoBehaviour
             }
             else
             {
-                currentPreviewPlayerAccessory.GetComponent<Image>().sprite = Resources.Load<Sprite>("None");
+                currentPreviewPlayerAccessory.GetComponent<Image>().sprite = Resources.Load<Sprite>("Cosmetic Sprites/None");
             }
         }
     }

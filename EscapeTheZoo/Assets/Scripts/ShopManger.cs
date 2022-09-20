@@ -57,7 +57,7 @@ public class ShopManger : MonoBehaviour
         {
             InsertPlayerIntoPlayerScroll((Player)playerList[i]);
         }
-        currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("None");
+        currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("Cosmetic Sprites/None");
     }
 
     // The ability to preview items is enabled when there is a player selection
@@ -99,7 +99,7 @@ public class ShopManger : MonoBehaviour
                 {
                     Button btn = gameObjects[i].GetComponentInChildren<Button>();
 
-                    if (cosmetic.Equals(shopItemScripts[i].title))
+                    if (cosmetic.Equals(shopItemScripts[i].title.Replace(" ", string.Empty)))
                     {
                         ChangeButtonInteractionAndText(btn, false, "Owned!", 68);
                     }
@@ -146,7 +146,8 @@ public class ShopManger : MonoBehaviour
             // Deduct cost from the player
             playerList[selectedPlayerNum].deductFromBalance(shopItemScripts[buttonNum].cost);
             // Add accessory to the player
-            playerList[selectedPlayerNum].giveCosmetic(shopItemScripts[buttonNum].title);
+            string playerAccessory = shopItemScripts[buttonNum].title.Replace(" ", string.Empty);
+            playerList[selectedPlayerNum].giveCosmetic(playerAccessory);
 
             SaveSelectedPlayerData();
             UpdateCoinTotal(selectedPlayerNum);
