@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 393216}
   m_Layer: 0
   m_Name: Waypoint (5)
-  m_TagString: Untagged
+  m_TagString: MiniGame
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.78, y: -0.9765, z: 0}
+  m_LocalPosition: {x: -9.81, y: -0.9765, z: 0}
   m_LocalScale: {x: 1, y: 1.0033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -178,7 +178,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53175093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.77, y: -1.9999, z: 0}
+  m_LocalPosition: {x: -10.78, y: -1.9999, z: 0}
   m_LocalScale: {x: 1, y: 1.0033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -240,7 +240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142787398}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.77, y: -2.9731, z: 0}
+  m_LocalPosition: {x: -10.78, y: -2.9731, z: 0}
   m_LocalScale: {x: 1, y: 1.0033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 145437152}
   m_Layer: 0
   m_Name: Waypoint (46)
-  m_TagString: Untagged
+  m_TagString: MiniGame
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,7 +333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176317455}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.76, y: 3.0166, z: 0}
+  m_LocalPosition: {x: -4.8, y: 3.0166, z: 0}
   m_LocalScale: {x: 1, y: 1.0033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 181816470}
   m_Layer: 0
   m_Name: Waypoint (56)
-  m_TagString: Untagged
+  m_TagString: WildCard
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -426,7 +426,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198239162}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.79, y: 2.0434, z: 0}
+  m_LocalPosition: {x: -10.75, y: 2.0434, z: 0}
   m_LocalScale: {x: 1, y: 1.0033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -599,7 +599,7 @@ GameObject:
   - component: {fileID: 335908658}
   m_Layer: 0
   m_Name: Waypoint (23)
-  m_TagString: Untagged
+  m_TagString: MiniGame
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -643,7 +643,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349572941}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.76, y: 0.0368, z: 0}
+  m_LocalPosition: {x: -8.8, y: 0.0368, z: 0}
   m_LocalScale: {x: 1, y: 1.0033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -736,7 +736,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404222662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.78, y: 1.0301, z: 0}
+  m_LocalPosition: {x: -8.8, y: 1.0301, z: 0}
   m_LocalScale: {x: 1, y: 1.0033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 409096579}
   m_Layer: 0
   m_Name: Waypoint (10)
-  m_TagString: Untagged
+  m_TagString: WildCard
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 415817282}
   m_Layer: 0
   m_Name: Waypoint (44)
-  m_TagString: Untagged
+  m_TagString: WildCard
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -891,7 +891,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436961941}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.78, y: 2.0434, z: 0}
+  m_LocalPosition: {x: -4.8, y: 2.0434, z: 0}
   m_LocalScale: {x: 1, y: 1.0033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -922,7 +922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489266139}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.77, y: -4.9997, z: 0}
+  m_LocalPosition: {x: -10.78, y: -4.9997, z: 0}
   m_LocalScale: {x: 1, y: 1.0033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -953,7 +953,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491833163}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.79, y: 3.9798, z: 0}
+  m_LocalPosition: {x: -10.75, y: 3.9798, z: 0}
   m_LocalScale: {x: 1, y: 1.0033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -971,7 +971,7 @@ GameObject:
   - component: {fileID: 513364737}
   m_Layer: 0
   m_Name: Waypoint (37)
-  m_TagString: Untagged
+  m_TagString: MiniGame
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1015,7 +1015,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515023380}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.81, y: -0.9464, z: 0}
+  m_LocalPosition: {x: -8.8, y: -0.9464, z: 0}
   m_LocalScale: {x: 1, y: 1.0033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1033,7 +1033,7 @@ GameObject:
   - component: {fileID: 516929725}
   m_Layer: 0
   m_Name: Waypoint (76)
-  m_TagString: Untagged
+  m_TagString: WildCard
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1232,7 +1232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656653563}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.77, y: -1.0167, z: 0}
+  m_LocalPosition: {x: -10.78, y: -1.0167, z: 0}
   m_LocalScale: {x: 1, y: 1.0033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1263,7 +1263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660029358}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.77, y: -3.9864, z: 0}
+  m_LocalPosition: {x: -10.78, y: -3.9864, z: 0}
   m_LocalScale: {x: 1, y: 1.0033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1690,8 +1690,8 @@ Tilemap:
   - first: {x: -5, y: -5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 6
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1720,8 +1720,8 @@ Tilemap:
   - first: {x: -2, y: -5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 7
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1760,8 +1760,8 @@ Tilemap:
   - first: {x: 2, y: -5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 7
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1820,8 +1820,8 @@ Tilemap:
   - first: {x: 8, y: -4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 6
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1870,8 +1870,8 @@ Tilemap:
   - first: {x: -4, y: -3, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 7
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1990,8 +1990,8 @@ Tilemap:
   - first: {x: -7, y: -1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 6
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2020,8 +2020,8 @@ Tilemap:
   - first: {x: -3, y: -1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 6
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2080,8 +2080,8 @@ Tilemap:
   - first: {x: 6, y: -1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 7
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2190,8 +2190,8 @@ Tilemap:
   - first: {x: 2, y: 1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 6
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2210,8 +2210,8 @@ Tilemap:
   - first: {x: 4, y: 1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 7
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2260,8 +2260,8 @@ Tilemap:
   - first: {x: -7, y: 2, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 7
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2390,8 +2390,8 @@ Tilemap:
   - first: {x: -6, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 7
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2400,8 +2400,8 @@ Tilemap:
   - first: {x: -5, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 6
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2430,8 +2430,8 @@ Tilemap:
   - first: {x: 1, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 7
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2480,8 +2480,8 @@ Tilemap:
   - first: {x: 6, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 6
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2499,7 +2499,7 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 37
+  - m_RefCount: 22
     m_Data: {fileID: 11400000, guid: 0ec1e11f310f33e4795eb837055f1bdb, type: 2}
   - m_RefCount: 7
     m_Data: {fileID: 11400000, guid: e3ac1f8d21a7ba441832352e1d9d0018, type: 2}
@@ -2511,8 +2511,12 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: b7fcfc011d139ea49a6ff48ad1377004, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: 5e464b7f608a7a64ca9254313eb97d0b, type: 2}
+  - m_RefCount: 7
+    m_Data: {fileID: 11400000, guid: c6c5bdc9be2954aed83d94a3edf55768, type: 2}
+  - m_RefCount: 8
+    m_Data: {fileID: 11400000, guid: 27b7857b5023b4daa90edfc74b043b52, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 37
+  - m_RefCount: 22
     m_Data: {fileID: 21300000, guid: b2fb5fc18bc001a47b1ebc090a16c8cf, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: 21300000, guid: 7049720cc1baf0d4d93fce53a8c5bb3a, type: 3}
@@ -2524,6 +2528,10 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 8a74af2723959bc4c8e602de9acc2f92, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 21300000, guid: eb268f6fced535d4ea34d3d5d533de4e, type: 3}
+  - m_RefCount: 7
+    m_Data: {fileID: 21300000, guid: 0e3d10bdaba834ac38d313f39eb1e2ae, type: 3}
+  - m_RefCount: 8
+    m_Data: {fileID: 21300000, guid: 924a05bb7cd384248bbebef102cfc24b, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 83
     m_Data:
@@ -2757,7 +2765,7 @@ GameObject:
   - component: {fileID: 1182997630}
   m_Layer: 0
   m_Name: Waypoint (64)
-  m_TagString: Untagged
+  m_TagString: WildCard
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2912,7 +2920,7 @@ GameObject:
   - component: {fileID: 1331243545}
   m_Layer: 0
   m_Name: Waypoint (81)
-  m_TagString: Untagged
+  m_TagString: MiniGame
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2987,7 +2995,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390190805}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.85, y: -0.9565, z: 0}
+  m_LocalPosition: {x: -4.8, y: -0.9565, z: 0}
   m_LocalScale: {x: 1, y: 1.0033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3151,7 +3159,7 @@ GameObject:
   - component: {fileID: 1471584623}
   m_Layer: 0
   m_Name: Waypoint (15)
-  m_TagString: Untagged
+  m_TagString: WildCard
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3244,7 +3252,7 @@ GameObject:
   - component: {fileID: 1543217929}
   m_Layer: 0
   m_Name: Waypoint (32)
-  m_TagString: Untagged
+  m_TagString: WildCard
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3721,7 +3729,7 @@ Transform:
   m_GameObject: {fileID: 1684355862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.417, y: -2.476, z: 0}
-  m_LocalScale: {x: 1.75, y: 1.75, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3844,7 +3852,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749973556}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.8, y: 3.0668, z: 0}
+  m_LocalPosition: {x: -10.75, y: 3.0668, z: 0}
   m_LocalScale: {x: 1, y: 1.0033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3862,7 +3870,7 @@ GameObject:
   - component: {fileID: 1807996161}
   m_Layer: 0
   m_Name: Waypoint (16)
-  m_TagString: Untagged
+  m_TagString: MiniGame
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4356,7 +4364,7 @@ GameObject:
   - component: {fileID: 2085068822}
   m_Layer: 0
   m_Name: Waypoint (61)
-  m_TagString: Untagged
+  m_TagString: MiniGame
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4400,7 +4408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090660212}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.78, y: 1.0501, z: 0}
+  m_LocalPosition: {x: -4.8, y: 1.0501, z: 0}
   m_LocalScale: {x: 1, y: 1.0033, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4449,7 +4457,7 @@ GameObject:
   - component: {fileID: 2101188994}
   m_Layer: 0
   m_Name: Waypoint (68)
-  m_TagString: Untagged
+  m_TagString: WildCard
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
