@@ -178,7 +178,7 @@ public class ShopManger : MonoBehaviour
         selectedPlayerNum = playerNumber;
         currentSelectedPlayerName.GetComponent<TextMeshProUGUI>().text = playerList[playerNumber].getName()+":";
         // The sprite is loaded from Assets/Resources/Character Face Sprites/
-        currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("Character Face Sprites/"+playerList[playerNumber].getAnimal());
+        currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("Characters/"+playerList[playerNumber].getAnimal());
         
         EnablePreview();
         UpdateCoinTotal(playerNumber);
