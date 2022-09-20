@@ -365,14 +365,18 @@ public class LobbyManager : MonoBehaviour
         List<string> playerCosmeticsList = playerList[playerNumber].getOwnedCosmetics();
         int accessoryArrayCurrentIndex = playerCosmeticsList.IndexOf(playerList[playerNumber].getAccessory());
 
-        if (accessoryArrayCurrentIndex == 0)
+        if (!playerList[playerNumber].getAccessory().Equals("None"))
         {
-            playerList[playerNumber].setAccessory(playerCosmeticsList[playerCosmeticsList.Count - 1]);
+            if (accessoryArrayCurrentIndex == 0)
+            {
+                playerList[playerNumber].setAccessory(playerCosmeticsList[playerCosmeticsList.Count - 1]);
+            }
+            else
+            {
+                playerList[playerNumber].setAccessory(playerCosmeticsList[accessoryArrayCurrentIndex - 1]);
+            }
         }
-        else
-        {
-            playerList[playerNumber].setAccessory(playerCosmeticsList[accessoryArrayCurrentIndex - 1]);
-        }
+        
 
         showSelectedPlayer(playerNumber);
     }
