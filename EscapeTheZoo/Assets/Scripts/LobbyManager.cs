@@ -91,26 +91,28 @@ public class LobbyManager : MonoBehaviour
         closePopup();
 
         // Sprites
-        animals.Add("Characters/CatFace");
-        animals.Add("Characters/ChickenFace");
-        animals.Add("Characters/FrogFace");
-        animals.Add("Characters/PandaFace");
-        animals.Add("Characters/SnakeFace");
-        accessories.Add("Cosmetics/None");
-        accessories.Add("Cosmetics/AlienTinFoilHat");
-        accessories.Add("Cosmetics/BirdNest");
-        accessories.Add("Cosmetics/BlackTopHat");
-        accessories.Add("Cosmetics/BlueTopHat");
-        accessories.Add("Cosmetics/Crown");
-        accessories.Add("Cosmetics/HeartPaint");
-        accessories.Add("Cosmetics/PinkCrown");
-        accessories.Add("Cosmetics/StrawHat");
+        animals.Add("CatFace");
+        animals.Add("ChickenFace");
+        animals.Add("FrogFace");
+        animals.Add("PandaFace");
+        animals.Add("SnakeFace");
+        accessories.Add("None");
+        accessories.Add("AlienTinFoilHat");
+        accessories.Add("BirdNest");
+        accessories.Add("BlackTopHat");
+        accessories.Add("BlackTopHat_v2");
+        accessories.Add("BlueTopHat");
+        accessories.Add("Crown");
+        accessories.Add("HeartPaint");
+        accessories.Add("PinkCrown");
+        accessories.Add("StrawHat");
 
         // Maps
         maps.Add("The Zoo");
 
         // Load in the player profiles
         dataManager = GetComponent<DataManager>();
+ 
         setPlayerList(dataManager.LoadData("profiles.txt"));
     }
 
@@ -135,8 +137,8 @@ public class LobbyManager : MonoBehaviour
 
             selectedPlayerNum = -1;
             currentSelectedPlayerText.GetComponent<TextMeshProUGUI>().text = "Player Name";
-            currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("Characters/None");
-            currentSelectedPlayerAccessory.GetComponent<Image>().sprite = Resources.Load<Sprite>("Cosmetics/None"); ;
+            currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("None");
+            currentSelectedPlayerAccessory.GetComponent<Image>().sprite = Resources.Load<Sprite>("None"); ;
 
             canvasEnabled = 1;
         } else if (lobbyCanvas.activeSelf == false && canvasEnabled == 1)
@@ -153,7 +155,6 @@ public class LobbyManager : MonoBehaviour
             }
 
             playersPlaying = new List<bool>();
-            currentPlayers = 0;
 
             canvasEnabled = 0;
         }
@@ -263,8 +264,8 @@ public class LobbyManager : MonoBehaviour
 
         createPlayerScreenInput.text = "";
         List<string> newAccessoriesList = new List<string>();
-        newAccessoriesList.Add("Cosmetics/None");
-        Player newPlayer = new Player(newPlayerName, 0, animals[0], "Cosmetics/None", newAccessoriesList);
+        newAccessoriesList.Add("None");
+        Player newPlayer = new Player(newPlayerName, 0, "CatFace", "None", newAccessoriesList);
         playerList.Add(newPlayer);
         insertPlayerIntoPlayerScroll(newPlayer);
     }
@@ -390,7 +391,7 @@ public class LobbyManager : MonoBehaviour
 
         if (accessoryArrayCurrentIndex == playerCosmeticsList.Count - 1)
         {
-            playerList[playerNumber].setAccessory("Cosmetics/None");
+            playerList[playerNumber].setAccessory("None");
         }
         else
         {
