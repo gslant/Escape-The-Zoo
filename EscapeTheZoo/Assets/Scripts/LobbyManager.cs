@@ -113,6 +113,8 @@ public class LobbyManager : MonoBehaviour
         dataManager = GetComponent<DataManager>();
  
         setPlayerList(dataManager.LoadData("profiles.txt"));
+
+        // Test
     }
 
     // Update is called once per frame
