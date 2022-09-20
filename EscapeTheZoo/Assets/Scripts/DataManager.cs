@@ -16,6 +16,7 @@ public class DataManager : MonoBehaviour
         tempPlayerList = LoadData(fName);
 
         bool alreadyExists = false;
+
         for (int i = 0; i < tempPlayerList.Count; i++)
         {
             if (String.Equals(tempPlayerList[i].getName(), p.getName()))
