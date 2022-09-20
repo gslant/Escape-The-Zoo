@@ -99,7 +99,7 @@ public class ShopManger : MonoBehaviour
                 {
                     Button btn = gameObjects[i].GetComponentInChildren<Button>();
 
-                    if (cosmetic.Equals(shopItemScripts[i].title))
+                    if (cosmetic.Equals(shopItemScripts[i].title.Replace(" ", string.Empty)))
                     {
                         ChangeButtonInteractionAndText(btn, false, "Owned!", 68);
                     }
@@ -146,7 +146,9 @@ public class ShopManger : MonoBehaviour
             // Deduct cost from the player
             playerList[selectedPlayerNum].deductFromBalance(shopItemScripts[buttonNum].cost);
             // Add accessory to the player
-            playerList[selectedPlayerNum].giveCosmetic(shopItemScripts[buttonNum].title);
+            string playerAccessory = shopItemScripts[buttonNum].title.Replace(" ", string.Empty);
+            Debug.Log(playerAccessory);
+            playerList[selectedPlayerNum].giveCosmetic(playerAccessory);
 
             SaveSelectedPlayerData();
             UpdateCoinTotal(selectedPlayerNum);
