@@ -291,10 +291,7 @@ public class LobbyManager : MonoBehaviour
         selectedPlayerNum = playerNumber;
         currentSelectedPlayerText.GetComponent<TextMeshProUGUI>().text = playerList[playerNumber].getName();
         currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("Character Face Sprites/"+playerList[playerNumber].getAnimal());
-/*        string playerAccessory = playerList[playerNumber].getAccessory().Replace(" ", string.Empty);
-        Debug.Log(playerAccessory);*/
         currentSelectedPlayerAccessory.GetComponent<Image>().sprite = Resources.Load<Sprite>("Cosmetic Sprites/" + playerList[playerNumber].getAccessory());
-        Debug.Log(playerList[playerNumber].getAccessory());
     }
 
     // Toggles the "X" button beside the player's name on the player list, which decides if the player is playing or not.

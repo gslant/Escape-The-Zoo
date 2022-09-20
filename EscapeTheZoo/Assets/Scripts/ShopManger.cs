@@ -147,7 +147,6 @@ public class ShopManger : MonoBehaviour
             playerList[selectedPlayerNum].deductFromBalance(shopItemScripts[buttonNum].cost);
             // Add accessory to the player
             string playerAccessory = shopItemScripts[buttonNum].title.Replace(" ", string.Empty);
-            Debug.Log(playerAccessory);
             playerList[selectedPlayerNum].giveCosmetic(playerAccessory);
 
             SaveSelectedPlayerData();
