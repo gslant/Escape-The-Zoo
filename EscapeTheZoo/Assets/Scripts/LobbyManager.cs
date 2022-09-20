@@ -97,8 +97,8 @@ public class LobbyManager : MonoBehaviour
         animals.Add("PandaFace");
         animals.Add("SnakeFace");
         accessories.Add("None");
-        accessories.Add("HeartPaint");
-        accessories.Add("TinFoil Hat");
+        accessories.Add("HeartFacePaint");
+        accessories.Add("TinFoilHat");
         accessories.Add("BirdNest");
         accessories.Add("StrawHat");
         accessories.Add("BlackTopHat");
@@ -369,7 +369,7 @@ public class LobbyManager : MonoBehaviour
         {
             if (accessoryArrayCurrentIndex == 0)
             {
-                playerList[playerNumber].setAccessory(playerCosmeticsList[playerCosmeticsList.Count - 1]);
+                playerList[playerNumber].setAccessory("None");
             }
             else
             {
