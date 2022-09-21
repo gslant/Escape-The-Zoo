@@ -7,9 +7,9 @@ using static DataManager;
 public class GameControl : MonoBehaviour
 {
     // HUD Panel Objects
-    public GameObject HUDGoldAmountText;
-    public GameObject HUDPlayerNameText;
-    public Button HUDCards;
+    private static GameObject HUDGoldAmountText;
+    private static GameObject HUDPlayerNameText;
+    private static Button HUDCards;
 
     private static GameObject player1, player2;
     [SerializeField] private GameObject player1Accessory, player2Accessory;
@@ -30,6 +30,8 @@ public class GameControl : MonoBehaviour
     {
         player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");
+        HUDGoldAmountText = GameObject.Find("GoldAmount");
+        HUDPlayerNameText = GameObject.Find("PlayerName");
 
         SetPlayerObjectLists();
         SetSelectedPlayers();
@@ -38,6 +40,7 @@ public class GameControl : MonoBehaviour
         player1.GetComponent<PlayerMovement>().myTurn = false;
         player2.GetComponent<PlayerMovement>().myTurn = false;
 
+        updatePlayerHUD(listOfPlayersPlaying[0]);
     }
 
     // Update is called once per frame
@@ -97,17 +100,19 @@ public class GameControl : MonoBehaviour
         {
             case 1:
                 player1.GetComponent<PlayerMovement>().myTurn = true;
+                GameControl.updatePlayerHUD(GameControl.listOfPlayersPlaying[1]);
                 break;
 
             case 2:
                 player2.GetComponent<PlayerMovement>().myTurn = true;
+                GameControl.updatePlayerHUD(GameControl.listOfPlayersPlaying[0]);
                 break;
         }
     }
 
-    public void updatePlayerHUD(Player player)
+    public static void updatePlayerHUD(Player player)
     {
         HUDPlayerNameText.GetComponent<TextMeshProUGUI>().text = player.getName();
-        //HUDGoldAmountText.GetComponent<TextMeshProUGUI>().text = player.getGameBalance();
+        HUDGoldAmountText.GetComponent<TextMeshProUGUI>().text = player.getGameBalance() + "";
     }
 }

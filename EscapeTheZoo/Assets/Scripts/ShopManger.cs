@@ -81,7 +81,7 @@ public class ShopManger : MonoBehaviour
     // Updates the coin displayed text with the selected player profile data
     public void UpdateCoinTotal(int playerNumber)
     {
-        coinDisplay = playerList[playerNumber].balance;
+        coinDisplay = playerList[playerNumber].getTotalBalance();
         cointxt.text = "Coins: " + coinDisplay.ToString();
 
         CheckIfBuyable();
@@ -144,10 +144,10 @@ public class ShopManger : MonoBehaviour
         if (coinDisplay >= shopItemScripts[buttonNum].cost)
         {
             // Deduct cost from the player
-            playerList[selectedPlayerNum].deductFromBalance(shopItemScripts[buttonNum].cost);
+            playerList[selectedPlayerNum].setTotalBalance(playerList[selectedPlayerNum].getTotalBalance() - shopItemScripts[buttonNum].cost);
             // Add accessory to the player
             string playerAccessory = shopItemScripts[buttonNum].title.Replace(" ", string.Empty);
-            playerList[selectedPlayerNum].giveCosmetic(playerAccessory);
+            playerList[selectedPlayerNum].addCosmetic(playerAccessory);
 
             SaveSelectedPlayerData();
             UpdateCoinTotal(selectedPlayerNum);
