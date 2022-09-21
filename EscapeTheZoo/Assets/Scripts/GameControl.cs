@@ -72,7 +72,7 @@ public class GameControl : MonoBehaviour
 
     public void SetSelectedPlayers()
     {
-        listOfPlayersPlaying = LobbyManager.listOfPlayersPlaying;
+        listOfPlayersPlaying = LobbyManager.getListOfPlayersPlaying();
     }
 
     public void LoadPlayerDataToPlayerObjects()
