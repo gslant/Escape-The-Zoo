@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,11 +12,21 @@ public class GameControl : MonoBehaviour
 
     public static bool gameOver = false;
 
+    // Loading player variables
+    public static List<Player> listOfPlayersPlaying; // This will load in the selected players from the lobby
+    private List<GameObject> playerObjects;
+
     // Use this for initialization
     void Start()
     {
         player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");
+
+        // Set playerObjects list to the player game objects
+        playerObjects = new List<GameObject>() { player1, player2 }; // Hard coded for now...
+
+        SetSelectedPlayers();
+        LoadPlayerDataToPlayerObjects();
 
         player1.GetComponent<PlayerMovement>().myTurn = false;
         player2.GetComponent<PlayerMovement>().myTurn = false;
@@ -49,6 +60,19 @@ public class GameControl : MonoBehaviour
             player2.GetComponent<PlayerMovement>().waypoints.Length)
         {
             gameOver = true;
+        }
+    }
+
+    public void SetSelectedPlayers()
+    {
+        listOfPlayersPlaying = LobbyManager.listOfPlayersPlaying;
+    }
+
+    public void LoadPlayerDataToPlayerObjects()
+    {
+        for (int i = 0; i < listOfPlayersPlaying.Count; i++)
+        {
+            playerObjects[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Character Face Sprites/" + listOfPlayersPlaying[i].getAnimal());
         }
     }
 
