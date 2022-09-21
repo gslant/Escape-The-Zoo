@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class GameControl : MonoBehaviour
 {
     private static GameObject player1, player2;
+    [SerializeField] private GameObject player1Accessory, player2Accessory;
 
     public static int diceSideThrown = 0;
     public static int player1StartWaypoint = 0;
@@ -15,6 +16,7 @@ public class GameControl : MonoBehaviour
     // Loading player variables
     public static List<Player> listOfPlayersPlaying; // This will load in the selected players from the lobby
     private List<GameObject> playerObjects;
+    private List<GameObject> playerAccessoryObjects;
 
     // Use this for initialization
     void Start()
@@ -22,9 +24,7 @@ public class GameControl : MonoBehaviour
         player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");
 
-        // Set playerObjects list to the player game objects
-        playerObjects = new List<GameObject>() { player1, player2 }; // Hard coded for now...
-
+        SetPlayerObjectLists();
         SetSelectedPlayers();
         LoadPlayerDataToPlayerObjects();
 
@@ -63,6 +63,13 @@ public class GameControl : MonoBehaviour
         }
     }
 
+    private void SetPlayerObjectLists()
+    {
+        // Not the most efficient way for now...
+        playerObjects = new List<GameObject>() { player1, player2 };
+        playerAccessoryObjects = new List<GameObject>() { player1Accessory, player2Accessory };
+    }
+
     public void SetSelectedPlayers()
     {
         listOfPlayersPlaying = LobbyManager.listOfPlayersPlaying;
@@ -73,6 +80,7 @@ public class GameControl : MonoBehaviour
         for (int i = 0; i < listOfPlayersPlaying.Count; i++)
         {
             playerObjects[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Character Face Sprites/" + listOfPlayersPlaying[i].getAnimal());
+            playerAccessoryObjects[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Cosmetic Sprites/" + listOfPlayersPlaying[i].getAccessory());
         }
     }
 
