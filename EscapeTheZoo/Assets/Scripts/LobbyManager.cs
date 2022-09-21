@@ -54,7 +54,7 @@ public class LobbyManager : MonoBehaviour
     private int currentMap = -1; // The map being played on. Default being -1.
     private int selectedPlayerNum = -1; // The current selected player. Default being -1.
     private DataManager dataManager;
-    private List<Player> listOfPlayersPlaying;
+    private static List<Player> listOfPlayersPlaying; // This will be accessed from the GameBoard scene to load in the players
 
     // Constants
     private int MINPLAYERS = 2;
@@ -172,7 +172,7 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
-    public List<Player> getListOfPlayersPlaying()
+    public static List<Player> getListOfPlayersPlaying()
     {
         return listOfPlayersPlaying;
     }
