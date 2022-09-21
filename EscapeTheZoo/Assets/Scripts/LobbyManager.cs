@@ -214,6 +214,7 @@ public class LobbyManager : MonoBehaviour
         setListOfPlayersPlaying();
 
         lobbyCanvas.SetActive(false);
+        SceneLoader.LoadScene("GameBoard");
     }
 
     private void lobbyBack()
