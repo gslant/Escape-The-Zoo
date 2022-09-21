@@ -54,7 +54,7 @@ public class LobbyManager : MonoBehaviour
     private int currentMap = -1; // The map being played on. Default being -1.
     private int selectedPlayerNum = -1; // The current selected player. Default being -1.
     private DataManager dataManager;
-    private List<Player> listOfPlayersPlaying;
+    private static List<Player> listOfPlayersPlaying; // This will be accessed from the GameBoard scene to load in the players
 
     // Constants
     private int MINPLAYERS = 2;
@@ -97,15 +97,14 @@ public class LobbyManager : MonoBehaviour
         animals.Add("PandaFace");
         animals.Add("SnakeFace");
         accessories.Add("None");
-        accessories.Add("AlienTinFoilHat");
+        accessories.Add("HeartFacePaint");
+        accessories.Add("TinFoilHat");
         accessories.Add("BirdNest");
-        accessories.Add("BlackTopHat");
-        accessories.Add("BlackTopHat_v2");
-        accessories.Add("BlueTopHat");
-        accessories.Add("Crown");
-        accessories.Add("HeartPaint");
-        accessories.Add("PinkCrown");
         accessories.Add("StrawHat");
+        accessories.Add("BlackTopHat");
+        accessories.Add("BlueTopHat");
+        accessories.Add("PinkCrown");
+        accessories.Add("Crown");
 
         // Maps
         maps.Add("The Zoo");
@@ -137,8 +136,8 @@ public class LobbyManager : MonoBehaviour
 
             selectedPlayerNum = -1;
             currentSelectedPlayerText.GetComponent<TextMeshProUGUI>().text = "Player Name";
-            currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("None");
-            currentSelectedPlayerAccessory.GetComponent<Image>().sprite = Resources.Load<Sprite>("None"); ;
+            currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("Cosmetic Sprites/None");
+            currentSelectedPlayerAccessory.GetComponent<Image>().sprite = Resources.Load<Sprite>("Cosmetic Sprites/None"); ;
 
             canvasEnabled = 1;
         } else if (lobbyCanvas.activeSelf == false && canvasEnabled == 1)
@@ -173,7 +172,7 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
-    public List<Player> getListOfPlayersPlaying()
+    public static List<Player> getListOfPlayersPlaying()
     {
         return listOfPlayersPlaying;
     }
@@ -215,6 +214,7 @@ public class LobbyManager : MonoBehaviour
         setListOfPlayersPlaying();
 
         lobbyCanvas.SetActive(false);
+        SceneLoader.LoadScene("GameBoard");
     }
 
     private void lobbyBack()
@@ -291,8 +291,8 @@ public class LobbyManager : MonoBehaviour
     {
         selectedPlayerNum = playerNumber;
         currentSelectedPlayerText.GetComponent<TextMeshProUGUI>().text = playerList[playerNumber].getName();
-        currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>(playerList[playerNumber].getAnimal());
-        currentSelectedPlayerAccessory.GetComponent<Image>().sprite = Resources.Load<Sprite>(playerList[playerNumber].getAccessory());
+        currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("Character Face Sprites/"+playerList[playerNumber].getAnimal());
+        currentSelectedPlayerAccessory.GetComponent<Image>().sprite = Resources.Load<Sprite>("Cosmetic Sprites/" + playerList[playerNumber].getAccessory());
     }
 
     // Toggles the "X" button beside the player's name on the player list, which decides if the player is playing or not.
@@ -366,14 +366,18 @@ public class LobbyManager : MonoBehaviour
         List<string> playerCosmeticsList = playerList[playerNumber].getOwnedCosmetics();
         int accessoryArrayCurrentIndex = playerCosmeticsList.IndexOf(playerList[playerNumber].getAccessory());
 
-        if (accessoryArrayCurrentIndex == 0)
+        if (!playerList[playerNumber].getAccessory().Equals("None"))
         {
-            playerList[playerNumber].setAccessory(playerCosmeticsList[playerCosmeticsList.Count - 1]);
+            if (accessoryArrayCurrentIndex == 0)
+            {
+                playerList[playerNumber].setAccessory("None");
+            }
+            else
+            {
+                playerList[playerNumber].setAccessory(playerCosmeticsList[accessoryArrayCurrentIndex - 1]);
+            }
         }
-        else
-        {
-            playerList[playerNumber].setAccessory(playerCosmeticsList[accessoryArrayCurrentIndex - 1]);
-        }
+        
 
         showSelectedPlayer(playerNumber);
     }
