@@ -73,7 +73,6 @@ public class GameControl : MonoBehaviour
             if (player1.GetComponent<PlayerMovement>().waypointIndex == 6 || player1.GetComponent<PlayerMovement>().waypointIndex == 17 || player1.GetComponent<PlayerMovement>().waypointIndex == 24 || player1.GetComponent<PlayerMovement>().waypointIndex == 38
             || player1.GetComponent<PlayerMovement>().waypointIndex == 47 || player1.GetComponent<PlayerMovement>().waypointIndex == 62 || player1.GetComponent<PlayerMovement>().waypointIndex == 82)
             {
-                Debug.Log(boardObjects);
                 Debug.Log("MiniGame Time!!!!!");
                 mainCam.SetActive(false);
                 hud.SetActive(false);
@@ -104,7 +103,6 @@ public class GameControl : MonoBehaviour
             if (player2.GetComponent<PlayerMovement>().waypointIndex == 6 || player2.GetComponent<PlayerMovement>().waypointIndex == 17 || player2.GetComponent<PlayerMovement>().waypointIndex == 24 || player2.GetComponent<PlayerMovement>().waypointIndex == 38
             || player2.GetComponent<PlayerMovement>().waypointIndex == 47 || player2.GetComponent<PlayerMovement>().waypointIndex == 62 || player2.GetComponent<PlayerMovement>().waypointIndex == 82)
             {           
-                Debug.Log(boardObjects);
                 Debug.Log("MiniGame Time!!!!!");
                 mainCam.SetActive(false);
                 hud.SetActive(false);
