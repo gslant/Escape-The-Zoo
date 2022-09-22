@@ -150,6 +150,7 @@ public class GameControl : MonoBehaviour
 
     private void finishGame()
     {
+        Debug.Log("Quit to menu button clicked");
         SceneLoader.LoadScene("MainScene");
     }
 }
