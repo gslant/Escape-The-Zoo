@@ -65,6 +65,7 @@ public class GameControl : MonoBehaviour
         {
             player1.GetComponent<PlayerMovement>().myTurn = false;
             player1StartWaypoint = player1.GetComponent<PlayerMovement>().waypointIndex - 1;
+            GameControl.updatePlayerHUD(GameControl.listOfPlayersPlaying[1]);
         }
 
         if (player2.GetComponent<PlayerMovement>().waypointIndex >
@@ -72,6 +73,7 @@ public class GameControl : MonoBehaviour
         {
             player2.GetComponent<PlayerMovement>().myTurn = false;
             player2StartWaypoint = player2.GetComponent<PlayerMovement>().waypointIndex - 1;
+            GameControl.updatePlayerHUD(GameControl.listOfPlayersPlaying[0]);
         }
 
         if (player1.GetComponent<PlayerMovement>().waypointIndex ==
@@ -132,12 +134,10 @@ public class GameControl : MonoBehaviour
         {
             case 1:
                 player1.GetComponent<PlayerMovement>().myTurn = true;
-                GameControl.updatePlayerHUD(GameControl.listOfPlayersPlaying[1]);
                 break;
 
             case 2:
                 player2.GetComponent<PlayerMovement>().myTurn = true;
-                GameControl.updatePlayerHUD(GameControl.listOfPlayersPlaying[0]);
                 break;
         }
     }
