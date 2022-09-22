@@ -21,18 +21,18 @@ public class MinigameLoadPlayers : MonoBehaviour
         LoadPlayerDataToPlayerObjects();
     }
 
-    private void SetPlayerObjectLists()
+    void SetPlayerObjectLists()
     {
         playerObjects = new List<GameObject>() { player1, player2 };
         playerAccessoryObjects = new List<GameObject>() { player1Accessory, player2Accessory };
     }
 
-    public void SetSelectedPlayers()
+    void SetSelectedPlayers()
     {
         listOfPlayersPlaying = LobbyManager.getListOfPlayersPlaying();
     }
 
-    public void LoadPlayerDataToPlayerObjects()
+    void LoadPlayerDataToPlayerObjects()
     {
         for (int i = 0; i < listOfPlayersPlaying.Count; i++)
         {
