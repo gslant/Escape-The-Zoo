@@ -10,13 +10,16 @@ public class DataManager : MonoBehaviour
     public string fName = "profiles.txt";
     public void SaveData(Player p)
     {
+        p.setGameBalance(0);
+
         List<Player> tempPlayerList = new List<Player>();
         tempPlayerList = LoadData(fName);
 
         bool alreadyExists = false;
-        for(int i = 0; i < tempPlayerList.Count; i++)
+
+        for (int i = 0; i < tempPlayerList.Count; i++)
         {
-            if(String.Equals(tempPlayerList[i].getName(), p.getName()))
+            if (String.Equals(tempPlayerList[i].getName(), p.getName()))
             {
                 tempPlayerList[i] = p;
                 alreadyExists = true;
@@ -69,24 +72,21 @@ public class DataManager : MonoBehaviour
 
 public class Player
 {
-    public string name;
-    public int balance;
-    public string animal;
-    public string accessory;
-    public List<string> ownedCosmetics;
+    private string name;
+    private int totalBalance; // The total currency a player has. Can be used in the shop.
+    private int gameBalance; // The amount of currency a player has in a game of "Escape The Zoo!". Cannot be used in the shop.
+    private string animal;
+    private string accessory;
+    private List<string> ownedCosmetics;
 
-    public Player(string name, int balance, string animal, string accessory, List<string> ownedCosmetics)
+    public Player(string name, int totalBalance, string animal, string accessory, List<string> ownedCosmetics)
     {
         this.name = name;
-        this.balance = balance;
+        this.totalBalance = totalBalance;
+        this.gameBalance = 0;
         this.animal = animal;
         this.accessory = accessory;
         this.ownedCosmetics = ownedCosmetics;
-    }
-
-    public void setName(string name)
-    {
-        this.name = name;
     }
 
     public string getName()
@@ -94,14 +94,50 @@ public class Player
         return this.name;
     }
 
-    public void deductFromBalance(int amount)
+    public void setName(string name)
     {
-        this.balance -= amount;
+        this.name = name;
     }
 
-    public void addToBalance(int amount)
+    public int getTotalBalance()
     {
-        this.balance += amount;
+        return this.totalBalance;
+    }
+
+    public void setTotalBalance(int amount)
+    {
+        this.totalBalance = amount;
+    }
+
+    public int getGameBalance()
+    {
+        return this.gameBalance;
+    }
+
+    public void setGameBalance(int amount)
+    {
+        this.gameBalance = amount;
+
+        if (this.gameBalance < 0)
+        {
+            this.gameBalance = 0;
+        }
+    }
+
+    public void changeGameBalanceByAmount(int amount)
+    {
+        this.gameBalance += amount;
+
+        if (this.gameBalance < 0)
+        {
+            this.gameBalance = 0;
+        }
+    }
+
+    public void addGameBalanceToTotalBalance()
+    {
+        this.totalBalance += this.gameBalance;
+        this.gameBalance = 0;
     }
 
     public string getAnimal()
@@ -129,10 +165,8 @@ public class Player
         return this.ownedCosmetics;
     }
 
-
-    public void giveCosmetic(string cosmeticName)
+    public void addCosmetic(string cosmeticName)
     {
         this.ownedCosmetics.Add(cosmeticName);
     }
 }
-

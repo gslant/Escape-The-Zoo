@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Debug.Log(myTurn);
+        //Debug.Log(myTurn);
         if (myTurn)
             Move();
     }

@@ -1,9 +1,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using static DataManager;
 
 public class GameControl : MonoBehaviour
 {
+    // HUD Canvas Objects and Win Canvas Objects
+    private static GameObject HUDGoldAmountText;
+    private static GameObject HUDPlayerNameText;
+    private static Button HUDCards;
+    public GameObject HUDCanvas;
+    public GameObject winCanvas;
+    public GameObject winCanvasText;
+    public Button finishGameButton;
+
+    // DataManager to save players
+    private DataManager dataManager;
+
+    // Who the winner of the game is
+    int winner;
+
     private static GameObject player1, player2;
     [SerializeField] private GameObject player1Accessory, player2Accessory;
 
@@ -23,6 +40,8 @@ public class GameControl : MonoBehaviour
     {
         player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");
+        HUDGoldAmountText = GameObject.Find("GoldAmount");
+        HUDPlayerNameText = GameObject.Find("PlayerName");
 
         SetPlayerObjectLists();
         SetSelectedPlayers();
@@ -31,6 +50,11 @@ public class GameControl : MonoBehaviour
         player1.GetComponent<PlayerMovement>().myTurn = false;
         player2.GetComponent<PlayerMovement>().myTurn = false;
 
+        winCanvas.SetActive(false);
+        HUDCanvas.SetActive(true);
+        updatePlayerHUD(listOfPlayersPlaying[0]);
+        dataManager = GetComponent<DataManager>();
+        finishGameButton.onClick.AddListener(delegate { finishGame(); });
     }
 
     // Update is called once per frame
@@ -41,6 +65,7 @@ public class GameControl : MonoBehaviour
         {
             player1.GetComponent<PlayerMovement>().myTurn = false;
             player1StartWaypoint = player1.GetComponent<PlayerMovement>().waypointIndex - 1;
+            GameControl.updatePlayerHUD(GameControl.listOfPlayersPlaying[1]);
         }
 
         if (player2.GetComponent<PlayerMovement>().waypointIndex >
@@ -48,18 +73,37 @@ public class GameControl : MonoBehaviour
         {
             player2.GetComponent<PlayerMovement>().myTurn = false;
             player2StartWaypoint = player2.GetComponent<PlayerMovement>().waypointIndex - 1;
+            GameControl.updatePlayerHUD(GameControl.listOfPlayersPlaying[0]);
         }
 
         if (player1.GetComponent<PlayerMovement>().waypointIndex ==
             player1.GetComponent<PlayerMovement>().waypoints.Length)
         {
+            player1.GetComponent<PlayerMovement>().waypointIndex = player1.GetComponent<PlayerMovement>().waypoints.Length - 1;
             gameOver = true;
+            winner = 0;
         }
 
         if (player2.GetComponent<PlayerMovement>().waypointIndex ==
             player2.GetComponent<PlayerMovement>().waypoints.Length)
         {
+            player2.GetComponent<PlayerMovement>().waypointIndex = player2.GetComponent<PlayerMovement>().waypoints.Length - 1;
             gameOver = true;
+            winner = 1;
+        }
+
+        // If game is over, do this
+        if (gameOver == true)
+        {
+            winCanvas.SetActive(true);
+            HUDCanvas.SetActive(false);
+            winCanvasText.GetComponent<TextMeshProUGUI>().text = GameControl.listOfPlayersPlaying[winner].getName() + " Wins!";
+            
+            for (int i = 0; i < listOfPlayersPlaying.Count; i++)
+            {
+                GameControl.listOfPlayersPlaying[i].addGameBalanceToTotalBalance();
+                dataManager.SaveData(listOfPlayersPlaying[i]);
+            }
         }
     }
 
@@ -96,5 +140,17 @@ public class GameControl : MonoBehaviour
                 player2.GetComponent<PlayerMovement>().myTurn = true;
                 break;
         }
+    }
+
+    public static void updatePlayerHUD(Player player)
+    {
+        HUDPlayerNameText.GetComponent<TextMeshProUGUI>().text = player.getName();
+        HUDGoldAmountText.GetComponent<TextMeshProUGUI>().text = player.getGameBalance() + "";
+    }
+
+    private void finishGame()
+    {
+        Debug.Log("Quit to menu button clicked");
+        SceneLoader.LoadScene("MainScene");
     }
 }
