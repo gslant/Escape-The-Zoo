@@ -23,13 +23,18 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+<<<<<<< Updated upstream
         //Debug.Log(myTurn);
+=======
+        Debug.Log(myTurn);
+>>>>>>> Stashed changes
         if (myTurn)
             Move();
     }
 
     private void Move()
     {
+<<<<<<< Updated upstream
         Debug.Log(waypointIndex);
         Debug.Log(waypoints.Length - 1);
         Debug.Log(waypoints[waypointIndex]);
@@ -43,6 +48,12 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log(waypoints[waypointIndex].transform.position.y);
             Debug.Log(waypoints[waypointIndex].transform.position.z);
             Debug.Log(waypoints[waypointIndex].transform.position.Equals(transform.position));
+=======
+
+        if (waypointIndex <= waypoints.Length - 1)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed*Time.deltaTime);
+>>>>>>> Stashed changes
 
             if (transform.position.x == waypoints[waypointIndex].transform.position.x && transform.position.y == waypoints[waypointIndex].transform.position.y)
             {
