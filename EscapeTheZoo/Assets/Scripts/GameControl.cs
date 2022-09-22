@@ -50,6 +50,11 @@ public class GameControl : MonoBehaviour
         {
             gameOver = true;
         }
+
+        if(player1.GetComponent<PlayerMovement>().waypoints[player1StartWaypoint] == player1.GetComponent<PlayerMovement>().waypoints[5] && player1.GetComponent<PlayerMovement>().waypoints[16])
+        {
+            
+        }
     }
 
     public static void MovePlayer(int playerToMove)
