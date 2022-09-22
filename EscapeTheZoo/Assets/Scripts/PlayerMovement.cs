@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //Debug.Log(myTurn);
         if (myTurn)
             Move();
     }
@@ -35,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(waypoints[waypointIndex]);
         if (waypointIndex <= waypoints.Length - 1)
         {
-            transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed*Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
             Debug.Log(transform.position.x);
             Debug.Log(transform.position.y);
             Debug.Log(transform.position.z);
@@ -44,10 +43,16 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log(waypoints[waypointIndex].transform.position.z);
             Debug.Log(waypoints[waypointIndex].transform.position.Equals(transform.position));
 
-            if (transform.position.x == waypoints[waypointIndex].transform.position.x && transform.position.y == waypoints[waypointIndex].transform.position.y)
+            if (waypointIndex <= waypoints.Length - 1)
             {
-                waypointIndex += 1;
+                transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
+
+                if (transform.position.x == waypoints[waypointIndex].transform.position.x && transform.position.y == waypoints[waypointIndex].transform.position.y)
+                {
+                    waypointIndex += 1;
+                }
             }
         }
     }
 }
+
