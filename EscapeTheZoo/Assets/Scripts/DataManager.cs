@@ -33,7 +33,7 @@ public class DataManager : MonoBehaviour
 
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + fName);
-        Debug.Log(Application.persistentDataPath);
+        //Debug.Log(Application.persistentDataPath);
         bf.Serialize(file, tempPlayerList);
         file.Close();
     }

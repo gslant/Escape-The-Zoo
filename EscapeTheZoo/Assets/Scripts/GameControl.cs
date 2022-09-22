@@ -35,6 +35,8 @@ public class GameControl : MonoBehaviour
     private List<GameObject> playerObjects;
     private List<GameObject> playerAccessoryObjects;
 
+    public GameObject mainCam, eventSys, grid, hud, p1, p2, dice;
+
     // Use this for initialization
     void Start()
     {
@@ -71,7 +73,16 @@ public class GameControl : MonoBehaviour
             if (player1.GetComponent<PlayerMovement>().waypointIndex == 6 || player1.GetComponent<PlayerMovement>().waypointIndex == 17 || player1.GetComponent<PlayerMovement>().waypointIndex == 24 || player1.GetComponent<PlayerMovement>().waypointIndex == 38
             || player1.GetComponent<PlayerMovement>().waypointIndex == 47 || player1.GetComponent<PlayerMovement>().waypointIndex == 62 || player1.GetComponent<PlayerMovement>().waypointIndex == 82)
             {
+                Debug.Log(boardObjects);
                 Debug.Log("MiniGame Time!!!!!");
+                mainCam.SetActive(false);
+                hud.SetActive(false);
+                grid.SetActive(false);
+                dice.SetActive(false);
+                p1.SetActive(false);
+                p2.SetActive(false);
+                eventSys.SetActive(false);
+                SceneLoader.LoadMinigameAdditive("EscapeTheLions");
             }
 
             //WILDCARD CODE: I know this is not effecince will improve on this later
@@ -92,8 +103,18 @@ public class GameControl : MonoBehaviour
             //MINIGAME CODE: I know this is not effecince will improve on this later
             if (player2.GetComponent<PlayerMovement>().waypointIndex == 6 || player2.GetComponent<PlayerMovement>().waypointIndex == 17 || player2.GetComponent<PlayerMovement>().waypointIndex == 24 || player2.GetComponent<PlayerMovement>().waypointIndex == 38
             || player2.GetComponent<PlayerMovement>().waypointIndex == 47 || player2.GetComponent<PlayerMovement>().waypointIndex == 62 || player2.GetComponent<PlayerMovement>().waypointIndex == 82)
-            {
+            {           
+                Debug.Log(boardObjects);
                 Debug.Log("MiniGame Time!!!!!");
+                mainCam.SetActive(false);
+                hud.SetActive(false);
+                grid.SetActive(false);
+                dice.SetActive(false);
+                p1.SetActive(false);
+                p2.SetActive(false);
+                eventSys.SetActive(false);
+                SceneLoader.LoadMinigameAdditive("EscapeTheLions");
+
             }
 
             //WILDCARD CODE: I know this is not effecince will improve on this later
@@ -180,5 +201,16 @@ public class GameControl : MonoBehaviour
     {
         Debug.Log("Quit to menu button clicked");
         SceneLoader.LoadScene("MainScene");
+    }
+
+    public void reloadObjs()
+    {
+        mainCam.SetActive(true);
+        hud.SetActive(true);
+        grid.SetActive(true);
+        dice.SetActive(true);
+        p1.SetActive(true);
+        p2.SetActive(true);
+        eventSys.SetActive(true);
     }
 }
