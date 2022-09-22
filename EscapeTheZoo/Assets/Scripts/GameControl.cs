@@ -66,6 +66,20 @@ public class GameControl : MonoBehaviour
             player1.GetComponent<PlayerMovement>().myTurn = false;
             player1StartWaypoint = player1.GetComponent<PlayerMovement>().waypointIndex - 1;
             GameControl.updatePlayerHUD(GameControl.listOfPlayersPlaying[1]);
+
+            //MINIGAME CODE: I know this is not effecince will improve on this later
+            if (player1.GetComponent<PlayerMovement>().waypointIndex == 6 || player1.GetComponent<PlayerMovement>().waypointIndex == 17 || player1.GetComponent<PlayerMovement>().waypointIndex == 24 || player1.GetComponent<PlayerMovement>().waypointIndex == 38
+            || player1.GetComponent<PlayerMovement>().waypointIndex == 47 || player1.GetComponent<PlayerMovement>().waypointIndex == 62 || player1.GetComponent<PlayerMovement>().waypointIndex == 82)
+            {
+                Debug.Log("MiniGame Time!!!!!");
+            }
+
+            //WILDCARD CODE: I know this is not effecince will improve on this later
+            if (player1.GetComponent<PlayerMovement>().waypointIndex == 11 || player1.GetComponent<PlayerMovement>().waypointIndex == 16 || player1.GetComponent<PlayerMovement>().waypointIndex == 33 || player1.GetComponent<PlayerMovement>().waypointIndex == 45
+            || player1.GetComponent<PlayerMovement>().waypointIndex == 57 || player1.GetComponent<PlayerMovement>().waypointIndex == 65 || player1.GetComponent<PlayerMovement>().waypointIndex == 69 || player1.GetComponent<PlayerMovement>().waypointIndex == 77)
+            {
+                Debug.Log("You found a (nameofthepowerup)!!!");
+            }
         }
 
         if (player2.GetComponent<PlayerMovement>().waypointIndex >
@@ -74,6 +88,20 @@ public class GameControl : MonoBehaviour
             player2.GetComponent<PlayerMovement>().myTurn = false;
             player2StartWaypoint = player2.GetComponent<PlayerMovement>().waypointIndex - 1;
             GameControl.updatePlayerHUD(GameControl.listOfPlayersPlaying[0]);
+
+            //MINIGAME CODE: I know this is not effecince will improve on this later
+            if (player2.GetComponent<PlayerMovement>().waypointIndex == 6 || player2.GetComponent<PlayerMovement>().waypointIndex == 17 || player2.GetComponent<PlayerMovement>().waypointIndex == 24 || player2.GetComponent<PlayerMovement>().waypointIndex == 38
+            || player2.GetComponent<PlayerMovement>().waypointIndex == 47 || player2.GetComponent<PlayerMovement>().waypointIndex == 62 || player2.GetComponent<PlayerMovement>().waypointIndex == 82)
+            {
+                Debug.Log("MiniGame Time!!!!!");
+            }
+
+            //WILDCARD CODE: I know this is not effecince will improve on this later
+            if (player2.GetComponent<PlayerMovement>().waypointIndex == 11 || player2.GetComponent<PlayerMovement>().waypointIndex == 16 || player2.GetComponent<PlayerMovement>().waypointIndex == 33 || player2.GetComponent<PlayerMovement>().waypointIndex == 45
+            || player2.GetComponent<PlayerMovement>().waypointIndex == 57 || player2.GetComponent<PlayerMovement>().waypointIndex == 65 || player2.GetComponent<PlayerMovement>().waypointIndex == 69 || player2.GetComponent<PlayerMovement>().waypointIndex == 77)
+            {
+                Debug.Log("You found a (nameofthepowerup)!!!");
+            }
         }
 
         if (player1.GetComponent<PlayerMovement>().waypointIndex ==
