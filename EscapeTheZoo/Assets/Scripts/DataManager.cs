@@ -8,9 +8,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class DataManager : MonoBehaviour
 {
     public string fName = "profiles.txt";
-
-    //Saves player data to persistent data path, which varies by device. it can commonly be found
-    //at c:\users\name\Appdata\LocalLow\companyname
     public void SaveData(Player p)
     {
         p.setGameBalance(0);
@@ -20,7 +17,6 @@ public class DataManager : MonoBehaviour
 
         bool alreadyExists = false;
 
-        //if the player already exists, save to the existing profile
         for (int i = 0; i < tempPlayerList.Count; i++)
         {
             if (String.Equals(tempPlayerList[i].getName(), p.getName()))
@@ -42,7 +38,6 @@ public class DataManager : MonoBehaviour
         file.Close();
     }
 
-    //Load list of players from file
     public List<Player> LoadData(string fileName)
     {
         List<Player> playerList = new List<Player>();
@@ -60,7 +55,6 @@ public class DataManager : MonoBehaviour
         return playerList;
     }
 
-    //This method can be used to delete the profile data. For development only, should not be user accessable
     public void DeleteFile()
     {
 
@@ -74,16 +68,16 @@ public class DataManager : MonoBehaviour
     }
 }
 
-//Holds all information about a player
 [Serializable]
+
 public class Player
 {
     private string name;
     private int totalBalance; // The total currency a player has. Can be used in the shop.
     private int gameBalance; // The amount of currency a player has in a game of "Escape The Zoo!". Cannot be used in the shop.
     private string animal;
-    private string accessory; // The currently equipped cosmetic
-    private List<string> ownedCosmetics; // All owned cosmetics
+    private string accessory;
+    private List<string> ownedCosmetics;
 
     public Player(string name, int totalBalance, string animal, string accessory, List<string> ownedCosmetics)
     {

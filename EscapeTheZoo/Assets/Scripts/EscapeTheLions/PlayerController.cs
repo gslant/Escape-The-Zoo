@@ -12,13 +12,14 @@ public class PlayerController : MonoBehaviour
     public ETLController con;
     void Start()
     {
+        Debug.Log(pName);
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //If touching the ground and jump key is held
+
         if(Input.GetKey(jumpKey) && !isJumping)
         {
             rb.velocity = new Vector3(0, 5, 0);
@@ -28,15 +29,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Allow jumping again
         if(collision.gameObject.CompareTag("Ground"))
         {
             isJumping = false;
         }
-
-        //Lion has the enemy tag, this activates the end of the minigame
         if(collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log(pName + " Hit the lion");
             con.PlayerDies(this.name);
         }
     }
