@@ -34,6 +34,7 @@ public class GameControl : MonoBehaviour
     public static List<Player> listOfPlayersPlaying; // This will load in the selected players from the lobby
     private List<GameObject> playerObjects;
     private List<GameObject> playerAccessoryObjects;
+    private int currentPlayerIndex; // This will determine which profile to load for the HUD
 
     public GameObject mainCam, eventSys, grid, hud, p1, p2, dice;
 
@@ -67,7 +68,7 @@ public class GameControl : MonoBehaviour
         {
             player1.GetComponent<PlayerMovement>().myTurn = false;
             player1StartWaypoint = player1.GetComponent<PlayerMovement>().waypointIndex - 1;
-            GameControl.updatePlayerHUD(GameControl.listOfPlayersPlaying[1]);
+            currentPlayerIndex = 1;
 
             //MINIGAME CODE: I know this is not effecince will improve on this later
             if (player1.GetComponent<PlayerMovement>().waypointIndex == 6 || player1.GetComponent<PlayerMovement>().waypointIndex == 17 || player1.GetComponent<PlayerMovement>().waypointIndex == 24 || player1.GetComponent<PlayerMovement>().waypointIndex == 38
@@ -97,7 +98,7 @@ public class GameControl : MonoBehaviour
         {
             player2.GetComponent<PlayerMovement>().myTurn = false;
             player2StartWaypoint = player2.GetComponent<PlayerMovement>().waypointIndex - 1;
-            GameControl.updatePlayerHUD(GameControl.listOfPlayersPlaying[0]);
+            currentPlayerIndex = 0;
 
             //MINIGAME CODE: I know this is not effecince will improve on this later
             if (player2.GetComponent<PlayerMovement>().waypointIndex == 6 || player2.GetComponent<PlayerMovement>().waypointIndex == 17 || player2.GetComponent<PlayerMovement>().waypointIndex == 24 || player2.GetComponent<PlayerMovement>().waypointIndex == 38
@@ -122,6 +123,8 @@ public class GameControl : MonoBehaviour
                 Debug.Log("You found a (nameofthepowerup)!!!");
             }
         }
+
+        GameControl.updatePlayerHUD(GameControl.listOfPlayersPlaying[currentPlayerIndex]);
 
         if (player1.GetComponent<PlayerMovement>().waypointIndex ==
             player1.GetComponent<PlayerMovement>().waypoints.Length)
