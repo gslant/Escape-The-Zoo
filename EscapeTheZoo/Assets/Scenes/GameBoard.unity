@@ -1669,8 +1669,24 @@ MonoBehaviour:
   winCanvas: {fileID: 1788880577}
   winCanvasText: {fileID: 2014156779}
   finishGameButton: {fileID: 945061166}
+  boardObjects:
+  - {fileID: 1431961685}
+  - {fileID: 1212342634}
+  - {fileID: 759260286}
+  - {fileID: 1138537604}
+  - {fileID: 1578878251}
+  - {fileID: 1827358657}
+  - {fileID: 1684355862}
+  - {fileID: 1689191583}
   player1Accessory: {fileID: 817367031}
   player2Accessory: {fileID: 1493101393}
+  mainCam: {fileID: 1431961685}
+  eventSys: {fileID: 1689191583}
+  grid: {fileID: 759260286}
+  hud: {fileID: 1212342634}
+  p1: {fileID: 1827358657}
+  p2: {fileID: 1684355862}
+  dice: {fileID: 1578878251}
 --- !u!4 &742399130
 Transform:
   m_ObjectHideFlags: 0
