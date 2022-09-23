@@ -37,7 +37,7 @@ public class MinigameLoadPlayers : MonoBehaviour
         for (int i = 0; i < listOfPlayersPlaying.Count; i++)
         {
             playerObjects[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Character Face Sprites/" + listOfPlayersPlaying[i].getAnimal());
-            playerObjects[i].GetComponentInChildren<TextMeshProUGUI>().text = listOfPlayersPlaying[i].getName();
+            playerObjects[i].GetComponentInChildren<TextMeshProUGUI>().text = "<size=60%>(Player " + (i + 1) + ")</size>\n" + listOfPlayersPlaying[i].getName();
             playerAccessoryObjects[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Cosmetic Sprites/" + listOfPlayersPlaying[i].getAccessory());
         }
     }
