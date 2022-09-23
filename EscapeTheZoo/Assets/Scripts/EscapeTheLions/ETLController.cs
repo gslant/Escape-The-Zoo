@@ -40,13 +40,13 @@ public class ETLController : MonoBehaviour
         if (name == "Player 1")
         {
             Debug.Log("player 1 died");
-            gameOverText.SetText("player 1 has died, player 2 wins!");
+            gameOverText.SetText(MinigameLoadPlayers.GetListOfPlayersPlaying()[0].getName() +" has died, "+ MinigameLoadPlayers.GetListOfPlayersPlaying()[1].getName() + " wins!");
             //p1.SetActive(false);
         }
         else if(name == "Player 2")
         {
             Debug.Log("player 2 died");
-            gameOverText.SetText("player 2 has died, player 1 wins!");
+            gameOverText.SetText(MinigameLoadPlayers.GetListOfPlayersPlaying()[1].getName() + " has died, " + MinigameLoadPlayers.GetListOfPlayersPlaying()[0].getName() + " wins!");
         }
         else
         {

@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class MinigameLoadPlayers : MonoBehaviour
 {
+    // This script can be attached to a game object to load players in from the lobby
+
     [SerializeField] private GameObject player1, player2;
     [SerializeField] private GameObject player1Accessory, player2Accessory;
 
     // Load player variables
-    private List<Player> listOfPlayersPlaying; // This will load in the selected players from the lobby
+    private static List<Player> listOfPlayersPlaying; // This will load in the selected players from the lobby
     private List<GameObject> playerObjects;
     private List<GameObject> playerAccessoryObjects;
 
@@ -40,5 +42,10 @@ public class MinigameLoadPlayers : MonoBehaviour
             playerObjects[i].GetComponentInChildren<TextMeshProUGUI>().text = "<size=60%>(Player " + (i + 1) + ")</size>\n" + listOfPlayersPlaying[i].getName();
             playerAccessoryObjects[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Cosmetic Sprites/" + listOfPlayersPlaying[i].getAccessory());
         }
+    }
+
+    public static List<Player> GetListOfPlayersPlaying()
+    {
+        return listOfPlayersPlaying;
     }
 }
