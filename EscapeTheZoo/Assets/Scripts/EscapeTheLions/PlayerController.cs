@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public ETLController con;
     void Start()
     {
-
+        Debug.Log(pName);
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         }
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Hit the lion");
+            Debug.Log(pName + " Hit the lion");
             con.PlayerDies(this.name);
         }
     }
