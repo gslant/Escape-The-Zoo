@@ -18,6 +18,10 @@ public class ETLController : MonoBehaviour
     private TextMeshProUGUI gameOverText;
     public List<GameObject> boardObjects = new List<GameObject>();
 
+    // Constants for the amount of coins earned
+    private const int WINNING_COINS = 6;
+    private const int LOSING_COINS = 2;
+
     private void Start()
     {
         GameOverCanvas.SetActive(false);
@@ -36,27 +40,43 @@ public class ETLController : MonoBehaviour
 
     public void PlayerDies(string name)
     {
+        int winIndex = -1;
+        int loseIndex = -1;
+
         GameOverCanvas.SetActive(true);
         if (name == "Player 1")
         {
             Debug.Log("player 1 died");
-            gameOverText.SetText(MinigameLoadPlayers.GetListOfPlayersPlaying()[0].getName() +" has died, "+ MinigameLoadPlayers.GetListOfPlayersPlaying()[1].getName() + " wins!");
+            gameOverText.SetText(MinigameLoadPlayers.GetListOfPlayersPlaying()[0].getName() + " has died, " + MinigameLoadPlayers.GetListOfPlayersPlaying()[1].getName() + " wins!");
+
+            winIndex = 1;
+            loseIndex = 0;
             //p1.SetActive(false);
         }
         else if(name == "Player 2")
         {
             Debug.Log("player 2 died");
             gameOverText.SetText(MinigameLoadPlayers.GetListOfPlayersPlaying()[1].getName() + " has died, " + MinigameLoadPlayers.GetListOfPlayersPlaying()[0].getName() + " wins!");
+            winIndex = 0;
+            loseIndex = 1;
         }
         else
         {
             Debug.Log(name);
         }
 
+        EarnCoins(winIndex, loseIndex);
+
         //show game over screen/winner recieving coins?
         //notify scenemanager that the minigame is complete
         //notify gamemanager that the minigame is complete
         //transition back to board
+    }
+
+    private void EarnCoins(int winIndex, int loseIndex)
+    {
+        MinigameLoadPlayers.GetListOfPlayersPlaying()[winIndex].changeGameBalanceByAmount(WINNING_COINS);
+        MinigameLoadPlayers.GetListOfPlayersPlaying()[loseIndex].changeGameBalanceByAmount(LOSING_COINS);
     }
 
     private void goBack()
