@@ -37,16 +37,20 @@ public class ETLController : MonoBehaviour
     public void PlayerDies(string name)
     {
         GameOverCanvas.SetActive(true);
-        if (name == "player1")
+        if (name == "Player 1")
         {
             Debug.Log("player 1 died");
             gameOverText.SetText("player 1 has died, player 2 wins!");
             //p1.SetActive(false);
         }
-        else
+        else if(name == "Player 2")
         {
             Debug.Log("player 2 died");
             gameOverText.SetText("player 2 has died, player 1 wins!");
+        }
+        else
+        {
+            Debug.Log(name);
         }
 
         //show game over screen/winner recieving coins?
