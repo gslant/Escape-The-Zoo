@@ -53,6 +53,7 @@ public class GameControl : MonoBehaviour
         player1.GetComponent<PlayerMovement>().myTurn = false;
         player2.GetComponent<PlayerMovement>().myTurn = false;
 
+        // Sets up the HUD and hides the win screen. Then initialises a DataManager object and attaches a listener to the "Quit to Menu" button
         winCanvas.SetActive(false);
         HUDCanvas.SetActive(true);
         updatePlayerHUD(listOfPlayersPlaying[0]);
@@ -193,12 +194,14 @@ public class GameControl : MonoBehaviour
         }
     }
 
+    // Updates the HUD with information taken from the given "Player" object
     public static void updatePlayerHUD(Player player)
     {
         HUDPlayerNameText.GetComponent<TextMeshProUGUI>().text = player.getName();
         HUDGoldAmountText.GetComponent<TextMeshProUGUI>().text = player.getGameBalance() + "";
     }
 
+    // Does this when the "Quit to Menu" button is pressed
     private void finishGame()
     {
         Debug.Log("Quit to menu button clicked");
