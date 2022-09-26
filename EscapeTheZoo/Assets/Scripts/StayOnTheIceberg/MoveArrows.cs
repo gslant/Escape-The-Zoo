@@ -34,7 +34,7 @@ public class MoveArrows : MonoBehaviour
 
     void FixedUpdate()
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
         jump = false;
     }
 }
