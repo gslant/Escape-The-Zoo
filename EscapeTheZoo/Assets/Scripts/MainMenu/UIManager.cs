@@ -55,8 +55,6 @@ public class UIManager : MonoBehaviour
     public void GoToShop()
     {
         lobbyCanvas.SetActive(false);
-        //set shop canvas to true
-        Debug.Log("Shop Clicked");
     }
 
     //TODO: there is probably a safer way of doing this, this just prevents having to use alt+f4 on test builds
