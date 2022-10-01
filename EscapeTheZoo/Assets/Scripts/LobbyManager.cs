@@ -26,6 +26,7 @@ public class LobbyManager : MonoBehaviour
     // "Player Select" Objects
     public Transform playersScrollContent;
     public GameObject playersScrollPanelPrefab;
+    public GameObject scrollBar;
     // "Selected Player" Objects
     public GameObject currentSelectedPlayerText;
     public GameObject currentSelectedPlayerAnimal;
@@ -80,6 +81,9 @@ public class LobbyManager : MonoBehaviour
         increasePlayersButton.onClick.AddListener(delegate { increasePlayers(); });
         previousMapButton.onClick.AddListener(delegate { previousMap(); });
         nextMapButton.onClick.AddListener(delegate { nextMap(); });
+
+        // Make scrollhandle constant size
+        scrollBar.transform.GetComponent<Scrollbar>().size = 0.15f;
 
         // Player name character limit
         createPlayerScreenInput.characterLimit = PLAYERNAMECHARLIMIT;

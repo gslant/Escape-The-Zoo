@@ -18,6 +18,7 @@ public class ShopManger : MonoBehaviour
     public GameObject currentSelectedPlayerName; // Holds the name of the selected player
     public GameObject currentSelectedPlayerAnimal; // Holds the animal of the selected player
     public GameObject previewAcessoryImage;
+    public GameObject scrollBar;
 
     // Player profiles
     private List<Player> playerList = new List<Player>(); // A list of "Player" instances.
@@ -41,6 +42,9 @@ public class ShopManger : MonoBehaviour
 
         LoadPlayerProfilesData();
         LoadPlayerList();
+
+        // Make scrollhandle constant size
+        scrollBar.transform.GetComponent<Scrollbar>().size = 0.15f;
     }
 
     private void LoadPlayerProfilesData()
