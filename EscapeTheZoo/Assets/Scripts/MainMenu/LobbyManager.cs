@@ -383,11 +383,13 @@ public class LobbyManager : MonoBehaviour
 
         if (accessoryArrayCurrentIndex == 0)
         {
-            playerList[playerNumber].setAccessory(playerCosmeticsList[playerCosmeticsList.Count - 1]);
+            playerList[playerNumber].setAccessory("None");
         }
         else
         {
-            playerList[playerNumber].setAccessory(playerCosmeticsList[accessoryArrayCurrentIndex - 1]);
+            if (accessoryArrayCurrentIndex > 0) {
+                playerList[playerNumber].setAccessory(playerCosmeticsList[accessoryArrayCurrentIndex - 1]);
+            }
         }
 
         showSelectedPlayer(playerNumber);
