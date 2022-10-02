@@ -24,7 +24,7 @@ public class CTBPlayerController : MonoBehaviour
         PlayerMove();
     }
 
-    private void PlayerMove()
+    void PlayerMove()
     {
 
         if (Input.GetKey(leftKey)) // move to the left
@@ -38,6 +38,15 @@ public class CTBPlayerController : MonoBehaviour
         else // if no key is pressed, the player doesn't move
         {
             rb.velocity = new Vector2(0, 0);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Banana")
+        {
+            Destroy(collision.gameObject);
+            // Call function to update score?
         }
     }
 }
