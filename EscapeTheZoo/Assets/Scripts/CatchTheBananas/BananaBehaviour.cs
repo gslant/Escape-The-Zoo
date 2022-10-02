@@ -6,10 +6,17 @@ public class BananaBehaviour : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            // For now the banana gets destroyed...
-            Destroy(gameObject);
+            StartCoroutine(BecomeDangerousBanana());
         }
+    }
+
+    // this is my favourite name ive given to a method so far
+    IEnumerator BecomeDangerousBanana()
+    {
+        gameObject.tag = "Enemy";
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
     }
 }

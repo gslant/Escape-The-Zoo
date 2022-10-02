@@ -19,6 +19,10 @@ public class CTBManager : MonoBehaviour
     {
         // update coin count
     }
+    void StartSpawningBananas()
+    {
+        StartCoroutine(TimeSpawn());
+    }
 
     IEnumerator TimeSpawn()
     {
@@ -41,11 +45,6 @@ public class CTBManager : MonoBehaviour
             SpawnBanana();
             yield return new WaitForSeconds(timeInterval);
         }
-    }
-
-    void StartSpawningBananas()
-    {
-        StartCoroutine(TimeSpawn());
     }
 
     void SpawnBanana()
