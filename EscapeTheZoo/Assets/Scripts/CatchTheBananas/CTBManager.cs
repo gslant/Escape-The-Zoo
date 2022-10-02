@@ -8,12 +8,10 @@ public class CTBManager : MonoBehaviour
 
     [SerializeField] GameObject bananaPrefab;
 
-    //[SerializeField] float spawnInterval;
-
     // Start is called before the first frame update
     void Start()
     {
-        StartSpawning();
+        StartSpawningBananas();
     }
 
     // Update is called once per frame
@@ -45,9 +43,9 @@ public class CTBManager : MonoBehaviour
         }
     }
 
-    void StartSpawning()
+    void StartSpawningBananas()
     {
-        StartCoroutine("TimeSpawn");
+        StartCoroutine(TimeSpawn());
     }
 
     void SpawnBanana()
