@@ -1,38 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameControl;
+using static Player;
 
 public class PowerupsImplementation : MonoBehaviour
 {
-    private static GameObject player1, player2;
 
-    private List<Gameobject> playerObject;
-
+    [SerializeField] public Player p1, p2;
 
 
-    private const int moveback = 5;
-    private const int getcoins = 3;
+    //public static listOfPlayersPlaying;
     
-
 
     // Start is called before the first frame update
     void Start()
     {
-        player1 = GameObject.Find("Player 1");
-        player2 = GameObject.Find("Player 2");
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        SettingPlayers();
+
     }
 
+    public void SettingPlayers()
+    {
+        p1 = listOfPlayersPlaying[0];
+        p2 = listOfPlayersPlaying[1];
+    }
 
     public void gain3coins()
     {
-        player1
+
     }
 
     public void lose3coins()
