@@ -8,6 +8,9 @@ public class CTBManager : MonoBehaviour
 
     [SerializeField] GameObject bananaPrefab;
 
+    public int Player1Score { get; set; }
+    public int Player2Score { get; set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,5 +55,19 @@ public class CTBManager : MonoBehaviour
         GameObject banana = Instantiate(prefab, new Vector3(Random.Range(-8f, 8f), 6f, 0f), Quaternion.identity);
         banana.SetActive(true);
         return banana;
+    }
+
+    public void IncrementScore(string playerName)
+    {
+        if (playerName == "Player1")
+        {
+            Player1Score++;
+        }
+        if (playerName == "Player2")
+        {
+            Player2Score++;
+        }
+
+        //  update score()
     }
 }

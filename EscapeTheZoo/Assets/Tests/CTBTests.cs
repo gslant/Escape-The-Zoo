@@ -29,12 +29,16 @@ public class CTBTests
         Assert.IsTrue(bananaSpawn.transform.position.x >= -8 && bananaSpawn.transform.position.x <= 8);
     }
 
-    // test score increments
-    /*    public IEnumerator ScoreIncrementsAfterCatchingBanana()
-        {
-            yield return null;
+    [Test]
+    public void ScoreIncrements()
+    {
+        // Given player 1 caught a banana...
+        _CTBManager.IncrementScore("Player1");
 
-        }*/
+        int expected = 1;
+
+        Assert.AreEqual(expected, _CTBManager.Player1Score);
+    }
 
     // test player win
     /*    public IEnumerator PlayerWins()
