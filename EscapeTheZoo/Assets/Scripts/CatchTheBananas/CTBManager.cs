@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CTBManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class CTBManager : MonoBehaviour
     // Manages spawning of bananas and keeping track of the players' count
 
     [SerializeField] GameObject bananaPrefab;
+    [SerializeField] TMP_Text player1ScoreText, player2ScoreText;
 
     public int Player1Score { get; set; }
     public int Player2Score { get; set; }
@@ -14,14 +16,10 @@ public class CTBManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        UpdatePlayerScoreTexts();
         StartSpawningBananas();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // update coin count
-    }
     void StartSpawningBananas()
     {
         StartCoroutine(TimeSpawn());
@@ -68,6 +66,12 @@ public class CTBManager : MonoBehaviour
             Player2Score++;
         }
 
-        //  update score()
+        UpdatePlayerScoreTexts();
+    }
+
+    void UpdatePlayerScoreTexts()
+    {
+        player1ScoreText.text = "<size=80%>(Player 1)</size>\nScore: " + Player1Score;
+        player2ScoreText.text = "<size=80%>(Player 2)</size>\nScore: " + Player2Score;
     }
 }

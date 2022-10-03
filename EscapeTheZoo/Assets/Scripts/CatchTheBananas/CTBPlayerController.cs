@@ -6,10 +6,13 @@ public class CTBPlayerController : MonoBehaviour
 {
     // This script is assigned to the player objects for movement
 
-    Rigidbody2D rb;
+    [SerializeField] GameObject minigameManager;
     [SerializeField] KeyCode leftKey;
     [SerializeField] KeyCode rightKey;
     [SerializeField] KeyCode upKey;
+
+    Rigidbody2D rb;
+    CTBManager ctbManager;
 
     const float PLAYER_SPEED = 6f;
 
@@ -20,15 +23,16 @@ public class CTBPlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        ctbManager = minigameManager.GetComponent<CTBManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerMove();
+        PlayerMoves();
     }
 
-    void PlayerMove()
+    void PlayerMoves()
     {
         if (canMove)
         {
@@ -61,7 +65,7 @@ public class CTBPlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Banana"))
         {
             Destroy(collision.gameObject);
-            // Call function to update score?
+            ctbManager.IncrementScore(name); // The player's score is incremented in the CTB manager
         }
         if (collision.gameObject.CompareTag("Enemy"))
         {

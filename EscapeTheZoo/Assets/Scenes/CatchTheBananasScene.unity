@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 25672683}
   m_Layer: 5
-  m_Name: CountText
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 537222569}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Player1
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,6 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d88943aeb25fb574f9f6928209c10993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minigameManager: {fileID: 1805270693}
   leftKey: 276
   rightKey: 275
   upKey: 273
@@ -719,7 +720,7 @@ GameObject:
   - component: {fileID: 1485588739}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Player1
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -850,6 +851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d88943aeb25fb574f9f6928209c10993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minigameManager: {fileID: 1805270693}
   leftKey: 97
   rightKey: 100
   upKey: 119
@@ -1077,6 +1079,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bananaPrefab: {fileID: 2035329849}
+  player1ScoreText: {fileID: 2058154972}
+  player2ScoreText: {fileID: 2104716267}
 --- !u!1 &2035329849 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5214410937759287446, guid: e4ac42e8717250644b393e938eed36bb, type: 3}
@@ -1094,7 +1098,7 @@ GameObject:
   - component: {fileID: 2058154973}
   - component: {fileID: 2058154972}
   m_Layer: 5
-  m_Name: Player1CountText
+  m_Name: Player1ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1142,7 +1146,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: '<size=80%>(Player 1)</size>
 
-    Count: -'
+    Score: -'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1231,7 +1235,7 @@ GameObject:
   - component: {fileID: 2104716268}
   - component: {fileID: 2104716267}
   m_Layer: 5
-  m_Name: Player2CountText
+  m_Name: Player2ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1279,7 +1283,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: '<size=80%>(Player 2)</size>
 
-    Count: -'
+    Score: -'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
