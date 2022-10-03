@@ -42,14 +42,15 @@ public class CTBManager : MonoBehaviour
                 bananaPrefab.GetComponent<Rigidbody2D>().gravityScale = bananaGravity;
             }
 
-            SpawnBanana();
+            SpawnBanana(bananaPrefab);
             yield return new WaitForSeconds(timeInterval);
         }
     }
 
-    void SpawnBanana()
+    public GameObject SpawnBanana(GameObject prefab)
     {
-        GameObject banana = Instantiate(bananaPrefab, new Vector3(Random.Range(-8f, 8f), 6f, 0f), Quaternion.identity);
+        GameObject banana = Instantiate(prefab, new Vector3(Random.Range(-8f, 8f), 6f, 0f), Quaternion.identity);
         banana.SetActive(true);
+        return banana;
     }
 }
