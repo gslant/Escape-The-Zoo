@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class CTBManager : MonoBehaviour
 {
-    // Manages spawning of bananas and keeping track of the players' count
+    // Manages spawning of bananas, keeping track of the players' count, and the winner of the minigame
 
+    [SerializeField] GameObject gameCanvas;
     [SerializeField] GameObject bananaPrefab;
     [SerializeField] TMP_Text player1ScoreText, player2ScoreText;
+
+    const int WIN_SCORE = 20;
 
     public int Player1Score { get; set; }
     public int Player2Score { get; set; }
@@ -16,6 +19,7 @@ public class CTBManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetGameCanvasActiveStatus(true);
         UpdatePlayerScoreTexts();
         StartSpawningBananas();
     }
@@ -61,17 +65,38 @@ public class CTBManager : MonoBehaviour
         {
             Player1Score++;
         }
-        if (playerName == "Player2")
+        else if (playerName == "Player2")
         {
             Player2Score++;
         }
 
         UpdatePlayerScoreTexts();
+        CheckWin();
     }
 
     void UpdatePlayerScoreTexts()
     {
         player1ScoreText.text = "<size=80%>(Player 1)</size>\nScore: " + Player1Score;
         player2ScoreText.text = "<size=80%>(Player 2)</size>\nScore: " + Player2Score;
+    }
+
+    public string CheckWin()
+    {
+        string winner = "";
+        if (Player1Score == WIN_SCORE)
+        {
+            winner = "Player1";
+        }
+        else if (Player2Score == WIN_SCORE)
+        {
+            winner = "Player2";
+        }
+
+        return winner;
+    }
+
+    void SetGameCanvasActiveStatus(bool boolean)
+    {
+        gameCanvas.SetActive(boolean);
     }
 }

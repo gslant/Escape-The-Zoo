@@ -32,18 +32,29 @@ public class CTBTests
     [Test]
     public void ScoreIncrements()
     {
-        // Given player 1 caught a banana...
         _CTBManager.IncrementScore("Player1");
+        _CTBManager.IncrementScore("Player2");
 
         int expected = 1;
 
         Assert.AreEqual(expected, _CTBManager.Player1Score);
+        Assert.AreEqual(expected, _CTBManager.Player2Score);
     }
 
-    // test player win
-    /*    public IEnumerator PlayerWins()
-        {
-            yield return null;
+    [Test]
+    public void PlayerWins()
+    {
+        // Simulating player 1 winning
+        int winScore = 20;
 
-        }*/
+        for (int i = 0; i < winScore; i++)
+        {
+            _CTBManager.IncrementScore("Player1");
+        }
+
+        string expectedWinner = "Player1";
+        string actualWinner = _CTBManager.CheckWin();
+
+        Assert.AreEqual(expectedWinner, actualWinner);
+    }
 }

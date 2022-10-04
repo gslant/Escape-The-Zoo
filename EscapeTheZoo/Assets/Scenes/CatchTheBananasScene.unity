@@ -1078,6 +1078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68123b92dfdd28b4aaba8d716d930e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCanvas: {fileID: 629567250}
   bananaPrefab: {fileID: 2035329849}
   player1ScoreText: {fileID: 2058154972}
   player2ScoreText: {fileID: 2104716267}

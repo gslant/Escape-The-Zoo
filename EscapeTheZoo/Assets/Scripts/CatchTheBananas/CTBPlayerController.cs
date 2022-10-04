@@ -34,20 +34,23 @@ public class CTBPlayerController : MonoBehaviour
 
     void PlayerMoves()
     {
+        int leftHorizontal = -1;
+        int rightHorizontal = 1;
+
         if (canMove)
         {
-            if (Input.GetKey(upKey) && canJump == true) // jump up
+            if (Input.GetKey(upKey) && canJump == true)
             {
                 rb.velocity = new Vector2(0, PLAYER_SPEED);
                 canJump = false;
             }
-            else if (Input.GetKey(leftKey)) // move to the left
+            else if (Input.GetKey(leftKey))
             {
-                rb.velocity = new Vector2(-1 * PLAYER_SPEED, rb.velocity.y);
+                rb.velocity = new Vector2(leftHorizontal * PLAYER_SPEED, rb.velocity.y);
             }
-            else if (Input.GetKey(rightKey)) // move to the right
+            else if (Input.GetKey(rightKey))
             {
-                rb.velocity = new Vector2(1 * PLAYER_SPEED, rb.velocity.y);
+                rb.velocity = new Vector2(rightHorizontal * PLAYER_SPEED, rb.velocity.y);
             }
             else // if no key is pressed, the player stops moving
             {
@@ -65,7 +68,7 @@ public class CTBPlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Banana"))
         {
             Destroy(collision.gameObject);
-            ctbManager.IncrementScore(name); // The player's score is incremented in the CTB manager
+            ctbManager.IncrementScore(name);
         }
         if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -77,7 +80,8 @@ public class CTBPlayerController : MonoBehaviour
 
     private void PlayerSlips()
     {
-        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * 4, rb.velocity.y);
+        int slipSpeed = 4;
+        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * slipSpeed, rb.velocity.y);
     }
 
     IEnumerator StunPlayer()
