@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class CTBManager : MonoBehaviour
 {
-    // Manages spawning of bananas, keeping track of the players' count, and the winner of the minigame
+    // Manages keeping track of the players' count and the winner of the minigame
 
     [SerializeField] GameObject gameOverCanvas;
-    [SerializeField] GameObject bananaPrefab;
+    [SerializeField] BananaSpawner bananaSpawner;
     [SerializeField] TMP_Text player1ScoreText, player2ScoreText;
 
     const int WIN_SCORE = 20;
@@ -26,37 +26,7 @@ public class CTBManager : MonoBehaviour
 
     void StartSpawningBananas()
     {
-        StartCoroutine(TimeSpawn());
-    }
-
-    IEnumerator TimeSpawn()
-    {
-        float timeInterval = 4f;
-        float bananaGravity = bananaPrefab.GetComponent<Rigidbody2D>().gravityScale;
-
-        while (true)
-        {
-            // Increase speed of banana spawning and falling 
-            if (timeInterval >= 1f)
-            {
-                timeInterval *= 0.9f;
-            }
-            if (bananaGravity < 1f)
-            {
-                bananaGravity *= 1.1f;
-                bananaPrefab.GetComponent<Rigidbody2D>().gravityScale = bananaGravity;
-            }
-
-            SpawnBanana(bananaPrefab);
-            yield return new WaitForSeconds(timeInterval);
-        }
-    }
-
-    public GameObject SpawnBanana(GameObject prefab)
-    {
-        GameObject banana = Instantiate(prefab, new Vector3(Random.Range(-8f, 8f), 6f, 0f), Quaternion.identity);
-        banana.SetActive(true);
-        return banana;
+        StartCoroutine(bananaSpawner.SpawnBananas());
     }
 
     public void IncrementScore(string playerName)
@@ -87,12 +57,12 @@ public class CTBManager : MonoBehaviour
         if (Player1Score == WIN_SCORE)
         {
             winner = "Player1";
-            GameOver();
+            StartCoroutine(GameOver());
         }
         else if (Player2Score == WIN_SCORE)
         {
             winner = "Player2";
-            GameOver();
+            StartCoroutine(GameOver());
         }
 
         return winner;

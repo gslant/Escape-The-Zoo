@@ -7,6 +7,7 @@ using UnityEngine.TestTools;
 public class CTBTests
 {
     private CTBManager _CTBManager;
+    private BananaSpawner _bananaSpawner;
     private GameObject _bananaObject;
 
     [SetUp]
@@ -14,6 +15,9 @@ public class CTBTests
     {
         var managerObject = new GameObject();
         _CTBManager = managerObject.AddComponent<CTBManager>();
+
+        var spawnObject = new GameObject();
+        _bananaSpawner = spawnObject.AddComponent<BananaSpawner>();
 
         // Create banana object similar to the banana prefab
         _bananaObject = new GameObject();
@@ -23,7 +27,7 @@ public class CTBTests
     [Test]
     public void BananasSpawnRandomlyWithinRange()
     {
-        GameObject bananaSpawn = _CTBManager.SpawnBanana(_bananaObject);
+        GameObject bananaSpawn = _bananaSpawner.SpawnBanana(_bananaObject);
 
         Assert.AreNotEqual(_bananaObject.transform.position.x, bananaSpawn.transform.position.x);
         Assert.IsTrue(bananaSpawn.transform.position.x >= -8 && bananaSpawn.transform.position.x <= 8);
