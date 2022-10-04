@@ -7,7 +7,7 @@ public class CTBManager : MonoBehaviour
 {
     // Manages spawning of bananas, keeping track of the players' count, and the winner of the minigame
 
-    [SerializeField] GameObject gameCanvas;
+    [SerializeField] GameObject gameOverCanvas;
     [SerializeField] GameObject bananaPrefab;
     [SerializeField] TMP_Text player1ScoreText, player2ScoreText;
 
@@ -19,7 +19,7 @@ public class CTBManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetGameCanvasActiveStatus(true);
+        gameOverCanvas.SetActive(false);
         UpdatePlayerScoreTexts();
         StartSpawningBananas();
     }
@@ -71,7 +71,8 @@ public class CTBManager : MonoBehaviour
         }
 
         UpdatePlayerScoreTexts();
-        CheckWin();
+        // call function about what to do with the return of CheckWin()?
+        CheckWin(); // for now...
     }
 
     void UpdatePlayerScoreTexts()
@@ -82,21 +83,28 @@ public class CTBManager : MonoBehaviour
 
     public string CheckWin()
     {
-        string winner = "";
+        string winner = "No Winner";
         if (Player1Score == WIN_SCORE)
         {
             winner = "Player1";
+            GameOver();
         }
         else if (Player2Score == WIN_SCORE)
         {
             winner = "Player2";
+            GameOver();
         }
 
         return winner;
     }
 
-    void SetGameCanvasActiveStatus(bool boolean)
+    IEnumerator GameOver()
     {
-        gameCanvas.SetActive(boolean);
+        gameOverCanvas.SetActive(true);
+        // Pause game. To resume the time, set timeScale to 1
+        Time.timeScale = 0;
+        yield return new WaitForSeconds(4);
+        Time.timeScale = 1;
+        // Unload scene?
     }
 }
