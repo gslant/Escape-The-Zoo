@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class CTBManager : MonoBehaviour
@@ -71,10 +72,13 @@ public class CTBManager : MonoBehaviour
     IEnumerator GameOver()
     {
         gameOverCanvas.SetActive(true);
-        // Pause game. To resume the time, set timeScale to 1
+
+        // Pause game for 4 seconds
         Time.timeScale = 0;
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSecondsRealtime(4);
         Time.timeScale = 1;
-        // Unload scene?
+
+        // Unload scene? This is just here as an example
+        SceneManager.LoadScene("MainScene");
     }
 }
