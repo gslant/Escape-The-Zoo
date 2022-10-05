@@ -72,13 +72,14 @@ public class CTBManager : MonoBehaviour
     IEnumerator GameOver()
     {
         gameOverCanvas.SetActive(true);
+        bananaSpawner.IsSpawning = false;
 
         // Pause game for 4 seconds
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(4);
         Time.timeScale = 1;
 
-        // Unload scene? This is just here as an example
+        // Unload scene? This is just here as a placeholder
         SceneManager.LoadScene("MainScene");
     }
 }

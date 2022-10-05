@@ -5,13 +5,16 @@ using UnityEngine;
 public class BananaSpawner : MonoBehaviour
 {
     [SerializeField] GameObject bananaPrefab;
+    
+    public bool IsSpawning { get; set; }
 
     public IEnumerator SpawnBananas()
     {
+        IsSpawning = true;
         float timeInterval = 4f;
         float bananaGravity = bananaPrefab.GetComponent<Rigidbody2D>().gravityScale;
 
-        while (true)
+        while (IsSpawning)
         {
             // Increase speed of banana spawning and falling 
             if (timeInterval >= 1f)
