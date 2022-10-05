@@ -9,6 +9,7 @@ public class BananaBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             StartCoroutine(BecomeDangerousBanana());
+            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Art/CTBMinigame/CTB_BananaPeeled");
         }
     }
 
