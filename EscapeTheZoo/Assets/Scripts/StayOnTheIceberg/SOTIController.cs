@@ -8,12 +8,12 @@ public class SOTIController : MonoBehaviour
     public CharacterController2D p1;
     public CharacterController2D p2;
 
-    //[SerializeField]
-    //private GameObject GameOverCanvas;
-    //[SerializeField]
-    //private Button goBackButton;
-    //[SerializeField]
-    //private TextMeshProUGUI gameOverText;
+    [SerializeField]
+    private GameObject GameOverCanvas;
+    [SerializeField]
+    private Button goBackButton;
+    [SerializeField]
+    private TextMeshProUGUI gameOverText;
     public List<GameObject> boardObjects = new List<GameObject>();
 
     // Constants for the amount of coins earned
@@ -23,8 +23,8 @@ public class SOTIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //GameOverCanvas.SetActive(false);
-        //goBackButton.onClick.AddListener(delegate { goBack(); });
+        GameOverCanvas.SetActive(false);
+        goBackButton.onClick.AddListener(delegate { goBack(); });
     }
 
     //Defunct
@@ -44,18 +44,18 @@ public class SOTIController : MonoBehaviour
         int loseIndex = -1;
         Debug.Log(name + " recieved by SOTICon");
 
-        //GameOverCanvas.SetActive(true);
+        GameOverCanvas.SetActive(true);
         if (name == "Player1")
         {
             Debug.Log("WINdex = 1");
-            //gameOverText.SetText(MinigameLoadPlayers.GetListOfPlayersPlaying()[0].getName() + " has died, " + MinigameLoadPlayers.GetListOfPlayersPlaying()[1].getName() + " wins!");
+            gameOverText.SetText(MinigameLoadPlayers.GetListOfPlayersPlaying()[0].getName() + " has died, " + MinigameLoadPlayers.GetListOfPlayersPlaying()[1].getName() + " wins!");
             winIndex = 1;
             loseIndex = 0;
         }
         else if (name == "Player2")
         {
             Debug.Log("WINdex = 0");
-            //gameOverText.SetText(MinigameLoadPlayers.GetListOfPlayersPlaying()[1].getName() + " has died, " + MinigameLoadPlayers.GetListOfPlayersPlaying()[0].getName() + " wins!");
+            gameOverText.SetText(MinigameLoadPlayers.GetListOfPlayersPlaying()[1].getName() + " has died, " + MinigameLoadPlayers.GetListOfPlayersPlaying()[0].getName() + " wins!");
             winIndex = 0;
             loseIndex = 1;
         }
