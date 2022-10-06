@@ -48,7 +48,7 @@ public class MeltingPlatform : MonoBehaviour
         yield return new WaitForSeconds(1);
         Invoke("DropPlatform", 0.1f);
         spriteRenderer.sprite = sArray[2];
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 1f);
     }
 
     void DropPlatform()

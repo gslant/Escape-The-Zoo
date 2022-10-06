@@ -14,6 +14,7 @@ public class GameControl : MonoBehaviour
     public GameObject winCanvas;
     public GameObject winCanvasText;
     public Button finishGameButton;
+    private string[] minigames = { "EscapeTheLions", "StayOnTheIceberg" };
 
     // DataManager to save players
     private DataManager dataManager;
@@ -83,7 +84,9 @@ public class GameControl : MonoBehaviour
                 p1.SetActive(false);
                 p2.SetActive(false);
                 eventSys.SetActive(false);
-                SceneLoader.LoadMinigameAdditive("EscapeTheLions");
+                int miniGameRand = 0;
+                miniGameRand = Random.Range(0, 1);
+                SceneLoader.LoadMinigameAdditive("StayOnTheIceberg");
             }
 
             //WILDCARD CODE: I know this is not effecince will improve on this later
@@ -113,7 +116,9 @@ public class GameControl : MonoBehaviour
                 p1.SetActive(false);
                 p2.SetActive(false);
                 eventSys.SetActive(false);
-                SceneLoader.LoadMinigameAdditive("EscapeTheLions");
+                int miniGameRand = 0;
+                miniGameRand = Random.Range(0, 1);
+                SceneLoader.LoadMinigameAdditive("StayOnTheIceberg");
 
             }
 
