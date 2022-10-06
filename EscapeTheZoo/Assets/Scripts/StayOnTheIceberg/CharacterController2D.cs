@@ -103,6 +103,7 @@ public class CharacterController2D : MonoBehaviour
         //Lion has the enemy tag, this activates the end of the minigame
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("Player: " + this.name + " has died");
             con.PlayerDies(this.name);
         }
     }

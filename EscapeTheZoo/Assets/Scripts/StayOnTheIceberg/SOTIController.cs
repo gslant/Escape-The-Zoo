@@ -5,15 +5,15 @@ using TMPro;
 
 public class SOTIController : MonoBehaviour
 {
-    public PlayerController p1;
-    public PlayerController p2;
+    public CharacterController2D p1;
+    public CharacterController2D p2;
 
-    [SerializeField]
-    private GameObject GameOverCanvas;
-    [SerializeField]
-    private Button goBackButton;
-    [SerializeField]
-    private TextMeshProUGUI gameOverText;
+    //[SerializeField]
+    //private GameObject GameOverCanvas;
+    //[SerializeField]
+    //private Button goBackButton;
+    //[SerializeField]
+    //private TextMeshProUGUI gameOverText;
     public List<GameObject> boardObjects = new List<GameObject>();
 
     // Constants for the amount of coins earned
@@ -23,8 +23,8 @@ public class SOTIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameOverCanvas.SetActive(false);
-        goBackButton.onClick.AddListener(delegate { goBack(); });
+        //GameOverCanvas.SetActive(false);
+        //goBackButton.onClick.AddListener(delegate { goBack(); });
     }
 
     //Defunct
@@ -42,18 +42,20 @@ public class SOTIController : MonoBehaviour
     {
         int winIndex = -1;
         int loseIndex = -1;
+        Debug.Log(name + " recieved by SOTICon");
 
-        GameOverCanvas.SetActive(true);
-        if (name == "Player 1")
+        //GameOverCanvas.SetActive(true);
+        if (name == "Player1")
         {
-            gameOverText.SetText(MinigameLoadPlayers.GetListOfPlayersPlaying()[0].getName() + " has died, " + MinigameLoadPlayers.GetListOfPlayersPlaying()[1].getName() + " wins!");
-
+            Debug.Log("WINdex = 1");
+            //gameOverText.SetText(MinigameLoadPlayers.GetListOfPlayersPlaying()[0].getName() + " has died, " + MinigameLoadPlayers.GetListOfPlayersPlaying()[1].getName() + " wins!");
             winIndex = 1;
             loseIndex = 0;
         }
-        else if (name == "Player 2")
+        else if (name == "Player2")
         {
-            gameOverText.SetText(MinigameLoadPlayers.GetListOfPlayersPlaying()[1].getName() + " has died, " + MinigameLoadPlayers.GetListOfPlayersPlaying()[0].getName() + " wins!");
+            Debug.Log("WINdex = 0");
+            //gameOverText.SetText(MinigameLoadPlayers.GetListOfPlayersPlaying()[1].getName() + " has died, " + MinigameLoadPlayers.GetListOfPlayersPlaying()[0].getName() + " wins!");
             winIndex = 0;
             loseIndex = 1;
         }
@@ -63,6 +65,9 @@ public class SOTIController : MonoBehaviour
 
     private void EarnCoins(int winIndex, int loseIndex)
     {
+        Debug.Log("winIndex = " + winIndex);
+        Debug.Log("loseIndex = " + loseIndex);
+        Debug.Log(MinigameLoadPlayers.GetListOfPlayersPlaying());
         MinigameLoadPlayers.GetListOfPlayersPlaying()[winIndex].changeGameBalanceByAmount(WINNING_COINS);
         MinigameLoadPlayers.GetListOfPlayersPlaying()[loseIndex].changeGameBalanceByAmount(LOSING_COINS);
     }
