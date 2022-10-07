@@ -17,6 +17,10 @@ public class DWTHController : MonoBehaviour
     public Transform pushableObjectList;
     public TextMeshProUGUI player1Score;
     public TextMeshProUGUI player2Score;
+    private GameObject latestPushableObject; // The newest created pushable object
+
+    // Components
+    private BoxCollider2D newPushableBoxCollider; // The newest created pushable object's box collider
 
     // Players
     public DWTHPlayerController player1;
@@ -33,6 +37,7 @@ public class DWTHController : MonoBehaviour
     public static int numberOfPlayersRemaining = 2; // Keeps track of the number of players still playing the game. Starts off at 2
     private bool gameOver = false; // Keeps track of if the game is over
     private int winner = -1; // Holds the winner of the game. Initially -1 as no winner is set
+    private float latestPushableObjectScale; // The scale of the newest created pushable object
 
     // Constants
     private int MAX_NUM_OBJECTS = 5; // Maximum number of pushable objects
@@ -71,6 +76,14 @@ public class DWTHController : MonoBehaviour
             // Updates the score counter
             player1Score.text = "Player 1 Score: " + player1.numPushed;
             player2Score.text = "Player 2 Score: " + player2.numPushed;
+            
+            // Enlarges the newly spawned pushable object until it reaches its proper size
+            if (latestPushableObjectScale < 1.0f && latestPushableObject != null)
+            {
+                latestPushableObjectScale += 3.0f * Time.deltaTime;
+                latestPushableObject.transform.localScale = new Vector2(latestPushableObjectScale, latestPushableObjectScale);
+                newPushableBoxCollider.edgeRadius += 1.8f * Time.deltaTime;
+            }
 
             // Makes a new pushable object every 6 seconds
             if (((int)Time.fixedTime % SPAWN_INTERVAL_BETWEEN_EACH_OBJECT) == 0 && numObjects < MAX_NUM_OBJECTS && addedPushableObject == false)
@@ -78,10 +91,14 @@ public class DWTHController : MonoBehaviour
                 GameObject newPushableObject = Instantiate(pushableObjectPrefab);
                 newPushableObject.SetActive(true);
                 newPushableObject.transform.SetParent(pushableObjectList);
-                newPushableObject.transform.localScale = Vector2.one;
+                newPushableObject.transform.localScale = new Vector2(0, 0);
                 newPushableObject.transform.localPosition = new Vector3(Random.Range(-4.0f, -7.5f), Random.Range(0.0f, 4.0f), 0);
                 newPushableObject.transform.Rotate(0, 0, Random.Range(0.0f, 360.0f));
                 newPushableObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("DWTHSprites/" + pushableObjectSprites[Random.Range(0, pushableObjectSprites.Count)]);
+                newPushableBoxCollider = newPushableObject.GetComponent<BoxCollider2D>();
+                newPushableBoxCollider.edgeRadius = 0.0f;
+                latestPushableObjectScale = 0.0f;
+                latestPushableObject = newPushableObject;
 
                 numObjects++;
                 addedPushableObject = true;
