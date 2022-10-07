@@ -5,7 +5,8 @@ using UnityEngine;
 public class BananaSpawner : MonoBehaviour
 {
     [SerializeField] GameObject bananaPrefab;
-    
+    [SerializeField] GameObject parentObject;
+
     public bool IsSpawning { get; set; }
 
     public IEnumerator SpawnBananas()
@@ -35,7 +36,7 @@ public class BananaSpawner : MonoBehaviour
 
     public GameObject SpawnBanana(GameObject prefab)
     {
-        GameObject banana = Instantiate(prefab, new Vector3(Random.Range(-8f, 8f), 6f, 0f), Quaternion.identity);
+        GameObject banana = Instantiate(prefab, new Vector3(Random.Range(-8f, 8f), 6f, 0f), Quaternion.identity, parentObject.transform);
         banana.SetActive(true);
         return banana;
     }

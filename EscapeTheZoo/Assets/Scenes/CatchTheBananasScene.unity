@@ -1296,6 +1296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bananaPrefab: {fileID: 2035329849}
+  parentObject: {fileID: 1591303996}
 --- !u!1001 &1611784735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1317,15 +1318,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5214410937759287447, guid: e4ac42e8717250644b393e938eed36bb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6
+      value: 60.000004
       objectReference: {fileID: 0}
     - target: {fileID: 5214410937759287447, guid: e4ac42e8717250644b393e938eed36bb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6
+      value: 60.000004
       objectReference: {fileID: 0}
     - target: {fileID: 5214410937759287447, guid: e4ac42e8717250644b393e938eed36bb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.6
+      value: 60.000004
       objectReference: {fileID: 0}
     - target: {fileID: 5214410937759287447, guid: e4ac42e8717250644b393e938eed36bb, type: 3}
       propertyPath: m_LocalPosition.x
