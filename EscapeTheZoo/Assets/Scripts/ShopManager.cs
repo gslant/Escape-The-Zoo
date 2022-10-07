@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopManger : MonoBehaviour
+public class ShopManager : MonoBehaviour
 {
     public int coinDisplay;
     public TMP_Text cointxt;
@@ -17,7 +17,7 @@ public class ShopManger : MonoBehaviour
     public GameObject playerScrollPanelPrefab; // Prefab reference to instantiate for every player in the loaded data
     public GameObject currentSelectedPlayerName; // Holds the name of the selected player
     public GameObject currentSelectedPlayerAnimal; // Holds the animal of the selected player
-    public GameObject previewAcessoryImage;
+    public GameObject previewAccessoryImage;
 
     // Player profiles
     private List<Player> playerList = new List<Player>(); // A list of "Player" instances.
@@ -37,7 +37,7 @@ public class ShopManger : MonoBehaviour
         CheckIfBuyable();
 
         // Disable preview feature
-        previewAcessoryImage.SetActive(false);
+        previewAccessoryImage.SetActive(false);
 
         LoadPlayerProfilesData();
         LoadPlayerList();
@@ -63,7 +63,7 @@ public class ShopManger : MonoBehaviour
     // The ability to preview items is enabled when there is a player selection
     public void EnablePreview()
     {
-        previewAcessoryImage.SetActive(true);
+        previewAccessoryImage.SetActive(true);
     }
 
     // Updates each item panel content with each of the shop item script content

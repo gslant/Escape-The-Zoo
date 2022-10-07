@@ -4,30 +4,64 @@ using UnityEngine;
 
 public class DWTHPlayerController : MonoBehaviour
 {
+    // Objects
+    public GameObject silhouette;
+    public DWTHController con;
+
+    // Components
+    private Transform playerTransform;
     private Rigidbody2D rb;
-    public string pName;
+    private BoxCollider2D boxCollide;
+
+    // Variables
+    public int numPushed = 0; // Number of pushable objects pushed off the shelf
+    public bool alive = true; // Keeps track of if the player is alive
+    private int deathTimePlusThree; // The time 3 Seconds after the player dies
+
+    // Input Keys
     public KeyCode upKey;
     public KeyCode downKey;
     public KeyCode rightKey;
     public KeyCode leftKey;
 
-    public DWTHController con;
-
     void Start()
     {
+        playerTransform = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
+        boxCollide = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Player Movement
-        if (Input.GetKey(upKey) || Input.GetKey(downKey) || Input.GetKey(rightKey) || Input.GetKey(leftKey))
+        if (alive)
         {
-            rb.velocity = new Vector3(((Input.GetKey(leftKey) ? 1 : 0) * -5) + ((Input.GetKey(rightKey) ? 1 : 0) * 5), ((Input.GetKey(downKey) ? 1 : 0) * -5) + ((Input.GetKey(upKey) ? 1 : 0) * 5), 0);
-        } else
+            // Player Movement
+            if (Input.GetKey(upKey) || Input.GetKey(downKey) || Input.GetKey(rightKey) || Input.GetKey(leftKey))
+            {
+                rb.velocity = new Vector3(((Input.GetKey(leftKey) ? 1 : 0) * -5) + ((Input.GetKey(rightKey) ? 1 : 0) * 5), ((Input.GetKey(downKey) ? 1 : 0) * -5) + ((Input.GetKey(upKey) ? 1 : 0) * 5), 0);
+
+                // If the player is moving while the human is looking around
+                if (silhouette.activeSelf == true)
+                {
+                    alive = false;
+                    Destroy(boxCollide);
+                    rb.velocity = new Vector3(-5, +5, 0);
+                    deathTimePlusThree = (int)Time.fixedTime + 3;
+                }
+            }
+            else
+            {
+                rb.velocity = new Vector3(0, 0, 0);
+            }
+        }
+        else if ((int)Time.fixedTime < deathTimePlusThree)
         {
-            rb.velocity = new Vector3(0, 0, 0);
+            rb.rotation += 500.0f * Time.deltaTime;
+        }
+        else
+        {
+            DWTHController.numberOfPlayersRemaining--;
         }
     }
 
