@@ -17,7 +17,8 @@ public class ShopManger : MonoBehaviour
     public GameObject playerScrollPanelPrefab; // Prefab reference to instantiate for every player in the loaded data
     public GameObject currentSelectedPlayerName; // Holds the name of the selected player
     public GameObject currentSelectedPlayerAnimal; // Holds the animal of the selected player
-    public GameObject previewAccessoryImage;
+    public GameObject previewAcessoryImage;
+    public GameObject scrollBar;
 
     // Player profiles
     private List<Player> playerList = new List<Player>(); // A list of "Player" instances.
@@ -37,10 +38,13 @@ public class ShopManger : MonoBehaviour
         CheckIfBuyable();
 
         // Disable preview feature
-        previewAccessoryImage.SetActive(false);
+        previewAcessoryImage.SetActive(false);
 
         LoadPlayerProfilesData();
         LoadPlayerList();
+
+        // Make scrollhandle constant size
+        scrollBar.transform.GetComponent<Scrollbar>().size = 0.15f;
     }
 
     private void LoadPlayerProfilesData()
@@ -63,7 +67,7 @@ public class ShopManger : MonoBehaviour
     // The ability to preview items is enabled when there is a player selection
     public void EnablePreview()
     {
-        previewAccessoryImage.SetActive(true);
+        previewAcessoryImage.SetActive(true);
     }
 
     // Updates each item panel content with each of the shop item script content
@@ -177,7 +181,7 @@ public class ShopManger : MonoBehaviour
     private void ShowSelectedPlayer(int playerNumber)
     {
         selectedPlayerNum = playerNumber;
-        currentSelectedPlayerName.GetComponent<TextMeshProUGUI>().text = playerList[playerNumber].getName()+":";
+        currentSelectedPlayerName.GetComponent<TextMeshProUGUI>().text = playerList[playerNumber].getName();
         // The sprite is loaded from Assets/Resources/Character Face Sprites/
         currentSelectedPlayerAnimal.GetComponent<Image>().sprite = Resources.Load<Sprite>("Character Face Sprites/"+playerList[playerNumber].getAnimal());
         
