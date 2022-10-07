@@ -10,7 +10,7 @@ public class DWTHPlayerController : MonoBehaviour
 
     // Components
     private Transform playerTransform;
-    private Rigidbody2D rb;
+    private Rigidbody2D objectRigidbody;
     private BoxCollider2D boxCollide;
 
     // Variables
@@ -28,7 +28,7 @@ public class DWTHPlayerController : MonoBehaviour
     void Start()
     {
         playerTransform = GetComponent<Transform>();
-        rb = GetComponent<Rigidbody2D>();
+        objectRigidbody = GetComponent<Rigidbody2D>();
         boxCollide = GetComponent<BoxCollider2D>();
     }
 
@@ -40,25 +40,25 @@ public class DWTHPlayerController : MonoBehaviour
             // Player Movement
             if (Input.GetKey(upKey) || Input.GetKey(downKey) || Input.GetKey(rightKey) || Input.GetKey(leftKey))
             {
-                rb.velocity = new Vector3(((Input.GetKey(leftKey) ? 1 : 0) * -5) + ((Input.GetKey(rightKey) ? 1 : 0) * 5), ((Input.GetKey(downKey) ? 1 : 0) * -5) + ((Input.GetKey(upKey) ? 1 : 0) * 5), 0);
+                objectRigidbody.velocity = new Vector3(((Input.GetKey(leftKey) ? 1 : 0) * -5) + ((Input.GetKey(rightKey) ? 1 : 0) * 5), ((Input.GetKey(downKey) ? 1 : 0) * -5) + ((Input.GetKey(upKey) ? 1 : 0) * 5), 0);
 
                 // If the player is moving while the human is looking around
                 if (silhouette.activeSelf == true)
                 {
                     alive = false;
                     Destroy(boxCollide);
-                    rb.velocity = new Vector3(-5, +5, 0);
+                    objectRigidbody.velocity = new Vector3(-5, +5, 0);
                     deathTimePlusThree = (int)Time.fixedTime + 3;
                 }
             }
             else
             {
-                rb.velocity = new Vector3(0, 0, 0);
+                objectRigidbody.velocity = new Vector3(0, 0, 0);
             }
         }
         else if ((int)Time.fixedTime < deathTimePlusThree) // When the player is dead, play death animation
         {
-            rb.rotation += 500.0f * Time.deltaTime;
+            objectRigidbody.rotation += 500.0f * Time.deltaTime;
         }
         else // When the player has been dead of 3 seconds, update the number of players remaining
         {

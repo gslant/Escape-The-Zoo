@@ -6,7 +6,7 @@ public class DWTHPushableObject : MonoBehaviour
 {
     // Components
     private Transform pushableObject;
-    private Rigidbody2D rb;
+    private Rigidbody2D objectRigidbody;
     private BoxCollider2D boxCollide;
 
     // Players
@@ -22,7 +22,7 @@ public class DWTHPushableObject : MonoBehaviour
     void Start()
     {
         pushableObject = GetComponent<Transform>();
-        rb = GetComponent<Rigidbody2D>();
+        objectRigidbody = GetComponent<Rigidbody2D>();
         boxCollide = GetComponent<BoxCollider2D>();
     }
 
@@ -32,13 +32,13 @@ public class DWTHPushableObject : MonoBehaviour
         // Stops the object in it's place whenever it's not being pushed
         if (notTouchingBorder)
         {
-            rb.velocity = new Vector3(0, 0, 0);
+            objectRigidbody.velocity = new Vector3(0, 0, 0);
         }
 
         // If the object touches the border, play a small animation
         if (!notTouchingBorder)
         {
-            rb.rotation += 500.0f * Time.deltaTime;
+            objectRigidbody.rotation += 500.0f * Time.deltaTime;
             scale -= 0.25f * Time.deltaTime;
             pushableObject.localScale = new Vector3(scale, scale, scale);
         }
@@ -56,7 +56,7 @@ public class DWTHPushableObject : MonoBehaviour
         {
             notTouchingBorder = false;
             Destroy(boxCollide);
-            rb.velocity = new Vector3(1, -1, 0);
+            objectRigidbody.velocity = new Vector3(1, -1, 0);
             if (touchingPlayer != null)
             {
                 touchingPlayer.numPushed++;
