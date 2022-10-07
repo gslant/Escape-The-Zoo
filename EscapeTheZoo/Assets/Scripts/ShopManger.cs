@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopManager : MonoBehaviour
+public class ShopManger : MonoBehaviour
 {
     public int coinDisplay;
     public TMP_Text cointxt;
