@@ -6,38 +6,41 @@ public class PowerupsImplementation : MonoBehaviour
 {
 
     [SerializeField]
-    public GameObject p1, p2;
+    public GameObject player;
 
-    private Transform[] player1Waypoint, player2Waypoint;
+    private static Transform[] playerWaypoint;
 
     [HideInInspector]
-    public int waypointIndexp1, waypointIndexp2;
+    public static int waypointIndex;
 
-
-    //public static listOfPlayersPlaying;
+    private float moveSpeed = 1f;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        player1Waypoint = p1.GetComponent<Transform[]>();
-        player2Waypoint = p2.GetComponent<Transform[]>();
-        waypointIndexp1 = p1.GetComponent<int>();
-        waypointIndexp2 = p2.GetComponent<int>();
+        playerWaypoint = player.GetComponent<Transform[]>();
+        waypointIndex = player.GetComponent<int>();
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = player1Waypoint[waypointIndexp1].transform.position;
-        transform.position = player2Waypoint[waypointIndexp2].transform.position;
 
-        moveup();
+        transform.position = playerWaypoint[waypointIndex].transform.position;
     }
 
     public void moveup()
     {
-        transform.position = player1Waypoint[waypointIndexp1++].transform.position;
+        transform.position = Vector2.MoveTowards(transform.position, playerWaypoint[waypointIndex+3].transform.position, moveSpeed * Time.deltaTime);
+
+    }
+
+    public void GetPowerup()
+    {
+        moveup();
     }
 
 }

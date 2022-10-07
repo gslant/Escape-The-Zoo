@@ -91,7 +91,7 @@ public class GameControl : MonoBehaviour
             || player1.GetComponent<PlayerMovement>().waypointIndex == 57 || player1.GetComponent<PlayerMovement>().waypointIndex == 65 || player1.GetComponent<PlayerMovement>().waypointIndex == 69 || player1.GetComponent<PlayerMovement>().waypointIndex == 77)
             {
 
-                Debug.Log("You found a (nameofthepowerup)!!!");
+                PowerupsImplementation.GetPowerup();
             }
         }
 
@@ -122,7 +122,7 @@ public class GameControl : MonoBehaviour
             if (player2.GetComponent<PlayerMovement>().waypointIndex == 11 || player2.GetComponent<PlayerMovement>().waypointIndex == 16 || player2.GetComponent<PlayerMovement>().waypointIndex == 33 || player2.GetComponent<PlayerMovement>().waypointIndex == 45
             || player2.GetComponent<PlayerMovement>().waypointIndex == 57 || player2.GetComponent<PlayerMovement>().waypointIndex == 65 || player2.GetComponent<PlayerMovement>().waypointIndex == 69 || player2.GetComponent<PlayerMovement>().waypointIndex == 77)
             {
-                Debug.Log("You found a (nameofthepowerup)!!!");
+                PowerupsImplementation.GetPowerup();
             }
         }
 
