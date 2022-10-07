@@ -90,27 +90,7 @@ public class DWTHController : MonoBehaviour
             // Makes a new pushable object every 6 seconds
             if (((int)Time.fixedTime % SPAWN_INTERVAL_BETWEEN_EACH_OBJECT) == 0 && numObjects < MAX_NUM_OBJECTS && addedPushableObject == false)
             {
-                GameObject newPushableObject = Instantiate(pushableObjectPrefab);
-                newPushableObject.SetActive(true);
-                newPushableObject.transform.SetParent(pushableObjectList);
-                newPushableObject.transform.localScale = new Vector2(0, 0);
-                float x, y;
-                do
-                { // Sets the pushable object spawn point to within a certain range
-                    x = Random.Range(0.0f, 8.0f);
-                    y = Random.Range(0.0f, 8.0f);
-                } while (x + y >= 8.0f);
-                y *= -1; // Flips the Y axis
-                newPushableObject.transform.localPosition = new Vector3(x, y, 0);
-                newPushableObject.transform.Rotate(0, 0, Random.Range(0.0f, 360.0f));
-                newPushableObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("DWTHSprites/" + pushableObjectSprites[Random.Range(0, pushableObjectSprites.Count)]);
-                newPushableBoxCollider = newPushableObject.GetComponent<BoxCollider2D>();
-                newPushableBoxCollider.edgeRadius = 0.0f;
-                latestPushableObjectScale = 0.0f;
-                latestPushableObject = newPushableObject;
-
-                numObjects++;
-                addedPushableObject = true;
+                createNewPushableObject();
             }
             else if ((int)Time.fixedTime % SPAWN_INTERVAL_BETWEEN_EACH_OBJECT != 0)
             {
@@ -123,24 +103,12 @@ public class DWTHController : MonoBehaviour
                 warning.SetActive(true);
             }
 
-            // Shows the silhouette
+            // Shows the silhouette, hides the warning, and updates the next warning and silhouette times
             if ((int)Time.fixedTime == nextShowSilhouetteTime)
             {
-                nextShowSilhouetteTime = (int)Time.fixedTime + silhouettePauseDuration;
-                nextHideSilhouetteTime = (int)Time.fixedTime + HUMAN_SILHOUETTE_DURATION;
-
                 silhouette.SetActive(true);
                 warning.SetActive(false);
-
-                if (silhouettePauseDuration > MINIMUM_SILHOUETTE_PAUSE_DURATION + HUMAN_SILHOUETTE_DURATION)
-                {
-                    silhouettePauseDuration -= SILHOUETTE_PAUSE_DURATION_DECREASE;
-                }
-
-                if (warningDuration > MINIMUM_WARNING_DURATION)
-                {
-                    warningDuration -= WARNING_DURATION_DECREASE;
-                }
+                updateSilhouetteTimes();
             }
 
             // Hides the silhouette
@@ -152,31 +120,80 @@ public class DWTHController : MonoBehaviour
             // If the game is over
             if (numberOfPlayersRemaining <= 1)
             {
-                if (player1.alive)
-                {
-                    winner = 0;
-                }
-                else if (player2.alive)
-                {
-                    winner = 1;
-                }
-
-                List<Player> playersPlaying = MinigameLoadPlayers.GetListOfPlayersPlaying();
-
-                GameOverCanvas.SetActive(true);
-                gameOverText.text = (winner == -1 ? "No one wins!" : playersPlaying[winner].getName() + " Wins!");
-
-                playersPlaying[0].changeGameBalanceByAmount(player1.numPushed);
-                playersPlaying[1].changeGameBalanceByAmount(player2.numPushed);
-
-                if (winner != -1)
-                {
-                    playersPlaying[winner].changeGameBalanceByAmount(WINNER_REWARD);
-                }
-
-                gameOver = true;
+                gameOverEvent();
             }
         }
+    }
+
+    // Creates a new pushable object
+    private void createNewPushableObject()
+    {
+        GameObject newPushableObject = Instantiate(pushableObjectPrefab);
+        newPushableObject.SetActive(true);
+        newPushableObject.transform.SetParent(pushableObjectList);
+        newPushableObject.transform.localScale = new Vector2(0, 0);
+        float x, y;
+        do
+        { // Sets the pushable object spawn point to within a certain range
+            x = Random.Range(0.0f, 8.0f);
+            y = Random.Range(0.0f, 8.0f);
+        } while (x + y >= 8.0f);
+        y *= -1; // Flips the Y axis
+        newPushableObject.transform.localPosition = new Vector3(x, y, 0);
+        newPushableObject.transform.Rotate(0, 0, Random.Range(0.0f, 360.0f));
+        newPushableObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("DWTHSprites/" + pushableObjectSprites[Random.Range(0, pushableObjectSprites.Count)]);
+        newPushableBoxCollider = newPushableObject.GetComponent<BoxCollider2D>();
+        newPushableBoxCollider.edgeRadius = 0.0f;
+        latestPushableObjectScale = 0.0f;
+        latestPushableObject = newPushableObject;
+
+        numObjects++;
+        addedPushableObject = true;
+    }
+
+    // Updates 
+    private void updateSilhouetteTimes()
+    {
+        nextShowSilhouetteTime = (int)Time.fixedTime + silhouettePauseDuration;
+        nextHideSilhouetteTime = (int)Time.fixedTime + HUMAN_SILHOUETTE_DURATION;
+
+        if (silhouettePauseDuration > MINIMUM_SILHOUETTE_PAUSE_DURATION + HUMAN_SILHOUETTE_DURATION)
+        {
+            silhouettePauseDuration -= SILHOUETTE_PAUSE_DURATION_DECREASE;
+        }
+
+        if (warningDuration > MINIMUM_WARNING_DURATION)
+        {
+            warningDuration -= WARNING_DURATION_DECREASE;
+        }
+    }
+
+    // Actions taken when the game is over
+    private void gameOverEvent()
+    {
+        if (player1.alive)
+        {
+            winner = 0;
+        }
+        else if (player2.alive)
+        {
+            winner = 1;
+        }
+
+        List<Player> playersPlaying = MinigameLoadPlayers.GetListOfPlayersPlaying();
+
+        GameOverCanvas.SetActive(true);
+        gameOverText.text = (winner == -1 ? "No one wins!" : playersPlaying[winner].getName() + " Wins!");
+
+        playersPlaying[0].changeGameBalanceByAmount(player1.numPushed);
+        playersPlaying[1].changeGameBalanceByAmount(player2.numPushed);
+
+        if (winner != -1)
+        {
+            playersPlaying[winner].changeGameBalanceByAmount(WINNER_REWARD);
+        }
+
+        gameOver = true;
     }
 
     // Functionality for "goBackButton"
