@@ -14,9 +14,9 @@ public class DWTHPlayerController : MonoBehaviour
     private BoxCollider2D boxCollide;
 
     // Variables
-    public int numPushed = 0; // Number of pushable objects pushed off the shelf
-    public bool alive = true; // Keeps track of if the player is alive
-    private int deathTimePlusThree; // The time 3 Seconds after the player dies
+    public int numPushed = 0; // Number of pushable objects pushed off the shelf.
+    public bool alive = true; // Keeps track of if the player is alive.
+    private int deathTimePlusThree; // The time 3 Seconds after the player dies.
 
     // Input Keys
     public KeyCode upKey;
@@ -24,6 +24,7 @@ public class DWTHPlayerController : MonoBehaviour
     public KeyCode rightKey;
     public KeyCode leftKey;
 
+    // Start is called before the first frame update
     void Start()
     {
         playerTransform = GetComponent<Transform>();
@@ -55,11 +56,11 @@ public class DWTHPlayerController : MonoBehaviour
                 rb.velocity = new Vector3(0, 0, 0);
             }
         }
-        else if ((int)Time.fixedTime < deathTimePlusThree)
+        else if ((int)Time.fixedTime < deathTimePlusThree) // When the player is dead, play death animation
         {
             rb.rotation += 500.0f * Time.deltaTime;
         }
-        else
+        else // When the player has been dead of 3 seconds, update the number of players remaining
         {
             DWTHController.numberOfPlayersRemaining--;
         }

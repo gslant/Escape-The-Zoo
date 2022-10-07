@@ -14,9 +14,9 @@ public class DWTHPushableObject : MonoBehaviour
     public DWTHPlayerController player2;
 
     // Variables
-    public DWTHPlayerController touchingPlayer; // The player that is currently touching the pushable object
-    private float scale = 1.0f; // Scale of the pushable object
-    private bool notTouchingBorder = true; // Keeps track of if the pushable object is or isn't touching the border
+    public DWTHPlayerController touchingPlayer; // The player that is currently touching the pushable object.
+    private float scale = 1.0f; // Scale of the pushable object.
+    private bool notTouchingBorder = true; // Keeps track of if the pushable object is or isn't touching the border.
 
     // Start is called before the first frame update
     void Start()

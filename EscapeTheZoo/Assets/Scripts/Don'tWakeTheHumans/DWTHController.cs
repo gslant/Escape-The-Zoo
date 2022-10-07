@@ -27,28 +27,29 @@ public class DWTHController : MonoBehaviour
     public DWTHPlayerController player2;
 
     // Variables
-    private List<string> pushableObjectSprites = new List<string>();
-    public static int numObjects = 0; // Keeps track of the number of objects pushed off the table
-    public static int numberOfPlayersRemaining = 2; // Keeps track of the number of players still playing the game. Starts off at 2
-    private bool addedPushableObject = false; // Makes sure only 1 pushable object is added at a time
-    private int warningDuration = 3; // How long the warning sign stays for
-    private int silhouettePauseDuration = 10; // Time between each moment the human shows up. Initial time is 10
-    private int nextShowSilhouetteTime; // When the silhouette is shown
-    private int nextHideSilhouetteTime; // When the silhouette is hidden
-    private bool gameOver = false; // Keeps track of if the game is over
-    private int winner = -1; // Holds the winner of the game. Initially -1 as no winner is set
-    private float latestPushableObjectScale; // The scale of the newest created pushable object
+    private List<string> pushableObjectSprites = new List<string>(); // List of all the different pushable object sprites.
+    public static int numObjects = 0; // Keeps track of the number of objects on the table.
+    public static int numberOfPlayersRemaining = 2; // Keeps track of the number of players still playing the game. Starts off at 2.
+    private bool addedPushableObject = false; // Makes sure only 1 pushable object is added at a time.
+    private int warningDuration = 3; // How long the warning sign stays for. Initial duration is 3.
+    private int silhouettePauseDuration = 10; // Time between each moment the human shows up. Initial duration is 10.
+    private int nextShowSilhouetteTime; // When the silhouette is shown.
+    private int nextHideSilhouetteTime; // When the silhouette is hidden.
+    private bool gameOver = false; // Keeps track of if the game is over.
+    private int winner = -1; // Holds the winner of the game. Initially -1 as no winner is set.
+    private float latestPushableObjectScale; // The scale of the newest created pushable object.
 
     // Constants
-    private int MAX_NUM_OBJECTS = 5; // Maximum number of pushable objects
-    private int SPAWN_INTERVAL_BETWEEN_EACH_OBJECT = 6; // Time between when each object spawns
-    private int HUMAN_SILHOUETTE_DURATION = 3; // Duration the human silhouette is shown for
-    private int WINNER_REWARD = 5; // The number of bonus coins the winner earns
-    private int SILHOUETTE_PAUSE_DURATION_DECREASE = 1; // How much the silhouette pause duration will decrease by
-    private int WARNING_DURATION_DECREASE = 1; // How much the warning duration will decrease by
-    private int MINIMUM_SILHOUETTE_PAUSE_DURATION = 1; // Minimum silhouette pause duration
-    private int MINIMUM_WARNING_DURATION = 1; // Minimum warning duration
+    private int MAX_NUM_OBJECTS = 5; // Maximum number of pushable objects.
+    private int SPAWN_INTERVAL_BETWEEN_EACH_OBJECT = 6; // Time between when each object spawns.
+    private int HUMAN_SILHOUETTE_DURATION = 3; // Duration the human silhouette is shown for.
+    private int WINNER_REWARD = 5; // The number of bonus coins the winner earns.
+    private int SILHOUETTE_PAUSE_DURATION_DECREASE = 1; // How much the silhouette pause duration will decrease by.
+    private int WARNING_DURATION_DECREASE = 1; // How much the warning duration will decrease by.
+    private int MINIMUM_SILHOUETTE_PAUSE_DURATION = 1; // Minimum silhouette pause duration.
+    private int MINIMUM_WARNING_DURATION = 1; // Minimum warning duration.
 
+    // Start is called before the first frame update
     void Start()
     {
         // Hides certain game objects
@@ -59,7 +60,7 @@ public class DWTHController : MonoBehaviour
         // Sets listeners
         goBackButton.onClick.AddListener(delegate { goBack(); });
 
-        // Sets the next shown sihouette time
+        // Sets the next shown and hidden sihouette times
         nextShowSilhouetteTime = (int)Time.fixedTime + silhouettePauseDuration;
         nextHideSilhouetteTime = nextShowSilhouetteTime + HUMAN_SILHOUETTE_DURATION;
 
@@ -69,6 +70,7 @@ public class DWTHController : MonoBehaviour
         pushableObjectSprites.Add("Clock");
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (!gameOver) // While the game isn't finished
@@ -141,7 +143,7 @@ public class DWTHController : MonoBehaviour
                 }
             }
 
-            // Hide the silhouette
+            // Hides the silhouette
             if ((int)Time.fixedTime == nextHideSilhouetteTime)
             {
                 silhouette.SetActive(false);
@@ -177,7 +179,7 @@ public class DWTHController : MonoBehaviour
         }
     }
 
-    // Functionality for the "goBackButton"
+    // Functionality for "goBackButton"
     private void goBack()
     {
         GameControl con = FindObjectOfType<GameControl>();
