@@ -80,6 +80,6 @@ public class CTBManager : MonoBehaviour
         Time.timeScale = 1;
 
         // Unload scene? This is just here as a placeholder
-        SceneManager.LoadScene("MainScene");
+        SceneManager.UnloadSceneAsync("CatchTheBananas");
     }
 }
