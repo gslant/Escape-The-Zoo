@@ -29,12 +29,12 @@ public class DWTHController : MonoBehaviour
     // Variables
     private List<string> pushableObjectSprites = new List<string>();
     public static int numObjects = 0; // Keeps track of the number of objects pushed off the table
-    private bool addedPushableObject = true; // Makes sure only 1 pushable object is added at a time. Starts off at "True" so that the first pushable object isn't spawned instantly when the game starts
+    public static int numberOfPlayersRemaining = 2; // Keeps track of the number of players still playing the game. Starts off at 2
+    private bool addedPushableObject = false; // Makes sure only 1 pushable object is added at a time
     private int warningDuration = 3; // How long the warning sign stays for
     private int silhouettePauseDuration = 10; // Time between each moment the human shows up. Initial time is 10
     private int nextShowSilhouetteTime; // When the silhouette is shown
     private int nextHideSilhouetteTime; // When the silhouette is hidden
-    public static int numberOfPlayersRemaining = 2; // Keeps track of the number of players still playing the game. Starts off at 2
     private bool gameOver = false; // Keeps track of if the game is over
     private int winner = -1; // Holds the winner of the game. Initially -1 as no winner is set
     private float latestPushableObjectScale; // The scale of the newest created pushable object
@@ -76,7 +76,7 @@ public class DWTHController : MonoBehaviour
             // Updates the score counter
             player1Score.text = "Player 1 Score: " + player1.numPushed;
             player2Score.text = "Player 2 Score: " + player2.numPushed;
-            
+
             // Enlarges the newly spawned pushable object until it reaches its proper size
             if (latestPushableObjectScale < 1.0f && latestPushableObject != null)
             {
@@ -92,7 +92,14 @@ public class DWTHController : MonoBehaviour
                 newPushableObject.SetActive(true);
                 newPushableObject.transform.SetParent(pushableObjectList);
                 newPushableObject.transform.localScale = new Vector2(0, 0);
-                newPushableObject.transform.localPosition = new Vector3(Random.Range(-4.0f, -7.5f), Random.Range(0.0f, 4.0f), 0);
+                float x, y;
+                do
+                { // Sets the pushable object spawn point to within a certain range
+                    x = Random.Range(0.0f, 8.0f);
+                    y = Random.Range(0.0f, 8.0f);
+                } while (x + y >= 8.0f);
+                y *= -1; // Flips the Y axis
+                newPushableObject.transform.localPosition = new Vector3(x, y, 0);
                 newPushableObject.transform.Rotate(0, 0, Random.Range(0.0f, 360.0f));
                 newPushableObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("DWTHSprites/" + pushableObjectSprites[Random.Range(0, pushableObjectSprites.Count)]);
                 newPushableBoxCollider = newPushableObject.GetComponent<BoxCollider2D>();
