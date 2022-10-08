@@ -42,8 +42,7 @@ public class CTBManager : MonoBehaviour
         }
 
         UpdatePlayerScoreTexts();
-        // call function about what to do with the return of CheckWin()?
-        CheckWin(); // for now...
+        CheckWin();
     }
 
     void UpdatePlayerScoreTexts()
@@ -58,25 +57,26 @@ public class CTBManager : MonoBehaviour
         if (Player1Score == WIN_SCORE)
         {
             winner = "Player1";
-            StartCoroutine(GameOver());
+            StartCoroutine(ShowGameOver(winner));
         }
         else if (Player2Score == WIN_SCORE)
         {
             winner = "Player2";
-            StartCoroutine(GameOver());
+            StartCoroutine(ShowGameOver(winner));
         }
 
         return winner;
     }
 
-    IEnumerator GameOver()
+    IEnumerator ShowGameOver(string winner)
     {
+        GetComponent<MinigameEarnCoins>().GameOver(winner);
         gameOverCanvas.SetActive(true);
         bananaSpawner.IsSpawning = false;
 
-        // Pause game for 4 seconds
+        // Pause game for 2 seconds
         Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(4);
+        yield return new WaitForSecondsRealtime(2);
         Time.timeScale = 1;
 
         GoBackToGameBoard();
