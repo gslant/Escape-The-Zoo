@@ -79,7 +79,13 @@ public class CTBManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(4);
         Time.timeScale = 1;
 
-        // Unload scene? This is just here as a placeholder
-        SceneManager.UnloadSceneAsync("CatchTheBananas");
+        GoBackToGameBoard();
+    }
+
+    void GoBackToGameBoard()
+    {
+        GameControl con = FindObjectOfType<GameControl>();
+        con.reloadObjs();
+        SceneLoader.unloadScene("CatchTheBananas");
     }
 }

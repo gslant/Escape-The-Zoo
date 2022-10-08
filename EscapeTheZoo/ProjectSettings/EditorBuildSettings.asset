@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameBoard.unity
     guid: 2301795ef97c6854e8b1c990086ecc7a
+  - enabled: 1
+    path: Assets/Scenes/CatchTheBananas.unity
+    guid: 585ec5dd1cf57e94195c2a82d311fc2f
   m_configObjects: {}
