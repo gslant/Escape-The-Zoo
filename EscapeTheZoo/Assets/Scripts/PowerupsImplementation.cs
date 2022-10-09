@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static DataManager;
+using static Player;
 
 public class PowerupsImplementation : MonoBehaviour
 {
 
-    public enum FunctionOutputs { moveup = 1, movedown = 2}
-
-    int randomNumber = Random.Range(1, 2);
+    int playercoinearned = Player.getGameBalance();
 
 
     // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class PowerupsImplementation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void moveup()
@@ -34,20 +34,27 @@ public class PowerupsImplementation : MonoBehaviour
         Debug.Log("Function 2");
     }
 
-    public void GetPowerup(FunctionOutputs function, int num)
+    public int gainCoins(int playeramount)
     {
-        num = randomNumber;
+        return playeramount + 5;
+    }
 
+    public void GetPowerup()
+    {
+        int num = Random.Range(1, 4);
 
-        switch (function)
+        switch (num)
         {
-            case FunctionOutputs.moveup:
+            case 1:
                 if(num == 1)
                 moveup();
                 break;
-            case FunctionOutputs.movedown:
+            case 2:
                 if(num == 2)
                 movedown();
+                break;
+            case 3:
+                gainCoins(playercoinearned);
                 break;
         }
     }
