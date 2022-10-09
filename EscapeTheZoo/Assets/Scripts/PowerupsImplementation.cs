@@ -5,22 +5,15 @@ using UnityEngine;
 public class PowerupsImplementation : MonoBehaviour
 {
 
-    [SerializeField]
-    public GameObject player;
+    public enum FunctionOutputs { moveup = 1, movedown = 2}
 
-    private static Transform[] playerWaypoint;
-
-    [HideInInspector]
-    public static int waypointIndex;
-
-    private float moveSpeed = 1f;
+    int randomNumber = Random.Range(1, 2);
 
 
     // Start is called before the first frame update
     void Start()
     {
-        playerWaypoint = player.GetComponent<Transform[]>();
-        waypointIndex = player.GetComponent<int>();
+
 
 
     }
@@ -29,18 +22,34 @@ public class PowerupsImplementation : MonoBehaviour
     void Update()
     {
 
-        transform.position = playerWaypoint[waypointIndex].transform.position;
     }
 
     public void moveup()
     {
-        transform.position = Vector2.MoveTowards(transform.position, playerWaypoint[waypointIndex+3].transform.position, moveSpeed * Time.deltaTime);
-        
+        Debug.Log("Function 1");
     }
 
-    public void GetPowerup()
+    public void movedown()
     {
-        moveup();
+        Debug.Log("Function 2");
+    }
+
+    public void GetPowerup(FunctionOutputs function, int num)
+    {
+        num = randomNumber;
+
+
+        switch (function)
+        {
+            case FunctionOutputs.moveup:
+                if(num == 1)
+                moveup();
+                break;
+            case FunctionOutputs.movedown:
+                if(num == 2)
+                movedown();
+                break;
+        }
     }
 
 }
