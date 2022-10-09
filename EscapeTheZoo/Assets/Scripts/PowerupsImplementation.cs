@@ -35,7 +35,7 @@ public class PowerupsImplementation : MonoBehaviour
     public void moveup()
     {
         transform.position = Vector2.MoveTowards(transform.position, playerWaypoint[waypointIndex+3].transform.position, moveSpeed * Time.deltaTime);
-
+        
     }
 
     public void GetPowerup()
