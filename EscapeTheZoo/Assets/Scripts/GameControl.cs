@@ -50,7 +50,7 @@ public class GameControl : MonoBehaviour
         // Adds all the minigames to the list
         minigames.Add("EscapeTheLions");
         minigames.Add("Don'tWakeTheHumans");
-        //minigames.Add("StayOnTheIceberg");
+        minigames.Add("StayOnTheIceberg");
         //minigames.Add("CatchTheBananas");
 
         player1 = GameObject.Find("Player1");
