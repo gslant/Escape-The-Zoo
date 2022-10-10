@@ -2286,7 +2286,7 @@ GameObject:
   - component: {fileID: 1587594412}
   - component: {fileID: 1587594411}
   m_Layer: 0
-  m_Name: LoadPlayerProfiles
+  m_Name: MinigameLoadPlayersManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
