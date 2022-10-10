@@ -48,7 +48,7 @@ public class GameControl : MonoBehaviour
     void Start()
     {
         // Adds all the minigames to the list
-        //minigames.Add("EscapeTheLions");
+        minigames.Add("EscapeTheLions");
         minigames.Add("Don'tWakeTheHumans");
         //minigames.Add("StayOnTheIceberg");
         //minigames.Add("CatchTheBananas");
