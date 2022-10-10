@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - Enemy
   - Banana
+  - Player 1
+  - Player 2
+  - Border
   layers:
   - Default
   - TransparentFX
