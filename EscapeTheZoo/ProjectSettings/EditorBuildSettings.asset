@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Don'tWakeTheHumans.unity
     guid: f6d73f2a19b314945b613398df3b4d87
+  - enabled: 1
+    path: Assets/Scenes/CatchTheBananas.unity
+    guid: 585ec5dd1cf57e94195c2a82d311fc2f
   m_configObjects: {}
