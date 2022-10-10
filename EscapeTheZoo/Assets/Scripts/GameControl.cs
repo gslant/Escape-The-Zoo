@@ -84,8 +84,6 @@ public class GameControl : MonoBehaviour
                 p1.SetActive(false);
                 p2.SetActive(false);
                 eventSys.SetActive(false);
-                int miniGameRand = 0;
-                miniGameRand = Random.Range(0, 1);
                 SceneLoader.LoadMinigameAdditive("EscapeTheLions");
             }
 
@@ -116,8 +114,6 @@ public class GameControl : MonoBehaviour
                 p1.SetActive(false);
                 p2.SetActive(false);
                 eventSys.SetActive(false);
-                int miniGameRand = 0;
-                miniGameRand = Random.Range(0, 1);
                 SceneLoader.LoadMinigameAdditive("EscapeTheLions");
 
             }
