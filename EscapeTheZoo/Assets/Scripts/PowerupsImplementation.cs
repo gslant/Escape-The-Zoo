@@ -9,21 +9,6 @@ public class PowerupsImplementation : MonoBehaviour
 
     public Player player;
 
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     // player is move up by 3 spaces(tiles)
     public static void moveup()
     {
@@ -35,21 +20,21 @@ public class PowerupsImplementation : MonoBehaviour
         Debug.Log("Function 2");
     }
     // player instantly gain additional 8 coins
-    public static int gainCoins(int playerBalance)
+    public static void gainCoins(Player player)
     {
-        int newplayerBalnce = playerBalance + 8;
-        return newplayerBalnce;
+        player.changeGameBalanceByAmount(8);
+        Debug.Log("Function 3");
     }
     // player instantly loses 10 coins
-    public static int loseCoins(int playerBalance)
+    public static void loseCoins(Player player)
     {
-        int newplayerBalnce = playerBalance - 10;
-        return newplayerBalnce;
+        player.changeGameBalanceByAmount(-10);
+        Debug.Log("Function 4");
     }
 
     public static void GetPowerup(Player player)
     {
-        int num = Random.Range(3, 5);
+        int num = Random.Range(1, 5);
 
 
         switch (num)
@@ -61,10 +46,10 @@ public class PowerupsImplementation : MonoBehaviour
                 movedown();
                 break;
             case 3:
-                gainCoins(player.getGameBalance());
+                gainCoins(player);
                 break;
             case 4:
-                loseCoins(player.getGameBalance());
+                loseCoins(player);
                 break;
         }
 
