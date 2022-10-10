@@ -24,23 +24,23 @@ public class PowerupsImplementation : MonoBehaviour
     {
         
     }
-
+    // player is move up by 3 spaces(tiles)
     public static void moveup()
     {
         Debug.Log("Function 1");
     }
-
+    // player is move down by 5 spaces(tiles)
     public static void movedown()
     {
         Debug.Log("Function 2");
     }
-
+    // player instantly gain additional 8 coins
     public static int gainCoins(int playerBalance)
     {
         int newplayerBalnce = playerBalance + 8;
         return newplayerBalnce;
     }
-
+    // player instantly loses 10 coins
     public static int loseCoins(int playerBalance)
     {
         int newplayerBalnce = playerBalance - 10;
