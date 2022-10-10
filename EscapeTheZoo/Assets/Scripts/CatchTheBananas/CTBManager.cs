@@ -8,6 +8,7 @@ public class CTBManager : MonoBehaviour
 {
     // Manages keeping track of the players' count and the winner of the minigame
 
+    [SerializeField] GameObject player1, player2;
     [SerializeField] GameObject gameOverCanvas;
     [SerializeField] BananaSpawner bananaSpawner;
     [SerializeField] TMP_Text player1ScoreText, player2ScoreText;
@@ -56,12 +57,12 @@ public class CTBManager : MonoBehaviour
         string winner = "No Winner";
         if (Player1Score == WIN_SCORE)
         {
-            winner = "Player1";
+            winner = player1.name;
             StartCoroutine(ShowGameOver(winner));
         }
         else if (Player2Score == WIN_SCORE)
         {
-            winner = "Player2";
+            winner = player2.name;
             StartCoroutine(ShowGameOver(winner));
         }
 

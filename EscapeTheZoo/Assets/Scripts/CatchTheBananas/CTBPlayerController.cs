@@ -87,7 +87,6 @@ public class CTBPlayerController : MonoBehaviour
     IEnumerator StunPlayer()
     {
         canMove = false;
-        Debug.Log("stunned!");
         yield return new WaitForSeconds(2);
         canMove = true;
     }

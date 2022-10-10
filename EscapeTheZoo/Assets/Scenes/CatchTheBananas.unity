@@ -2205,6 +2205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68123b92dfdd28b4aaba8d716d930e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 698769636}
+  player2: {fileID: 22178082}
   gameOverCanvas: {fileID: 296997206}
   bananaSpawner: {fileID: 997905829}
   player1ScoreText: {fileID: 41613299}
