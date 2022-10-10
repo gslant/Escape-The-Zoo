@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static DataManager;
-using static Player;
 
 public class PowerupsImplementation : MonoBehaviour
 {
 
-    int playercoinearned = Player.getGameBalance();
+    public List<Player> listofplayers = MinigameLoadPlayers.GetListOfPlayersPlaying();
+
+    public Player player;
+
 
 
     // Start is called before the first frame update
@@ -24,39 +25,49 @@ public class PowerupsImplementation : MonoBehaviour
         
     }
 
-    public void moveup()
+    public static void moveup()
     {
         Debug.Log("Function 1");
     }
 
-    public void movedown()
+    public static void movedown()
     {
         Debug.Log("Function 2");
     }
 
-    public int gainCoins(int playeramount)
+    public static int gainCoins(int playerBalance)
     {
-        return playeramount + 5;
+        int newplayerBalnce = playerBalance + 8;
+        return newplayerBalnce;
     }
 
-    public void GetPowerup()
+    public static int loseCoins(int playerBalance)
     {
-        int num = Random.Range(1, 4);
+        int newplayerBalnce = playerBalance - 10;
+        return newplayerBalnce;
+    }
+
+    public static void GetPowerup(Player player)
+    {
+        int num = Random.Range(3, 5);
+
 
         switch (num)
         {
             case 1:
-                if(num == 1)
                 moveup();
                 break;
             case 2:
-                if(num == 2)
                 movedown();
                 break;
             case 3:
-                gainCoins(playercoinearned);
+                gainCoins(player.getGameBalance());
+                break;
+            case 4:
+                loseCoins(player.getGameBalance());
                 break;
         }
+
     }
 
 }

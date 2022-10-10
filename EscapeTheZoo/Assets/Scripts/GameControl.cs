@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using static DataManager;
 
 public class GameControl : MonoBehaviour
 {
@@ -90,7 +89,7 @@ public class GameControl : MonoBehaviour
             if (player1.GetComponent<PlayerMovement>().waypointIndex == 11 || player1.GetComponent<PlayerMovement>().waypointIndex == 16 || player1.GetComponent<PlayerMovement>().waypointIndex == 33 || player1.GetComponent<PlayerMovement>().waypointIndex == 45
             || player1.GetComponent<PlayerMovement>().waypointIndex == 57 || player1.GetComponent<PlayerMovement>().waypointIndex == 65 || player1.GetComponent<PlayerMovement>().waypointIndex == 69 || player1.GetComponent<PlayerMovement>().waypointIndex == 77)
             { 
-                PowerupsImplementation.GetPowerup();
+                PowerupsImplementation.GetPowerup(MinigameLoadPlayers.GetListOfPlayersPlaying()[0]);
             }
         }
 
@@ -121,7 +120,7 @@ public class GameControl : MonoBehaviour
             if (player2.GetComponent<PlayerMovement>().waypointIndex == 11 || player2.GetComponent<PlayerMovement>().waypointIndex == 16 || player2.GetComponent<PlayerMovement>().waypointIndex == 33 || player2.GetComponent<PlayerMovement>().waypointIndex == 45
             || player2.GetComponent<PlayerMovement>().waypointIndex == 57 || player2.GetComponent<PlayerMovement>().waypointIndex == 65 || player2.GetComponent<PlayerMovement>().waypointIndex == 69 || player2.GetComponent<PlayerMovement>().waypointIndex == 77)
             {
-                PowerupsImplementation.GetPowerup();
+                PowerupsImplementation.GetPowerup(MinigameLoadPlayers.GetListOfPlayersPlaying()[1]);
             }
         }
 
