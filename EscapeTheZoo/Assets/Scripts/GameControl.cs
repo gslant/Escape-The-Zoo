@@ -21,6 +21,9 @@ public class GameControl : MonoBehaviour
     // Who the winner of the game is
     int winner;
 
+    // List of minigames
+    private List<string> minigames = new List<string>();
+
     private static GameObject player1, player2;
     [SerializeField] private GameObject player1Accessory, player2Accessory;
 
@@ -41,6 +44,12 @@ public class GameControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // Adds all the minigames to the list
+        minigames.Add("EscapeTheLions");
+        //minigames.Add("Don'tWakeTheHumans");
+        //minigames.Add("StayOnTheIceberg");
+        //minigames.Add("CatchTheBananas");
+
         player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");
         HUDGoldAmountText = GameObject.Find("GoldAmount");
@@ -83,7 +92,7 @@ public class GameControl : MonoBehaviour
                 p1.SetActive(false);
                 p2.SetActive(false);
                 eventSys.SetActive(false);
-                SceneLoader.LoadMinigameAdditive("EscapeTheLions");
+                SceneLoader.LoadMinigameAdditive(minigames[Random.Range(0, minigames.Count)]);
             }
 
             //WILDCARD CODE: I know this is not effecince will improve on this later
@@ -113,7 +122,7 @@ public class GameControl : MonoBehaviour
                 p1.SetActive(false);
                 p2.SetActive(false);
                 eventSys.SetActive(false);
-                SceneLoader.LoadMinigameAdditive("EscapeTheLions");
+                SceneLoader.LoadMinigameAdditive(minigames[Random.Range(0, minigames.Count)]);
 
             }
 
