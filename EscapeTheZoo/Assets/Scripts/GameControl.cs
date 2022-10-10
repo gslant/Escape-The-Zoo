@@ -86,7 +86,7 @@ public class GameControl : MonoBehaviour
                 eventSys.SetActive(false);
                 int miniGameRand = 0;
                 miniGameRand = Random.Range(0, 1);
-                SceneLoader.LoadMinigameAdditive("StayOnTheIceberg");
+                SceneLoader.LoadMinigameAdditive("EscapeTheLions");
             }
 
             //WILDCARD CODE: I know this is not effecince will improve on this later
@@ -118,7 +118,7 @@ public class GameControl : MonoBehaviour
                 eventSys.SetActive(false);
                 int miniGameRand = 0;
                 miniGameRand = Random.Range(0, 1);
-                SceneLoader.LoadMinigameAdditive("StayOnTheIceberg");
+                SceneLoader.LoadMinigameAdditive("EscapeTheLions");
 
             }
 
