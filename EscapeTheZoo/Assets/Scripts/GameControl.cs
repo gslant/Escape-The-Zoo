@@ -20,6 +20,9 @@ public class GameControl : MonoBehaviour
     // Who the winner of the game is
     int winner;
 
+    // List of minigames
+    private List<string> minigames = new List<string>();
+
     private static GameObject player1, player2;
     [SerializeField] private GameObject player1Accessory, player2Accessory;
 
@@ -37,9 +40,18 @@ public class GameControl : MonoBehaviour
 
     public GameObject mainCam, eventSys, grid, hud, p1, p2, dice;
 
+    // Constants
+    private int FINISH_FIRST_REWARD = 10; // The reward for finishing the game first
+
     // Use this for initialization
     void Start()
     {
+        // Adds all the minigames to the list
+        minigames.Add("EscapeTheLions");
+        minigames.Add("Don'tWakeTheHumans");
+        minigames.Add("StayOnTheIceberg");
+        //minigames.Add("CatchTheBananas");
+
         player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");
         HUDGoldAmountText = GameObject.Find("GoldAmount");
@@ -63,96 +75,104 @@ public class GameControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player1.GetComponent<PlayerMovement>().waypointIndex >
-            player1StartWaypoint + diceSideThrown)
+        // While the game isn't over
+        if (!gameOver)
         {
-            player1.GetComponent<PlayerMovement>().myTurn = false;
-            player1StartWaypoint = player1.GetComponent<PlayerMovement>().waypointIndex - 1;
-            currentPlayerIndex = 1;
-
-            //MINIGAME CODE: I know this is not effecince will improve on this later
-            if (player1.GetComponent<PlayerMovement>().waypointIndex == 6 || player1.GetComponent<PlayerMovement>().waypointIndex == 17 || player1.GetComponent<PlayerMovement>().waypointIndex == 24 || player1.GetComponent<PlayerMovement>().waypointIndex == 38
-            || player1.GetComponent<PlayerMovement>().waypointIndex == 47 || player1.GetComponent<PlayerMovement>().waypointIndex == 62 || player1.GetComponent<PlayerMovement>().waypointIndex == 82)
+            if (player1.GetComponent<PlayerMovement>().waypointIndex >
+                player1StartWaypoint + diceSideThrown)
             {
-                Debug.Log("MiniGame Time!!!!!");
-                mainCam.SetActive(false);
-                hud.SetActive(false);
-                grid.SetActive(false);
-                dice.SetActive(false);
-                p1.SetActive(false);
-                p2.SetActive(false);
-                eventSys.SetActive(false);
-                SceneLoader.LoadMinigameAdditive("EscapeTheLions");
+                player1.GetComponent<PlayerMovement>().myTurn = false;
+                player1StartWaypoint = player1.GetComponent<PlayerMovement>().waypointIndex - 1;
+                currentPlayerIndex = 1;
+
+                //MINIGAME CODE: I know this is not effecince will improve on this later
+                if (player1.GetComponent<PlayerMovement>().waypointIndex == 6 || player1.GetComponent<PlayerMovement>().waypointIndex == 17 || player1.GetComponent<PlayerMovement>().waypointIndex == 24 || player1.GetComponent<PlayerMovement>().waypointIndex == 38
+                || player1.GetComponent<PlayerMovement>().waypointIndex == 47 || player1.GetComponent<PlayerMovement>().waypointIndex == 62 || player1.GetComponent<PlayerMovement>().waypointIndex == 82)
+                {
+                    Debug.Log("MiniGame Time!!!!!");
+                    mainCam.SetActive(false);
+                    hud.SetActive(false);
+                    grid.SetActive(false);
+                    dice.SetActive(false);
+                    p1.SetActive(false);
+                    p2.SetActive(false);
+                    eventSys.SetActive(false);
+                    SceneLoader.LoadMinigameAdditive(minigames[Random.Range(0, minigames.Count)]);
+                }
+
+                //WILDCARD CODE: I know this is not effecince will improve on this later
+                if (player1.GetComponent<PlayerMovement>().waypointIndex == 11 || player1.GetComponent<PlayerMovement>().waypointIndex == 16 || player1.GetComponent<PlayerMovement>().waypointIndex == 33 || player1.GetComponent<PlayerMovement>().waypointIndex == 45
+                || player1.GetComponent<PlayerMovement>().waypointIndex == 57 || player1.GetComponent<PlayerMovement>().waypointIndex == 65 || player1.GetComponent<PlayerMovement>().waypointIndex == 69 || player1.GetComponent<PlayerMovement>().waypointIndex == 77)
+                {
+                    PowerupsImplementation.GetPowerup(GameControl.listOfPlayersPlaying[0]);
+                }
             }
 
-            //WILDCARD CODE: I know this is not effecince will improve on this later
-            if (player1.GetComponent<PlayerMovement>().waypointIndex == 11 || player1.GetComponent<PlayerMovement>().waypointIndex == 16 || player1.GetComponent<PlayerMovement>().waypointIndex == 33 || player1.GetComponent<PlayerMovement>().waypointIndex == 45
-            || player1.GetComponent<PlayerMovement>().waypointIndex == 57 || player1.GetComponent<PlayerMovement>().waypointIndex == 65 || player1.GetComponent<PlayerMovement>().waypointIndex == 69 || player1.GetComponent<PlayerMovement>().waypointIndex == 77)
-            { 
-                PowerupsImplementation.GetPowerup(MinigameLoadPlayers.GetListOfPlayersPlaying()[0]);
-            }
-        }
-
-        if (player2.GetComponent<PlayerMovement>().waypointIndex >
-            player2StartWaypoint + diceSideThrown)
-        {
-            player2.GetComponent<PlayerMovement>().myTurn = false;
-            player2StartWaypoint = player2.GetComponent<PlayerMovement>().waypointIndex - 1;
-            currentPlayerIndex = 0;
-
-            //MINIGAME CODE: I know this is not effecince will improve on this later
-            if (player2.GetComponent<PlayerMovement>().waypointIndex == 6 || player2.GetComponent<PlayerMovement>().waypointIndex == 17 || player2.GetComponent<PlayerMovement>().waypointIndex == 24 || player2.GetComponent<PlayerMovement>().waypointIndex == 38
-            || player2.GetComponent<PlayerMovement>().waypointIndex == 47 || player2.GetComponent<PlayerMovement>().waypointIndex == 62 || player2.GetComponent<PlayerMovement>().waypointIndex == 82)
-            {           
-                Debug.Log("MiniGame Time!!!!!");
-                mainCam.SetActive(false);
-                hud.SetActive(false);
-                grid.SetActive(false);
-                dice.SetActive(false);
-                p1.SetActive(false);
-                p2.SetActive(false);
-                eventSys.SetActive(false);
-                SceneLoader.LoadMinigameAdditive("EscapeTheLions");
-
-            }
-
-            //WILDCARD CODE: I know this is not effecince will improve on this later
-            if (player2.GetComponent<PlayerMovement>().waypointIndex == 11 || player2.GetComponent<PlayerMovement>().waypointIndex == 16 || player2.GetComponent<PlayerMovement>().waypointIndex == 33 || player2.GetComponent<PlayerMovement>().waypointIndex == 45
-            || player2.GetComponent<PlayerMovement>().waypointIndex == 57 || player2.GetComponent<PlayerMovement>().waypointIndex == 65 || player2.GetComponent<PlayerMovement>().waypointIndex == 69 || player2.GetComponent<PlayerMovement>().waypointIndex == 77)
+            if (player2.GetComponent<PlayerMovement>().waypointIndex >
+                player2StartWaypoint + diceSideThrown)
             {
-                PowerupsImplementation.GetPowerup(MinigameLoadPlayers.GetListOfPlayersPlaying()[1]);
+                player2.GetComponent<PlayerMovement>().myTurn = false;
+                player2StartWaypoint = player2.GetComponent<PlayerMovement>().waypointIndex - 1;
+                currentPlayerIndex = 0;
+
+
+                //MINIGAME CODE: I know this is not effecince will improve on this later
+                if (player2.GetComponent<PlayerMovement>().waypointIndex == 6 || player2.GetComponent<PlayerMovement>().waypointIndex == 17 || player2.GetComponent<PlayerMovement>().waypointIndex == 24 || player2.GetComponent<PlayerMovement>().waypointIndex == 38
+                || player2.GetComponent<PlayerMovement>().waypointIndex == 47 || player2.GetComponent<PlayerMovement>().waypointIndex == 62 || player2.GetComponent<PlayerMovement>().waypointIndex == 82)
+                {
+                    Debug.Log("MiniGame Time!!!!!");
+                    mainCam.SetActive(false);
+                    hud.SetActive(false);
+                    grid.SetActive(false);
+                    dice.SetActive(false);
+                    p1.SetActive(false);
+                    p2.SetActive(false);
+                    eventSys.SetActive(false);
+                    SceneLoader.LoadMinigameAdditive(minigames[Random.Range(0, minigames.Count)]);
+
+                }
+
+                //WILDCARD CODE: I know this is not effecince will improve on this later
+                if (player2.GetComponent<PlayerMovement>().waypointIndex == 11 || player2.GetComponent<PlayerMovement>().waypointIndex == 16 || player2.GetComponent<PlayerMovement>().waypointIndex == 33 || player2.GetComponent<PlayerMovement>().waypointIndex == 45
+                || player2.GetComponent<PlayerMovement>().waypointIndex == 57 || player2.GetComponent<PlayerMovement>().waypointIndex == 65 || player2.GetComponent<PlayerMovement>().waypointIndex == 69 || player2.GetComponent<PlayerMovement>().waypointIndex == 77)
+                {
+                    PowerupsImplementation.GetPowerup(GameControl.listOfPlayersPlaying[1]);
+                }
             }
-        }
 
-        GameControl.updatePlayerHUD(GameControl.listOfPlayersPlaying[currentPlayerIndex]);
+            GameControl.updatePlayerHUD(GameControl.listOfPlayersPlaying[currentPlayerIndex]);
 
-        if (player1.GetComponent<PlayerMovement>().waypointIndex ==
-            player1.GetComponent<PlayerMovement>().waypoints.Length)
-        {
-            player1.GetComponent<PlayerMovement>().waypointIndex = player1.GetComponent<PlayerMovement>().waypoints.Length - 1;
-            gameOver = true;
-            winner = 0;
-        }
-
-        if (player2.GetComponent<PlayerMovement>().waypointIndex ==
-            player2.GetComponent<PlayerMovement>().waypoints.Length)
-        {
-            player2.GetComponent<PlayerMovement>().waypointIndex = player2.GetComponent<PlayerMovement>().waypoints.Length - 1;
-            gameOver = true;
-            winner = 1;
-        }
-
-        // If game is over, do this
-        if (gameOver == true)
-        {
-            winCanvas.SetActive(true);
-            HUDCanvas.SetActive(false);
-            winCanvasText.GetComponent<TextMeshProUGUI>().text = GameControl.listOfPlayersPlaying[winner].getName() + " Wins!";
-            
-            for (int i = 0; i < listOfPlayersPlaying.Count; i++)
+            if (player1.GetComponent<PlayerMovement>().waypointIndex ==
+                player1.GetComponent<PlayerMovement>().waypoints.Length)
             {
-                GameControl.listOfPlayersPlaying[i].addGameBalanceToTotalBalance();
-                dataManager.SaveData(listOfPlayersPlaying[i]);
+
+                player1.GetComponent<PlayerMovement>().waypointIndex = player1.GetComponent<PlayerMovement>().waypoints.Length - 1;
+                gameOver = true;
+                winner = 0;
+
+            }
+
+            if (player2.GetComponent<PlayerMovement>().waypointIndex ==
+                player2.GetComponent<PlayerMovement>().waypoints.Length)
+            {
+                player2.GetComponent<PlayerMovement>().waypointIndex = player2.GetComponent<PlayerMovement>().waypoints.Length - 1;
+                gameOver = true;
+                winner = 1;
+            }
+
+            // If game is over, do this
+            if (gameOver)
+            {
+                winCanvas.SetActive(true);
+                HUDCanvas.SetActive(false);
+                winCanvasText.GetComponent<TextMeshProUGUI>().text = GameControl.listOfPlayersPlaying[winner].getName() + " Wins!\n" + GameControl.listOfPlayersPlaying[winner].getName() + " earns an extra " + FINISH_FIRST_REWARD + " coins!";
+                GameControl.listOfPlayersPlaying[winner].changeGameBalanceByAmount(FINISH_FIRST_REWARD);
+
+                for (int i = 0; i < listOfPlayersPlaying.Count; i++)
+                {
+                    GameControl.listOfPlayersPlaying[i].addGameBalanceToTotalBalance();
+                    dataManager.SaveData(listOfPlayersPlaying[i]);
+                }
             }
         }
     }
