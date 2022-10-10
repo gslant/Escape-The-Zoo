@@ -14,7 +14,6 @@ public class GameControl : MonoBehaviour
     public GameObject winCanvas;
     public GameObject winCanvasText;
     public Button finishGameButton;
-    private string[] minigames = { "EscapeTheLions", "StayOnTheIceberg" };
 
     // DataManager to save players
     private DataManager dataManager;
