@@ -38,6 +38,7 @@ public class DWTHController : MonoBehaviour
     private bool gameOver = false; // Keeps track of if the game is over.
     private int winner = -1; // Holds the winner of the game. Initially -1 as no winner is set.
     private float latestPushableObjectScale; // The scale of the newest created pushable object.
+    private bool startNewGame = false;
 
     // Constants
     private int MAX_NUM_OBJECTS = 5; // Maximum number of pushable objects.
@@ -73,6 +74,35 @@ public class DWTHController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If a new game is starting
+        if (startNewGame)
+        {
+            // Sets the next shown and hidden sihouette times
+            nextShowSilhouetteTime = (int)Time.fixedTime + silhouettePauseDuration;
+            nextHideSilhouetteTime = nextShowSilhouetteTime + HUMAN_SILHOUETTE_DURATION;
+
+            // Destroys every object in the pushable object list
+            foreach (Transform child in pushableObjectList)
+            {
+                Destroy(child.gameObject);
+            }
+
+            numObjects = 0; // Keeps track of the number of objects on the table.
+            numberOfPlayersRemaining = 2; // Keeps track of the number of players still playing the game. Starts off at 2.
+            addedPushableObject = false; // Makes sure only 1 pushable object is added at a time.
+            warningDuration = 3; // How long the warning sign stays for. Initial duration is 3.
+            silhouettePauseDuration = 10; // Time between each moment the human shows up. Initial duration is 10.
+            gameOver = false; // Keeps track of if the game is over.
+            winner = -1; // Holds the winner of the game. Initially -1 as no winner is set.
+
+            // Hides certain game objects
+            GameOverCanvas.SetActive(false);
+            silhouette.SetActive(false);
+            warning.SetActive(false);
+
+            startNewGame = false;
+        }
+
         if (!gameOver) // While the game isn't finished
         {
             // Updates the score counter
@@ -151,7 +181,7 @@ public class DWTHController : MonoBehaviour
         addedPushableObject = true;
     }
 
-    // Updates 
+    // Updates the silhouette times
     private void updateSilhouetteTimes()
     {
         nextShowSilhouetteTime = (int)Time.fixedTime + silhouettePauseDuration;
@@ -202,5 +232,6 @@ public class DWTHController : MonoBehaviour
         GameControl con = FindObjectOfType<GameControl>();
         con.reloadObjs();
         SceneLoader.unloadScene("Don'tWakeTheHumans");
+        startNewGame = true;
     }
 }

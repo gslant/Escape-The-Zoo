@@ -1643,10 +1643,10 @@ MonoBehaviour:
   con: {fileID: 1501498488}
   numPushed: 0
   alive: 1
-  upKey: 273
-  downKey: 274
-  rightKey: 275
-  leftKey: 276
+  upKey: 119
+  downKey: 115
+  rightKey: 100
+  leftKey: 97
 --- !u!1 &857140226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,10 +1900,10 @@ MonoBehaviour:
   con: {fileID: 1501498488}
   numPushed: 0
   alive: 1
-  upKey: 119
-  downKey: 115
-  rightKey: 100
-  leftKey: 97
+  upKey: 273
+  downKey: 274
+  rightKey: 275
+  leftKey: 276
 --- !u!1 &1143082592
 GameObject:
   m_ObjectHideFlags: 0
