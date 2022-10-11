@@ -28,21 +28,22 @@ public class StartBeforeMinigame : MonoBehaviour
         countdownText.text = "";
 
         PauseGame();
-        ShowTooltipMessage();
+        StartCoroutine(ShowTooltipMessage());
     }
 
-    void ShowTooltipMessage()
+    IEnumerator ShowTooltipMessage()
     {
         tooltipText.text = tooltipMessage;
         helpfulHintText.text = helpfulHintMessage;
+
+        yield return new WaitForSecondsRealtime(TOOLTIP_WAIT_TIME);
+        tooltipObject.SetActive(false);
+
         StartCoroutine(StartCountdownFromThree());
     }
 
     IEnumerator StartCountdownFromThree()
     {
-        yield return new WaitForSecondsRealtime(TOOLTIP_WAIT_TIME);
-        tooltipObject.SetActive(false);
-
         int dots = 3;
         for (int i = COUNTDOWN_FROM; i > 0; i--)
         {
