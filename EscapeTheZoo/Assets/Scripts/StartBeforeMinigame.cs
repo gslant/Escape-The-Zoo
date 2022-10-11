@@ -3,29 +3,42 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Countdown : MonoBehaviour
+public class StartBeforeMinigame : MonoBehaviour
 {
-    [SerializeField] GameObject countdownCanvas;
-    TextMeshProUGUI countdownText;
+    [SerializeField] GameObject startCanvas;
+    [SerializeField] GameObject tooltipObject;
+    [SerializeField] string tooltipMessage;
+    [SerializeField] TextMeshProUGUI tooltipText;
+    [SerializeField] TextMeshProUGUI countdownText;
 
+    const float TOOLTIP_WAIT_TIME = 3f;
     const int COUNTDOWN_FROM = 3;
 
     // Start is called before the first frame update
     void Start()
     {
-        countdownCanvas.SetActive(true);
-        countdownText = countdownCanvas.GetComponentInChildren<TextMeshProUGUI>();
+        startCanvas.SetActive(true);
+        tooltipObject.SetActive(true);
+
         countdownText.text = "";
-        StartCoroutine(StartCountdownFromThree());
-    }
-    
-    IEnumerator StartCountdownFromThree()
-    {
-        int dots = 3;
 
         PauseGame();
+        ShowTooltipMessage();
+        
+    }
 
-        yield return new WaitForSecondsRealtime(0.2f);
+    void ShowTooltipMessage()
+    {
+        tooltipText.text = tooltipMessage;
+        StartCoroutine(StartCountdownFromThree());
+    }
+
+    IEnumerator StartCountdownFromThree()
+    {
+        yield return new WaitForSecondsRealtime(TOOLTIP_WAIT_TIME);
+        tooltipObject.SetActive(false);
+
+        int dots = 3;
         for (int i = COUNTDOWN_FROM; i > 0; i--)
         {
             countdownText.text = i.ToString();
@@ -40,7 +53,7 @@ public class Countdown : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
 
         ResumeGame();
-        countdownCanvas.SetActive(false);
+        startCanvas.SetActive(false);
     }
 
     void PauseGame()
