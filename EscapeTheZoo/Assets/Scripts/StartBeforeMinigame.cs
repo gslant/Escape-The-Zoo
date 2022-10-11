@@ -11,7 +11,7 @@ public class StartBeforeMinigame : MonoBehaviour
     [SerializeField] TextMeshProUGUI tooltipText;
     [SerializeField] TextMeshProUGUI countdownText;
 
-    const float TOOLTIP_WAIT_TIME = 3f;
+    const float TOOLTIP_WAIT_TIME = 3.5f;
     const int COUNTDOWN_FROM = 3;
 
     // Start is called before the first frame update
@@ -24,7 +24,6 @@ public class StartBeforeMinigame : MonoBehaviour
 
         PauseGame();
         ShowTooltipMessage();
-        
     }
 
     void ShowTooltipMessage()
