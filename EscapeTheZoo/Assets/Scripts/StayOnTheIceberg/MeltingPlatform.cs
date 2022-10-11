@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MeltingPlatform : MonoBehaviour
 {
+    // Sounds
+    public AudioSource crackedIceAudio;
+    public AudioSource shatteredIceAudio;
 
     public SpriteRenderer spriteRenderer;
     public Sprite[] sArray; //this is here so that when the platform is about to break it can show a different sprite to warn the players
@@ -45,9 +48,11 @@ public class MeltingPlatform : MonoBehaviour
     {
         time = minTime;
         spriteRenderer.sprite = sArray[1];
+        crackedIceAudio.Play();
         yield return new WaitForSeconds(1);
         Invoke("DropPlatform", 0.1f);
         spriteRenderer.sprite = sArray[2];
+        shatteredIceAudio.Play();
         Destroy(gameObject, 1f);
     }
 

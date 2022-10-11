@@ -3,6 +3,10 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
+    // Sounds
+    public AudioSource playerJumpAudio;
+    public AudioSource playerSlideAudio;
+
     [SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;  // How much to smooth out the movement
     [SerializeField] private bool m_AirControl = false;                         // Whether or not a player can steer while jumping;
@@ -56,6 +60,14 @@ public class CharacterController2D : MonoBehaviour
 
     public void Move(float move, bool jump)
     {
+        if (m_Grounded && m_Rigidbody2D.velocity != Vector2.zero)
+        {
+            playerSlideAudio.mute = false;
+        } else
+        {
+            playerSlideAudio.mute = true;
+        }
+
         //only control the player if grounded or airControl is turned on
         if (m_Grounded || m_AirControl)
         {
@@ -81,6 +93,9 @@ public class CharacterController2D : MonoBehaviour
         // If the player should jump...
         if (m_Grounded && jump)
         {
+            // Play the jump audio
+            playerJumpAudio.Play();
+
             // Add a vertical force to the player.
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
