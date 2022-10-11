@@ -16,7 +16,7 @@ public class StartBeforeMinigame : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI countdownText;
 
-    const float TOOLTIP_WAIT_TIME = 3.5f;
+    const float TOOLTIP_WAIT_TIME = 4f;
     const int COUNTDOWN_FROM = 3;
 
     // Start is called before the first frame update
