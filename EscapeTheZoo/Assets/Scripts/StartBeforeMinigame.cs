@@ -7,8 +7,13 @@ public class StartBeforeMinigame : MonoBehaviour
 {
     [SerializeField] GameObject startCanvas;
     [SerializeField] GameObject tooltipObject;
-    [SerializeField] string tooltipMessage;
+
     [SerializeField] TextMeshProUGUI tooltipText;
+    [SerializeField] string tooltipMessage;
+
+    [SerializeField] TextMeshProUGUI helpfulHintText;
+    [SerializeField] string helpfulHintMessage;
+
     [SerializeField] TextMeshProUGUI countdownText;
 
     const float TOOLTIP_WAIT_TIME = 3.5f;
@@ -29,6 +34,7 @@ public class StartBeforeMinigame : MonoBehaviour
     void ShowTooltipMessage()
     {
         tooltipText.text = tooltipMessage;
+        helpfulHintText.text = helpfulHintMessage;
         StartCoroutine(StartCountdownFromThree());
     }
 
