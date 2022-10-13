@@ -50,7 +50,7 @@ public class GameControl : MonoBehaviour
         minigames.Add("EscapeTheLions");
         minigames.Add("Don'tWakeTheHumans");
         minigames.Add("StayOnTheIceberg");
-        //minigames.Add("CatchTheBananas");
+        minigames.Add("CatchTheBananas");
 
         player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");
