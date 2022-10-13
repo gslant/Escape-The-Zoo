@@ -5,9 +5,15 @@ using UnityEngine;
 public class PowerupsImplementation : MonoBehaviour
 {
 
+    public List<GameObject> powerupslist;
     public List<Player> listofplayers = MinigameLoadPlayers.GetListOfPlayersPlaying();
 
     public Player player;
+
+    public PowerupsImplementation()
+    {
+        powerupslist = new List<GameObject>();
+    }
 
     // player is move up by 3 spaces(tiles)
     public static void moveup()
