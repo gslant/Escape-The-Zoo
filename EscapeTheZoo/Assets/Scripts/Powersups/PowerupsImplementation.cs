@@ -23,13 +23,13 @@ public class PowerupsImplementation : MonoBehaviour
     public static void gainCoins(Player player)
     {
         player.changeGameBalanceByAmount(8);
-        Debug.Log("Function 3");
+        Debug.Log("Function 4");
     }
     // player instantly loses 10 coins
     public static void loseCoins(Player player)
     {
         player.changeGameBalanceByAmount(-10);
-        Debug.Log("Function 4");
+        Debug.Log("Function 5");
     }
 
     public static void GetPowerup(Player player)
@@ -40,6 +40,7 @@ public class PowerupsImplementation : MonoBehaviour
         switch (num)
         {
             case 1:
+                
                 moveup();
                 break;
             case 2:

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    public List<Powerups> powerups = new List<Powerups>();
+
     public Transform[] waypoints;
 
     [SerializeField]
