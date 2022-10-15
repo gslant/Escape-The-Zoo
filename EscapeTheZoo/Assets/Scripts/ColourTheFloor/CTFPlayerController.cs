@@ -51,21 +51,25 @@ public class CTFPlayerController : MonoBehaviour
     {
         if (Input.GetKey(upKey))
         {
+            movement.x = 0;
             isMoving = true;
             movement.y = movementSpeed;
         }
         if (Input.GetKey(downKey))
         {
+            movement.x = 0;
             isMoving = true;
             movement.y = -movementSpeed;
         }
         if (Input.GetKey(rightKey))
         {
+            movement.y = 0;
             isMoving = true;
             movement.x = movementSpeed;
         }
         if (Input.GetKey(leftKey))
         {
+            movement.y = 0;
             isMoving = true;
             movement.x = -movementSpeed;
         }
@@ -76,8 +80,7 @@ public class CTFPlayerController : MonoBehaviour
         }
 
         
-
-        objectRigidbody.MovePosition(objectRigidbody.position + movement.normalized);
+        objectRigidbody.MovePosition(objectRigidbody.position + movement);
         isMoving = false;
     }
 
