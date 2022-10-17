@@ -57,10 +57,9 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-
     public void Move(float move, bool jump)
     {
-        if (m_Grounded && m_Rigidbody2D.velocity != Vector2.zero)
+        if (m_Grounded && move != 0)
         {
             playerSlideAudio.mute = false;
         } else
@@ -71,7 +70,6 @@ public class CharacterController2D : MonoBehaviour
         //only control the player if grounded or airControl is turned on
         if (m_Grounded || m_AirControl)
         {
-
             // Move the character by finding the target velocity
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
             // And then smoothing it out and applying it to the character
