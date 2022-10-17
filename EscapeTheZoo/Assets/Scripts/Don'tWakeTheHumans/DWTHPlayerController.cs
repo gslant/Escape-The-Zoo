@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DWTHPlayerController : MonoBehaviour
 {
+    // Sounds
+    public AudioSource playerDeath;
+
     // Objects
     public GameObject silhouette;
     public DWTHController con;
@@ -51,6 +54,7 @@ public class DWTHPlayerController : MonoBehaviour
                     Destroy(boxCollide);
                     objectRigidbody.velocity = new Vector3(-5, +5, 0);
                     deathTimePlusThree = (int)Time.fixedTime + 3;
+                    playerDeath.Play();
                 }
             }
             else

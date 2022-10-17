@@ -6846,7 +6846,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 0
@@ -7784,7 +7784,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc68dece47e6ce4d9a6c729a617d067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonPop: {fileID: 1398855697}
   MainMenuCanvas: {fileID: 2080179105}
   goToLobbyButton: {fileID: 940165827}
   settingsButton: {fileID: 706067738}
@@ -7793,7 +7792,6 @@ MonoBehaviour:
   helpButton: {fileID: 706059190}
   helpPanel: {fileID: 608773906}
   lobbyCanvas: {fileID: 88824050}
-  oneTime: 1
 --- !u!114 &1540584289
 MonoBehaviour:
   m_ObjectHideFlags: 0

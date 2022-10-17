@@ -41,6 +41,10 @@ public class ETLController : MonoBehaviour
     //This function is called by a player controller when that player collides with the lion
     public void PlayerDies(string name)
     {
+        p1.playerJumpingAudio.mute = true;
+        p2.playerJumpingAudio.mute = true;
+        ObstacleController.gameOver = true;
+
         int winIndex = -1;
         int loseIndex = -1;
 

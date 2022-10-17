@@ -8,6 +8,8 @@ public class MeltingPlatform : MonoBehaviour
     public AudioSource crackedIceAudio;
     public AudioSource shatteredIceAudio;
 
+    public static bool gameOver = false;
+
     public SpriteRenderer spriteRenderer;
     public Sprite[] sArray; //this is here so that when the platform is about to break it can show a different sprite to warn the players
 
@@ -25,17 +27,28 @@ public class MeltingPlatform : MonoBehaviour
         spriteRenderer.sprite = sArray[0];
         PlatformTimer();
         time = minTime;
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>();
+        gameOver = false;
+        crackedIceAudio.mute = false;
+        shatteredIceAudio.mute = false;
     }
 
     void FixedUpdate()
     {
-        time += Time.deltaTime;
-
-        if(time >= fallTime)
+        if (!gameOver)
         {
-           StartCoroutine(PlatformFall());
-            PlatformTimer();
+            time += Time.deltaTime;
+
+            if (time >= fallTime)
+            {
+                StartCoroutine(PlatformFall());
+                PlatformTimer();
+            }
+        }
+        else
+        {
+            crackedIceAudio.mute = true;
+            shatteredIceAudio.mute = true;
         }
     }
 

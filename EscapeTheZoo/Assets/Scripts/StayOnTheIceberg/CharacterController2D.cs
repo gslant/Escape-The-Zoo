@@ -22,6 +22,7 @@ public class CharacterController2D : MonoBehaviour
     private Vector3 m_Velocity = Vector3.zero;
     public string pName;
     public SOTIController con;
+    public bool stopped = false; // Keeps track of whether the player is stopped
 
     [Header("Events")]
     [Space]
@@ -37,6 +38,9 @@ public class CharacterController2D : MonoBehaviour
 
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
+
+        playerJumpAudio.mute = false;
+        stopped = false;
     }
 
     private void FixedUpdate()
@@ -59,44 +63,54 @@ public class CharacterController2D : MonoBehaviour
 
     public void Move(float move, bool jump)
     {
-        if (m_Grounded && move != 0)
+        if (!stopped)
         {
-            playerSlideAudio.mute = false;
+            if (m_Grounded && m_Rigidbody2D.velocity != Vector2.zero)
+            {
+                playerSlideAudio.mute = false;
+            }
+            else
+            {
+                playerSlideAudio.mute = true;
+            }
+
+            //only control the player if grounded or airControl is turned on
+            if (m_Grounded || m_AirControl)
+            {
+                // Move the character by finding the target velocity
+                Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+                // And then smoothing it out and applying it to the character
+                m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+
+                // If the input is moving the player right and the player is facing left...
+                if (move > 0 && !m_FacingRight)
+                {
+                    // ... flip the player.
+                    Flip();
+                }
+                // Otherwise if the input is moving the player left and the player is facing right...
+                else if (move < 0 && m_FacingRight)
+                {
+                    // ... flip the player.
+                    Flip();
+                }
+            }
+            // If the player should jump...
+            if (m_Grounded && jump)
+            {
+                // Play the jump audio
+                playerJumpAudio.Play();
+
+                // Add a vertical force to the player.
+                m_Grounded = false;
+                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            }
         } else
         {
+            playerJumpAudio.mute = true;
             playerSlideAudio.mute = true;
-        }
-
-        //only control the player if grounded or airControl is turned on
-        if (m_Grounded || m_AirControl)
-        {
-            // Move the character by finding the target velocity
-            Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
-            // And then smoothing it out and applying it to the character
-            m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
-
-            // If the input is moving the player right and the player is facing left...
-            if (move > 0 && !m_FacingRight)
-            {
-                // ... flip the player.
-                Flip();
-            }
-            // Otherwise if the input is moving the player left and the player is facing right...
-            else if (move < 0 && m_FacingRight)
-            {
-                // ... flip the player.
-                Flip();
-            }
-        }
-        // If the player should jump...
-        if (m_Grounded && jump)
-        {
-            // Play the jump audio
-            playerJumpAudio.Play();
-
-            // Add a vertical force to the player.
-            m_Grounded = false;
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            m_Rigidbody2D.gravityScale = 0;
+            m_Rigidbody2D.velocity = Vector2.zero;
         }
     }
 
@@ -118,6 +132,7 @@ public class CharacterController2D : MonoBehaviour
         {
             Debug.Log("Player: " + this.name + " has died");
             con.PlayerDies(this.name);
+            stopped = true;
         }
     }
 

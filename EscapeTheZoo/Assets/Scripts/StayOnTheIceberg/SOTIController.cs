@@ -40,6 +40,10 @@ public class SOTIController : MonoBehaviour
     //This function is called by a player controller when that player collides with the lion
     public void PlayerDies(string name)
     {
+        p1.stopped = true;
+        p2.stopped = true;
+        MeltingPlatform.gameOver = true;
+
         int winIndex = -1;
         int loseIndex = -1;
         Debug.Log(name + " recieved by SOTICon");

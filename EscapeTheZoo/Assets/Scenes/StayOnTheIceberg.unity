@@ -542,6 +542,7 @@ MonoBehaviour:
   m_CeilingCheck: {fileID: 575374671}
   pName: Player 2
   con: {fileID: 1424335780}
+  stopped: 0
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -5380,6 +5381,7 @@ MonoBehaviour:
   m_CeilingCheck: {fileID: 511759719}
   pName: Player 1
   con: {fileID: 1424335780}
+  stopped: 0
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -5541,7 +5543,7 @@ AudioSource:
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 0
@@ -5745,7 +5747,7 @@ AudioSource:
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 0
