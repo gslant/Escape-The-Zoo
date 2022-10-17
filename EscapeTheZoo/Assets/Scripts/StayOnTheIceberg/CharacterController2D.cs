@@ -41,7 +41,6 @@ public class CharacterController2D : MonoBehaviour
 
         playerJumpAudio.mute = false;
         stopped = false;
-        m_Rigidbody2D.gravityScale = 3;
     }
 
     private void FixedUpdate()
