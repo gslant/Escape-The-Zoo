@@ -2017,7 +2017,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07821846, y: 5.03727}
+  m_Offset: {x: 0.07821846, y: 5.278079}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2028,7 +2028,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 22.056416, y: 0.31167698}
+  m_Size: {x: 22.056416, y: 0.7932944}
   m_EdgeRadius: 0
 --- !u!61 &945979150
 BoxCollider2D:
@@ -2043,7 +2043,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.26330185, y: -4.9651213}
+  m_Offset: {x: -0.26330185, y: -5.339713}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2054,7 +2054,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 20.409111, y: 0.09725189}
+  m_Size: {x: 20.409111, y: 0.84643507}
   m_EdgeRadius: 0
 --- !u!61 &945979151
 BoxCollider2D:
@@ -2069,7 +2069,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -8.820613, y: -0.037614584}
+  m_Offset: {x: -9.0746, y: -0.037614822}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2080,7 +2080,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.05963707, y: 10.629326}
+  m_Size: {x: 0.56761074, y: 10.629326}
   m_EdgeRadius: 0
 --- !u!61 &945979152
 BoxCollider2D:
@@ -2095,7 +2095,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 8.751484, y: -0.11284399}
+  m_Offset: {x: 9.072562, y: -0.11284399}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2106,7 +2106,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15713501, y: 10.827748}
+  m_Size: {x: 0.7992916, y: 10.827748}
   m_EdgeRadius: 0
 --- !u!4 &945979153
 Transform:
@@ -3061,6 +3061,8 @@ MonoBehaviour:
   player2: {fileID: 888657764}
   grid: {fileID: 1535259312}
   squarePrefab: {fileID: 3237914195665874636, guid: 2ddb2e985f6b9c14f83cdb1d8b49ab29, type: 3}
+  colorCollider: {fileID: 713982664}
+  testKey: 112
 --- !u!4 &1540321768
 Transform:
   m_ObjectHideFlags: 0
