@@ -33,7 +33,17 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log(waypointIndex);
         //Debug.Log(waypoints.Length - 1);
         //Debug.Log(waypoints[waypointIndex]);
-        if (waypointIndex <= waypoints.Length - 1)
+        if(GameControl.diceSideThrown < 0)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex-2].transform.position, moveSpeed * Time.deltaTime);
+            Debug.Log("Made it in the first loop");
+            if (transform.position.x == waypoints[waypointIndex-2].transform.position.x && transform.position.y == waypoints[waypointIndex-2].transform.position.y)
+            {
+                Debug.Log("Made it in the second loop");
+                waypointIndex +=1 ;
+            }
+        }
+        else if (waypointIndex <= waypoints.Length - 1)
         {
             transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
             //Debug.Log(transform.position.x);

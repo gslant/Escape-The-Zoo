@@ -4,10 +4,10 @@ using UnityEngine;
 public class Dice : MonoBehaviour
 {
 
-    private static Sprite[] diceSides;
-    private static SpriteRenderer rend;
-    private static int whosTurn = 1;
-    private static bool coroutineAllowed = true;
+    private Sprite[] diceSides;
+    private SpriteRenderer rend;
+    private int whosTurn = 1;
+    private bool coroutineAllowed = true;
 
     // Use this for initialization
     private void Start()
@@ -23,7 +23,7 @@ public class Dice : MonoBehaviour
             StartCoroutine("RollTheDice");
     }
 
-    public static IEnumerator RollTheDice()
+    private IEnumerator RollTheDice()
     {
         coroutineAllowed = false;
         int randomDiceSide = 0;
@@ -34,7 +34,10 @@ public class Dice : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
 
-        GameControl.diceSideThrown = randomDiceSide + 1;
+        GameControl.diceSideThrown = 10;
+
+/*        GameControl.diceSideThrown = randomDiceSide + 1;
+*/
         if (whosTurn == 1)
         {
             GameControl.MovePlayer(1);
