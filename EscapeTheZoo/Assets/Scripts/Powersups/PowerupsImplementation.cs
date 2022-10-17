@@ -5,24 +5,32 @@ using UnityEngine;
 public class PowerupsImplementation : MonoBehaviour
 {
 
-    public List<GameObject> powerupslist;
-    public List<Player> listofplayers = MinigameLoadPlayers.GetListOfPlayersPlaying();
+    public static List<Player> listofplayers = MinigameLoadPlayers.GetListOfPlayersPlaying();
 
-    public Player player;
+    public static Player player1, player2;
+    public int up = 3;
+    public int down = 5;
 
-    public PowerupsImplementation()
+    void Start()
     {
-        powerupslist = new List<GameObject>();
+        player1 = listofplayers[0];
+        player2 = listofplayers[1];
     }
 
     // player is move up by 3 spaces(tiles)
-    public static void moveup()
+    public static void moveup(Player player)
     {
-        Debug.Log("Function 1");
+        if(player == player1)
+        {
+
+        }
+        
+            Debug.Log("Function 1");
     }
     // player is move down by 5 spaces(tiles)
-    public static void movedown()
+    public static void movedown(Player player)
     {
+        GameControl.MovePlayer(-5);
         Debug.Log("Function 2");
     }
     // player instantly gain additional 8 coins
@@ -47,10 +55,10 @@ public class PowerupsImplementation : MonoBehaviour
         {
             case 1:
                 
-                moveup();
+                moveup(player);
                 break;
             case 2:
-                movedown();
+                movedown(player);
                 break;
             case 3:
                 gainCoins(player);
