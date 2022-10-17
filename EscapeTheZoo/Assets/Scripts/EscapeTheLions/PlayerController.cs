@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerJumpingAudio.mute = false;
-        rb.gravityScale = 3;
+        rb.gravityScale = 1;
     }
 
     void FixedUpdate()
