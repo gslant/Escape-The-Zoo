@@ -15,13 +15,17 @@ public class CTFController : MonoBehaviour
 
     public GameObject grid;
     public GameObject squarePrefab;
+    public BoxCollider2D colorCollider;
+
+    public KeyCode testKey;
+    float powerUpStartTime;
     // Start is called before the first frame update
     void Start()
     {
         GameOverCanvas.SetActive(false);
-        for (int j = -7; j < 8; j += 2)
+        for (float j = -8.5f; j < 9f; j += 0.5f)
         {
-            for (int i = -3; i <= 4; i += 2)
+            for (float i = -4.5f; i <= 4.5f; i += 0.5f)
             {
                 Instantiate(squarePrefab, new Vector3(j, i, 0), Quaternion.identity);
             }
@@ -31,6 +35,18 @@ public class CTFController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(testKey))
+        {
+            powerUpStartTime = Time.time;
+            Debug.Log("BIG");
+            Vector3 initSize = colorCollider.size;
+            Debug.Log(initSize);
+            colorCollider.size = new Vector3(5,5,0);
+        }
+
+        if(Time.time > powerUpStartTime + 5f)
+        {
+            colorCollider.size = new Vector3(0.1f, 0.1f, 0);
+        }
     }
 }
