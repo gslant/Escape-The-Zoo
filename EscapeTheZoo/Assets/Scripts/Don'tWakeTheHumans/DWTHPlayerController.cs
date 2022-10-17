@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DWTHPlayerController : MonoBehaviour
 {
+    // Sounds
+    public AudioSource playerDeath;
+
     // Objects
     public GameObject silhouette;
     public DWTHController con;
@@ -17,6 +20,7 @@ public class DWTHPlayerController : MonoBehaviour
     public int numPushed = 0; // Number of pushable objects pushed off the shelf.
     public bool alive = true; // Keeps track of if the player is alive.
     private int deathTimePlusThree; // The time 3 Seconds after the player dies.
+    public bool moving = false; // Keeps track of if the player is moving.
 
     // Input Keys
     public KeyCode upKey;
@@ -40,6 +44,7 @@ public class DWTHPlayerController : MonoBehaviour
             // Player Movement
             if (Input.GetKey(upKey) || Input.GetKey(downKey) || Input.GetKey(rightKey) || Input.GetKey(leftKey))
             {
+                moving = true;
                 objectRigidbody.velocity = new Vector3(((Input.GetKey(leftKey) ? 1 : 0) * -5) + ((Input.GetKey(rightKey) ? 1 : 0) * 5), ((Input.GetKey(downKey) ? 1 : 0) * -5) + ((Input.GetKey(upKey) ? 1 : 0) * 5), 0);
 
                 // If the player is moving while the human is looking around
@@ -49,10 +54,12 @@ public class DWTHPlayerController : MonoBehaviour
                     Destroy(boxCollide);
                     objectRigidbody.velocity = new Vector3(-5, +5, 0);
                     deathTimePlusThree = (int)Time.fixedTime + 3;
+                    playerDeath.Play();
                 }
             }
             else
             {
+                moving = false;
                 objectRigidbody.velocity = new Vector3(0, 0, 0);
             }
         }
