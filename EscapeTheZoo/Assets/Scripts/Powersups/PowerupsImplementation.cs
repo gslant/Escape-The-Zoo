@@ -8,13 +8,16 @@ public class PowerupsImplementation : MonoBehaviour
     public static List<Player> listofplayers = MinigameLoadPlayers.GetListOfPlayersPlaying();
 
     public static Player player1, player2;
-    public int up = 3;
-    public int down = 5;
+
+    public static int up = 3;
+    public static int down = 5;
 
     void Start()
     {
         player1 = listofplayers[0];
         player2 = listofplayers[1];
+        GameControl.player1.GetComponent<PlayerMovement>().myTurn = false;
+        GameControl.player2.GetComponent<PlayerMovement>().myTurn = false;
     }
 
     // player is move up by 3 spaces(tiles)
@@ -22,10 +25,16 @@ public class PowerupsImplementation : MonoBehaviour
     {
         if(player == player1)
         {
-
+            Dice.RollTheDice();
         }
-        
-            Debug.Log("Function 1");
+
+        if (player == player2)
+        {
+            Dice.RollTheDice();
+        }
+        Debug.Log("Function 1");
+
+
     }
     // player is move down by 5 spaces(tiles)
     public static void movedown(Player player)

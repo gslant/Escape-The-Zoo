@@ -23,7 +23,7 @@ public class GameControl : MonoBehaviour
     // List of minigames
     private List<string> minigames = new List<string>();
 
-    private static GameObject player1, player2;
+    public static GameObject player1, player2;
     [SerializeField] private GameObject player1Accessory, player2Accessory;
 
     public static int diceSideThrown = 0;
@@ -36,7 +36,7 @@ public class GameControl : MonoBehaviour
     public static List<Player> listOfPlayersPlaying; // This will load in the selected players from the lobby
     private List<GameObject> playerObjects;
     private List<GameObject> playerAccessoryObjects;
-    private int currentPlayerIndex; // This will determine which profile to load for the HUD
+    public static int currentPlayerIndex; // This will determine which profile to load for the HUD
 
     public GameObject mainCam, eventSys, grid, hud, p1, p2, dice;
 
