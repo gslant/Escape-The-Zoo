@@ -26,8 +26,7 @@ public class CTBPlayerController : MonoBehaviour
         ctbManager = minigameManager.GetComponent<CTBManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         PlayerMoves();
     }
