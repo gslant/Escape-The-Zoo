@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Sounds
+    public AudioSource playerJumpingAudio;
+
     private bool isJumping;
     private Rigidbody2D rb;
     public string pName;
@@ -20,6 +23,7 @@ public class PlayerController : MonoBehaviour
         //If touching the ground and jump key is held
         if(Input.GetKey(jumpKey) && !isJumping)
         {
+            playerJumpingAudio.Play();
             rb.velocity = new Vector3(0, 5, 0);
             isJumping = true;
         }
