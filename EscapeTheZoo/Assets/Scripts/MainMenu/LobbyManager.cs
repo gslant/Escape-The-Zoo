@@ -267,6 +267,13 @@ public class LobbyManager : MonoBehaviour
     {
         string newPlayerName = createPlayerScreenInput.text;
 
+        if (newPlayerName.Equals(""))
+        {
+            popup("You didn't type in a name!");
+
+            return;
+        }
+
         foreach (Player player in playerList)
         {
             if (newPlayerName == player.getName())
