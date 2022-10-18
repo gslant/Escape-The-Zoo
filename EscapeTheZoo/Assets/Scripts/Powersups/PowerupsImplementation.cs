@@ -44,17 +44,24 @@ public class PowerupsImplementation : MonoBehaviour
 
         Debug.Log("Function 2");
     }
-    // player instantly gain additional 8 coins
+    // player gain additional 8 coins
     public static void gainCoins(Player player)
     {
         player.changeGameBalanceByAmount(8);
         Debug.Log("Function 4");
     }
-    // player instantly loses 10 coins
+    // player loses 10 coins
     public static void loseCoins(Player player)
     {
         player.changeGameBalanceByAmount(-10);
         Debug.Log("Function 5");
+    }
+
+    // player can select which minigame they want to play
+    public static void minigameSelect(Player player)
+    {
+        
+        Debug.Log("Function 6");
     }
 
     public static void GetPowerup(Player player)
@@ -65,7 +72,6 @@ public class PowerupsImplementation : MonoBehaviour
         switch (num)
         {
             case 1:
-                
                 moveup(player);
                 break;
             case 2:
@@ -77,6 +83,10 @@ public class PowerupsImplementation : MonoBehaviour
             case 4:
                 loseCoins(player);
                 break;
+            case 5:
+                minigameSelect(player);
+                break;
+
         }
 
     }
