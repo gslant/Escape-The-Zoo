@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class DWTHController : MonoBehaviour
 {
+    // Sounds
+    public AudioSource DWTHMusic;
+
     // Objects
     public GameObject GameOverCanvas;
     public Button goBackButton;
@@ -69,6 +72,8 @@ public class DWTHController : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
+        DWTHMusic.mute = false;
 
         numObjects = 0; // Keeps track of the number of objects on the table.
         numberOfPlayersRemaining = 2; // Keeps track of the number of players still playing the game. Starts off at 2.
@@ -190,6 +195,8 @@ public class DWTHController : MonoBehaviour
     // Actions taken when the game is over
     private void gameOverEvent()
     {
+        DWTHMusic.mute = true;
+
         if (player1.alive)
         {
             winner = 0;
