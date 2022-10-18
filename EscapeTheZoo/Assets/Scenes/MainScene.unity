@@ -2951,8 +2951,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.000006, y: 477.39502}
-  m_SizeDelta: {x: 459.46, y: 1200}
+  m_AnchoredPosition: {x: -15.000006, y: -487.395}
+  m_SizeDelta: {x: 459.46, y: 1220}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &527420395
 MonoBehaviour:
@@ -2975,14 +2975,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "<size=120%><b>Developers:\r</b></size>\n<size=30%> </size>\nCoen Yakas\n
-    - Dice Mechanics\n - Stay on the Iceberg! Minigame\nAlessandra Hilario\n - Help
-    Section\n - Shop\n - Catch the Bananas! Minigame\nByron Goldsack\n - Main Menu\n
-    - Escape the Lion! Minigame\n - Colour the Floor! Minigame\nHarshil Patel\n -
-    Powerups\n - Shop\n - Game Board\nJun-Liang Tan\n - Lobby\n - Settings\n - Don't
-    Wake the Humans! Minigame\n\n<size=120%><b>Artists:</b></size>\n<size=30%> </size>\nCoen
-    Yakas\n - Animal Sprites\n - Game Board Tile Sprites\n - Stay on the Iceberg!
-    Sprites\nAlessandra Hilario\n - Accessory Sprites\n - Animal Sprites\n - Catch
-    the Bananas! Banana Sprites\n\n<size=120%><b>Composers:</b>\r</size>\n<size=30%>
+    - Dice Mechanics\n - Game Board Movement Mechanics\n - Stay on the Iceberg! Minigame\nAlessandra
+    Hilario\n - Help Section\n - Shop\n - Catch the Bananas! Minigame\nByron Goldsack\n
+    - Main Menu\n - Escape the Lion! Minigame\n - Colour the Floor! Minigame\nHarshil
+    Patel\n - Powerups\n - Shop\n - Game Board\nJun-Liang Tan\n - Lobby\n - Settings\n
+    - Don't Wake the Humans! Minigame\n\n<size=120%><b>Artists:</b></size>\n<size=30%>
+    </size>\nCoen Yakas\n - Animal Sprites\n - Game Board Tile Sprites\n - Stay on
+    the Iceberg! Sprites\nAlessandra Hilario\n - Accessory Sprites\n - Animal Sprites\n
+    - Catch the Bananas! Banana Sprites\n\n<size=120%><b>Composers:</b>\r</size>\n<size=30%>
     </size>\nAlessandra Hilario\n - Catch the Bananas! Background Music\n - Main
     Menu Background Music\n - Stay on the Iceberg! Background Music\n\n<size=120%><b>Other
     Art</b></size>\n<size=30%> </size>\nMute and Unmute - <link=\"https://opengameart.org/content/play-pause-mute-and-unmute-buttons\"><color=blue>\"play,
@@ -4088,8 +4088,8 @@ RectTransform:
   m_Father: {fileID: 1793270723}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.0000000063578285}
-  m_AnchorMax: {x: 1, y: 0.20434166}
+  m_AnchorMin: {x: 0, y: 0.7990082}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12503,8 +12503,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 607934077}
   m_HandleRect: {fileID: 607934076}
   m_Direction: 2
-  m_Value: 0.000000007990652
-  m_Size: 0.20434166
+  m_Value: 1
+  m_Size: 0.20099181
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
