@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(jumpKey) && !isJumping)
         {
             playerJumpingAudio.Play();
-            rb.velocity = new Vector3(0, 5, 0);
+            rb.velocity = new Vector3(0, 6, 0);
             isJumping = true;
         }
     }
