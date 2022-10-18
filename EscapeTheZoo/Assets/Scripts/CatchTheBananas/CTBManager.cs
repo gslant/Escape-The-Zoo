@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class CTBManager : MonoBehaviour
 {
+    // Sounds
+    public AudioSource CTBMusic;
+
     // Manages keeping track of the players' count and the winner of the minigame
 
     [SerializeField] GameObject player1, player2;
@@ -24,6 +27,7 @@ public class CTBManager : MonoBehaviour
         gameOverCanvas.SetActive(false);
         UpdatePlayerScoreTexts();
         StartSpawningBananas();
+        CTBMusic.mute = false;
     }
 
     void StartSpawningBananas()
@@ -71,6 +75,7 @@ public class CTBManager : MonoBehaviour
 
     IEnumerator ShowGameOver(string winner)
     {
+        CTBMusic.mute = true;
         GetComponent<MinigameEarnCoins>().GameOver(winner);
         gameOverCanvas.SetActive(true);
         bananaSpawner.IsSpawning = false;
