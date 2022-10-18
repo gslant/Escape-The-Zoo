@@ -3662,7 +3662,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319864136}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4096,7 +4096,7 @@ GameObject:
   - component: {fileID: 1443059811}
   - component: {fileID: 1443059812}
   m_Layer: 0
-  m_Name: PlayerTwoJumping
+  m_Name: PlayerTwoJumpingAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4224,6 +4224,7 @@ GameObject:
   - component: {fileID: 1483020150}
   - component: {fileID: 1483020149}
   - component: {fileID: 1483020151}
+  - component: {fileID: 1483020152}
   m_Layer: 0
   m_Name: CatchTheBananasManager
   m_TagString: Untagged
@@ -4280,6 +4281,20 @@ MonoBehaviour:
   gameOverText: {fileID: 2132624225}
   player1: {fileID: 698769636}
   player2: {fileID: 22178082}
+--- !u!114 &1483020152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483020148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e38156a15a6c24ba75d77cb911ced7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundsList: {fileID: 1389055132}
+  backgroundMusic: {fileID: 1319864138}
 --- !u!1 &1490364468
 GameObject:
   m_ObjectHideFlags: 0
@@ -4501,7 +4516,7 @@ GameObject:
   - component: {fileID: 1645758356}
   - component: {fileID: 1645758357}
   m_Layer: 0
-  m_Name: PlayerOneJumping
+  m_Name: PlayerOneJumpingAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
