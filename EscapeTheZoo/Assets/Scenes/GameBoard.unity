@@ -300,7 +300,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 122584756}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 122584758}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &122584756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,22 +360,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 122584753}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a5749db9026f740964b8044b0de3cd, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b60316eb49b75c45881915cf811aab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HUDCanvas: {fileID: 1212342634}
-  winCanvas: {fileID: 1788880577}
-  winCanvasText: {fileID: 2014156779}
-  finishGameButton: {fileID: 122584755}
-  player1Accessory: {fileID: 817367031}
-  player2Accessory: {fileID: 1493101393}
-  mainCam: {fileID: 1431961685}
-  eventSys: {fileID: 1689191583}
-  grid: {fileID: 759260286}
-  hud: {fileID: 923887803}
-  p1: {fileID: 1827358657}
-  p2: {fileID: 1684355862}
-  dice: {fileID: 1578878251}
 --- !u!1 &142787398
 GameObject:
   m_ObjectHideFlags: 0
