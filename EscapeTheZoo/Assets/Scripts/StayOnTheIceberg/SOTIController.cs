@@ -5,6 +5,9 @@ using TMPro;
 
 public class SOTIController : MonoBehaviour
 {
+    // Sounds
+    public AudioSource SOTIMusic;
+
     public CharacterController2D p1;
     public CharacterController2D p2;
 
@@ -25,6 +28,7 @@ public class SOTIController : MonoBehaviour
     {
         GameOverCanvas.SetActive(false);
         goBackButton.onClick.AddListener(delegate { goBack(); });
+        SOTIMusic.mute = false;
     }
 
     //Defunct
@@ -40,6 +44,11 @@ public class SOTIController : MonoBehaviour
     //This function is called by a player controller when that player collides with the lion
     public void PlayerDies(string name)
     {
+        p1.stopped = true;
+        p2.stopped = true;
+        MeltingPlatform.gameOver = true;
+        SOTIMusic.mute = true;
+
         int winIndex = -1;
         int loseIndex = -1;
         Debug.Log(name + " recieved by SOTICon");

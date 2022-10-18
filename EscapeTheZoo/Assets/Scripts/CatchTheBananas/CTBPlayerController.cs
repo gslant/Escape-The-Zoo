@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class CTBPlayerController : MonoBehaviour
 {
+    // Sounds
+    public AudioSource bananaCaughtAudio;
+    public AudioSource slippingOnBananaAudio;
+    public AudioSource playerJumpAudio;
+
     // This script is assigned to the player objects for movement
 
     [SerializeField] GameObject minigameManager;
@@ -40,6 +45,7 @@ public class CTBPlayerController : MonoBehaviour
         {
             if (Input.GetKey(upKey) && canJump == true)
             {
+                playerJumpAudio.Play();
                 rb.velocity = new Vector2(0, PLAYER_SPEED);
                 canJump = false;
             }
@@ -67,11 +73,13 @@ public class CTBPlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Banana"))
         {
             Destroy(collision.gameObject);
+            bananaCaughtAudio.Play();
             ctbManager.IncrementScore(name);
         }
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
+            slippingOnBananaAudio.Play();
             PlayerSlips();
             StartCoroutine(StunPlayer());
         }
