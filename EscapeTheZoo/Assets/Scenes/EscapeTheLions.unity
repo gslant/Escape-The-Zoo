@@ -2370,7 +2370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &918764493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3160,6 +3160,42 @@ PrefabInstance:
     - target: {fileID: 1078312482796913262, guid: 0ebbbfc5dca5f5f459786e8846f8142f, type: 3}
       propertyPath: m_Name
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7912147923549277775, guid: 0ebbbfc5dca5f5f459786e8846f8142f, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: 1.1763546
+      objectReference: {fileID: 0}
+    - target: {fileID: 7912147923549277775, guid: 0ebbbfc5dca5f5f459786e8846f8142f, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 0.29794338
+      objectReference: {fileID: 0}
+    - target: {fileID: 7912147923549277775, guid: 0ebbbfc5dca5f5f459786e8846f8142f, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: 0.5579434
+      objectReference: {fileID: 0}
+    - target: {fileID: 7912147923549277775, guid: 0ebbbfc5dca5f5f459786e8846f8142f, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: 0.9947659
+      objectReference: {fileID: 0}
+    - target: {fileID: 7912147923549277775, guid: 0ebbbfc5dca5f5f459786e8846f8142f, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: -0.36887926
+      objectReference: {fileID: 0}
+    - target: {fileID: 7912147923549277775, guid: 0ebbbfc5dca5f5f459786e8846f8142f, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: 1.5147661
+      objectReference: {fileID: 0}
+    - target: {fileID: 7912147923549277775, guid: 0ebbbfc5dca5f5f459786e8846f8142f, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: 1.4011207
+      objectReference: {fileID: 0}
+    - target: {fileID: 7912147923549277775, guid: 0ebbbfc5dca5f5f459786e8846f8142f, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
+      value: -0.99158865
+      objectReference: {fileID: 0}
+    - target: {fileID: 7912147923549277775, guid: 0ebbbfc5dca5f5f459786e8846f8142f, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
+      value: 0.9738302
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ebbbfc5dca5f5f459786e8846f8142f, type: 3}
