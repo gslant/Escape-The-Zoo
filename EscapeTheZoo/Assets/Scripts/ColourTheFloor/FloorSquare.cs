@@ -6,10 +6,12 @@ public class FloorSquare : MonoBehaviour
 {
     [SerializeField]
     private SpriteRenderer sprite;
+    public CTFController controller;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        controller = FindObjectOfType<CTFController>();    
     }
 
     // Update is called once per frame
@@ -22,11 +24,28 @@ public class FloorSquare : MonoBehaviour
     {
         if(collision.CompareTag("Player 1"))
         {
-            sprite.material.color = Color.red;
+            if(sprite.material.color == Color.green)
+            {
+                controller.greenNumber--;
+            }
+            if (sprite.material.color != Color.red)
+            {
+                sprite.material.color = Color.red;
+                controller.redNumber++;
+            }
         }
         if (collision.CompareTag("Player 2"))
         {
-            sprite.material.color = Color.green;
+            if (sprite.material.color == Color.red)
+            {
+                controller.redNumber--;
+            }
+            if (sprite.material.color != Color.green)
+            {
+                sprite.material.color = Color.green;
+                controller.greenNumber++;
+            }
         }
+        controller.updateSquareCounters();
     }
 }

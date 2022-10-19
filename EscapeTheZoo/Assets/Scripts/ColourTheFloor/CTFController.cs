@@ -21,12 +21,17 @@ public class CTFController : MonoBehaviour
     float powerUpStartTime;
 
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI redtext;
+    public TextMeshProUGUI greentext;
     private float currentTime;
     private float startingTime = 60f;
+
+    public int greenNumber;
+    public int redNumber;
     // Start is called before the first frame update
     void Start()
     {
-
+        squareList = new List<GameObject>();
         currentTime = startingTime;
         timerText.SetText(startingTime.ToString());
         GameOverCanvas.SetActive(false);
@@ -44,5 +49,12 @@ public class CTFController : MonoBehaviour
     {
         currentTime -= 1f * Time.deltaTime;
         timerText.SetText(((int) currentTime).ToString());
+        greentext.SetText(greenNumber.ToString());
+        redtext.SetText(redNumber.ToString());
+    }
+
+    public void updateSquareCounters()
+    {
+        
     }
 }
