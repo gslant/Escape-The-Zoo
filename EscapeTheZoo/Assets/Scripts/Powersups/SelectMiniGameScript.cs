@@ -12,12 +12,13 @@ public class SelectMiniGameScript : MonoBehaviour
 
     private TextMeshProUGUI textMesh, miniGameOptionText;
     private Button button1, button2, button3, button4;
-    public static String text = "Click on the button to play the minigame now:";
-    public static String infoString = "1 - Escape The Lion\n2 - Catch The Banana\n3 - Don't Wake The Human\n4 - Stay On The Iceberg";
+    public static String text = "Which minigame would you like to play now:";
+    public static String infoString = "1 - Escape The Lion\n2 - Don't Wake The Human\n3 - Stay On The Iceberg\n4 - Catch The Banana";
 
 
     private void Awake()
     {
+        Hide();
         Instance = this;
 
 
@@ -65,5 +66,10 @@ public class SelectMiniGameScript : MonoBehaviour
     private void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    public void Show()
+    {
+        gameObject.SetActive(true);
     }
 }
