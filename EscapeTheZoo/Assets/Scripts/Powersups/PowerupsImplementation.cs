@@ -6,7 +6,7 @@ public class PowerupsImplementation : MonoBehaviour
 {
 
     public static int up = 3;
-    public static int down = 5;
+    public static int down = -5;
 
     // player is move up by 3 spaces(tiles)
     public static void moveup(Player player)
@@ -32,13 +32,13 @@ public class PowerupsImplementation : MonoBehaviour
     {
         if (string.Equals(player.getName(), GameControl.listOfPlayersPlaying[0].getName()))
         {
-            GameControl.diceSideThrown = -down;
+            GameControl.diceSideThrown = down;
             GameControl.MovePlayer(1);
         }
 
         if (string.Equals(player.getName(), GameControl.listOfPlayersPlaying[1].getName()))
         {
-            GameControl.diceSideThrown = -down;
+            GameControl.diceSideThrown = down;
             GameControl.MovePlayer(2);
         }
 
@@ -66,7 +66,7 @@ public class PowerupsImplementation : MonoBehaviour
 
     public static void GetPowerup(Player player)
     {
-        int num = Random.Range(3, 4);
+        int num = Random.Range(2, 3);
 
 
         switch (num)
