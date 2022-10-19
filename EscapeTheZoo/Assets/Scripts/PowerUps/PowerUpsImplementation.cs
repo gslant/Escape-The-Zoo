@@ -58,7 +58,7 @@ public class PowerUpsImplementation : MonoBehaviour
 
     // player can select which minigame they want to play
     public static void minigameSelect(Player player)
-    {
+    {   
         SelectMiniGameScript.Instance.showPopUp(SelectMiniGameScript.text, SelectMiniGameScript.infoString, () => {
             Debug.Log("First Button");
         }, () => {
@@ -73,7 +73,7 @@ public class PowerUpsImplementation : MonoBehaviour
 
     public static void GetPowerup(Player player)
     {
-        int num = Random.Range(2, 3);
+        int num = Random.Range(5, 6);
 
 
         switch (num)

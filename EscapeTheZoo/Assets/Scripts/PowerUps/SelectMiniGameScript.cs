@@ -20,13 +20,13 @@ public class SelectMiniGameScript : MonoBehaviour
     {
         Instance = this;
 
-
+        Hide();
         textMesh = transform.Find("Text").GetComponent<TextMeshProUGUI>();
         miniGameOptionText = transform.Find("TextInfo").GetComponent<TextMeshProUGUI>();
-        button1 = transform.Find("1Buttons").GetComponent<Button>();
-        button2 = transform.Find("2Buttons").GetComponent<Button>();
-        button3 = transform.Find("3Buttons").GetComponent<Button>();
-        button4 = transform.Find("4Buttons").GetComponent<Button>();
+        button1 = transform.Find("1Button").GetComponent<Button>();
+        button2 = transform.Find("2Button").GetComponent<Button>();
+        button3 = transform.Find("3Button").GetComponent<Button>();
+        button4 = transform.Find("4Button").GetComponent<Button>();
 
         showPopUp(text, infoString, () => {
             Debug.Log("First Button");
@@ -41,6 +41,7 @@ public class SelectMiniGameScript : MonoBehaviour
 
     public void showPopUp(String popupText, String textInfo, Action firstButton, Action secondButton, Action thirdthButton, Action fourthButton)
     {
+        gameObject.SetActive(true);
         textMesh.text = popupText;
         miniGameOptionText.text = textInfo;
         button1.onClick.AddListener(() => {
@@ -66,4 +67,10 @@ public class SelectMiniGameScript : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    public static void Show()
+    {
+
+    }
+
 }
