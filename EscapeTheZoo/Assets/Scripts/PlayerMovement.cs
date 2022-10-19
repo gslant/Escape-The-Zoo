@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     public Transform[] waypoints;
 
-    private static float moveSpeed = 10f;
+    [SerializeField]
+    private float moveSpeed = 4.0f;
 
     [HideInInspector]
     public int waypointIndex = 1;
