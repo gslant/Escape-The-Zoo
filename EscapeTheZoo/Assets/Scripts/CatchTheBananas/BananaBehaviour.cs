@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class BananaBehaviour : MonoBehaviour
 {
+    // Sounds
+    public AudioSource bananaSplatAudio;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            bananaSplatAudio.Play();
             StartCoroutine(BecomeDangerousBanana());
             GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("CatchTheBananas/CTB_BananaPeeled");
         }

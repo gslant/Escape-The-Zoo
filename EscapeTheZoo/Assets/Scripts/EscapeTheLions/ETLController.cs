@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class ETLController : MonoBehaviour
 {
+    // Sounds
+    public AudioSource ETLMusic;
+
     public PlayerController p1;
     public PlayerController p2;
 
@@ -26,6 +29,7 @@ public class ETLController : MonoBehaviour
     {
         GameOverCanvas.SetActive(false);
         goBackButton.onClick.AddListener(delegate { goBack(); });
+        ETLMusic.mute = false;
     }
 
     //Defunct
@@ -41,6 +45,11 @@ public class ETLController : MonoBehaviour
     //This function is called by a player controller when that player collides with the lion
     public void PlayerDies(string name)
     {
+        p1.playerJumpingAudio.mute = true;
+        p2.playerJumpingAudio.mute = true;
+        ObstacleController.gameOver = true;
+        ETLMusic.mute = true;
+
         int winIndex = -1;
         int loseIndex = -1;
 

@@ -5,6 +5,9 @@ using TMPro;
 
 public class GameControl : MonoBehaviour
 {
+    // Sounds
+    public AudioSource GameBoardMusic;
+
     // HUD Canvas Objects and Win Canvas Objects
     private static GameObject HUDGoldAmountText;
     private static GameObject HUDPlayerNameText;
@@ -51,6 +54,7 @@ public class GameControl : MonoBehaviour
         minigames.Add("Don'tWakeTheHumans");
         minigames.Add("StayOnTheIceberg");
         minigames.Add("CatchTheBananas");
+        minigames.Add("ColourTheFloor");
 
         player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");
@@ -63,6 +67,8 @@ public class GameControl : MonoBehaviour
 
         player1.GetComponent<PlayerMovement>().myTurn = false;
         player2.GetComponent<PlayerMovement>().myTurn = false;
+
+        GameBoardMusic.mute = false;
 
         // Sets up the HUD and hides the win screen. Then initialises a DataManager object and attaches a listener to the "Quit to Menu" button
         winCanvas.SetActive(false);
@@ -89,6 +95,7 @@ public class GameControl : MonoBehaviour
                 if (player1.GetComponent<PlayerMovement>().waypointIndex == 6 || player1.GetComponent<PlayerMovement>().waypointIndex == 17 || player1.GetComponent<PlayerMovement>().waypointIndex == 24 || player1.GetComponent<PlayerMovement>().waypointIndex == 38
                 || player1.GetComponent<PlayerMovement>().waypointIndex == 47 || player1.GetComponent<PlayerMovement>().waypointIndex == 62 || player1.GetComponent<PlayerMovement>().waypointIndex == 82)
                 {
+                    GameBoardMusic.mute = true;
                     Debug.Log("MiniGame Time!!!!!");
                     mainCam.SetActive(false);
                     hud.SetActive(false);
@@ -120,6 +127,7 @@ public class GameControl : MonoBehaviour
                 if (player2.GetComponent<PlayerMovement>().waypointIndex == 6 || player2.GetComponent<PlayerMovement>().waypointIndex == 17 || player2.GetComponent<PlayerMovement>().waypointIndex == 24 || player2.GetComponent<PlayerMovement>().waypointIndex == 38
                 || player2.GetComponent<PlayerMovement>().waypointIndex == 47 || player2.GetComponent<PlayerMovement>().waypointIndex == 62 || player2.GetComponent<PlayerMovement>().waypointIndex == 82)
                 {
+                    GameBoardMusic.mute = true;
                     Debug.Log("MiniGame Time!!!!!");
                     mainCam.SetActive(false);
                     hud.SetActive(false);
@@ -163,6 +171,7 @@ public class GameControl : MonoBehaviour
             // If game is over, do this
             if (gameOver)
             {
+                GameBoardMusic.mute = true;
                 winCanvas.SetActive(true);
                 HUDCanvas.SetActive(false);
                 winCanvasText.GetComponent<TextMeshProUGUI>().text = GameControl.listOfPlayersPlaying[winner].getName() + " Wins!\n" + GameControl.listOfPlayersPlaying[winner].getName() + " earns an extra " + FINISH_FIRST_REWARD + " coins!";
@@ -229,6 +238,7 @@ public class GameControl : MonoBehaviour
 
     public void reloadObjs()
     {
+        GameBoardMusic.mute = false;
         mainCam.SetActive(true);
         hud.SetActive(true);
         grid.SetActive(true);

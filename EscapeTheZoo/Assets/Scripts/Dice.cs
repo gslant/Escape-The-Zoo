@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Dice : MonoBehaviour
 {
+    // Sounds
+    public AudioSource diceRollAudio;
 
     private Sprite[] diceSides;
     private SpriteRenderer rend;
@@ -25,6 +27,9 @@ public class Dice : MonoBehaviour
 
     private IEnumerator RollTheDice()
     {
+        // Play the sound of dice rolling
+        diceRollAudio.Play();
+
         coroutineAllowed = false;
         int randomDiceSide = 0;
         for (int i = 0; i <= 20; i++)
