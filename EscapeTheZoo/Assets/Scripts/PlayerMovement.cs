@@ -29,26 +29,30 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        //Debug.Log(waypointIndex);
-        //Debug.Log(waypoints.Length - 1);
-        //Debug.Log(waypoints[waypointIndex]);
-        //Debug.Log(transform.position.x);
-        //Debug.Log(transform.position.y);
-        //Debug.Log(transform.position.z);
-        //Debug.Log(waypoints[waypointIndex].transform.position.x);
-        //Debug.Log(waypoints[waypointIndex].transform.position.y);
-        //Debug.Log(waypoints[waypointIndex].transform.position.z);
-        //Debug.Log(waypoints[waypointIndex].transform.position.Equals(transform.position));
-
-        if (waypointIndex <= waypoints.Length - 1)
+        if (GameControl.diceSideThrown < 0 && waypointIndex <= waypoints.Length - 1)
         {
-            transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * 2 * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex - 2].transform.position, moveSpeed * Time.deltaTime);
 
-            if (transform.position.x == waypoints[waypointIndex].transform.position.x && transform.position.y == waypoints[waypointIndex].transform.position.y)
+            if (transform.position.x == waypoints[waypointIndex - 2].transform.position.x && transform.position.y == waypoints[waypointIndex - 2].transform.position.y)
             {
-                waypointIndex += 1;
+                waypointIndex -= 1;
             }
         }
+        else if (waypointIndex <= waypoints.Length - 1)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
+
+
+            if (waypointIndex <= waypoints.Length - 1)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * 2 * Time.deltaTime);
+
+                if (transform.position.x == waypoints[waypointIndex].transform.position.x && transform.position.y == waypoints[waypointIndex].transform.position.y)
+                {
+                    waypointIndex += 1;
+                }
+            }
+        }
+
     }
 }
-
