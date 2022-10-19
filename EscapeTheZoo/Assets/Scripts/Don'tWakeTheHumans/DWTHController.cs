@@ -12,7 +12,6 @@ public class DWTHController : MonoBehaviour
 
     // Objects
     public GameObject GameOverCanvas;
-    public Button goBackButton;
     public TextMeshProUGUI gameOverText;
     public GameObject warning;
     public GameObject silhouette;
@@ -59,9 +58,6 @@ public class DWTHController : MonoBehaviour
         GameOverCanvas.SetActive(false);
         silhouette.SetActive(false);
         warning.SetActive(false);
-
-        // Sets listeners
-        goBackButton.onClick.AddListener(delegate { goBack(); });
 
         // Sets the next shown and hidden sihouette times
         nextShowSilhouetteTime = (int)Time.fixedTime + silhouettePauseDuration;
@@ -220,10 +216,20 @@ public class DWTHController : MonoBehaviour
         }
 
         gameOver = true;
+        StartCoroutine(GameOverPause());
     }
 
-    // Functionality for "goBackButton"
-    private void goBack()
+    IEnumerator GameOverPause()
+    {
+        // Pause game for 2 seconds
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(2);
+        Time.timeScale = 1;
+
+        GoBackToGameBoard();
+    }
+
+    private void GoBackToGameBoard()
     {
         GameControl con = FindObjectOfType<GameControl>();
         con.reloadObjs();

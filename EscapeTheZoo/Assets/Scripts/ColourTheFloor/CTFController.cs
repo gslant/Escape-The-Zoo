@@ -7,7 +7,6 @@ using TMPro;
 public class CTFController : MonoBehaviour
 {
     public GameObject GameOverCanvas;
-    public Button goBackButton;
     public TextMeshProUGUI gameOverText;
     public GameObject startCanvas;
 
@@ -42,7 +41,6 @@ public class CTFController : MonoBehaviour
         greenNumber = 0;
         redNumber = 0;
         GameOverCanvas.SetActive(false);
-        goBackButton.onClick.AddListener(delegate { goBack(); });
         squareList = new List<GameObject>();
         currentTime = startingTime;
         timerText.SetText(startingTime.ToString());
@@ -98,7 +96,7 @@ public class CTFController : MonoBehaviour
             winIndex = 0;
             loseIndex = 1;
         }
-
+        StartCoroutine(GameOverPause());
     }
 
     private void EarnCoins(int winIndex, int loseIndex)
@@ -107,9 +105,20 @@ public class CTFController : MonoBehaviour
         MinigameLoadPlayers.GetListOfPlayersPlaying()[loseIndex].changeGameBalanceByAmount(LOSING_COINS);
     }
 
-    private void goBack()
+    IEnumerator GameOverPause()
     {
-        foreach(GameObject sqr in squareList)
+        // Pause game for 2 seconds
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(2);
+        Time.timeScale = 1;
+
+        GoBackToGameBoard();
+    }
+
+
+    private void GoBackToGameBoard()
+    {
+        foreach (GameObject sqr in squareList)
         {
             Destroy(sqr);
         }
