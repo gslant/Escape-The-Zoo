@@ -44,13 +44,14 @@ public class PlayerMovement : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
 
 
-        if (waypointIndex <= waypoints.Length - 1)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * 2 * Time.deltaTime);
-
-            if (transform.position.x == waypoints[waypointIndex].transform.position.x && transform.position.y == waypoints[waypointIndex].transform.position.y)
+            if (waypointIndex <= waypoints.Length - 1)
             {
-                waypointIndex += 1;
+                transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * 2 * Time.deltaTime);
+
+                if (transform.position.x == waypoints[waypointIndex].transform.position.x && transform.position.y == waypoints[waypointIndex].transform.position.y)
+                {
+                    waypointIndex += 1;
+                }
             }
         }
     }
