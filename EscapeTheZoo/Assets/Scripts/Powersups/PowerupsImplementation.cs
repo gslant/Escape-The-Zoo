@@ -6,11 +6,8 @@ public class PowerupsImplementation : MonoBehaviour
 {
 
     public static int up = 3;
-<<<<<<< HEAD
-    public static int down = -5;
-=======
     public static int down = 5;
->>>>>>> parent of 852c76e (new powerups implementation)
+
 
     // player is move up by 3 spaces(tiles)
     public static void moveup(Player player)
@@ -67,7 +64,6 @@ public class PowerupsImplementation : MonoBehaviour
     // player can select which minigame they want to play
     public static void minigameSelect(Player player)
     {
-<<<<<<< HEAD
         SelectMiniGameScript.Instance.Show();
 
         SelectMiniGameScript.Instance.showPopUp(SelectMiniGameScript.text, SelectMiniGameScript.infoString, () => {
@@ -79,8 +75,6 @@ public class PowerupsImplementation : MonoBehaviour
         }, () => {
             //SceneLoader.LoadMinigameAdditive(GameControl.minigames[3]);
         });
-=======
->>>>>>> parent of 852c76e (new powerups implementation)
         
         Debug.Log("Function 6");
     }
