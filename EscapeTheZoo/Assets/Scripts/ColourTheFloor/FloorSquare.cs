@@ -46,6 +46,5 @@ public class FloorSquare : MonoBehaviour
                 controller.greenNumber++;
             }
         }
-        controller.updateSquareCounters();
     }
 }
