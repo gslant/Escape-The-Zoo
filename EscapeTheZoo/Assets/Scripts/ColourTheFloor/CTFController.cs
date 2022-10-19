@@ -15,7 +15,6 @@ public class CTFController : MonoBehaviour
 
     public GameObject grid;
     public GameObject squarePrefab;
-    public BoxCollider2D colorCollider;
 
     public KeyCode testKey;
     float powerUpStartTime;
@@ -35,18 +34,6 @@ public class CTFController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(testKey))
-        {
-            powerUpStartTime = Time.time;
-            Debug.Log("BIG");
-            Vector3 initSize = colorCollider.size;
-            Debug.Log(initSize);
-            colorCollider.size = new Vector3(5,5,0);
-        }
 
-        if(Time.time > powerUpStartTime + 5f)
-        {
-            colorCollider.size = new Vector3(0.1f, 0.1f, 0);
-        }
     }
 }

@@ -22,12 +22,10 @@ public class FloorSquare : MonoBehaviour
     {
         if(collision.CompareTag("Player 1"))
         {
-            Debug.Log("Hit Player 1");
             sprite.material.color = Color.red;
         }
         if (collision.CompareTag("Player 2"))
         {
-            Debug.Log("Hit Player 2");
             sprite.material.color = Color.green;
         }
     }

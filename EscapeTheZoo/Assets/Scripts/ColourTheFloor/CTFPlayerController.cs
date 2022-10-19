@@ -17,10 +17,12 @@ public class CTFPlayerController : MonoBehaviour
     public KeyCode downKey;
     public KeyCode rightKey;
     public KeyCode leftKey;
+    public KeyCode testKey;
 
     Vector2 movement;
     bool isMoving;
     public float movementSpeed;
+    private float powerUpStartTime;
 
     // Start is called before the first frame update
     void Start()
@@ -34,17 +36,25 @@ public class CTFPlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Movement();
-        /* Player Movement
-        if (Input.GetKey(upKey) || Input.GetKey(downKey) || Input.GetKey(rightKey) || Input.GetKey(leftKey))
-        {
-            objectRigidbody.velocity = new Vector3(((Input.GetKey(leftKey) ? 1 : 0) * -5) + ((Input.GetKey(rightKey) ? 1 : 0) * 5), ((Input.GetKey(downKey) ? 1 : 0) * -5) + ((Input.GetKey(upKey) ? 1 : 0) * 5), 0);               
-        }
-        else
-        {
-            objectRigidbody.velocity = new Vector3(0, 0, 0);
-        }*/
-        
+        ExpandCollider();
+    }
 
+    void ExpandCollider()
+    {
+        if (Input.GetKey(testKey) && powerUpStartTime == 0)
+        {
+            powerUpStartTime = Time.time;
+            Debug.Log("BIG");
+            Vector3 initSize = boxCollide.size;
+            Debug.Log(initSize);
+            boxCollide.size = new Vector3(5, 5, 0);
+
+        }
+        if (Time.time > powerUpStartTime + 1f)
+        {
+            boxCollide.size = new Vector3(0.1f, 0.1f, 0);
+            powerUpStartTime = 0;
+        }
     }
 
     void Movement()
