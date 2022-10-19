@@ -37,7 +37,7 @@ public class CTFPlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Movement();
-        ExpandCollider();
+        //ExpandCollider();
     }
 
     void ExpandCollider()

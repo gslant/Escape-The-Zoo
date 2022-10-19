@@ -24,7 +24,7 @@ public class CTFController : MonoBehaviour
     public TextMeshProUGUI redtext;
     public TextMeshProUGUI greentext;
     private float currentTime;
-    private float startingTime = 6f;
+    private float startingTime = 60f;
 
     public int greenNumber;
     public int redNumber;
