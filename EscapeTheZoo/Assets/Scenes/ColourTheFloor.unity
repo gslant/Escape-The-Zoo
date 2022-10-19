@@ -567,7 +567,7 @@ MonoBehaviour:
   tooltipText: {fileID: 2017305820}
   tooltipMessage: The player who colours in the most squares wins!
   helpfulHintText: {fileID: 2059602191}
-  helpfulHintMessage: Collect powerups or smthn idk
+  helpfulHintMessage: 'Hint: Colour in your opponents squares to lower their total'
   countdownText: {fileID: 147199843}
 --- !u!114 &293572707
 MonoBehaviour:
