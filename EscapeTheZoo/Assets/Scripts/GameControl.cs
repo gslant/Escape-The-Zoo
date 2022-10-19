@@ -31,8 +31,8 @@ public class GameControl : MonoBehaviour
     [SerializeField] private GameObject player1Accessory, player2Accessory;
 
     public static int diceSideThrown = 0;
-    public static int player1StartWaypoint = 0;
-    public static int player2StartWaypoint = 0;
+    public static int player1StartWaypoint = 1;
+    public static int player2StartWaypoint = 1;
 
     public static bool gameOver = false;
 
@@ -85,12 +85,20 @@ public class GameControl : MonoBehaviour
         // While the game isn't over
         if (!gameOver)
         {
-            if (player1.GetComponent<PlayerMovement>().waypointIndex >
+            if (player1.GetComponent<PlayerMovement>().waypointIndex ==
+                player1StartWaypoint + diceSideThrown)
+            {
+                player1.GetComponent<PlayerMovement>().myTurn = false;
+                player1StartWaypoint = player1.GetComponent<PlayerMovement>().waypointIndex;
+                currentPlayerIndex = 1;
+
+/*                if (player1.GetComponent<PlayerMovement>().waypointIndex >
                 player1StartWaypoint + diceSideThrown)
             {
                 player1.GetComponent<PlayerMovement>().myTurn = false;
                 player1StartWaypoint = player1.GetComponent<PlayerMovement>().waypointIndex - 1;
                 currentPlayerIndex = 1;
+*/
 
                 //MINIGAME CODE: I know this is not effecince will improve on this later
                 if (player1.GetComponent<PlayerMovement>().waypointIndex == 6 || player1.GetComponent<PlayerMovement>().waypointIndex == 17 || player1.GetComponent<PlayerMovement>().waypointIndex == 24 || player1.GetComponent<PlayerMovement>().waypointIndex == 38
@@ -116,11 +124,11 @@ public class GameControl : MonoBehaviour
                 }
             }
 
-            if (player2.GetComponent<PlayerMovement>().waypointIndex >
+            if (player2.GetComponent<PlayerMovement>().waypointIndex ==
                 player2StartWaypoint + diceSideThrown)
             {
                 player2.GetComponent<PlayerMovement>().myTurn = false;
-                player2StartWaypoint = player2.GetComponent<PlayerMovement>().waypointIndex - 1;
+                player2StartWaypoint = player2.GetComponent<PlayerMovement>().waypointIndex;
                 currentPlayerIndex = 0;
 
                 //MINIGAME CODE: I know this is not effecince will improve on this later
@@ -153,7 +161,7 @@ public class GameControl : MonoBehaviour
             if (player1.GetComponent<PlayerMovement>().waypointIndex ==
                 player1.GetComponent<PlayerMovement>().waypoints.Length)
             {
-                player1.GetComponent<PlayerMovement>().waypointIndex = player1.GetComponent<PlayerMovement>().waypoints.Length - 1;
+                player1.GetComponent<PlayerMovement>().waypointIndex = player1.GetComponent<PlayerMovement>().waypoints.Length;
                 gameOver = true;
                 winner = 0;
             }
@@ -161,7 +169,7 @@ public class GameControl : MonoBehaviour
             if (player2.GetComponent<PlayerMovement>().waypointIndex ==
                 player2.GetComponent<PlayerMovement>().waypoints.Length)
             {
-                player2.GetComponent<PlayerMovement>().waypointIndex = player2.GetComponent<PlayerMovement>().waypoints.Length - 1;
+                player2.GetComponent<PlayerMovement>().waypointIndex = player2.GetComponent<PlayerMovement>().waypoints.Length;
                 gameOver = true;
                 winner = 1;
             }
