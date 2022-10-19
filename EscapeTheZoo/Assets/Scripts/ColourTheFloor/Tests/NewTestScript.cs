@@ -47,4 +47,12 @@ public class NewTestScript
         Assert.Greater(playerCollider.size.x, initialSize.x);
     }
 
+    [Test]
+    public void SquaresSpawnAtIncrements()
+    {
+        _CTFController.SpawnSquares(_squareObject);
+        Assert.Greater(_CTFController.squares[2].transform.position.y , _CTFController.squares[1].transform.position.y);
+        Assert.AreEqual(_CTFController.squares[2].transform.position.x, _CTFController.squares[1].transform.position.x);
+    }
+
 }

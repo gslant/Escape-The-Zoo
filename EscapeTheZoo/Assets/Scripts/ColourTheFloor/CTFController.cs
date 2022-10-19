@@ -48,14 +48,14 @@ public class CTFController : MonoBehaviour
 
     public void increaseSize(BoxCollider2D PCollider)
     {
-        if (Input.GetKeyDown(testKey))
-        {
+        //if (Input.GetKeyDown(testKey))
+        //{
             powerUpStartTime = Time.time;
             Debug.Log("BIG");
             Vector3 initSize = PCollider.size;
             Debug.Log(initSize);
             PCollider.size = new Vector3(5, 5, 0);
-        }
+        //}
 
         if (Time.time > powerUpStartTime + 5f)
         {
