@@ -1062,8 +1062,8 @@ MonoBehaviour:
 
     PlayerName'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7aef12806ae4b714fa0306f98468ff85, type: 2}
+  m_sharedMaterial: {fileID: -506032538198745215, guid: 7aef12806ae4b714fa0306f98468ff85, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3541,7 +3541,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1501498487}
   - component: {fileID: 1501498488}
-  - component: {fileID: 1501498489}
   m_Layer: 0
   m_Name: ETLController
   m_TagString: Untagged
@@ -3672,14 +3671,6 @@ MonoBehaviour:
   img: {fileID: 1508834335}
   x: 0.2
   y: 0
-  m_GameObject: {fileID: 1501498485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2e38156a15a6c24ba75d77cb911ced7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundsList: {fileID: 1959137021}
-  backgroundMusic: {fileID: 612453719}
 --- !u!1 &1530496610
 GameObject:
   m_ObjectHideFlags: 0
@@ -3742,8 +3733,8 @@ MonoBehaviour:
 
     PlayerName'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7aef12806ae4b714fa0306f98468ff85, type: 2}
+  m_sharedMaterial: {fileID: -506032538198745215, guid: 7aef12806ae4b714fa0306f98468ff85, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
