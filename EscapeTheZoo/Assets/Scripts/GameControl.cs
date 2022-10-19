@@ -78,8 +78,6 @@ public class GameControl : MonoBehaviour
         // While the game isn't over
         if (!gameOver)
         {
-            Debug.Log(player1StartWaypoint + " " + player1.GetComponent<PlayerMovement>().waypointIndex);
-
             if (player1.GetComponent<PlayerMovement>().waypointIndex ==
                 player1StartWaypoint + diceSideThrown)
             {
