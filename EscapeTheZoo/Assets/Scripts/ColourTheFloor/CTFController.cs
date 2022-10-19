@@ -111,6 +111,7 @@ public class CTFController : MonoBehaviour
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(2);
         Time.timeScale = 1;
+        EarnCoins(winIndex, loseIndex);
 
         GoBackToGameBoard();
     }
@@ -124,7 +125,6 @@ public class CTFController : MonoBehaviour
         }
         GameControl con = FindObjectOfType<GameControl>();
         con.reloadObjs();
-        EarnCoins(winIndex, loseIndex);
         SceneLoader.unloadScene("ColourTheFloor");
     }
 }
