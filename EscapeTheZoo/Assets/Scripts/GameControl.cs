@@ -21,7 +21,7 @@ public class GameControl : MonoBehaviour
     int winner;
 
     // List of minigames
-    public static List<string> minigames = new List<string>();
+    private List<string> minigames = new List<string>();
 
     public static GameObject player1, player2;
     [SerializeField] private GameObject player1Accessory, player2Accessory;
@@ -38,8 +38,7 @@ public class GameControl : MonoBehaviour
     private List<GameObject> playerAccessoryObjects;
     public static int currentPlayerIndex; // This will determine which profile to load for the HUD
 
-    private GameObject mainCam, eventSys, grid, hud, p1, p2, dice;
-
+    public GameObject mainCam, eventSys, grid, hud, p1, p2, dice;
 
     // Constants
     private int FINISH_FIRST_REWARD = 10; // The reward for finishing the game first
