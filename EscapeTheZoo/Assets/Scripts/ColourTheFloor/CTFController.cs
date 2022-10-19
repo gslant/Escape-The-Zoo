@@ -9,9 +9,10 @@ public class CTFController : MonoBehaviour
     public GameObject GameOverCanvas;
     public Button goBackButton;
     public TextMeshProUGUI gameOverText;
+    public GameObject startCanvas;
 
-    public CTFPlayerController player1;
-    public CTFPlayerController player2;
+    public GameObject player1;
+    public GameObject player2;
 
     public GameObject grid;
     public GameObject squarePrefab;
@@ -38,6 +39,8 @@ public class CTFController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        greenNumber = 0;
+        redNumber = 0;
         GameOverCanvas.SetActive(false);
         goBackButton.onClick.AddListener(delegate { goBack(); });
         squareList = new List<GameObject>();
@@ -56,6 +59,11 @@ public class CTFController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (startCanvas.activeInHierarchy)
+        {
+            player1.SetActive(true);
+            player2.SetActive(true);
+        }
         currentTime -= 1f * Time.deltaTime;
         timerText.SetText(((int) currentTime).ToString());
         greentext.SetText(greenNumber.ToString());
