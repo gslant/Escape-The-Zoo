@@ -132,6 +132,7 @@ public class LobbyManager : MonoBehaviour
             }
 
             // Resets settings
+            currentPlayers = 0;
             playersToPlayInGame = MINPLAYERS;
             playerAmount.GetComponent<TextMeshProUGUI>().text = playersToPlayInGame + "";
 

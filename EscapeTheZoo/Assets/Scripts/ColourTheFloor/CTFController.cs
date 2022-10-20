@@ -6,6 +6,11 @@ using TMPro;
 
 public class CTFController : MonoBehaviour
 {
+    // Sounds
+    public AudioSource CTFMusic;
+    public AudioSource playerOneBeepAudio;
+    public AudioSource playerTwoBeepAudio;
+
     public GameObject GameOverCanvas;
     public TextMeshProUGUI gameOverText;
     public GameObject startCanvas;
@@ -52,6 +57,11 @@ public class CTFController : MonoBehaviour
                 squareList.Add(Instantiate(squarePrefab, new Vector3(j, i, 0), Quaternion.identity));
             }
         }
+
+        // Unmute all sounds on startup
+        CTFMusic.mute = false;
+        playerOneBeepAudio.mute = false;
+        playerTwoBeepAudio.mute = false;
     }
 
     // Update is called once per frame
@@ -81,6 +91,10 @@ public class CTFController : MonoBehaviour
 
     public void GameOver(string name)
     {
+        // Mute the music when the game is over
+        CTFMusic.mute = true;
+        playerOneBeepAudio.mute = true;
+        playerTwoBeepAudio.mute = true;
 
         GameOverCanvas.SetActive(true);
         if (name == "Player 1")

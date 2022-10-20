@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class FloorSquare : MonoBehaviour
 {
+    // Sounds
+    private AudioSource playerOneBeepAudio;
+    private AudioSource playerTwoBeepAudio;
+
     [SerializeField]
     private SpriteRenderer sprite;
     public CTFController controller;
@@ -11,14 +15,18 @@ public class FloorSquare : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        controller = FindObjectOfType<CTFController>();    
+        controller = FindObjectOfType<CTFController>();
+        playerOneBeepAudio = GameObject.Find("PlayerOneBeepAudio").GetComponent<AudioSource>();
+        playerTwoBeepAudio = GameObject.Find("PlayerTwoBeepAudio").GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player 1"))
+        if (collision.CompareTag("Player 1"))
         {
-            if(sprite.material.color == Color.green)
+            playerOneBeepAudio.Play();
+
+            if (sprite.material.color == Color.green)
             {
                 controller.greenNumber--;
             }
@@ -30,6 +38,8 @@ public class FloorSquare : MonoBehaviour
         }
         else if (collision.CompareTag("Player 2"))
         {
+            playerTwoBeepAudio.Play();
+
             if (sprite.material.color == Color.red)
             {
                 controller.redNumber--;
