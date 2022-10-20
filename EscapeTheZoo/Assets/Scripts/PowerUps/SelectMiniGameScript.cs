@@ -19,7 +19,6 @@ public class SelectMiniGameScript : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
         Hide();
         textMesh = transform.Find("Text").GetComponent<TextMeshProUGUI>();
         miniGameOptionText = transform.Find("TextInfo").GetComponent<TextMeshProUGUI>();
@@ -41,7 +40,6 @@ public class SelectMiniGameScript : MonoBehaviour
 
     public void showPopUp(String popupText, String textInfo, Action firstButton, Action secondButton, Action thirdthButton, Action fourthButton)
     {
-        gameObject.SetActive(true);
         textMesh.text = popupText;
         miniGameOptionText.text = textInfo;
         button1.onClick.AddListener(() => {
@@ -68,9 +66,9 @@ public class SelectMiniGameScript : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public static void Show()
+    public void Show()
     {
-
+        gameObject.SetActive(true);
     }
 
 }
