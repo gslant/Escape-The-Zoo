@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ObstacleController : MonoBehaviour
 {
+    [SerializeField] BackgroundScroller groundImage;
+
     public float speed;
     bool isPaused = false;
     float pauseTime = 0;
@@ -14,7 +16,7 @@ public class ObstacleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 1;
+        speed = 0.8f;
         gameOver = false;
     }
 
@@ -42,6 +44,7 @@ public class ObstacleController : MonoBehaviour
                 transform.position = new Vector3(10, transform.position.y, transform.position.z);
                 oldSpeed = speed += 0.1f;
                 speed = 0;
+                groundImage.IncreaseXSpeed(oldSpeed-0.6f);
             }
         }
     }

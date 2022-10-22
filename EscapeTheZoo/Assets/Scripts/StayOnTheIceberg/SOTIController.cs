@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class SOTIController : MonoBehaviour
 {
@@ -14,8 +15,6 @@ public class SOTIController : MonoBehaviour
     [SerializeField]
     private GameObject GameOverCanvas;
     [SerializeField]
-    private Button goBackButton;
-    [SerializeField]
     private TextMeshProUGUI gameOverText;
     public List<GameObject> boardObjects = new List<GameObject>();
 
@@ -27,7 +26,6 @@ public class SOTIController : MonoBehaviour
     void Start()
     {
         GameOverCanvas.SetActive(false);
-        goBackButton.onClick.AddListener(delegate { goBack(); });
         SOTIMusic.mute = false;
     }
 
@@ -70,6 +68,7 @@ public class SOTIController : MonoBehaviour
         }
 
         EarnCoins(winIndex, loseIndex);
+        StartCoroutine(GameOverPause());
     }
 
     private void EarnCoins(int winIndex, int loseIndex)
@@ -81,7 +80,17 @@ public class SOTIController : MonoBehaviour
         MinigameLoadPlayers.GetListOfPlayersPlaying()[loseIndex].changeGameBalanceByAmount(LOSING_COINS);
     }
 
-    private void goBack()
+    IEnumerator GameOverPause()
+    {
+        // Pause game for 2 seconds
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(2);
+        Time.timeScale = 1;
+
+        GoBackToGameBoard();
+    }
+
+    private void GoBackToGameBoard()
     {
         GameControl con = FindObjectOfType<GameControl>();
         con.reloadObjs();

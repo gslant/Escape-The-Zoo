@@ -16,8 +16,6 @@ public class ETLController : MonoBehaviour
     [SerializeField]
     private GameObject GameOverCanvas;
     [SerializeField]
-    private Button goBackButton;
-    [SerializeField]
     private TextMeshProUGUI gameOverText;
     public List<GameObject> boardObjects = new List<GameObject>();
 
@@ -28,7 +26,7 @@ public class ETLController : MonoBehaviour
     private void Start()
     {
         GameOverCanvas.SetActive(false);
-        goBackButton.onClick.AddListener(delegate { goBack(); });
+        //goBackButton.onClick.AddListener(delegate { goBack(); });
         ETLMusic.mute = false;
     }
 
@@ -69,6 +67,7 @@ public class ETLController : MonoBehaviour
         }
 
         EarnCoins(winIndex, loseIndex);
+        StartCoroutine(GameOverPause());
     }
 
     private void EarnCoins(int winIndex, int loseIndex)
@@ -77,7 +76,17 @@ public class ETLController : MonoBehaviour
         MinigameLoadPlayers.GetListOfPlayersPlaying()[loseIndex].changeGameBalanceByAmount(LOSING_COINS);
     }
 
-    private void goBack()
+    IEnumerator GameOverPause()
+    {
+        // Pause game for 2 seconds
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(2);
+        Time.timeScale = 1;
+
+        GoBackToGameBoard();
+    }
+
+    private void GoBackToGameBoard()
     {
         GameControl con = FindObjectOfType<GameControl>();
         con.reloadObjs();
