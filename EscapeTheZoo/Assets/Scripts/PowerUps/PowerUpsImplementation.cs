@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PowerUpsImplementation : MonoBehaviour
 {
+
     public static int up = 3;
     public static int down = -5;
 
@@ -75,8 +76,8 @@ public class PowerUpsImplementation : MonoBehaviour
     public static void GetPowerup(Player player)
     {
         int num = Random.Range(2, 3);
-
-
+        
+        
         switch (num)
         {
             case 1:
@@ -94,8 +95,10 @@ public class PowerUpsImplementation : MonoBehaviour
             case 5:
                 minigameSelect(player);
                 break;
-
         }
+        
+
+
 
     }
 }
