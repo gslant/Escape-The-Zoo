@@ -1295,8 +1295,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 380533303}
   m_HandleRect: {fileID: 380533302}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.18537194
+  m_Value: 0.9998673
+  m_Size: 0.13142493
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2171,8 +2171,8 @@ RectTransform:
   m_Father: {fileID: 350147377}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.8144727}
-  m_AnchorMax: {x: 1, y: 0.9998446}
+  m_AnchorMin: {x: 0, y: 0.8684598}
+  m_AnchorMax: {x: 1, y: 0.9998847}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9646,8 +9646,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.000006, y: -538.58954}
-  m_SizeDelta: {x: 459.46, y: 1322.8}
+  m_AnchoredPosition: {x: -15.000006, y: -810.07}
+  m_SizeDelta: {x: 459.46, y: 1865.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1408094361
 CanvasRenderer:
@@ -9677,44 +9677,64 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<size=120%><b>What is Escape The Zoo about?\r</b></size>\n<size=30%> </size>\nEscape
+  m_text: "<size=120%><b>What is Escape The Zoo about?</b></size>\r\n<size=30%> </size>\r\nEscape
     The Zoo! is a competitive shared-screen board game where two players compete
     to reach the end of the board first and win the game. Throughout the board game
     playthrough, there will be random tiles that will either spawn a competitive
     minigame, help you to advance in the game, or disadvantage you from winning the
-    game!\r\n\n<size=120%><b>How do I start a game with my friend?\r</b></size>\n<size=30%>
-    </size>\nYou can start a game by clicking the \u201CStart\u201D button which
+    game!\r\n\r\n<size=120%><b>How do I start a game with my friend?</b></size>\r\n<size=30%>
+    </size>\r\nYou can start a game by clicking the \u201CStart\u201D button which
     will put the players in a lobby room. From here, you can change the board game
     settings such as changing the game map if desired. After that, you can click
-    the \u201CStart game\u201D button which will start the game.\r\n\n<size=120%><b>What
-    are the controls for the game?</b>\r</size>\n<size=30%> </size>\nAs of now, this
-    game is only available for PC players. When you start a game, you will mainly
-    use the keyboard. Player 1 uses the WASD keys and Player 2 uses the arrow keys.\r\n\n<size=120%><b>What
-    are the tile types in the board game?\r</b></size>\n<size=30%> </size>\nThere
+    the \u201CStart game\u201D button which will start the game.\r\n\r\n<size=120%><b>What
+    are the controls for the game?</b></size>\r\n<size=30%> </size>\r\nAs of now,
+    this game is only available for PC players. When you start a game, you will mainly
+    use the keyboard. Player 1 uses the WASD keys and Player 2 uses the arrow keys.\r\n\r\n<size=120%><b>What
+    are the tile types in the board game?</b></size>\r\n<size=30%> </size>\r\nThere
     are three types of tiles in the board game that a player will land on after their
     die roll: a neutral tile, a minigame tile, and a wild tile. A neutral tile will
     result in no event. A minigame tile will result in a random competitive minigame.
     A wild tile will give the player an opportunity to acquire a random card that
-    could advantage or disadvantage the player.\r\n\n<size=120%><b>Minigames\r:</b></size>\n<size=30%>
-    </size>\n<margin-left=2em><b>How do I play escape the lions?\r</b>\n<size=30%>
-    </size>\nPlayers must jump and duck from the approaching obstacles to escape
-    the lions. The obstacles progressively approach faster. Colliding with an object
-    will set you back further to the lions \u2013 and the player who gets caught
-    by the lion loses the minigame!\r</margin>\n\n<size=120%><b>How do I earn coins?\r</b></size>\n<size=30%>
-    </size>\nYou can mainly earn coins from minigames and from completing a full
-    game. How much you earn coins from each of these is dependent on how well you
-    performed. A player who wins a minigame will earn more coins, and a player who
-    wins the overall game will earn a bonus of coins.\r\n\n<size=120%><b>What is
-    the difference between my total coins and my in-game coins?</b>\r</size>\n<size=30%>
-    </size>\nYou will notice that each player has total coins and in-game coins.
+    could advantage or disadvantage the player.\r\n\r\n<size=120%><b>Minigames:</b></size>\r\n<size=30%>
+    </size>\r\n<margin-left=2em><b>How do I play Catch The Bananas?</b>\r\n<size=30%>
+    </size>\r\nPlayers can move left and right and jump up to catch the falling bananas.
+    The first player to catch 20 bananas wins! Be careful though, as slipping on
+    a fallen banana on the floor temporarily stuns the player for 2 seconds. And
+    yes, you can push the other player into a fallen banana.</margin>\r\n<size=30%>
+    </size>\r\n<margin-left=2em><b>How do I play Colour The Floor? </b>\r\n<size=30%>
+    </size>\r\nPlayers can move up, down, left, and right to colour in the tiles
+    they stand on with their colour. The player who colours the most tile of their
+    colour given a 60-second time frame wins! Players can colour tiles that the other
+    player has already coloured.</margin>\r\n<size=30%> </size>\r\n<margin-left=2em><b>How
+    do I play Don\u2019t Wake The Humans? </b>\r\n<size=30%> </size>\r\nPlayers can
+    move up, down, left, and right to push objects off the mantelpiece. For every
+    object pushed off, you earn 1 coin. However, when a human shadow appears, players
+    must make sure they do not move or else they\u2019ll get caught and lose the
+    minigame!</margin>\r\n<size=30%> </size>\r\n<margin-left=2em><b>How do I play
+    Escape The Lions? </b>\r\n<size=30%> </size>\r\nPlayers must jump and duck from
+    the approaching obstacles to escape the lions. The obstacles progressively approach
+    faster. Colliding with an object will set you back further to the lions \u2013
+    and the player who gets caught by the lion loses the minigame!</margin>\r\n<size=30%>
+    </size>\r\n<margin-left=2em><b>How do I play Stay On The Iceberg? </b>\r\n<size=30%>
+    </size>\r\nPlayers can move left and right and jump up to move between ice platforms.
+    Over time, the ice will melt off, and the player who falls from the ice loses!
+    Be careful with your movements as the ice is slippery.</margin>\r\n\r\n<size=120%><b>How
+    do I earn coins?</b></size>\r\n<size=30%> </size>\r\nYou can mainly earn coins
+    from minigames and from completing a full game. A player who wins a minigame
+    will earn 6 coins while the loser earns 2 coins, with the exception of Don\u2019t
+    Wake The Humans, where players earn 1 coin for every object pushed and the winner
+    earns 5 coins while the loser earns no coins. Additionally, the player who finishes
+    the gameboard first will earn a bonus of 10 coins.\r\n\r\n<size=120%><b>What
+    is the difference between my total coins and my in-game coins?</b></size>\r\n<size=30%>
+    </size>\r\nYou will notice that each player has total coins and in-game coins.
     The total coins amount is cumulative from the coins you\u2019ve earned after
     completing a game. The in-game coins are the coins you\u2019ve earned in the
-    current game you\u2019re in.\r\n\n<size=120%><b>Where can I spend my coins?\r</b></size>\n<size=30%>
-    </size>\nYou can spend your coins to buy a card upon landing on a wild tile,
-    or you can spend your coins in the shop.\r\n\n<size=120%><b>What is the shop?\r</b></size>\n<size=30%>
-    </size>\nThe shop contains cosmetic items to purchase for your character. Purchasing
-    an item will be in your inventory to keep.\r\n\n<size=120%><b>How do I put on
-    the items I\u2019ve purchased from the shop?\r</b></size>\n<size=30%> </size>\nYou
+    current game you\u2019re in.\r\n\r\n<size=120%><b>Where can I spend my coins?</b></size>\r\n<size=30%>
+    </size>\r\nYou can spend your coins to buy a card upon landing on a wild tile,
+    or you can spend your coins in the shop.\r\n\r\n<size=120%><b>What is the shop?</b></size>\r\n<size=30%>
+    </size>\r\nThe shop contains cosmetic items to purchase for your character. Purchasing
+    an item will be in your inventory to keep.\r\n\r\n<size=120%><b>How do I put
+    on the items I\u2019ve purchased from the shop?</b></size>\r\n<size=30%> </size>\r\nYou
     can access your inventory of purchased items from the lobby room when starting
     a game.\r\n"
   m_isRightToLeft: 0
