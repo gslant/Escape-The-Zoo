@@ -32,9 +32,9 @@ public class ETLController : MonoBehaviour
         ETLMusic.mute = false;
     }
 
-    //Defunct
     public void getBoardObjects(List<GameObject> objects)
     {
+        Debug.Log("minigame recieved: " + objects);
         this.boardObjects = objects;
         foreach(GameObject o in boardObjects)
         {
@@ -42,7 +42,6 @@ public class ETLController : MonoBehaviour
         }
     }
 
-    //This function is called by a player controller when that player collides with the lion
     public void PlayerDies(string name)
     {
         p1.playerJumpingAudio.mute = true;
@@ -56,19 +55,31 @@ public class ETLController : MonoBehaviour
         GameOverCanvas.SetActive(true);
         if (name == "Player 1")
         {
+            Debug.Log("player 1 died");
             gameOverText.SetText(MinigameLoadPlayers.GetListOfPlayersPlaying()[0].getName() + " has died, " + MinigameLoadPlayers.GetListOfPlayersPlaying()[1].getName() + " wins!");
 
             winIndex = 1;
             loseIndex = 0;
+            //p1.SetActive(false);
         }
         else if(name == "Player 2")
         {
+            Debug.Log("player 2 died");
             gameOverText.SetText(MinigameLoadPlayers.GetListOfPlayersPlaying()[1].getName() + " has died, " + MinigameLoadPlayers.GetListOfPlayersPlaying()[0].getName() + " wins!");
             winIndex = 0;
             loseIndex = 1;
         }
+        else
+        {
+            Debug.Log(name);
+        }
 
         EarnCoins(winIndex, loseIndex);
+
+        //show game over screen/winner recieving coins?
+        //notify scenemanager that the minigame is complete
+        //notify gamemanager that the minigame is complete
+        //transition back to board
     }
 
     private void EarnCoins(int winIndex, int loseIndex)
@@ -79,6 +90,7 @@ public class ETLController : MonoBehaviour
 
     private void goBack()
     {
+        Debug.Log("Returning to board");
         GameControl con = FindObjectOfType<GameControl>();
         con.reloadObjs();
         SceneLoader.unloadScene("EscapeTheLions");
