@@ -10,23 +10,25 @@ public class GameControl : MonoBehaviour
     public AudioSource GameBoardMusic;
 
     // HUD Canvas Objects and Win Canvas Objects
-    private static GameObject HUDGoldAmountText;
-    private static GameObject HUDPlayerNameText;
+    public static GameObject HUDGoldAmountText;
+    public static GameObject HUDPlayerNameText;
     private static Button HUDCards;
     public GameObject HUDCanvas;
     public GameObject winCanvas;
     public GameObject winCanvasText;
     public Button finishGameButton;
-    public Button powerupsInv;
+
 
     // DataManager to save players
     private DataManager dataManager;
+    public PowerUpsImplementation powerUpsImplementation;
+
 
     // Who the winner of the game is
     int winner;
 
     // List of minigames
-    private List<string> minigames = new List<string>();
+    public static List<string> minigames = new List<string>();
 
     private static GameObject player1, player2;
     [SerializeField] private GameObject player1Accessory, player2Accessory;
@@ -78,7 +80,6 @@ public class GameControl : MonoBehaviour
         updatePlayerHUD(listOfPlayersPlaying[0]);
         dataManager = GetComponent<DataManager>();
         finishGameButton.onClick.AddListener(delegate { finishGame(); });
-
     }
 
     // Update is called once per frame
@@ -122,7 +123,7 @@ public class GameControl : MonoBehaviour
                 if (player1.GetComponent<PlayerMovement>().waypointIndex == 11 || player1.GetComponent<PlayerMovement>().waypointIndex == 16 || player1.GetComponent<PlayerMovement>().waypointIndex == 33 || player1.GetComponent<PlayerMovement>().waypointIndex == 45
                 || player1.GetComponent<PlayerMovement>().waypointIndex == 57 || player1.GetComponent<PlayerMovement>().waypointIndex == 65 || player1.GetComponent<PlayerMovement>().waypointIndex == 69 || player1.GetComponent<PlayerMovement>().waypointIndex == 77)
                 {
-                    PowerUpsImplementation.GetPowerup(GameControl.listOfPlayersPlaying[0]);
+                    powerUpsImplementation.GetPowerup(listOfPlayersPlaying[0]);
                 }
             }
 
@@ -154,7 +155,7 @@ public class GameControl : MonoBehaviour
                 if (player2.GetComponent<PlayerMovement>().waypointIndex == 11 || player2.GetComponent<PlayerMovement>().waypointIndex == 16 || player2.GetComponent<PlayerMovement>().waypointIndex == 33 || player2.GetComponent<PlayerMovement>().waypointIndex == 45
                 || player2.GetComponent<PlayerMovement>().waypointIndex == 57 || player2.GetComponent<PlayerMovement>().waypointIndex == 65 || player2.GetComponent<PlayerMovement>().waypointIndex == 69 || player2.GetComponent<PlayerMovement>().waypointIndex == 77)
                 {
-                    PowerUpsImplementation.GetPowerup(GameControl.listOfPlayersPlaying[1]);
+                    powerUpsImplementation.GetPowerup(listOfPlayersPlaying[1]);
                 }
             }
 
@@ -244,7 +245,6 @@ public class GameControl : MonoBehaviour
         SceneLoader.LoadScene("MainScene");
     }
 
-
     public void reloadObjs()
     {
         GameBoardMusic.mute = false;
@@ -255,5 +255,17 @@ public class GameControl : MonoBehaviour
         p1.SetActive(true);
         p2.SetActive(true);
         eventSys.SetActive(true);
+    }
+
+    public void unreloadObjs()
+    {
+        GameBoardMusic.mute = false;
+        mainCam.SetActive(false);
+        hud.SetActive(false);
+        grid.SetActive(false);
+        dice.SetActive(false);
+        p1.SetActive(false);
+        p2.SetActive(false);
+        eventSys.SetActive(false);
     }
 }

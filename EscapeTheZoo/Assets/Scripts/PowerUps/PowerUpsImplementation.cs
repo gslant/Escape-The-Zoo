@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,12 +5,13 @@ public class PowerUpsImplementation : MonoBehaviour
 {
 
     public static int up = 3;
-    public static int down = -5;
+    public static int down = -4;
+
+    public GameControl control;
 
     // player is move up by 3 spaces(tiles)
     public static void moveup(Player player)
     {
-
         if (string.Equals(player.getName(), GameControl.listOfPlayersPlaying[0].getName()))
         {
             GameControl.diceSideThrown = up;
@@ -58,24 +58,36 @@ public class PowerUpsImplementation : MonoBehaviour
     }
 
     // player can select which minigame they want to play
-    public static void minigameSelect(Player player)
+    public void minigameSelect()
     {
         SelectMiniGameScript.Instance.Show();
         SelectMiniGameScript.Instance.showPopUp(SelectMiniGameScript.text, SelectMiniGameScript.infoString, () => {
+            control.unreloadObjs();
+            SceneLoader.LoadMinigameAdditive(GameControl.minigames[0]);
             Debug.Log("First Button");
         }, () => {
+            control.unreloadObjs();
+            SceneLoader.LoadMinigameAdditive(GameControl.minigames[3]);
             Debug.Log("Second Button");
         }, () => {
+            control.unreloadObjs();
+            SceneLoader.LoadMinigameAdditive(GameControl.minigames[1]);
             Debug.Log("Thirdth Button");
         }, () => {
+            control.unreloadObjs();
+            SceneLoader.LoadMinigameAdditive(GameControl.minigames[2]);
             Debug.Log("Fourth Button");
+        }, () => {
+            control.unreloadObjs();
+            SceneLoader.LoadMinigameAdditive(GameControl.minigames[4]);
+            Debug.Log("Fivth Button");
         });
         Debug.Log("Function 5");
     }
 
-    public static void GetPowerup(Player player)
+    public void GetPowerup(Player player)
     {
-        int num = Random.Range(2, 3);
+        int num = Random.Range(1, 6);
         
         
         switch (num)
@@ -93,12 +105,13 @@ public class PowerUpsImplementation : MonoBehaviour
                 loseCoins(player);
                 break;
             case 5:
-                minigameSelect(player);
+                minigameSelect();
                 break;
+
         }
         
 
 
-
     }
+
 }
