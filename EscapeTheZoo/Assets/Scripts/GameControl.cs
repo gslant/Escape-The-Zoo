@@ -17,7 +17,6 @@ public class GameControl : MonoBehaviour
     public GameObject winCanvas;
     public GameObject winCanvasText;
     public Button finishGameButton;
-    public Button powerupsInv;
 
     // DataManager to save players
     private DataManager dataManager;
@@ -78,7 +77,6 @@ public class GameControl : MonoBehaviour
         updatePlayerHUD(listOfPlayersPlaying[0]);
         dataManager = GetComponent<DataManager>();
         finishGameButton.onClick.AddListener(delegate { finishGame(); });
-
     }
 
     // Update is called once per frame
@@ -243,7 +241,6 @@ public class GameControl : MonoBehaviour
         Debug.Log("Quit to menu button clicked");
         SceneLoader.LoadScene("MainScene");
     }
-
 
     public void reloadObjs()
     {
