@@ -12,9 +12,16 @@ public class UIManager : MonoBehaviour
     public Button shopButton;
     public Button quitButton;
     public Button helpButton;
+    public Button creditsButton;
 
-    // Help Object
+    // Help Objects
     public GameObject helpPanel;
+
+    // Credits Objects
+    public GameObject creditsPanel;
+
+    // Settings Objects
+    public GameObject settingsPanel;
 
     //Lobby Objects
     public GameObject lobbyCanvas;
@@ -29,6 +36,7 @@ public class UIManager : MonoBehaviour
         shopButton.onClick.AddListener(delegate { GoToShop(); });
         quitButton.onClick.AddListener(delegate { Quit(); });
         helpButton.onClick.AddListener(delegate { GoToHelp(); });
+        creditsButton.onClick.AddListener(delegate { GoToCredits(); });
 
         //delegate buttons here
         //buttons such as start, settings can be handled in ui 
@@ -47,16 +55,15 @@ public class UIManager : MonoBehaviour
 
     public void GoToSettings()
     {
-        lobbyCanvas.SetActive(false);
-        //set settings canvas to true
+        settingsPanel.SetActive(true);
+        helpButton.gameObject.SetActive(false);
+        creditsButton.gameObject.SetActive(false);
         Debug.Log("Settings Clicked");
     }
 
     public void GoToShop()
     {
         lobbyCanvas.SetActive(false);
-        //set shop canvas to true
-        Debug.Log("Shop Clicked");
     }
 
     //TODO: there is probably a safer way of doing this, this just prevents having to use alt+f4 on test builds
@@ -69,5 +76,14 @@ public class UIManager : MonoBehaviour
     public void GoToHelp()
     {
         helpPanel.SetActive(true);
+        helpButton.gameObject.SetActive(false);
+        creditsButton.gameObject.SetActive(false);
+    }
+
+    public void GoToCredits()
+    {
+        creditsPanel.SetActive(true);
+        helpButton.gameObject.SetActive(false);
+        creditsButton.gameObject.SetActive(false);
     }
 }

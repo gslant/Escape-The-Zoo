@@ -26,6 +26,7 @@ public class LobbyManager : MonoBehaviour
     // "Player Select" Objects
     public Transform playersScrollContent;
     public GameObject playersScrollPanelPrefab;
+    public GameObject scrollBar;
     // "Selected Player" Objects
     public GameObject currentSelectedPlayerText;
     public GameObject currentSelectedPlayerAnimal;
@@ -81,6 +82,9 @@ public class LobbyManager : MonoBehaviour
         previousMapButton.onClick.AddListener(delegate { previousMap(); });
         nextMapButton.onClick.AddListener(delegate { nextMap(); });
 
+        // Make scrollhandle constant size
+        scrollBar.transform.GetComponent<Scrollbar>().size = 0.15f;
+
         // Player name character limit
         createPlayerScreenInput.characterLimit = PLAYERNAMECHARLIMIT;
 
@@ -128,6 +132,7 @@ public class LobbyManager : MonoBehaviour
             }
 
             // Resets settings
+            currentPlayers = 0;
             playersToPlayInGame = MINPLAYERS;
             playerAmount.GetComponent<TextMeshProUGUI>().text = playersToPlayInGame + "";
 
@@ -159,11 +164,13 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
+    // Sets the playerList
     public void setPlayerList(List<Player> playerList)
     {
         this.playerList = playerList;
     }
 
+    // Saves the list of players to a local file
     public void savePlayerList()
     {
         foreach (Player player in playerList)
@@ -172,11 +179,13 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
+    // Gets the list of players containing all the players that will be playing in the next game
     public static List<Player> getListOfPlayersPlaying()
     {
         return listOfPlayersPlaying;
     }
 
+    // Sets up the list of players containing all the players that will be playing in the next game
     private void setListOfPlayersPlaying()
     {
         listOfPlayersPlaying = new List<Player>();
@@ -190,11 +199,13 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
+    // Gets the map to be played on
     public string getMapToBePlayedOn()
     {
         return maps[currentMap];
     }
 
+    // Makes sure that the correct number of players are playing and a map has been selected, and then saves all the players to a file and sets the listOfPlayerPlaying. Then unloads the lobby and loads the "gameBoard"
     private void startGame()
     {
         if (currentPlayers != playersToPlayInGame)
@@ -205,7 +216,7 @@ public class LobbyManager : MonoBehaviour
 
         if (currentMap < 0)
         {
-            popup("Incorrect map");
+            popup("No map selected");
             return;
         }
 
@@ -217,6 +228,7 @@ public class LobbyManager : MonoBehaviour
         SceneLoader.LoadScene("GameBoard");
     }
 
+    // Goes back to the main menu from the lobby
     private void lobbyBack()
     {
         mainMenuCanvas.SetActive(true);
@@ -225,22 +237,26 @@ public class LobbyManager : MonoBehaviour
         createPlayerScreenClose();
     }
 
+    // Makes a popup message
     private void popup(string message)
     {
         popupBox.gameObject.SetActive(true);
         popupMessage.GetComponent<TextMeshProUGUI>().text = message;
     }
 
+    // Closes the popup message
     private void closePopup()
     {
         popupBox.gameObject.SetActive(false);
     }
 
+    // Opens the "Create Player" screen
     private void createPlayerScreenOpen()
     {
         createPlayerScreen.SetActive(true);
     }
 
+    // Closes the "Create Player" screen
     private void createPlayerScreenClose()
     {
         createPlayerScreen.SetActive(false);
@@ -251,6 +267,13 @@ public class LobbyManager : MonoBehaviour
     private void createPlayer()
     {
         string newPlayerName = createPlayerScreenInput.text;
+
+        if (newPlayerName.Equals(""))
+        {
+            popup("You didn't type in a name!");
+
+            return;
+        }
 
         foreach (Player player in playerList)
         {
@@ -366,18 +389,16 @@ public class LobbyManager : MonoBehaviour
         List<string> playerCosmeticsList = playerList[playerNumber].getOwnedCosmetics();
         int accessoryArrayCurrentIndex = playerCosmeticsList.IndexOf(playerList[playerNumber].getAccessory());
 
-        if (!playerList[playerNumber].getAccessory().Equals("None"))
+        if (accessoryArrayCurrentIndex == 0)
         {
-            if (accessoryArrayCurrentIndex == 0)
-            {
-                playerList[playerNumber].setAccessory("None");
-            }
-            else
-            {
+            playerList[playerNumber].setAccessory("None");
+        }
+        else
+        {
+            if (accessoryArrayCurrentIndex > 0) {
                 playerList[playerNumber].setAccessory(playerCosmeticsList[accessoryArrayCurrentIndex - 1]);
             }
         }
-        
 
         showSelectedPlayer(playerNumber);
     }

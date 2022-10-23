@@ -78,11 +78,11 @@ public class DataManager : MonoBehaviour
 [Serializable]
 public class Player
 {
-    private string name;
+    private string name; // The name of the player
     private int totalBalance; // The total currency a player has. Can be used in the shop.
     private int gameBalance; // The amount of currency a player has in a game of "Escape The Zoo!". Cannot be used in the shop.
-    private string animal;
-    private string accessory; // The currently equipped cosmetic
+    private string animal; // The current animal being used as the avatar
+    private string accessory; // The current equipped cosmetic
     private List<string> ownedCosmetics; // All owned cosmetics
 
     public Player(string name, int totalBalance, string animal, string accessory, List<string> ownedCosmetics)
@@ -95,31 +95,37 @@ public class Player
         this.ownedCosmetics = ownedCosmetics;
     }
 
+    // Gets the player's name
     public string getName()
     {
         return this.name;
     }
 
+    // Sets the player's name
     public void setName(string name)
     {
         this.name = name;
     }
 
+    // Gets the player's current totalBalance
     public int getTotalBalance()
     {
         return this.totalBalance;
     }
 
+    // Sets the player's totalBalance to a certain value
     public void setTotalBalance(int amount)
     {
         this.totalBalance = amount;
     }
 
+    // Gets the player's current gameBalance
     public int getGameBalance()
     {
         return this.gameBalance;
     }
 
+    // Sets the player's gameBalance to a certain value
     public void setGameBalance(int amount)
     {
         this.gameBalance = amount;
@@ -130,6 +136,7 @@ public class Player
         }
     }
 
+    // Changes the gameBalance by "amount"
     public void changeGameBalanceByAmount(int amount)
     {
         this.gameBalance += amount;
@@ -140,37 +147,44 @@ public class Player
         }
     }
 
+    // Adds the entire gameBalance of a player to their totalBalance, then sets their gameBalance to 0
     public void addGameBalanceToTotalBalance()
     {
         this.totalBalance += this.gameBalance;
         this.gameBalance = 0;
     }
 
+    // Gets the current animal avatar being used
     public string getAnimal()
     {
         return this.animal;
     }
 
+    // Sets the current animal avatar being used
     public void setAnimal(string animal)
     {
         this.animal = animal;
     }
 
+    // Gets the current accessory being used
     public string getAccessory()
     {
         return this.accessory;
     }
 
+    // Sets the current accessory being used
     public void setAccessory(string accessory)
     {
         this.accessory = accessory;
     }
 
+    // Returns the list of owned accessories
     public List<string> getOwnedCosmetics()
     {
         return this.ownedCosmetics;
     }
 
+    // Adds to the list of owned accessories
     public void addCosmetic(string cosmeticName)
     {
         this.ownedCosmetics.Add(cosmeticName);
