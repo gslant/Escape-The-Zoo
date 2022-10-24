@@ -58,7 +58,6 @@ public class UIManager : MonoBehaviour
         settingsPanel.SetActive(true);
         helpButton.gameObject.SetActive(false);
         creditsButton.gameObject.SetActive(false);
-        Debug.Log("Settings Clicked");
     }
 
     public void GoToShop()
