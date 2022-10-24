@@ -65,29 +65,29 @@ public class PowerUpsImplementation : MonoBehaviour
         SelectMiniGameScript.Instance.Show();
         SelectMiniGameScript.Instance.showPopUp(SelectMiniGameScript.text, SelectMiniGameScript.infoString, () => {
             control.unreloadObjs();
-            SceneLoader.LoadMinigameAdditive(GameControl.minigames[0]);
+            SceneLoader.LoadMinigameAdditive(control.minigames[0]);
             Debug.Log("First Button");
         }, () => {
             control.unreloadObjs();
-            SceneLoader.LoadMinigameAdditive(GameControl.minigames[3]);
+            SceneLoader.LoadMinigameAdditive(control.minigames[3]);
             Debug.Log("Second Button");
         }, () => {
             control.unreloadObjs();
-            SceneLoader.LoadMinigameAdditive(GameControl.minigames[1]);
+            SceneLoader.LoadMinigameAdditive(control.minigames[1]);
             Debug.Log("Thirdth Button");
         }, () => {
             control.unreloadObjs();
-            SceneLoader.LoadMinigameAdditive(GameControl.minigames[2]);
+            SceneLoader.LoadMinigameAdditive(control.minigames[2]);
             Debug.Log("Fourth Button");
         }, () => {
             control.unreloadObjs();
-            SceneLoader.LoadMinigameAdditive(GameControl.minigames[4]);
+            SceneLoader.LoadMinigameAdditive(control.minigames[4]);
             Debug.Log("Fivth Button");
         });
         Debug.Log("Function 5");
     }
 
-    public static void GetPowerup(Player player)
+    public void GetPowerup(Player player)
     {
         int num = Random.Range(2, 3);
         
@@ -107,7 +107,7 @@ public class PowerUpsImplementation : MonoBehaviour
                 loseCoins(player);
                 break;
             case 5:
-                minigameSelect(player);
+                minigameSelect();
                 break;
         }
         
