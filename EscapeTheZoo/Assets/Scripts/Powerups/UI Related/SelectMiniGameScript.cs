@@ -29,15 +29,10 @@ public class SelectMiniGameScript : MonoBehaviour
         button5 = transform.Find("5Button").GetComponent<Button>();
 
         showPopUp(text, infoString, () => {
-            Debug.Log("First Button");
         }, () => {
-            Debug.Log("Second Button");
         }, () => {
-            Debug.Log("Thirdth Button");
         }, () => {
-            Debug.Log("Fourth Button");
         }, () => {
-            Debug.Log("Fivth Button");
         });
     }
 

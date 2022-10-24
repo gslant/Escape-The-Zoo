@@ -26,7 +26,6 @@ public class PowerUpsImplementation : MonoBehaviour
             GameControl.MovePlayer(2);
         }
 
-        Debug.Log("Function 1");
 
     }
     // player is move down by 5 spaces(tiles)
@@ -44,19 +43,16 @@ public class PowerUpsImplementation : MonoBehaviour
             GameControl.MovePlayer(2);
         }
 
-        Debug.Log("Function 2");
     }
     // player gain additional 8 coins
     public static void gainCoins(Player player)
     {
         player.changeGameBalanceByAmount(5);
-        Debug.Log("Function 4");
     }
     // player loses 10 coins
     public static void loseCoins(Player player)
     {
         player.changeGameBalanceByAmount(-10);
-        Debug.Log("Function 5");
     }
 
     // player can select which minigame they want to play
@@ -69,30 +65,24 @@ public class PowerUpsImplementation : MonoBehaviour
         SelectMiniGameScript.Instance.showPopUp(SelectMiniGameScript.text, SelectMiniGameScript.infoString, () => {
             control.unreloadObjs();
             SceneLoader.LoadMinigameAdditive(control.minigames[0]);
-            Debug.Log("First Button");
         }, () => {
             control.unreloadObjs();
             SceneLoader.LoadMinigameAdditive(control.minigames[3]);
-            Debug.Log("Second Button");
         }, () => {
             control.unreloadObjs();
             SceneLoader.LoadMinigameAdditive(control.minigames[1]);
-            Debug.Log("Thirdth Button");
         }, () => {
             control.unreloadObjs();
             SceneLoader.LoadMinigameAdditive(control.minigames[2]);
-            Debug.Log("Fourth Button");
         }, () => {
             control.unreloadObjs();
             SceneLoader.LoadMinigameAdditive(control.minigames[4]);
-            Debug.Log("Fivth Button");
         });
-        Debug.Log("Function 5");
     }
 
     public void GetPowerup(Player player)
     {
-        int num = Random.Range(1, 6);
+        int num = Random.Range(5, 6);
         
         
         switch (num)

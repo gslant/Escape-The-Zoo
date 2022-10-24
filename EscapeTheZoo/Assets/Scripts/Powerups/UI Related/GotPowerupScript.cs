@@ -25,7 +25,6 @@ public class GotPowerupScript : MonoBehaviour
         okbutton = transform.Find("okButton").GetComponent<Button>();
 
         PowerupPopUp(text, infoString, () => {
-            Debug.Log("First Button");
         });
     }
 

@@ -249,7 +249,7 @@ public class GameControl : MonoBehaviour
 
     public void unreloadObjs()
     {
-        GameBoardMusic.mute = false;
+        GameBoardMusic.mute = true;
         mainCam.SetActive(false);
         hud.SetActive(false);
         grid.SetActive(false);
