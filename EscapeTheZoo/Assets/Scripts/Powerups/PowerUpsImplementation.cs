@@ -6,11 +6,9 @@ public class PowerUpsImplementation : MonoBehaviour
 {
     public List<PowerupItem> items = new List<PowerupItem>();
     public static int up = 3;
-    public static int down = -5;
+    public static int down = -6;
 
     public GameControl control;
-    public SelectMiniGameScript selectMini;
-    public GotPowerupScript popup;
 
     // player is move up by 3 spaces(tiles)
     public static void moveup(Player player)
@@ -51,7 +49,7 @@ public class PowerUpsImplementation : MonoBehaviour
     // player gain additional 8 coins
     public static void gainCoins(Player player)
     {
-        player.changeGameBalanceByAmount(8);
+        player.changeGameBalanceByAmount(5);
         Debug.Log("Function 4");
     }
     // player loses 10 coins
@@ -97,60 +95,56 @@ public class PowerUpsImplementation : MonoBehaviour
         int num = Random.Range(1, 6);
         
         
-        switch (5)
+        switch (num)
         {
             case 1:
                 GotPowerupScript.text = player.getName() + "\nYou got "+ items[0].Title + " powerup";
                 GotPowerupScript.infoString = items[0].desc;
-                GotPowerupScript.image = items[0].sprite;
                 GotPowerupScript.Instance.Show();
-                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.image, GotPowerupScript.infoString, () => {
-                    GotPowerupScript.Instance.Hide();
-                    moveup(player);
+                moveup(player);
+                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () =>{
+
                 });
                 break;
             case 2:
                 GotPowerupScript.text = player.getName() + "\nYou got " + items[1].Title + " powerup";
                 GotPowerupScript.infoString = items[1].desc;
-                GotPowerupScript.image = items[1].sprite;
                 GotPowerupScript.Instance.Show();
-                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.image, GotPowerupScript.infoString, () => {
-                    GotPowerupScript.Instance.Hide();
-                    movedown(player);
+                movedown(player);
+                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () =>{
+
                 });
                 break;
             case 3:
                 GotPowerupScript.text = player.getName() + "\nYou got " + items[2].Title + " powerup";
                 GotPowerupScript.infoString = items[2].desc;
-                GotPowerupScript.image = items[3].sprite;
                 GotPowerupScript.Instance.Show();
-                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.image, GotPowerupScript.infoString, () => {
-                    GotPowerupScript.Instance.Hide();
-                    gainCoins(player);
+                gainCoins(player);
+                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
+                    
                 });
                 break;
             case 4:
                 GotPowerupScript.text = player.getName() + "\nYou got " + items[3].Title + " powerup";
                 GotPowerupScript.infoString = items[3].desc;
-                GotPowerupScript.image = items[3].sprite;
                 GotPowerupScript.Instance.Show();
-                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.image, GotPowerupScript.infoString, () => {
-                    GotPowerupScript.Instance.Hide();
-                    loseCoins(player);
+                loseCoins(player);
+                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
+ 
                 });
                 break;
             case 5:
                 
                 GotPowerupScript.text = player.getName() + "\nYou got " + items[4].Title + " powerup";
                 GotPowerupScript.infoString = items[4].desc;
-                GotPowerupScript.image = items[4].sprite;
                 GotPowerupScript.Instance.Show();
-                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.image, GotPowerupScript.infoString, () => {
-                    GotPowerupScript.Instance.Hide();
-                    minigameSelect(player);
+                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
+ 
                 });
+                minigameSelect(player);
                 break;
         }
 
     }
+
 }

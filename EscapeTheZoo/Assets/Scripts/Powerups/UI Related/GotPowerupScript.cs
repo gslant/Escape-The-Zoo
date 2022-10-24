@@ -12,7 +12,6 @@ public class GotPowerupScript : MonoBehaviour
 
     private TextMeshProUGUI textMesh, infoText;
     private Button okbutton;
-    public static Sprite image;
     public static String text = "";
     public static String infoString = "";
 
@@ -24,18 +23,16 @@ public class GotPowerupScript : MonoBehaviour
         textMesh = transform.Find("PowerupTitle").GetComponent<TextMeshProUGUI>();
         infoText = transform.Find("DescText").GetComponent<TextMeshProUGUI>();
         okbutton = transform.Find("okButton").GetComponent<Button>();
-        image = transform.Find("Sprite").GetComponent<Sprite>();
 
-        PowerupPopUp(text, image, infoString, () => {
+        PowerupPopUp(text, infoString, () => {
             Debug.Log("First Button");
         });
     }
 
-    public void PowerupPopUp(String popupText, Sprite icon, String textInfo, Action Button)
+    public void PowerupPopUp(String popupText, String textInfo, Action Button)
     {
         textMesh.text = popupText;
         infoText.text = textInfo;
-        image = icon;
         okbutton.onClick.AddListener(() => {
             Hide();
             Button();

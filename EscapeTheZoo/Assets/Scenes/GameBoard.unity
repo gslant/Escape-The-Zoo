@@ -5212,8 +5212,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38.02, y: 31.2}
-  m_SizeDelta: {x: 434.69, y: 79.33}
+  m_AnchoredPosition: {x: -2.46, y: 31.19}
+  m_SizeDelta: {x: 515.65, y: 79.33}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1383693477
 MonoBehaviour:
@@ -5447,82 +5447,6 @@ Transform:
   m_Father: {fileID: 1138537605}
   m_RootOrder: 70
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1428572620
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1428572621}
-  - component: {fileID: 1428572623}
-  - component: {fileID: 1428572622}
-  m_Layer: 5
-  m_Name: Sprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1428572621
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428572620}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1828798523}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 66, y: -141}
-  m_SizeDelta: {x: 75, y: 75}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1428572622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428572620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1428572623
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428572620}
-  m_CullTransparentMesh: 1
 --- !u!1 &1431961685
 GameObject:
   m_ObjectHideFlags: 0
@@ -7552,7 +7476,6 @@ RectTransform:
   - {fileID: 856007324}
   - {fileID: 1383693476}
   - {fileID: 2132560443}
-  - {fileID: 1428572621}
   m_Father: {fileID: 5543363015073308869}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8488,8 +8411,6 @@ MonoBehaviour:
   - {fileID: 2704042502724522515}
   - {fileID: 2704042502587468400}
   control: {fileID: 742399129}
-  selectMini: {fileID: 5543363014470130175}
-  popup: {fileID: 1828798524}
 --- !u!1 &2704042501290501190
 GameObject:
   m_ObjectHideFlags: 0
@@ -8614,7 +8535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Title: Gain Coin
-  desc: Found 3 coins on the ground :)
+  desc: Found 5 coins on the ground :)
   sprite: {fileID: 21300000, guid: dc4e358d07dffbe42b0ba27d69d2625d, type: 3}
 --- !u!4 &2704042502587468392
 Transform:
@@ -8708,7 +8629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Title: Lose Coin
-  desc: Oops, you have trip and lost 5 coins :(
+  desc: Oops, you have trip and lost 10 coins :(
   sprite: {fileID: 21300000, guid: aa92761141c4bff4582f497e3b659f24, type: 3}
 --- !u!1 &5543363013921592216
 GameObject:
