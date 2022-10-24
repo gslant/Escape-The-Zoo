@@ -20,6 +20,7 @@ public class GameControl : MonoBehaviour
 
     // DataManager to save players
     private DataManager dataManager;
+    public PowerUpsImplementation powerUpsImplementation;
 
     // Who the winner of the game is
     int winner;
@@ -112,7 +113,7 @@ public class GameControl : MonoBehaviour
                 if (player1.GetComponent<PlayerMovement>().waypointIndex == 11 || player1.GetComponent<PlayerMovement>().waypointIndex == 16 || player1.GetComponent<PlayerMovement>().waypointIndex == 33 || player1.GetComponent<PlayerMovement>().waypointIndex == 45
                 || player1.GetComponent<PlayerMovement>().waypointIndex == 57 || player1.GetComponent<PlayerMovement>().waypointIndex == 65 || player1.GetComponent<PlayerMovement>().waypointIndex == 69 || player1.GetComponent<PlayerMovement>().waypointIndex == 77)
                 {
-                    Debug.Log("You found a (nameofthepowerup)!!!");
+                    powerUpsImplementation.GetPowerup(listOfPlayersPlaying[0]);
                 }
             }
 
@@ -144,7 +145,7 @@ public class GameControl : MonoBehaviour
                 if (player2.GetComponent<PlayerMovement>().waypointIndex == 11 || player2.GetComponent<PlayerMovement>().waypointIndex == 16 || player2.GetComponent<PlayerMovement>().waypointIndex == 33 || player2.GetComponent<PlayerMovement>().waypointIndex == 45
                 || player2.GetComponent<PlayerMovement>().waypointIndex == 57 || player2.GetComponent<PlayerMovement>().waypointIndex == 65 || player2.GetComponent<PlayerMovement>().waypointIndex == 69 || player2.GetComponent<PlayerMovement>().waypointIndex == 77)
                 {
-                    Debug.Log("You found a (nameofthepowerup)!!!");
+                    powerUpsImplementation.GetPowerup(listOfPlayersPlaying[1]);
                 }
             }
 
@@ -244,5 +245,17 @@ public class GameControl : MonoBehaviour
         p1.SetActive(true);
         p2.SetActive(true);
         eventSys.SetActive(true);
+    }
+
+    public void unreloadObjs()
+    {
+        GameBoardMusic.mute = false;
+        mainCam.SetActive(false);
+        hud.SetActive(false);
+        grid.SetActive(false);
+        dice.SetActive(false);
+        p1.SetActive(false);
+        p2.SetActive(false);
+        eventSys.SetActive(false);
     }
 }
