@@ -26,7 +26,7 @@ public class GameControl : MonoBehaviour
     int winner;
 
     // List of minigames
-    private List<string> minigames = new List<string>();
+    public List<string> minigames = new List<string>();
 
     private static GameObject player1, player2;
     [SerializeField] private GameObject player1Accessory, player2Accessory;

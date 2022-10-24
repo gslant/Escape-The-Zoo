@@ -2176,6 +2176,7 @@ MonoBehaviour:
   winCanvas: {fileID: 1788880577}
   winCanvasText: {fileID: 2014156779}
   finishGameButton: {fileID: 945061166}
+  powerUpsImplementation: {fileID: 0}
   player1Accessory: {fileID: 817367031}
   player2Accessory: {fileID: 1493101393}
   mainCam: {fileID: 1431961685}
@@ -8350,7 +8351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!223 &5543363015073308868
 Canvas:
   m_ObjectHideFlags: 0
@@ -8361,7 +8362,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1431961687}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
