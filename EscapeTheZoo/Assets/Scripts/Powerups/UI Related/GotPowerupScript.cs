@@ -26,15 +26,16 @@ public class GotPowerupScript : MonoBehaviour
         okbutton = transform.Find("okButton").GetComponent<Button>();
         image = transform.Find("Sprite").GetComponent<Sprite>();
 
-        PowerupPopUp(text, infoString, () => {
+        PowerupPopUp(text, image, infoString, () => {
             Debug.Log("First Button");
         });
     }
 
-    public void PowerupPopUp(String popupText, String textInfo, Action Button)
+    public void PowerupPopUp(String popupText, Sprite icon, String textInfo, Action Button)
     {
         textMesh.text = popupText;
         infoText.text = textInfo;
+        image = icon;
         okbutton.onClick.AddListener(() => {
             Hide();
             Button();

@@ -104,7 +104,7 @@ public class PowerUpsImplementation : MonoBehaviour
                 GotPowerupScript.infoString = items[0].desc;
                 GotPowerupScript.image = items[0].sprite;
                 GotPowerupScript.Instance.Show();
-                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
+                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.image, GotPowerupScript.infoString, () => {
                     GotPowerupScript.Instance.Hide();
                     moveup(player);
                 });
@@ -114,7 +114,7 @@ public class PowerUpsImplementation : MonoBehaviour
                 GotPowerupScript.infoString = items[1].desc;
                 GotPowerupScript.image = items[1].sprite;
                 GotPowerupScript.Instance.Show();
-                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
+                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.image, GotPowerupScript.infoString, () => {
                     GotPowerupScript.Instance.Hide();
                     movedown(player);
                 });
@@ -124,7 +124,7 @@ public class PowerUpsImplementation : MonoBehaviour
                 GotPowerupScript.infoString = items[2].desc;
                 GotPowerupScript.image = items[3].sprite;
                 GotPowerupScript.Instance.Show();
-                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
+                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.image, GotPowerupScript.infoString, () => {
                     GotPowerupScript.Instance.Hide();
                     gainCoins(player);
                 });
@@ -134,7 +134,7 @@ public class PowerUpsImplementation : MonoBehaviour
                 GotPowerupScript.infoString = items[3].desc;
                 GotPowerupScript.image = items[3].sprite;
                 GotPowerupScript.Instance.Show();
-                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
+                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.image, GotPowerupScript.infoString, () => {
                     GotPowerupScript.Instance.Hide();
                     loseCoins(player);
                 });
@@ -145,7 +145,7 @@ public class PowerUpsImplementation : MonoBehaviour
                 GotPowerupScript.infoString = items[4].desc;
                 GotPowerupScript.image = items[4].sprite;
                 GotPowerupScript.Instance.Show();
-                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
+                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.image, GotPowerupScript.infoString, () => {
                     GotPowerupScript.Instance.Hide();
                     minigameSelect(player);
                 });
