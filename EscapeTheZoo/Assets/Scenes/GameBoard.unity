@@ -672,6 +672,53 @@ Transform:
   m_Father: {fileID: 1138537605}
   m_RootOrder: 78
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &244968181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 244968182}
+  - component: {fileID: 244968183}
+  m_Layer: 0
+  m_Name: MoveDown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &244968182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244968181}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2704042501170404549}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &244968183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244968181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d0ad1d56c511247ace7328dcd8fc55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Title: Move Down
+  desc: Unlucky! You are moving 3 spaces up
+  sprite: {fileID: 21300000, guid: c6a110339c1a8bf48b98a3fe44d8d2ff, type: 3}
 --- !u!1 &252300180
 GameObject:
   m_ObjectHideFlags: 0
@@ -7643,6 +7690,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2704042502140012244}
+  - {fileID: 244968182}
   - {fileID: 2704042502227293731}
   - {fileID: 2704042502724522514}
   - {fileID: 2704042502587468392}
@@ -7719,6 +7767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2704042502140012244}
+  - component: {fileID: 2704042502140012252}
   m_Layer: 0
   m_Name: Moveup
   m_TagString: Untagged
@@ -7726,6 +7775,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2704042502140012252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2704042502140012251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d0ad1d56c511247ace7328dcd8fc55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Title: Move Up
+  desc: WOW Lucky!!! You are moving 3 spaces up
+  sprite: {fileID: 21300000, guid: 6e7a6ea74fdcbed44b33c2d922c2ff0b, type: 3}
 --- !u!1 &2704042502227293730
 GameObject:
   m_ObjectHideFlags: 0
@@ -7735,6 +7799,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2704042502227293731}
+  - component: {fileID: 2704042502227293732}
   m_Layer: 0
   m_Name: CoinGain
   m_TagString: Untagged
@@ -7755,8 +7820,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2704042501170404549}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2704042502227293732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2704042502227293730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d0ad1d56c511247ace7328dcd8fc55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Title: Gain Coin
+  desc: Found 3 coins on the ground
+  sprite: {fileID: 21300000, guid: dc4e358d07dffbe42b0ba27d69d2625d, type: 3}
 --- !u!4 &2704042502587468392
 Transform:
   m_ObjectHideFlags: 0
@@ -7770,7 +7850,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2704042501170404549}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2704042502587468399
 GameObject:
@@ -7797,6 +7877,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2704042502724522514}
+  - component: {fileID: 2704042502724522515}
   m_Layer: 0
   m_Name: CoinLost
   m_TagString: Untagged
@@ -7817,8 +7898,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2704042501170404549}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2704042502724522515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2704042502724522513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d0ad1d56c511247ace7328dcd8fc55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Title: Lose Coin
+  desc: Oops, you have trip and lost 5 coins
+  sprite: {fileID: 21300000, guid: aa92761141c4bff4582f497e3b659f24, type: 3}
 --- !u!1 &5543363013921592216
 GameObject:
   m_ObjectHideFlags: 0
@@ -8853,7 +8949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!223 &5543363015073308868
 Canvas:
   m_ObjectHideFlags: 0
