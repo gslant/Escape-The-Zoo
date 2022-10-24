@@ -13,7 +13,7 @@ public class SelectMiniGameScript : MonoBehaviour
     private TextMeshProUGUI textMesh, miniGameOptionText;
     private Button button1, button2, button3, button4, button5;
     public static String text = "Click on the button to play the minigame now:";
-    public static String infoString = "1 - Escape The Lion\n2 - Catch The Banana\n3 - Don't Wake The Human\n4 - Stay On The Iceberg";
+    public static String infoString = "1 - Escape The Lion\n2 - Catch The Banana\n3 - Don't Wake The Human\n4 - Stay On The Iceberg\n5 - Colour The Floor";
 
 
     private void Awake()

@@ -9,6 +9,7 @@ public class PowerUpsImplementation : MonoBehaviour
     public static int down = -5;
 
     public GameControl control;
+    public SelectMiniGameScript selectMini;
 
     // player is move up by 3 spaces(tiles)
     public static void moveup(Player player)
@@ -60,8 +61,11 @@ public class PowerUpsImplementation : MonoBehaviour
     }
 
     // player can select which minigame they want to play
-    public void minigameSelect()
+    public void minigameSelect(Player player)
     {
+
+        SelectMiniGameScript.text = player.getName() + " please select a minigame to play now:"; 
+
         SelectMiniGameScript.Instance.Show();
         SelectMiniGameScript.Instance.showPopUp(SelectMiniGameScript.text, SelectMiniGameScript.infoString, () => {
             control.unreloadObjs();
@@ -89,7 +93,7 @@ public class PowerUpsImplementation : MonoBehaviour
 
     public void GetPowerup(Player player)
     {
-        int num = Random.Range(2, 3);
+        int num = Random.Range(1, 6);
         
         
         switch (num)
@@ -107,12 +111,9 @@ public class PowerUpsImplementation : MonoBehaviour
                 loseCoins(player);
                 break;
             case 5:
-                minigameSelect();
+                minigameSelect(player);
                 break;
         }
-        
-
-
 
     }
 }
