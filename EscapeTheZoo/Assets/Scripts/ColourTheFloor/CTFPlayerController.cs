@@ -45,9 +45,7 @@ public class CTFPlayerController : MonoBehaviour
         if (Input.GetKey(testKey) && powerUpStartTime == 0)
         {
             powerUpStartTime = Time.time;
-            Debug.Log("BIG");
             Vector3 initSize = boxCollide.size;
-            Debug.Log(initSize);
             boxCollide.size = new Vector3(5, 5, 0);
 
         }
