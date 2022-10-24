@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using UnityEngine.SceneManagement;
+//using TMPro;
+//using UnityEngine.SceneManagement;
 
 public class DWTHController : MonoBehaviour
 {
@@ -12,13 +12,13 @@ public class DWTHController : MonoBehaviour
 
     // Objects
     public GameObject GameOverCanvas;
-    public TextMeshProUGUI gameOverText;
+//    public TextMeshProUGUI gameOverText;
     public GameObject warning;
     public GameObject silhouette;
     public GameObject pushableObjectPrefab;
     public Transform pushableObjectList;
-    public TextMeshProUGUI player1Score;
-    public TextMeshProUGUI player2Score;
+//    public TextMeshProUGUI player1Score;
+//    public TextMeshProUGUI player2Score;
     private GameObject latestPushableObject; // The newest created pushable object
 
     // Components
@@ -38,14 +38,14 @@ public class DWTHController : MonoBehaviour
     private int nextShowSilhouetteTime; // When the silhouette is shown.
     private int nextHideSilhouetteTime; // When the silhouette is hidden.
     private bool gameOver = false; // Keeps track of if the game is over.
-    private int winner = -1; // Holds the winner of the game. Initially -1 as no winner is set.
+    //private int winner = -1; // Holds the winner of the game. Initially -1 as no winner is set.
     private float latestPushableObjectScale; // The scale of the newest created pushable object.
 
     // Constants
     private int MAX_NUM_OBJECTS = 5; // Maximum number of pushable objects.
     private int SPAWN_INTERVAL_BETWEEN_EACH_OBJECT = 6; // Time between when each object spawns.
     private int HUMAN_SILHOUETTE_DURATION = 3; // Duration the human silhouette is shown for.
-    private int WINNER_REWARD = 5; // The number of bonus coins the winner earns.
+//    private int WINNER_REWARD = 5; // The number of bonus coins the winner earns.
     private int SILHOUETTE_PAUSE_DURATION_DECREASE = 1; // How much the silhouette pause duration will decrease by.
     private int WARNING_DURATION_DECREASE = 1; // How much the warning duration will decrease by.
     private int MINIMUM_SILHOUETTE_PAUSE_DURATION = 1; // Minimum silhouette pause duration.
@@ -77,7 +77,7 @@ public class DWTHController : MonoBehaviour
         warningDuration = 3; // How long the warning sign stays for. Initial duration is 3.
         silhouettePauseDuration = 10; // Time between each moment the human shows up. Initial duration is 10.
         gameOver = false; // Keeps track of if the game is over.
-        winner = -1; // Holds the winner of the game. Initially -1 as no winner is set.
+        //winner = -1; // Holds the winner of the game. Initially -1 as no winner is set.
 
         // Hides certain game objects
         GameOverCanvas.SetActive(false);
@@ -96,8 +96,8 @@ public class DWTHController : MonoBehaviour
         if (!gameOver) // While the game isn't finished
         {
             // Updates the score counter
-            player1Score.text = "Player 1 Score: " + player1.numPushed;
-            player2Score.text = "Player 2 Score: " + player2.numPushed;
+//            player1Score.text = "Player 1 Score: " + player1.numPushed;
+//            player2Score.text = "Player 2 Score: " + player2.numPushed;
 
             // Enlarges the newly spawned pushable object until it reaches its proper size
             if (latestPushableObjectScale < 1.0f && latestPushableObject != null)
@@ -193,33 +193,33 @@ public class DWTHController : MonoBehaviour
     {
         DWTHMusic.mute = true;
 
-        if (player1.alive)
+        /*if (player1.alive)
         {
             winner = 0;
         }
         else if (player2.alive)
         {
             winner = 1;
-        }
+        }*/
 
-        List<Player> playersPlaying = MinigameLoadPlayers.GetListOfPlayersPlaying();
+//        List<Player> playersPlaying = MinigameLoadPlayers.GetListOfPlayersPlaying();
 
         GameOverCanvas.SetActive(true);
-        gameOverText.text = (winner == -1 ? "No one wins!" : playersPlaying[winner].getName() + " Wins!");
+//        gameOverText.text = (winner == -1 ? "No one wins!" : playersPlaying[winner].getName() + " Wins!");
 
-        playersPlaying[0].changeGameBalanceByAmount(player1.numPushed);
+/*        playersPlaying[0].changeGameBalanceByAmount(player1.numPushed);
         playersPlaying[1].changeGameBalanceByAmount(player2.numPushed);
 
         if (winner != -1)
         {
             playersPlaying[winner].changeGameBalanceByAmount(WINNER_REWARD);
-        }
+        }*/
 
         gameOver = true;
-        StartCoroutine(GameOverPause());
+        //StartCoroutine(GameOverPause());
     }
 
-    IEnumerator GameOverPause()
+/*    IEnumerator GameOverPause()
     {
         // Pause game for 2 seconds
         Time.timeScale = 0;
@@ -227,12 +227,12 @@ public class DWTHController : MonoBehaviour
         Time.timeScale = 1;
 
         GoBackToGameBoard();
-    }
+    }*/
 
-    private void GoBackToGameBoard()
+/*    private void GoBackToGameBoard()
     {
         GameControl con = FindObjectOfType<GameControl>();
         con.reloadObjs();
         SceneLoader.unloadScene("Don'tWakeTheHumans");
-    }
+    }*/
 }

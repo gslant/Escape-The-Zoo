@@ -722,7 +722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &214166995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2436,7 +2436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDeath: {fileID: 1538224820}
   silhouette: {fileID: 1753655612}
-  con: {fileID: 1501498488}
+  objectRigidbody: {fileID: 0}
   numPushed: 0
   alive: 1
   moving: 0
@@ -3111,7 +3111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDeath: {fileID: 1538224820}
   silhouette: {fileID: 1753655612}
-  con: {fileID: 1501498488}
+  objectRigidbody: {fileID: 0}
   numPushed: 0
   alive: 1
   moving: 0
@@ -3945,13 +3945,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DWTHMusic: {fileID: 654172773}
   GameOverCanvas: {fileID: 212333033}
-  gameOverText: {fileID: 749710277}
   warning: {fileID: 170504270}
   silhouette: {fileID: 1753655612}
   pushableObjectPrefab: {fileID: 652431336}
   pushableObjectList: {fileID: 1591351003}
-  player1Score: {fileID: 1968825943}
-  player2Score: {fileID: 475217735}
   player1: {fileID: 713982665}
   player2: {fileID: 888657764}
 --- !u!114 &1501498489

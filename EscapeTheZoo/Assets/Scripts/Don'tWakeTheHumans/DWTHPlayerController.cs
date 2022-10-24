@@ -9,7 +9,7 @@ public class DWTHPlayerController : MonoBehaviour
 
     // Objects
     public GameObject silhouette;
-    public DWTHController con;
+//    public DWTHController con;
 
     // Components
     private Transform playerTransform;
@@ -48,14 +48,14 @@ public class DWTHPlayerController : MonoBehaviour
                 objectRigidbody.velocity = new Vector3(((Input.GetKey(leftKey) ? 1 : 0) * -5) + ((Input.GetKey(rightKey) ? 1 : 0) * 5), ((Input.GetKey(downKey) ? 1 : 0) * -5) + ((Input.GetKey(upKey) ? 1 : 0) * 5), 0);
 
                 // If the player is moving while the human is looking around
-                if (silhouette.activeSelf == true)
+                /*if (silhouette.activeSelf == true)
                 {
                     alive = false;
                     Destroy(boxCollide);
                     objectRigidbody.velocity = new Vector3(-5, +5, 0);
                     deathTimePlusThree = (int)Time.fixedTime + 3;
                     playerDeath.Play();
-                }
+                }*/
             }
             else
             {
@@ -67,10 +67,10 @@ public class DWTHPlayerController : MonoBehaviour
         {
             objectRigidbody.rotation += 500.0f * Time.deltaTime;
         }
-        else // When the player has been dead of 3 seconds, update the number of players remaining
+        /*else // When the player has been dead of 3 seconds, update the number of players remaining
         {
             DWTHController.numberOfPlayersRemaining--;
-        }
+        }*/
     }
 
     public string getName()

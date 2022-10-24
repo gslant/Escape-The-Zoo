@@ -58,7 +58,7 @@ public class DWTHPushableObject : MonoBehaviour
     {
         if (notTouchingBorder && collision.gameObject.CompareTag("Border")) // If the pushable object is touching the border
         {
-            pushableObjectFallingAudio.Play();
+            //pushableObjectFallingAudio.Play();
             notTouchingBorder = false;
             Destroy(boxCollide);
             objectRigidbody.velocity = new Vector3(1, -1, 0);
@@ -82,7 +82,7 @@ public class DWTHPushableObject : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    /*private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player 1") && player1.moving) // If the pushable object is touching player 1 and player 1 is moving
         {
@@ -95,14 +95,14 @@ public class DWTHPushableObject : MonoBehaviour
         {
             pushableObjectDraggingAudio.mute = true; // Mute the dragging audio
         }
-    }
+    }*/
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         // If the pushable object isn't being pushed by anything, mute the pushableObjectDraggingAudio
         if (collision.gameObject.CompareTag("Player 1") || collision.gameObject.CompareTag("Player 2"))
         {
-            pushableObjectDraggingAudio.mute = true;
+            //pushableObjectDraggingAudio.mute = true;
         }
     }
 }
