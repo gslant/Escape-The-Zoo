@@ -2424,7 +2424,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 8
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 6e4fb4272093bd048a42eafbb6e88477, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2676,7 +2676,7 @@ GameObject:
   - component: {fileID: 856007326}
   - component: {fileID: 856007325}
   m_Layer: 5
-  m_Name: Text
+  m_Name: PowerupTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5074,7 +5074,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &1374551522
 GameObject:
@@ -5175,7 +5175,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 9
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &1383693475
 GameObject:
@@ -5189,7 +5189,7 @@ GameObject:
   - component: {fileID: 1383693478}
   - component: {fileID: 1383693477}
   m_Layer: 5
-  m_Name: TextInfo
+  m_Name: DescText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5212,8 +5212,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 31.19}
-  m_SizeDelta: {x: 510.73, y: 79.33}
+  m_AnchoredPosition: {x: 38.02, y: 31.2}
+  m_SizeDelta: {x: 434.69, y: 79.33}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1383693477
 MonoBehaviour:
@@ -5262,8 +5262,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5447,6 +5447,82 @@ Transform:
   m_Father: {fileID: 1138537605}
   m_RootOrder: 70
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1428572620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1428572621}
+  - component: {fileID: 1428572623}
+  - component: {fileID: 1428572622}
+  m_Layer: 5
+  m_Name: Sprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1428572621
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428572620}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1828798523}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 66, y: -141}
+  m_SizeDelta: {x: 75, y: 75}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1428572622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428572620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1428572623
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428572620}
+  m_CullTransparentMesh: 1
 --- !u!1 &1431961685
 GameObject:
   m_ObjectHideFlags: 0
@@ -5665,7 +5741,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 28b3e59c73c75034f9ca91bfbf83670d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6589,7 +6665,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 93a884e2ac4196448943374f222d280f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7414,7 +7490,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 6af9102affc19714dad23a3125c28cbe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7468,7 +7544,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828798522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.22}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7476,12 +7552,13 @@ RectTransform:
   - {fileID: 856007324}
   - {fileID: 1383693476}
   - {fileID: 2132560443}
+  - {fileID: 1428572621}
   m_Father: {fileID: 5543363015073308869}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.01, y: 30.03}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 581.32, y: 265.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1828798524
@@ -7493,7 +7570,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1828798522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0cf9e7fd57244849a637ffda1ea6b26, type: 3}
+  m_Script: {fileID: 11500000, guid: e4918c12e48280a40ad37e2c21ba73a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1840406186
@@ -8308,7 +8385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.8, y: 50.3}
+  m_AnchoredPosition: {x: 0.8, y: 50.300003}
   m_SizeDelta: {x: 104.48001, y: 56.52002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2132560444
@@ -8404,8 +8481,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e4721f7455b3e41913851788cf3f67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  items:
+  - {fileID: 2704042502140012252}
+  - {fileID: 244968183}
+  - {fileID: 2704042502227293732}
+  - {fileID: 2704042502724522515}
+  - {fileID: 2704042502587468400}
   control: {fileID: 742399129}
   selectMini: {fileID: 5543363014470130175}
+  popup: {fileID: 1828798524}
 --- !u!1 &2704042501290501190
 GameObject:
   m_ObjectHideFlags: 0
@@ -8530,7 +8614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Title: Gain Coin
-  desc: Found 3 coins on the ground
+  desc: Found 3 coins on the ground :)
   sprite: {fileID: 21300000, guid: dc4e358d07dffbe42b0ba27d69d2625d, type: 3}
 --- !u!4 &2704042502587468392
 Transform:
@@ -8556,6 +8640,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2704042502587468392}
+  - component: {fileID: 2704042502587468400}
   m_Layer: 0
   m_Name: MinigameTime
   m_TagString: Untagged
@@ -8563,6 +8648,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2704042502587468400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2704042502587468399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d0ad1d56c511247ace7328dcd8fc55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Title: Minigame Time
+  desc: Select a Minigame
+  sprite: {fileID: 21300000, guid: f126beb8a2da50f45a4958ddb3dcade4, type: 3}
 --- !u!1 &2704042502724522513
 GameObject:
   m_ObjectHideFlags: 0
@@ -8608,7 +8708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Title: Lose Coin
-  desc: Oops, you have trip and lost 5 coins
+  desc: Oops, you have trip and lost 5 coins :(
   sprite: {fileID: 21300000, guid: aa92761141c4bff4582f497e3b659f24, type: 3}
 --- !u!1 &5543363013921592216
 GameObject:
@@ -9096,7 +9196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5543363014470130174
 RectTransform:
   m_ObjectHideFlags: 0

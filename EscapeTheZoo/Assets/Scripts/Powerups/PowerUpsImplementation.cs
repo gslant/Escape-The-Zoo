@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PowerUpsImplementation : MonoBehaviour
 {
-
+    public List<PowerupItem> items = new List<PowerupItem>();
     public static int up = 3;
     public static int down = -5;
 
     public GameControl control;
     public SelectMiniGameScript selectMini;
+    public GotPowerupScript popup;
 
     // player is move up by 3 spaces(tiles)
     public static void moveup(Player player)
@@ -96,22 +97,58 @@ public class PowerUpsImplementation : MonoBehaviour
         int num = Random.Range(1, 6);
         
         
-        switch (num)
+        switch (5)
         {
             case 1:
-                moveup(player);
+                GotPowerupScript.text = player.getName() + "\nYou got "+ items[0].Title + " powerup";
+                GotPowerupScript.infoString = items[0].desc;
+                GotPowerupScript.image = items[0].sprite;
+                GotPowerupScript.Instance.Show();
+                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
+                    GotPowerupScript.Instance.Hide();
+                    moveup(player);
+                });
                 break;
             case 2:
-                movedown(player);
+                GotPowerupScript.text = player.getName() + "\nYou got " + items[1].Title + " powerup";
+                GotPowerupScript.infoString = items[1].desc;
+                GotPowerupScript.image = items[1].sprite;
+                GotPowerupScript.Instance.Show();
+                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
+                    GotPowerupScript.Instance.Hide();
+                    movedown(player);
+                });
                 break;
             case 3:
-                gainCoins(player);
+                GotPowerupScript.text = player.getName() + "\nYou got " + items[2].Title + " powerup";
+                GotPowerupScript.infoString = items[2].desc;
+                GotPowerupScript.image = items[3].sprite;
+                GotPowerupScript.Instance.Show();
+                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
+                    GotPowerupScript.Instance.Hide();
+                    gainCoins(player);
+                });
                 break;
             case 4:
-                loseCoins(player);
+                GotPowerupScript.text = player.getName() + "\nYou got " + items[3].Title + " powerup";
+                GotPowerupScript.infoString = items[3].desc;
+                GotPowerupScript.image = items[3].sprite;
+                GotPowerupScript.Instance.Show();
+                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
+                    GotPowerupScript.Instance.Hide();
+                    loseCoins(player);
+                });
                 break;
             case 5:
-                minigameSelect(player);
+                
+                GotPowerupScript.text = player.getName() + "\nYou got " + items[4].Title + " powerup";
+                GotPowerupScript.infoString = items[4].desc;
+                GotPowerupScript.image = items[4].sprite;
+                GotPowerupScript.Instance.Show();
+                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
+                    GotPowerupScript.Instance.Hide();
+                    minigameSelect(player);
+                });
                 break;
         }
 
