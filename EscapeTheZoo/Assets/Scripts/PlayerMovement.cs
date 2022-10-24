@@ -6,8 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Transform[] waypoints;
 
-    [SerializeField]
-    private float moveSpeed = 1f;
+    private static float moveSpeed = 10f;
 
     [HideInInspector]
     public int waypointIndex = 0;
@@ -31,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (waypointIndex <= waypoints.Length - 1)
         {
-            transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * 2 * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
 
             if (transform.position.x == waypoints[waypointIndex].transform.position.x && transform.position.y == waypoints[waypointIndex].transform.position.y)
             {

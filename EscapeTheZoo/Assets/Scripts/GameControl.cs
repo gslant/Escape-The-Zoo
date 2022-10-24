@@ -77,6 +77,10 @@ public class GameControl : MonoBehaviour
         updatePlayerHUD(listOfPlayersPlaying[0]);
         dataManager = GetComponent<DataManager>();
         finishGameButton.onClick.AddListener(delegate { finishGame(); });
+
+        gameOver = false;
+        player1StartWaypoint = 0;
+        player2StartWaypoint = 0;
     }
 
     // Update is called once per frame
