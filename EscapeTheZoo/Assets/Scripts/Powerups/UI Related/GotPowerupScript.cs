@@ -9,7 +9,6 @@ public class GotPowerupScript : MonoBehaviour
 {
     public static GotPowerupScript Instance { get; private set; }
 
-
     private TextMeshProUGUI textMesh, infoText;
     private Button okbutton;
     public static String text = "";
@@ -35,6 +34,7 @@ public class GotPowerupScript : MonoBehaviour
         okbutton.onClick.AddListener(() => {
             Hide();
             Button();
+
         });
 
 
@@ -49,4 +49,5 @@ public class GotPowerupScript : MonoBehaviour
     {
         gameObject.SetActive(true);
     }
+
 }

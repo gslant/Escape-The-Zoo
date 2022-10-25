@@ -46,7 +46,7 @@ public class PowerUpsImplementation : MonoBehaviour
         }
 
     }
-    // player gain additional 8 coins
+    // player gain additional 5 coins
     public static void gainCoins(Player player)
     {
         player.changeGameBalanceByAmount(5);
@@ -65,26 +65,27 @@ public class PowerUpsImplementation : MonoBehaviour
 
         SelectMiniGameScript.Instance.Show();
         SelectMiniGameScript.Instance.showPopUp(SelectMiniGameScript.text, SelectMiniGameScript.infoString, () => {
-           SceneLoader.LoadMinigameAdditive(control.minigames[0]);
             control.unreloadObjs();
+            SceneLoader.LoadMinigameAdditive(control.minigames[0]);
         }, () => {
+            control.unreloadObjs();
             SceneLoader.LoadMinigameAdditive(control.minigames[3]);
-            control.unreloadObjs();
         }, () => {
+            control.unreloadObjs();
             SceneLoader.LoadMinigameAdditive(control.minigames[1]);
-            control.unreloadObjs();
         }, () => {
+            control.unreloadObjs();
             SceneLoader.LoadMinigameAdditive(control.minigames[2]);
-            control.unreloadObjs();
         }, () => {
-            SceneLoader.LoadMinigameAdditive(control.minigames[4]);
             control.unreloadObjs();
+            SceneLoader.LoadMinigameAdditive(control.minigames[4]);
         });
+
     }
 
     public void GetPowerup(Player player)
     {
-        int num = Random.Range(5, 6);
+        int num = Random.Range(1, 5);
 
         switch (num)
         {
@@ -128,16 +129,7 @@ public class PowerUpsImplementation : MonoBehaviour
 
                 });
                 break;
-            case 5:
-                
-                GotPowerupScript.text = player.getName() + "\nYou got " + items[4].Title + " powerup";
-                GotPowerupScript.infoString = items[4].desc;
-                GotPowerupScript.Instance.Show();
-                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
-
-                });
-                minigameSelect(player);
-                break;
         }
+
     }
 }
