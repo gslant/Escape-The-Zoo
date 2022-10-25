@@ -42,23 +42,29 @@ public class SelectMiniGameScript : MonoBehaviour
         textMesh.text = popupText;
         miniGameOptionText.text = textInfo;
         button1.onClick.AddListener(() => {
-            Hide();
             firstButton();
+            Hide();
+
         });
         button2.onClick.AddListener(() => {
-            Hide();
             secondButton();
+            Hide();
+
         });
         button3.onClick.AddListener(() => {
-            Hide();
             thirdthButton();
+            Hide();
+
         });
         button4.onClick.AddListener(() => {
-            Hide();
             fourthButton();
+            Hide();
+
         });
         button5.onClick.AddListener(() => { 
             fivthButton();
+            Hide();
+
         });
     }
 

@@ -2224,7 +2224,6 @@ MonoBehaviour:
   winCanvasText: {fileID: 2014156779}
   finishGameButton: {fileID: 945061166}
   powerUpsImplementation: {fileID: 2704042501170404550}
-  minigames: []
   player1Accessory: {fileID: 817367031}
   player2Accessory: {fileID: 1493101393}
   mainCam: {fileID: 1431961685}
@@ -8408,6 +8407,8 @@ MonoBehaviour:
   - {fileID: 2704042502227293732}
   - {fileID: 2704042502724522515}
   - {fileID: 2704042502587468400}
+  scenes:
+  - {fileID: 0}
   control: {fileID: 742399129}
 --- !u!1 &2704042501290501190
 GameObject:
@@ -9156,7 +9157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0cf9e7fd57244849a637ffda1ea6b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonReactivateDelay: 1
 --- !u!114 &5543363014572651992
 MonoBehaviour:
   m_ObjectHideFlags: 0

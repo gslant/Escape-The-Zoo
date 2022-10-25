@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PowerUpsImplementation : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class PowerUpsImplementation : MonoBehaviour
 
 
     }
-    // player is move down by 5 spaces(tiles)
+    // player is move down by 6 spaces(tiles)
     public static void movedown(Player player)
     {
         if (string.Equals(player.getName(), GameControl.listOfPlayersPlaying[0].getName()))
@@ -64,20 +65,20 @@ public class PowerUpsImplementation : MonoBehaviour
 
         SelectMiniGameScript.Instance.Show();
         SelectMiniGameScript.Instance.showPopUp(SelectMiniGameScript.text, SelectMiniGameScript.infoString, () => {
+           SceneLoader.LoadMinigameAdditive(control.minigames[0]);
             control.unreloadObjs();
-            SceneLoader.LoadMinigameAdditive(control.minigames[0]);
         }, () => {
-            control.unreloadObjs();
             SceneLoader.LoadMinigameAdditive(control.minigames[3]);
-        }, () => {
             control.unreloadObjs();
+        }, () => {
             SceneLoader.LoadMinigameAdditive(control.minigames[1]);
-        }, () => {
             control.unreloadObjs();
+        }, () => {
             SceneLoader.LoadMinigameAdditive(control.minigames[2]);
-        }, () => {
             control.unreloadObjs();
+        }, () => {
             SceneLoader.LoadMinigameAdditive(control.minigames[4]);
+            control.unreloadObjs();
         });
     }
 
