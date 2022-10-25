@@ -33,9 +33,15 @@ public class SelectMiniGameScript : MonoBehaviour
     {
         textMesh.text = popupText;
         miniGameOptionText.text = textInfo;
+
+        button1.onClick.RemoveAllListeners();
+        button2.onClick.RemoveAllListeners();
+        button3.onClick.RemoveAllListeners();
+        button4.onClick.RemoveAllListeners();
+        button5.onClick.RemoveAllListeners();
+
         button1.onClick.AddListener(() =>
         {
-            if(Input.GetKey(KeyCode.Mouse0) )
             firstButton();
             Hide();
         });

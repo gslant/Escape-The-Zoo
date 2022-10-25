@@ -85,7 +85,7 @@ public class PowerUpsImplementation : MonoBehaviour
 
     public void GetPowerup(Player player)
     {
-        int num = Random.Range(1, 5);
+        int num = Random.Range(5, 6);
 
         switch (num)
         {
@@ -128,6 +128,17 @@ public class PowerUpsImplementation : MonoBehaviour
                     control.dice.SetActive(true);
 
                 });
+                break;
+            case 5:
+                GotPowerupScript.text = player.getName() + "\nYou got " + items[4].Title + " powerup";
+                GotPowerupScript.infoString = items[4].desc;
+                GotPowerupScript.Instance.Show();
+
+                GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
+                    control.dice.SetActive(true);
+
+                });
+                minigameSelect(player);
                 break;
         }
 
