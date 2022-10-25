@@ -16,6 +16,7 @@ public class SelectMiniGameScript : MonoBehaviour
     public static String infoString = "1 - Escape The Lion\n2 - Catch The Banana\n3 - Don't Wake The Human\n4 - Stay On The Iceberg\n5 - Colour The Floor";
 
 
+
     private void Awake()
     {
         Instance = this;
@@ -56,12 +57,11 @@ public class SelectMiniGameScript : MonoBehaviour
             Hide();
             fourthButton();
         });
-        button5.onClick.AddListener(() => {
-            Hide();
+        button5.onClick.AddListener(() => { 
             fivthButton();
         });
-
     }
+
 
     private void Hide()
     {

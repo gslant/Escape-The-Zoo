@@ -17,4 +17,9 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync(sceneName);
     }
+
+    public static void LoadMinigame(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+    }
 }

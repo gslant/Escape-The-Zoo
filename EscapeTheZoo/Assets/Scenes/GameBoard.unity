@@ -6546,7 +6546,6 @@ MonoBehaviour:
   - {fileID: 820303311}
   - {fileID: 1331243545}
   - {fileID: 1840406187}
-  moveSpeed: 5
   waypointIndex: 0
   myTurn: 0
 --- !u!212 &1684355864
@@ -7371,7 +7370,6 @@ MonoBehaviour:
   - {fileID: 820303311}
   - {fileID: 1331243545}
   - {fileID: 1840406187}
-  moveSpeed: 5
   waypointIndex: 0
   myTurn: 0
 --- !u!212 &1827358659
@@ -9158,6 +9156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0cf9e7fd57244849a637ffda1ea6b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ButtonReactivateDelay: 1
 --- !u!114 &5543363014572651992
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -43,6 +43,7 @@ public class GameControl : MonoBehaviour
     private List<GameObject> playerAccessoryObjects;
     private int currentPlayerIndex; // This will determine which profile to load for the HUD
 
+
     public GameObject mainCam, eventSys, grid, hud, p1, p2, dice;
 
     // Constants
@@ -102,7 +103,6 @@ public class GameControl : MonoBehaviour
                 || player1.GetComponent<PlayerMovement>().waypointIndex == 47 || player1.GetComponent<PlayerMovement>().waypointIndex == 62 || player1.GetComponent<PlayerMovement>().waypointIndex == 82)
                 {
                     GameBoardMusic.mute = true;
-                    Debug.Log("MiniGame Time!!!!!");
                     mainCam.SetActive(false);
                     hud.SetActive(false);
                     grid.SetActive(false);
@@ -117,6 +117,7 @@ public class GameControl : MonoBehaviour
                 if (player1.GetComponent<PlayerMovement>().waypointIndex == 11 || player1.GetComponent<PlayerMovement>().waypointIndex == 16 || player1.GetComponent<PlayerMovement>().waypointIndex == 33 || player1.GetComponent<PlayerMovement>().waypointIndex == 45
                 || player1.GetComponent<PlayerMovement>().waypointIndex == 57 || player1.GetComponent<PlayerMovement>().waypointIndex == 65 || player1.GetComponent<PlayerMovement>().waypointIndex == 69 || player1.GetComponent<PlayerMovement>().waypointIndex == 77)
                 {
+                    dice.SetActive(false);
                     powerUpsImplementation.GetPowerup(listOfPlayersPlaying[0]);
                 }
             }
@@ -133,7 +134,6 @@ public class GameControl : MonoBehaviour
                 || player2.GetComponent<PlayerMovement>().waypointIndex == 47 || player2.GetComponent<PlayerMovement>().waypointIndex == 62 || player2.GetComponent<PlayerMovement>().waypointIndex == 82)
                 {
                     GameBoardMusic.mute = true;
-                    Debug.Log("MiniGame Time!!!!!");
                     mainCam.SetActive(false);
                     hud.SetActive(false);
                     grid.SetActive(false);
@@ -149,7 +149,9 @@ public class GameControl : MonoBehaviour
                 if (player2.GetComponent<PlayerMovement>().waypointIndex == 11 || player2.GetComponent<PlayerMovement>().waypointIndex == 16 || player2.GetComponent<PlayerMovement>().waypointIndex == 33 || player2.GetComponent<PlayerMovement>().waypointIndex == 45
                 || player2.GetComponent<PlayerMovement>().waypointIndex == 57 || player2.GetComponent<PlayerMovement>().waypointIndex == 65 || player2.GetComponent<PlayerMovement>().waypointIndex == 69 || player2.GetComponent<PlayerMovement>().waypointIndex == 77)
                 {
+                    dice.SetActive(false);
                     powerUpsImplementation.GetPowerup(listOfPlayersPlaying[1]);
+
                 }
             }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PowerUpsImplementation : MonoBehaviour
 {
     public List<PowerupItem> items = new List<PowerupItem>();
+
     public static int up = 3;
     public static int down = -6;
 
@@ -83,8 +84,7 @@ public class PowerUpsImplementation : MonoBehaviour
     public void GetPowerup(Player player)
     {
         int num = Random.Range(5, 6);
-        
-        
+
         switch (num)
         {
             case 1:
@@ -93,6 +93,7 @@ public class PowerUpsImplementation : MonoBehaviour
                 GotPowerupScript.Instance.Show();
                 moveup(player);
                 GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () =>{
+                    control.dice.SetActive(true);
 
                 });
                 break;
@@ -102,6 +103,7 @@ public class PowerUpsImplementation : MonoBehaviour
                 GotPowerupScript.Instance.Show();
                 movedown(player);
                 GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () =>{
+                    control.dice.SetActive(true);
 
                 });
                 break;
@@ -111,7 +113,8 @@ public class PowerUpsImplementation : MonoBehaviour
                 GotPowerupScript.Instance.Show();
                 gainCoins(player);
                 GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
-                    
+                    control.dice.SetActive(true);
+
                 });
                 break;
             case 4:
@@ -120,7 +123,8 @@ public class PowerUpsImplementation : MonoBehaviour
                 GotPowerupScript.Instance.Show();
                 loseCoins(player);
                 GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
- 
+                    control.dice.SetActive(true);
+
                 });
                 break;
             case 5:
@@ -129,12 +133,10 @@ public class PowerUpsImplementation : MonoBehaviour
                 GotPowerupScript.infoString = items[4].desc;
                 GotPowerupScript.Instance.Show();
                 GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
- 
+
                 });
                 minigameSelect(player);
                 break;
         }
-
     }
-
 }
