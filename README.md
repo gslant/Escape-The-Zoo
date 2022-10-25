@@ -1,5 +1,5 @@
 ###### Project status
-This project is currently in the development process.
+This project has stopped development.
 
 # Escape The Zoo!
 *Escape The Zoo!* is PC-only, competitive shared-screen 2D board game where two players compete to reach the end of the board first and win the game, made using Unity2D. Throughout the board game playthrough, there will be random tiles that will either spawn a competitive minigame, help you to advance in the game, or disadvantage you from winning the game.
