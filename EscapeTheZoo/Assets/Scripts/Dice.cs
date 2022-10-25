@@ -40,6 +40,7 @@ public class Dice : MonoBehaviour
         }
 
         GameControl.diceSideThrown = randomDiceSide + 1;
+
         if (whosTurn == 1)
         {
             GameControl.MovePlayer(1);

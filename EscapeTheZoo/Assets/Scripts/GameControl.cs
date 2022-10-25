@@ -20,12 +20,13 @@ public class GameControl : MonoBehaviour
 
     // DataManager to save players
     private DataManager dataManager;
+    public PowerUpsImplementation powerUpsImplementation;
 
     // Who the winner of the game is
     int winner;
 
     // List of minigames
-    private List<string> minigames = new List<string>();
+    public List<string> minigames = new List<string>();
 
     private static GameObject player1, player2;
     [SerializeField] private GameObject player1Accessory, player2Accessory;
@@ -41,6 +42,7 @@ public class GameControl : MonoBehaviour
     private List<GameObject> playerObjects;
     private List<GameObject> playerAccessoryObjects;
     private int currentPlayerIndex; // This will determine which profile to load for the HUD
+
 
     public GameObject mainCam, eventSys, grid, hud, p1, p2, dice;
 
@@ -101,7 +103,6 @@ public class GameControl : MonoBehaviour
                 || player1.GetComponent<PlayerMovement>().waypointIndex == 47 || player1.GetComponent<PlayerMovement>().waypointIndex == 62 || player1.GetComponent<PlayerMovement>().waypointIndex == 82)
                 {
                     GameBoardMusic.mute = true;
-                    Debug.Log("MiniGame Time!!!!!");
                     mainCam.SetActive(false);
                     hud.SetActive(false);
                     grid.SetActive(false);
@@ -116,7 +117,8 @@ public class GameControl : MonoBehaviour
                 if (player1.GetComponent<PlayerMovement>().waypointIndex == 11 || player1.GetComponent<PlayerMovement>().waypointIndex == 16 || player1.GetComponent<PlayerMovement>().waypointIndex == 33 || player1.GetComponent<PlayerMovement>().waypointIndex == 45
                 || player1.GetComponent<PlayerMovement>().waypointIndex == 57 || player1.GetComponent<PlayerMovement>().waypointIndex == 65 || player1.GetComponent<PlayerMovement>().waypointIndex == 69 || player1.GetComponent<PlayerMovement>().waypointIndex == 77)
                 {
-                    Debug.Log("You found a (nameofthepowerup)!!!");
+                    dice.SetActive(false);
+                    powerUpsImplementation.GetPowerup(listOfPlayersPlaying[0]);
                 }
             }
 
@@ -132,7 +134,6 @@ public class GameControl : MonoBehaviour
                 || player2.GetComponent<PlayerMovement>().waypointIndex == 47 || player2.GetComponent<PlayerMovement>().waypointIndex == 62 || player2.GetComponent<PlayerMovement>().waypointIndex == 82)
                 {
                     GameBoardMusic.mute = true;
-                    Debug.Log("MiniGame Time!!!!!");
                     mainCam.SetActive(false);
                     hud.SetActive(false);
                     grid.SetActive(false);
@@ -148,7 +149,9 @@ public class GameControl : MonoBehaviour
                 if (player2.GetComponent<PlayerMovement>().waypointIndex == 11 || player2.GetComponent<PlayerMovement>().waypointIndex == 16 || player2.GetComponent<PlayerMovement>().waypointIndex == 33 || player2.GetComponent<PlayerMovement>().waypointIndex == 45
                 || player2.GetComponent<PlayerMovement>().waypointIndex == 57 || player2.GetComponent<PlayerMovement>().waypointIndex == 65 || player2.GetComponent<PlayerMovement>().waypointIndex == 69 || player2.GetComponent<PlayerMovement>().waypointIndex == 77)
                 {
-                    Debug.Log("You found a (nameofthepowerup)!!!");
+                    dice.SetActive(false);
+                    powerUpsImplementation.GetPowerup(listOfPlayersPlaying[1]);
+
                 }
             }
 
@@ -248,5 +251,17 @@ public class GameControl : MonoBehaviour
         p1.SetActive(true);
         p2.SetActive(true);
         eventSys.SetActive(true);
+    }
+
+    public void unreloadObjs()
+    {
+        GameBoardMusic.mute = true;
+        mainCam.SetActive(false);
+        hud.SetActive(false);
+        grid.SetActive(false);
+        dice.SetActive(false);
+        p1.SetActive(false);
+        p2.SetActive(false);
+        eventSys.SetActive(false);
     }
 }
