@@ -6,8 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Transform[] waypoints;
 
-    [SerializeField]
-    private float moveSpeed = 1f;
+    private static float moveSpeed = 10f;
 
     [HideInInspector]
     public int waypointIndex = 0;
@@ -29,20 +28,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        //Debug.Log(waypointIndex);
-        //Debug.Log(waypoints.Length - 1);
-        //Debug.Log(waypoints[waypointIndex]);
-        //Debug.Log(transform.position.x);
-        //Debug.Log(transform.position.y);
-        //Debug.Log(transform.position.z);
-        //Debug.Log(waypoints[waypointIndex].transform.position.x);
-        //Debug.Log(waypoints[waypointIndex].transform.position.y);
-        //Debug.Log(waypoints[waypointIndex].transform.position.z);
-        //Debug.Log(waypoints[waypointIndex].transform.position.Equals(transform.position));
-
         if (waypointIndex <= waypoints.Length - 1)
         {
-            transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * 2 * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
 
             if (transform.position.x == waypoints[waypointIndex].transform.position.x && transform.position.y == waypoints[waypointIndex].transform.position.y)
             {

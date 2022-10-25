@@ -78,6 +78,10 @@ public class GameControl : MonoBehaviour
         updatePlayerHUD(listOfPlayersPlaying[0]);
         dataManager = GetComponent<DataManager>();
         finishGameButton.onClick.AddListener(delegate { finishGame(); });
+
+        gameOver = false;
+        player1StartWaypoint = 0;
+        player2StartWaypoint = 0;
     }
 
     // Update is called once per frame
@@ -174,13 +178,6 @@ public class GameControl : MonoBehaviour
                 winCanvas.SetActive(true);
                 HUDCanvas.SetActive(false);
                 winCanvasText.GetComponent<TextMeshProUGUI>().text = GameControl.listOfPlayersPlaying[winner].getName() + " Wins!\n" + GameControl.listOfPlayersPlaying[winner].getName() + " earns an extra " + FINISH_FIRST_REWARD + " coins!";
-                GameControl.listOfPlayersPlaying[winner].changeGameBalanceByAmount(FINISH_FIRST_REWARD);
-
-                for (int i = 0; i < listOfPlayersPlaying.Count; i++)
-                {
-                    GameControl.listOfPlayersPlaying[i].addGameBalanceToTotalBalance();
-                    dataManager.SaveData(listOfPlayersPlaying[i]);
-                }
             }
         }
     }
@@ -231,7 +228,14 @@ public class GameControl : MonoBehaviour
     // Does this when the "Quit to Menu" button is pressed
     private void finishGame()
     {
-        Debug.Log("Quit to menu button clicked");
+        listOfPlayersPlaying[winner].changeGameBalanceByAmount(FINISH_FIRST_REWARD);
+        // Save player data
+        for (int i = 0; i < listOfPlayersPlaying.Count; i++)
+        {
+            GameControl.listOfPlayersPlaying[i].addGameBalanceToTotalBalance();
+            dataManager.SaveData(listOfPlayersPlaying[i]);
+        }
+        gameOver = false;
         SceneLoader.LoadScene("MainScene");
     }
 
