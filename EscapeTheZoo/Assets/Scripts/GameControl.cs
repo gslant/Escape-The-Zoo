@@ -41,6 +41,8 @@ public class GameControl : MonoBehaviour
     public static List<Player> listOfPlayersPlaying; // This will load in the selected players from the lobby
     private List<GameObject> playerObjects;
     private List<GameObject> playerAccessoryObjects;
+    public List<int> powerupLocations;
+    public List<int> minigameLocations;
     private int currentPlayerIndex; // This will determine which profile to load for the HUD
 
 
@@ -52,6 +54,11 @@ public class GameControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        int[] powerUp = { 11,16,33,37,43,45,57,63,65,69,76,77,83};
+        int[] miniGame = { 6, 15, 17, 24, 30, 35, 38, 47, 55, 58, 62, 67, 75, 82 };
+        powerupLocations.AddRange(powerUp);
+        minigameLocations.AddRange(miniGame);
+
         // Adds all the minigames to the list
         minigames.Add("EscapeTheLions");
         minigames.Add("Don'tWakeTheHumans");
@@ -91,16 +98,17 @@ public class GameControl : MonoBehaviour
         // While the game isn't over
         if (!gameOver)
         {
-            if (player1.GetComponent<PlayerMovement>().waypointIndex >
+            PlayerMovement player1Move = player1.GetComponent<PlayerMovement>();
+            PlayerMovement player2Move = player2.GetComponent<PlayerMovement>();
+            if (player1Move.waypointIndex >
                 player1StartWaypoint + diceSideThrown)
             {
-                player1.GetComponent<PlayerMovement>().myTurn = false;
-                player1StartWaypoint = player1.GetComponent<PlayerMovement>().waypointIndex - 1;
+                player1Move.myTurn = false;
+                player1StartWaypoint = player1Move.waypointIndex - 1;
                 currentPlayerIndex = 1;
 
                 //MINIGAME CODE: I know this is not effecince will improve on this later
-                if (player1.GetComponent<PlayerMovement>().waypointIndex == 6 || player1.GetComponent<PlayerMovement>().waypointIndex == 17 || player1.GetComponent<PlayerMovement>().waypointIndex == 24 || player1.GetComponent<PlayerMovement>().waypointIndex == 38
-                || player1.GetComponent<PlayerMovement>().waypointIndex == 47 || player1.GetComponent<PlayerMovement>().waypointIndex == 62 || player1.GetComponent<PlayerMovement>().waypointIndex == 82)
+                if (minigameLocations.Contains(player1Move.waypointIndex))
                 {
                     GameBoardMusic.mute = true;
                     mainCam.SetActive(false);
@@ -114,24 +122,22 @@ public class GameControl : MonoBehaviour
                 }
 
                 //WILDCARD CODE: I know this is not effecince will improve on this later
-                if (player1.GetComponent<PlayerMovement>().waypointIndex == 11 || player1.GetComponent<PlayerMovement>().waypointIndex == 16 || player1.GetComponent<PlayerMovement>().waypointIndex == 33 || player1.GetComponent<PlayerMovement>().waypointIndex == 45
-                || player1.GetComponent<PlayerMovement>().waypointIndex == 57 || player1.GetComponent<PlayerMovement>().waypointIndex == 65 || player1.GetComponent<PlayerMovement>().waypointIndex == 69 || player1.GetComponent<PlayerMovement>().waypointIndex == 77)
+                if (powerupLocations.Contains(player1Move.waypointIndex))
                 {
                     dice.SetActive(false);
                     powerUpsImplementation.GetPowerup(listOfPlayersPlaying[0]);
                 }
             }
 
-            if (player2.GetComponent<PlayerMovement>().waypointIndex >
+            if (player2Move.waypointIndex >
                 player2StartWaypoint + diceSideThrown)
             {
-                player2.GetComponent<PlayerMovement>().myTurn = false;
-                player2StartWaypoint = player2.GetComponent<PlayerMovement>().waypointIndex - 1;
+                player2Move.myTurn = false;
+                player2StartWaypoint = player2Move.waypointIndex - 1;
                 currentPlayerIndex = 0;
 
                 //MINIGAME CODE: I know this is not effecince will improve on this later
-                if (player2.GetComponent<PlayerMovement>().waypointIndex == 6 || player2.GetComponent<PlayerMovement>().waypointIndex == 17 || player2.GetComponent<PlayerMovement>().waypointIndex == 24 || player2.GetComponent<PlayerMovement>().waypointIndex == 38
-                || player2.GetComponent<PlayerMovement>().waypointIndex == 47 || player2.GetComponent<PlayerMovement>().waypointIndex == 62 || player2.GetComponent<PlayerMovement>().waypointIndex == 82)
+                if (minigameLocations.Contains(player2Move.waypointIndex))
                 {
                     GameBoardMusic.mute = true;
                     mainCam.SetActive(false);
@@ -146,8 +152,7 @@ public class GameControl : MonoBehaviour
                 }
 
                 //WILDCARD CODE: I know this is not effecince will improve on this later
-                if (player2.GetComponent<PlayerMovement>().waypointIndex == 11 || player2.GetComponent<PlayerMovement>().waypointIndex == 16 || player2.GetComponent<PlayerMovement>().waypointIndex == 33 || player2.GetComponent<PlayerMovement>().waypointIndex == 45
-                || player2.GetComponent<PlayerMovement>().waypointIndex == 57 || player2.GetComponent<PlayerMovement>().waypointIndex == 65 || player2.GetComponent<PlayerMovement>().waypointIndex == 69 || player2.GetComponent<PlayerMovement>().waypointIndex == 77)
+                if (powerupLocations.Contains(player2Move.waypointIndex))
                 {
                     dice.SetActive(false);
                     powerUpsImplementation.GetPowerup(listOfPlayersPlaying[1]);
@@ -157,18 +162,16 @@ public class GameControl : MonoBehaviour
 
             GameControl.updatePlayerHUD(GameControl.listOfPlayersPlaying[currentPlayerIndex]);
 
-            if (player1.GetComponent<PlayerMovement>().waypointIndex ==
-                player1.GetComponent<PlayerMovement>().waypoints.Length)
+            if (player1Move.waypointIndex == player1Move.waypoints.Length)
             {
-                player1.GetComponent<PlayerMovement>().waypointIndex = player1.GetComponent<PlayerMovement>().waypoints.Length - 1;
+                player1Move.waypointIndex = player1Move.waypoints.Length - 1;
                 gameOver = true;
                 winner = 0;
             }
 
-            if (player2.GetComponent<PlayerMovement>().waypointIndex ==
-                player2.GetComponent<PlayerMovement>().waypoints.Length)
+            if (player2Move.waypointIndex == player2Move.waypoints.Length)
             {
-                player2.GetComponent<PlayerMovement>().waypointIndex = player2.GetComponent<PlayerMovement>().waypoints.Length - 1;
+                player2Move.waypointIndex = player2Move.waypoints.Length - 1;
                 gameOver = true;
                 winner = 1;
             }
