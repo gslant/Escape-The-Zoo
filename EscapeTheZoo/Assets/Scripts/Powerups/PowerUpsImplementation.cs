@@ -134,7 +134,6 @@ public class PowerUpsImplementation : MonoBehaviour
                 GotPowerupScript.infoString = items[4].desc;
                 GotPowerupScript.Instance.Show();
                 GotPowerupScript.Instance.PowerupPopUp(GotPowerupScript.text, GotPowerupScript.infoString, () => {
-                    control.dice.SetActive(true);
 
                 });
                 minigameSelect(player);
