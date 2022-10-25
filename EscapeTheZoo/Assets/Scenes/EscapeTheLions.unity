@@ -3752,6 +3752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1501498487}
   - component: {fileID: 1501498488}
+  - component: {fileID: 1501498489}
   m_Layer: 0
   m_Name: ETLController
   m_TagString: Untagged
@@ -3792,6 +3793,20 @@ MonoBehaviour:
   GameOverCanvas: {fileID: 947113721}
   gameOverText: {fileID: 1468046317}
   boardObjects: []
+--- !u!114 &1501498489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501498485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e38156a15a6c24ba75d77cb911ced7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundsList: {fileID: 1959137021}
+  backgroundMusic: {fileID: 612453719}
 --- !u!1 &1508834333
 GameObject:
   m_ObjectHideFlags: 0
