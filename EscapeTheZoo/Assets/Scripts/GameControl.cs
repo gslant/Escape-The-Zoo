@@ -55,7 +55,7 @@ public class GameControl : MonoBehaviour
     void Start()
     {
         int[] powerUp = { 6, 15, 17, 24, 30, 35, 38, 47, 55, 62, 67, 75, 82 };
-        int[] miniGame = { 11, 16, 33, 37, 42, 45, 57, 63, 65, 69, 76, 77, 83 };
+        int[] miniGame = { 11, 16, 33, 37, 43, 45, 57, 63, 65, 69, 76, 77, 83 };
         powerupLocations.AddRange(powerUp);
         minigameLocations.AddRange(miniGame);
 
