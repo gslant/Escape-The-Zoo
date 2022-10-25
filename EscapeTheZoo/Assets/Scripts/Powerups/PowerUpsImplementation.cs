@@ -5,13 +5,13 @@ using UnityEngine;
 public class PowerUpsImplementation : MonoBehaviour
 {
     public List<PowerupItem> items = new List<PowerupItem>();
-    public static int up = 3;
-    public static int down = -6;
+    public int up = 3;
+    public int down = -6;
 
     public GameControl control;
 
     // player is move up by 3 spaces(tiles)
-    public static void moveup(Player player)
+    public void moveup(PlayerScript player)
     {
 
         if (string.Equals(player.getName(), GameControl.listOfPlayersPlaying[0].getName()))
@@ -25,11 +25,11 @@ public class PowerUpsImplementation : MonoBehaviour
             GameControl.diceSideThrown = up;
             GameControl.MovePlayer(2);
         }
-
-
     }
+
+        
     // player is move down by 5 spaces(tiles)
-    public static void movedown(Player player)
+    public void movedown(PlayerScript player)
     {
         if (string.Equals(player.getName(), GameControl.listOfPlayersPlaying[0].getName()))
         {
@@ -44,19 +44,23 @@ public class PowerUpsImplementation : MonoBehaviour
         }
 
     }
-    // player gain additional 8 coins
-    public static void gainCoins(Player player)
+
+
+    // player gain additional 5 coins
+    public void gainCoins(PlayerScript player)
     {
         player.changeGameBalanceByAmount(5);
     }
+
+
     // player loses 10 coins
-    public static void loseCoins(Player player)
+    public void loseCoins(PlayerScript player)
     {
         player.changeGameBalanceByAmount(-10);
     }
 
     // player can select which minigame they want to play
-    public void minigameSelect(Player player)
+    public void minigameSelect(PlayerScript player)
     {
 
         SelectMiniGameScript.text = player.getName() + " please select a minigame to play now:"; 
@@ -80,7 +84,7 @@ public class PowerUpsImplementation : MonoBehaviour
         });
     }
 
-    public void GetPowerup(Player player)
+    public void GetPowerup(PlayerScript player)
     {
         int num = Random.Range(5, 6);
         

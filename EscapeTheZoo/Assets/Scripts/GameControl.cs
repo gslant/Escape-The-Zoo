@@ -32,6 +32,8 @@ public class GameControl : MonoBehaviour
     [SerializeField] private GameObject player1Accessory, player2Accessory;
 
     public static int diceSideThrown = 0;
+    public int perviousdiceSideThrown;
+
     public static int player1StartWaypoint = 0;
     public static int player2StartWaypoint = 0;
 
@@ -78,6 +80,8 @@ public class GameControl : MonoBehaviour
         updatePlayerHUD(listOfPlayersPlaying[0]);
         dataManager = GetComponent<DataManager>();
         finishGameButton.onClick.AddListener(delegate { finishGame(); });
+
+        perviousdiceSideThrown = diceSideThrown;
     }
 
     // Update is called once per frame
