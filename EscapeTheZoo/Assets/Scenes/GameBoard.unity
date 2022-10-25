@@ -2227,6 +2227,8 @@ MonoBehaviour:
   minigames: []
   player1Accessory: {fileID: 817367031}
   player2Accessory: {fileID: 1493101393}
+  powerupLocations: 
+  minigameLocations: 
   mainCam: {fileID: 1431961685}
   eventSys: {fileID: 1689191583}
   grid: {fileID: 759260286}
@@ -8424,7 +8426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2704042501290501191
 Transform:
   m_ObjectHideFlags: 0
@@ -9676,7 +9678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!223 &5543363015073308868
 Canvas:
   m_ObjectHideFlags: 0
