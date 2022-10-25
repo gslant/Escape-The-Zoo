@@ -12,11 +12,34 @@ For further information, please look at the official [Unity guide for building p
 ## Contributing
 This project is an open source project, meaning we allow contributers to develop the project further. To contribute to the project, you may **fork** this repository and work on it however you like. If you want to merge your code into the original production code, please create a pull request for the **main** branch and request a reviewer from the authors listed further below. Please make sure your forked repository is updated with the latest production code, as we do not want to deal with a lot of merge conflicts :~).
 
-## Testing
-We have used Test-Driven-Development (TDD) to create some of the features in this project. To access the tests, go to the **tests** branch of this repository. We used Unity Test Runner, which can be opened by going to **Windows > General > Test Runner**. After this, go to the **Assets** folder, then go to the **Tests** folder, where the tests will be located. After that, you can ‘Run All’ the test code or select a test to run and ‘Run Selected’.
-
 ## Sources
 For the font, we used the [CHNO Pixel Code Pro Front](https://fontesk.com/chno-pixel-code-pro-font/), which holds the license ‘Free for commercial use’.
+
+Music:
+* Shop Music - ["music elevator" By Jay_You](https://freesound.org/people/Jay_You/sounds/460432/)
+* Game Board Music - ["Loading Screen (minimalistic chillout)" By Drakensson](https://freesound.org/people/Drakensson/sounds/647367/)
+* Escape the Lion! - ["WildChase.mp3" By sangardo](https://freesound.org/people/sangardo/sounds/157363/)
+* Don't Wake the Humans! - ["Musicbox" By grapelemon](https://freesound.org/people/grapelemon/sounds/368652/)
+* Main Menu, Catch The Bananas, & Stay On The Iceberg music - Alessandra Hilario
+
+
+Sound effects:
+* Pop - ["Message pop alert" By mixkit](https://mixkit.co/free-sound-effects/pop/)
+* Click - ["Button Click Sound Effect" By SPANAC](https://www.freesoundslibrary.com/button-click-sound-effect/)
+* Wooden Click -["click 1 d.wav" By TicTacShutUp](https://freesound.org/people/TicTacShutUp/sounds/406/)
+* Key Press - ["typewriter.wav" By Horn](https://freesound.org/people/Horn/sounds/9744/)
+* Dice Roll - ["Dice_Roll.mp3" By schoman3](https://freesound.org/people/schoman3/sounds/506914/)
+* Shattering Ice - ["Glass Shatter" By JustInvoke](https://freesound.org/people/JustInvoke/sounds/446137/)
+* Cracking Ice - ["Bone Cracking 2.wav" By DalomarGrimm](https://freesound.org/people/DalomarGrimm/sounds/7720/)
+* Slide - ["Noise" By Juandamb](https://freesound.org/people/Juandamb/sounds/430706/)
+* Jump - ["Text-Message or Videogame-Jump" By CmdRobot](https://freesound.org/people/CmdRobot/sounds/264828/)
+* Caught Banana - ["Lil Pip" By adh.dreaming0](https://freesound.org/people/adh.dreaming/sounds/634690/)
+* Slipping on Banana - ["Slip.wav" By fordps3](https://freesound.org/people/fordps3/sounds/533233/)
+* Banana Splat - ["splat 005.wav" By yottasounds](https://freesound.org/people/yottasounds/sounds/232135/)
+* Pushable Object Dragged - ["Dragging a Cinderblock Across Concrete" By PostProdDog](https://freesound.org/people/PostProdDog/sounds/578488/)
+* Pushable Object Falling - ["Cartoon Fall" By plasterbrain](https://freesound.org/people/plasterbrain/sounds/395443/)
+* Player Death - ["Toink 8bit" By Rocotilos](https://freesound.org/people/Rocotilos/sounds/275733/)
+* Beep - ["one_beep.wav" By Kenneth_Cooney](https://freesound.org/people/Kenneth_Cooney/sounds/463202/)
 
 ## Authors
 This project was developed by the following team:
