@@ -466,6 +466,7 @@ MonoBehaviour:
   m_CeilingCheck: {fileID: 575374671}
   pName: Player 2
   con: {fileID: 1424335780}
+  playerNameTag: {fileID: 1361004156}
   stopped: 0
   OnLandEvent:
     m_PersistentCalls:
@@ -5150,6 +5151,7 @@ MonoBehaviour:
   m_CeilingCheck: {fileID: 511759719}
   pName: Player 1
   con: {fileID: 1424335780}
+  playerNameTag: {fileID: 1561264053}
   stopped: 0
   OnLandEvent:
     m_PersistentCalls:
