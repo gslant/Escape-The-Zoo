@@ -22,6 +22,7 @@ public class CharacterController2D : MonoBehaviour
     private Vector3 m_Velocity = Vector3.zero;
     public string pName;
     public SOTIController con;
+    public Transform playerNameTag;
     public bool stopped = false; // Keeps track of whether the player is stopped
 
     [Header("Events")]
@@ -123,6 +124,11 @@ public class CharacterController2D : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+
+        // Flips the Player's Name Tag
+        Vector3 nameTagScale = playerNameTag.localScale;
+        nameTagScale.x *= -1;
+        playerNameTag.localScale = nameTagScale;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
