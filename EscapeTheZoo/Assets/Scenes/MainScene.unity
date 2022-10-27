@@ -2974,43 +2974,86 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<size=120%><b>Developers:\r</b></size>\n<size=30%> </size>\nCoen Yakas\n-
-    Dice Mechanics\n - Game Board Movement Mechanics\n - Stay on the Iceberg! Minigame\nAlessandra
-    Hilario\n - Help Section\n - Shop\n - Catch the Bananas! Minigame\nByron Goldsack\n-
-    Main Menu\n - Escape the Lion! Minigame\n - Colour the Floor! Minigame\nHarshil
-    Patel\n - Powerups\n - Shop\n - Game Board\nJun-Liang Tan\n - Lobby\n - Settings\n-
-    Don't Wake the Humans! Minigame\n\n<size=120%><b>Artists:</b></size>\n<size=30%>
-    </size>\nCoen Yakas\n - Animal Sprites\n - Game Board Tile Sprites\n - Stay on
-    the Iceberg! Sprites\nAlessandra Hilario\n - Animal Sprites\n - Accessory Sprites\n-
-    Catch the Bananas! Banana Sprites\n\n<size=120%><b>Composers:</b>\r</size>\n<size=30%>
-    </size>\nAlessandra Hilario\n - Main Menu Background Music\n - Catch the Bananas!
-    Background Music\n - Stay on the Iceberg! Background Music\n\n<size=120%><b>Other
-    Art:</b></size>\n<size=30%> </size>\nMute and Unmute - <link=\"https://opengameart.org/content/play-pause-mute-and-unmute-buttons\"><color=blue>\"play,
-    pause, mute and unmute buttons\" By mikhog</color></link>\r\n\n<size=120%><b>Other
-    Music:</b></size>\n<size=30%> </size>\nPop - <link=\"https://mixkit.co/free-sound-effects/pop/\"><color=blue>\"Message
-    pop alert\" By mixkit</color></link>\r\nClick - <link=\"https://www.freesoundslibrary.com/button-click-sound-effect/><color=blue>\"Button
-    Click Sound Effect\" By SPANAC</color></link>\r\nWooden Click - <link=\"https://freesound.org/people/TicTacShutUp/sounds/406/\"><color=blue>\"click
-    1 d.wav\" By TicTacShutUp</color></link>\r\nKey Press - <link=\"https://freesound.org/people/Horn/sounds/9744/\"><color=blue>\"typewriter.wav\"
-    By Horn</color></link>\r\nDice Roll - <link=\"https://freesound.org/people/schoman3/sounds/506914/\"><color=blue>\"Dice_Roll.mp3\"
-    By schoman3</color></link>\r\nShattering Ice - <link=\"https://freesound.org/people/JustInvoke/sounds/446137/\"><color=blue>\"Glass
-    Shatter\" By JustInvoke</color></link>\r\nCracking Ice - <link=\"https://freesound.org/people/DalomarGrimm/sounds/7720/\"><color=blue>\"Bone
-    Cracking 2.wav\" By DalomarGrimm</color></link>\r\nSlide - <link=\"https://freesound.org/people/Juandamb/sounds/430706/\"><color=blue>\"Noise\"
-    By Juandamb</color></link>\r\nJump - <link=\"https://freesound.org/people/CmdRobot/sounds/264828/\"><color=blue>\"Text-Message
-    or Videogame-Jump\" By CmdRobot</color></link>\r\nCaught Banana - <link=\"https://freesound.org/people/adh.dreaming/sounds/634690/\"><color=blue>\"Lil
-    Pip\" By adh.dreaming</color></link>\r\nSlipping on Banana - <link=\"https://freesound.org/people/fordps3/sounds/533233/\"><color=blue>\"Slip.wav\"
-    By fordps3</color></link>\r\nBanana Splat - <link=\"https://freesound.org/people/yottasounds/sounds/232135/\"><color=blue>\"splat
-    005.wav\" By yottasounds</color></link>\r\nPushable Object Dragged - <link=\"https://freesound.org/people/PostProdDog/sounds/578488/\"><color=blue>\"Dragging
-    a Cinderblock Across Concrete\" By PostProdDog</color></link>\r\nPushable Object
-    Falling - <link=\"https://freesound.org/people/plasterbrain/sounds/395443/\"><color=blue>\"Cartoon
-    Fall\" By plasterbrain</color></link>\r\nPlayer Death - <link=\"https://freesound.org/people/Rocotilos/sounds/275733/\"><color=blue>\"Toink
-    8bit\" By Rocotilos</color></link>\r\nBeep - <link=\"https://freesound.org/people/Kenneth_Cooney/sounds/463202/\"><color=blue>\"one_beep.wav\"
-    By Kenneth_Cooney</color></link>\r\nShop Music - <link=\"https://freesound.org/people/Jay_You/sounds/460432/\"><color=blue>\"music
-    elevator\" By Jay_You</color></link>\r\nGame Board Music - <link=\"https://freesound.org/people/Drakensson/sounds/647367/\"><color=blue>\"Loading
-    Screen (minimalistic chillout)\" By Drakensson</color></link>\r\nEscape the Lion!
-    Music - <link=\"https://freesound.org/people/sangardo/sounds/157363/\"><color=blue>\"WildChase.mp3\"
-    By sangardo</color></link>\r\nDon't Wake the Humans! Music - <link=\"https://freesound.org/people/grapelemon/sounds/368652/\"><color=blue>\"Musicbox\"
-    By grapelemon</color></link>\nColour the Floor! Music - <link=\"https://freesound.org/people/Mrthenoronha/sounds/508151/\"><color=blue>\"Childish
-    Theme Loop.wav\" By Mrthenoronha</color></link>\n"
+  m_text: '<size=120%><b>Other Art:</b></size>
+
+    <size=30%> </size>
+
+    Mute
+    and Unmute - <link="https://opengameart.org/content/play-pause-mute-and-unmute-buttons"><color=blue>"play,
+    pause, mute and unmute buttons" By mikhog</color></link>
+
+
+    <size=120%><b>Other
+    Music:</b></size>
+
+    <size=30%> </size>
+
+    Pop - <link="https://mixkit.co/free-sound-effects/pop/"><color=blue>"Message
+    pop alert" By mixkit</color></link>
+
+    Click - <link="https://www.freesoundslibrary.com/button-click-sound-effect/><color=blue>"Button
+    Click Sound Effect" By SPANAC</color></link>
+
+    Wooden Click - <link="https://freesound.org/people/TicTacShutUp/sounds/406/"><color=blue>"click
+    1 d.wav" By TicTacShutUp</color></link>
+
+    Key Press - <link="https://freesound.org/people/Horn/sounds/9744/"><color=blue>"typewriter.wav"
+    By Horn</color></link>
+
+    Dice Roll - <link="https://freesound.org/people/schoman3/sounds/506914/"><color=blue>"Dice_Roll.mp3"
+    By schoman3</color></link>
+
+    Shattering Ice - <link="https://freesound.org/people/JustInvoke/sounds/446137/"><color=blue>"Glass
+    Shatter" By JustInvoke</color></link>
+
+    Cracking Ice - <link="https://freesound.org/people/DalomarGrimm/sounds/7720/"><color=blue>"Bone
+    Cracking 2.wav" By DalomarGrimm</color></link>
+
+    Slide - <link="https://freesound.org/people/Juandamb/sounds/430706/"><color=blue>"Noise"
+    By Juandamb</color></link>
+
+    Jump - <link="https://freesound.org/people/CmdRobot/sounds/264828/"><color=blue>"Text-Message
+    or Videogame-Jump" By CmdRobot</color></link>
+
+    Caught Banana - <link="https://freesound.org/people/adh.dreaming/sounds/634690/"><color=blue>"Lil
+    Pip" By adh.dreaming</color></link>
+
+    Slipping on Banana - <link="https://freesound.org/people/fordps3/sounds/533233/"><color=blue>"Slip.wav"
+    By fordps3</color></link>
+
+    Banana Splat - <link="https://freesound.org/people/yottasounds/sounds/232135/"><color=blue>"splat
+    005.wav" By yottasounds</color></link>
+
+    Pushable Object Dragged - <link="https://freesound.org/people/PostProdDog/sounds/578488/"><color=blue>"Dragging
+    a Cinderblock Across Concrete" By PostProdDog</color></link>
+
+    Pushable Object
+    Falling - <link="https://freesound.org/people/plasterbrain/sounds/395443/"><color=blue>"Cartoon
+    Fall" By plasterbrain</color></link>
+
+    Player Death - <link="https://freesound.org/people/Rocotilos/sounds/275733/"><color=blue>"Toink
+    8bit" By Rocotilos</color></link>
+
+    Beep - <link="https://freesound.org/people/Kenneth_Cooney/sounds/463202/"><color=blue>"one_beep.wav"
+    By Kenneth_Cooney</color></link>
+
+    Shop Music - <link="https://freesound.org/people/Jay_You/sounds/460432/"><color=blue>"music
+    elevator" By Jay_You</color></link>
+
+    Game Board Music - <link="https://freesound.org/people/Drakensson/sounds/647367/"><color=blue>"Loading
+    Screen (minimalistic chillout)" By Drakensson</color></link>
+
+    Escape the
+    Lion! Music - <link="https://freesound.org/people/sangardo/sounds/157363/"><color=blue>"WildChase.mp3"
+    By sangardo</color></link>
+
+    Don''t Wake the Humans! Music - <link="https://freesound.org/people/grapelemon/sounds/368652/"><color=blue>"Musicbox"
+    By grapelemon</color></link>
+
+    Colour the Floor! Music - <link="https://freesound.org/people/Mrthenoronha/sounds/508151/"><color=blue>"Childish
+    Theme Loop.wav" By Mrthenoronha</color></link>
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7aef12806ae4b714fa0306f98468ff85, type: 2}
   m_sharedMaterial: {fileID: -506032538198745215, guid: 7aef12806ae4b714fa0306f98468ff85, type: 2}
